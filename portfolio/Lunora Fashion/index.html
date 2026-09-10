@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lunora — Elevate Your Everyday Style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <span class="eyebrow-tag">FASHION</span>
+    <div class="header-actions">
+      <button class="cart-btn" aria-label="Cart" id="cartBtn">
+        <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.14062 6.09765V5.22429C5.14062 3.19845 6.90564 1.20862 9.09973 1.01955C11.7131 0.785448 13.917 2.68524 13.917 5.05322V6.29573M12.943 9.99602H12.9517M6.11483 9.99602H6.12359M6.60789 19H12.4588C16.3789 19 17.081 17.5504 17.2858 15.7857L18.0171 10.3834C18.2804 8.18652 17.5978 6.39478 13.4339 6.39478H5.63274C1.46885 6.39478 0.786251 8.18652 1.04954 10.3834L1.7809 15.7857C1.98568 17.5504 2.68779 19 6.60789 19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">New Collection</p>
+    <h1>Elevate Your<br>Everyday Style</h1>
+    <p class="lead">Discover timeless pieces crafted for comfort, designed for elegance, made for you.</p>
+    <div class="hero-actions">
+      <a href="#shop" class="btn btn-dark">Shop Now →</a>
+      <button class="btn btn-ghost" id="watchLookbookBtn"><span class="play-dot">▶</span> Watch Lookbook</button>
+    </div>
+    <ul class="hero-features">
+      <li>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="15" height="11" rx="1.5"/><path d="M17 10h3l2 3v5h-5"/><circle cx="7" cy="19" r="1.6"/><circle cx="17.5" cy="19" r="1.6"/></svg>
+        <span>Free Shipping<small>On orders over $99</small></span>
+      </li>
+      <li>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v6a8 8 0 0 1-16 0V4Z"/><path d="M9 20h6M12 17v3"/></svg>
+        <span>Easy Returns<small>30-day returns</small></span>
+      </li>
+      <li>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg>
+        <span>Secure Payment<small>100% protected</small></span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="hero-image">
+    <img src="assets/images/image-01.jpg" alt="Model wearing a beige blazer and sunglasses">
+    <div class="slide-index">
+      <span class="active">01</span>
+      <span>02</span>
+      <span>03</span>
+    </div>
+  </div>
+</section>
+
+<nav class="category-strip" id="shop">
+  <a href="#" class="cat-item">
+    <img src="assets/images/image-02.jpg" alt="Women's bag">
+    <span>Women</span>
+  </a>
+  <a href="#" class="cat-item">
+    <img src="assets/images/image-03.jpg" alt="Men's jacket">
+    <span>Men</span>
+  </a>
+  <a href="#" class="cat-item">
+    <img src="assets/images/image-04.jpg" alt="Dress">
+    <span>Dresses</span>
+  </a>
+  <a href="#" class="cat-item">
+    <img src="assets/images/image-05.jpg" alt="Black top">
+    <span>Tops</span>
+  </a>
+  <a href="#" class="cat-item">
+    <img src="assets/images/image-06.jpg" alt="Heels">
+    <span>Shoes</span>
+  </a>
+  <a href="#" class="cat-item">
+    <img src="assets/images/image-02.jpg" alt="Handbag">
+    <span>Bags</span>
+  </a>
+  <a href="#" class="cat-item">
+    <img src="assets/images/image-07.jpg" alt="Sun hat">
+    <span>Accessories</span>
+  </a>
+  <a href="#" class="cat-item cat-sale">
+    <span class="sale-circle">SALE</span>
+    <span>Sale</span>
+  </a>
+</nav>
+
+<section class="find-style">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">Shop By Category</p>
+      <h2>Find Your Perfect Style</h2>
+    </div>
+    <a href="#" class="link-arrow">View All Categories →</a>
+  </div>
+
+  <div class="style-grid">
+    <a href="#" class="style-card">
+      <img src="assets/images/image-08.jpg" alt="Woman in white outfit">
+      <div class="style-overlay"><strong>Women's Collection</strong><span>Explore Now →</span></div>
+    </a>
+    <a href="#" class="style-card">
+      <img src="assets/images/image-09.jpg" alt="Man in brown jacket">
+      <div class="style-overlay"><strong>Men's Collection</strong><span>Explore Now →</span></div>
+    </a>
+    <a href="#" class="style-card">
+      <img src="assets/images/image-10.jpg" alt="Woman in black dress">
+      <div class="style-overlay"><strong>Dresses</strong><span>Explore Now →</span></div>
+    </a>
+    <a href="#" class="style-card">
+      <img src="assets/images/image-11.jpg" alt="Beige handbag">
+      <div class="style-overlay"><strong>Accessories</strong><span>Explore Now →</span></div>
+    </a>
+  </div>
+
+  <div class="promo-row">
+    <div class="promo-card">
+      <img src="assets/images/image-12.jpg" alt="Woman in trench coat">
+      <div class="promo-content">
+        <p class="eyebrow light">Limited Time Offer</p>
+        <h3>Spring Sale<br>Up to 50% Off</h3>
+        <a href="#" class="btn btn-dark">Shop The Sale →</a>
+      </div>
+    </div>
+    <div class="promo-card">
+      <img src="assets/images/image-13.jpg" alt="Clothes on hangers">
+      <div class="promo-content">
+        <p class="eyebrow light">New Arrivals</p>
+        <h3>Fresh Styles<br>Just Landed</h3>
+        <a href="#" class="btn btn-dark">Explore New In →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="best-sellers">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">Best Sellers</p>
+      <h2>Our Most Loved Picks</h2>
+    </div>
+    <a href="#" class="link-arrow">View All Products →</a>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+    <article class="product-card" data-slug="linen-blend-blazer">
+      <div class="card-img">
+        <img src="assets/images/image-14.jpg" alt="Linen Blend Blazer">
+        <button class="fav-btn" aria-label="Favorite">♡</button>
+      </div>
+      <h3>Linen Blend Blazer</h3>
+      <span class="price">$89.99</span>
+      <div class="rating"><span class="stars">★★★★★</span><small>(124)</small></div>
+    </article>
+    <article class="product-card" data-slug="ribbed-knit-top">
+      <div class="card-img">
+        <img src="assets/images/image-05.jpg" alt="Ribbed Knit Top">
+        <button class="fav-btn" aria-label="Favorite">♡</button>
+      </div>
+      <h3>Ribbed Knit Top</h3>
+      <span class="price">$29.99</span>
+      <div class="rating"><span class="stars">★★★★★</span><small>(98)</small></div>
+    </article>
+    <article class="product-card" data-slug="wide-leg-trousers">
+      <div class="card-img">
+        <img src="assets/images/image-15.jpg" alt="Wide Leg Trousers">
+        <button class="fav-btn" aria-label="Favorite">♡</button>
+      </div>
+      <h3>Wide Leg Trousers</h3>
+      <span class="price">$59.99</span>
+      <div class="rating"><span class="stars">★★★★★</span><small>(76)</small></div>
+    </article>
+    <article class="product-card" data-slug="leather-shoulder-bag">
+      <div class="card-img">
+        <img src="assets/images/image-02.jpg" alt="Leather Shoulder Bag">
+        <button class="fav-btn" aria-label="Favorite">♡</button>
+      </div>
+      <h3>Leather Shoulder Bag</h3>
+      <span class="price">$79.99</span>
+      <div class="rating"><span class="stars">★★★★★</span><small>(112)</small></div>
+    </article>
+    <article class="product-card" data-slug="minimal-strappy-heels">
+      <div class="card-img">
+        <img src="assets/images/image-06.jpg" alt="Minimal Strappy Heels">
+        <button class="fav-btn" aria-label="Favorite">♡</button>
+      </div>
+      <h3>Minimal Strappy Heels</h3>
+      <span class="price">$49.99</span>
+      <div class="rating"><span class="stars">★★★★★</span><small>(64)</small></div>
+    </article>
+    <article class="product-card" data-slug="oversized-sunglasses">
+      <div class="card-img">
+        <img src="assets/images/image-16.jpg" alt="Oversized Sunglasses">
+        <button class="fav-btn" aria-label="Favorite">♡</button>
+      </div>
+      <h3>Oversized Sunglasses</h3>
+      <span class="price">$19.99</span>
+      <div class="rating"><span class="stars">★★★★★</span><small>(53)</small></div>
+    </article>
+  </div>
+</section>
+
+<section class="features-bar">
+  <div class="feature-item">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="15" height="11" rx="1.5"/><path d="M17 10h3l2 3v5h-5"/><circle cx="7" cy="19" r="1.6"/><circle cx="17.5" cy="19" r="1.6"/></svg>
+    <div><strong>Free Shipping</strong><small>On orders over $99</small></div>
+  </div>
+  <div class="feature-item">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v6a8 8 0 0 1-16 0V4Z"/><path d="M9 20h6M12 17v3"/></svg>
+    <div><strong>Easy Returns</strong><small>30-day returns</small></div>
+  </div>
+  <div class="feature-item">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg>
+    <div><strong>Secure Payment</strong><small>100% protected</small></div>
+  </div>
+  <div class="feature-item">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 3v9l6 3"/></svg>
+    <div><strong>24/7 Support</strong><small>We're here to help</small></div>
+  </div>
+</section>
+
+<section class="join-style">
+  <div class="join-image">
+    <img src="assets/images/image-10.jpg" alt="Woman holding a coffee cup">
+  </div>
+  <div class="join-content">
+    <p class="eyebrow">Get 10% Off Your First Order</p>
+    <h2>Join Our Style List</h2>
+    <p class="lead">Sign up for exclusive offers, new arrivals, and style inspiration.</p>
+    <form class="join-form" id="joinForm">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn btn-dark">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo">LUNORA<small>FASHION</small></span>
+      <p>Timeless fashion for every moment. Designed with you in mind.</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Pinterest">p</a>
+        <a href="#" aria-label="TikTok">tt</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="#">All Products</a>
+      <a href="#">New Arrivals</a>
+      <a href="#">Women</a>
+      <a href="#">Men</a>
+      <a href="#">Sale</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Customer Care</h4>
+      <a href="#">Contact Us</a>
+      <a href="#">Shipping &amp; Delivery</a>
+      <a href="#">Returns &amp; Exchanges</a>
+      <a href="#">Size Guide</a>
+      <a href="#">FAQs</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>About Us</h4>
+      <a href="#">Our Story</a>
+      <a href="#">Sustainability</a>
+      <a href="#">Careers</a>
+      <a href="#">Press</a>
+      <a href="#">Store Locator</a>
+    </div>
+
+    <div class="footer-col footer-newsletter">
+      <h4>Stay Connected</h4>
+      <p>Sign up for updates and get 10% off your first order.</p>
+      <form id="footerForm">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" aria-label="Subscribe">→</button>
+      </form>
+    </div>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

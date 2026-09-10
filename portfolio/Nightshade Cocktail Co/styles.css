@@ -1,0 +1,138 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #0d0d0e;
+  --red: #d1332f;
+  --paper: #0d0d0e;
+  --text: #e8e6e3;
+  --text-soft: #a3a09b;
+  --line: rgba(255,255,255,0.1);
+  --max: 1200px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, .logo { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; }
+
+.eyebrow { color: var(--red); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.6rem; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9em 1.9em; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 2px; border: none; transition: all 0.2s ease; }
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: #a5211d; }
+.btn-outline { background: transparent; border: 1px solid var(--text); color: var(--text); }
+.btn-outline:hover { background: var(--text); color: var(--ink); }
+.link-arrow { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+.link-arrow:hover { color: var(--red); }
+
+/* ---------- Announcement ---------- */
+.announcement { background: #1a1a1c; color: #cfcbc4; text-align: center; font-size: 0.78rem; padding: 0.55rem 1rem; }
+
+/* ---------- Header ---------- */
+.site-header { border-bottom: 1px solid var(--line); }
+.header-inner { max-width: var(--max); margin: 0 auto; padding: 1.3rem 2rem; display: flex; align-items: center; gap: 2rem; }
+.logo { font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
+.main-nav { display: flex; gap: 1.8rem; flex: 1; justify-content: center; }
+.main-nav a { font-size: 0.85rem; font-weight: 600; color: var(--text-soft); }
+.main-nav a.active, .main-nav a:hover { color: var(--red); }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.4rem; }
+.nav-toggle span { width: 22px; height: 1.5px; background: var(--text); display: block; }
+
+/* ---------- Hero ---------- */
+.hero { max-width: var(--max); margin: 0 auto; padding: 4rem 2rem; display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; align-items: center; }
+.hero-text h1 { font-size: 3rem; line-height: 1.05; margin-bottom: 1.4rem; }
+.hero-text h1 span { color: var(--red); }
+.hero-text p { color: var(--text-soft); max-width: 38ch; margin-bottom: 1.8rem; }
+.hero-image img { width: 100%; aspect-ratio: 4/3.4; object-fit: cover; border-radius: 4px; }
+
+/* ---------- Services ---------- */
+.services { max-width: var(--max); margin: 0 auto; padding: 3rem 2rem 5rem; }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.4rem; flex-wrap: wrap; gap: 1rem; }
+.section-head h2 { font-size: 2rem; }
+.section-head h2 span { color: var(--red); }
+.head-right { display: flex; align-items: center; gap: 1.6rem; }
+.carousel-nav { display: flex; gap: 0.5rem; }
+.carousel-nav button { width: 38px; height: 38px; border-radius: 2px; border: 1px solid var(--line); background: transparent; color: var(--text); }
+.carousel-nav button.active { background: var(--red); border-color: var(--red); color: #fff; }
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+.service-img { aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; margin-bottom: 1.1rem; }
+.service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.service-card:hover .service-img img { transform: scale(1.06); }
+.service-card h3 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.service-card p { color: var(--text-soft); font-size: 0.85rem; margin-bottom: 0.9rem; }
+
+/* ---------- Consulting ---------- */
+.consulting { background: #151517; padding: 5rem 0; }
+.consulting-grid { max-width: var(--max); margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.consulting-text h2 { font-size: 2rem; line-height: 1.2; margin-bottom: 1.2rem; }
+.consulting-text p { color: var(--text-soft); max-width: 38ch; margin-bottom: 1.8rem; }
+.consulting-image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; }
+
+/* ---------- Staffing ---------- */
+.staffing { max-width: var(--max); margin: 0 auto; padding: 5rem 2rem; text-align: center; }
+.staffing h2 { font-size: 2.1rem; margin-bottom: 3rem; }
+.staffing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: left; }
+.staffing-item { border: 1px solid var(--line); border-radius: 4px; padding: 2rem; }
+.staffing-item strong { font-family: 'Anton', sans-serif; font-size: 1.8rem; color: var(--red); }
+.staffing-item h3 { font-size: 1.05rem; margin: 0.8rem 0 0.6rem; }
+.staffing-item p { color: var(--text-soft); font-size: 0.85rem; }
+
+/* ---------- Footer ---------- */
+.site-footer { border-top: 1px solid var(--line); padding: 3rem 2rem 1.5rem; }
+.footer-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; padding-bottom: 2rem; }
+.footer-grid .logo { font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem; }
+.footer-grid p { color: var(--text-soft); font-size: 0.85rem; margin-bottom: 0.4rem; }
+.footer-grid h4 { font-size: 0.9rem; margin-bottom: 0.8rem; }
+.social-icons { display: flex; gap: 0.6rem; }
+.social-icons a { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 0.68rem; }
+.social-icons a:hover { background: var(--red); }
+.footer-bottom { max-width: var(--max); margin: 0 auto; border-top: 1px solid var(--line); padding-top: 1.2rem; font-size: 0.78rem; color: var(--text-soft); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1080px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-image { order: -1; }
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .consulting-grid { grid-template-columns: 1fr; }
+  .staffing-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .header-inner { flex-wrap: wrap; }
+  .nav-toggle { display: flex; order: 2; }
+  .main-nav { order: 3; width: 100%; flex-direction: column; align-items: flex-start; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .main-nav.open { max-height: 300px; padding-top: 1rem; }
+  .main-nav a { padding: 0.5rem 0; }
+  .hero { padding: 2.5rem 1.4rem; }
+  .hero-text h1 { font-size: 2.1rem; }
+  .services, .consulting-grid, .staffing { padding-left: 1.4rem; padding-right: 1.4rem; }
+  .service-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb { max-width: var(--max); margin: 0 auto; padding: 1.6rem 2rem 0; font-size: 0.82rem; color: var(--text-soft); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4rem; }
+
+/* ---------- Service detail hero ---------- */
+.service-hero { max-width: var(--max); margin: 0 auto; padding: 2rem 2rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.service-hero-image { aspect-ratio: 4/3; overflow: hidden; border-radius: 6px; }
+.service-hero-image img { width: 100%; height: 100%; object-fit: cover; }
+.service-hero-text h1 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 2.4rem; letter-spacing: 0.01em; margin-bottom: 1rem; }
+.service-lead { color: var(--text-soft); max-width: 46ch; margin-bottom: 1.8rem; }
+
+.also-services { max-width: var(--max); margin: 0 auto; padding: 1rem 2rem 5rem; }
+
+@media (max-width: 900px) {
+  .service-hero { grid-template-columns: 1fr; padding: 1.4rem 1.4rem 3rem; }
+  .breadcrumb { padding: 1.2rem 1.4rem 0; }
+  .also-services { padding: 1rem 1.4rem 3rem; }
+}

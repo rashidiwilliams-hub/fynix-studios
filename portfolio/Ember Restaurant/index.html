@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember — Modern Plates, Open Flame</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#">🔥 Ember</a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#" class="active">Home</a>
+      <a href="#story">Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#reservations">Reservations</a>
+      <a href="#press">Press</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#reservations" class="btn btn-amber">Reserve A Table</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="assets/images/image-01.jpg" alt="Seared salmon fillet with herbs on a dark plate">
+  <div class="hero-text">
+    <p class="eyebrow">New &amp; Notable</p>
+    <h1>Modern Plates,<br>Open Flame</h1>
+    <p class="lead">Seasonal ingredients, live-fire cooking, and a menu that changes with the harvest.</p>
+    <a href="#reservations" class="btn btn-amber">Reserve A Table</a>
+  </div>
+</section>
+
+<section class="steps">
+  <p class="eyebrow center">Since 2019</p>
+  <h2>Fire, Season, Craft</h2>
+  <div class="steps-grid">
+    <div class="step"><span class="step-num">01</span><h3>Fire First</h3><p>Every dish begins over live coals for depth and char.</p></div>
+    <div class="step"><span class="step-num">02</span><h3>Seasonal Sourcing</h3><p>We work directly with regional farms and fisheries.</p></div>
+    <div class="step"><span class="step-num">03</span><h3>Considered Plating</h3><p>Simple technique, honest ingredients, no excess.</p></div>
+  </div>
+  <div class="steps-images">
+    <img src="assets/images/image-02.jpg" alt="Elegant restaurant table setting">
+    <img src="assets/images/image-03.jpg" alt="Steak and fries plated dish">
+    <img src="assets/images/image-01.jpg" alt="Grilled salmon with vegetables">
+  </div>
+  <a href="#menu" class="btn btn-outline center-btn">View Full Menu</a>
+</section>
+
+<section class="menu-preview" id="menu">
+  <p class="eyebrow center">The Menu</p>
+  <h2 class="center-h">Seasonal &amp; Wood-Fired</h2>
+  <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<section class="split" id="story">
+  <div class="split-text">
+    <p class="eyebrow">Local &amp; Seasonal</p>
+    <h2>A Kitchen Built<br>On Relationships</h2>
+    <p>We source within a hundred miles whenever possible, working with farmers and fishermen who share our obsession with quality.</p>
+    <a href="#press" class="btn btn-outline">Meet The Chef</a>
+  </div>
+  <div class="split-cards">
+    <div class="split-card">
+      <img src="assets/images/image-03.jpg" alt="Pan seared steak with fries">
+      <span>Wood-Fired Menu</span>
+      <a href="#menu" class="link-arrow">View Menu →</a>
+    </div>
+    <div class="split-card">
+      <img src="assets/images/image-02.jpg" alt="Dining room table setting">
+      <span>Private Dining</span>
+      <a href="#reservations" class="link-arrow">Inquire →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="footer-grid">
+    <div>
+      <span class="logo">🔥 Ember</span>
+      <p>Modern plates, open flame.</p>
+    </div>
+    <div id="hours">
+      <h4>Hours</h4>
+      <p>Tue–Sun · 5pm – 11pm</p>
+      <p>Closed Mondays</p>
+    </div>
+    <div id="reservations">
+      <h4>Reservations</h4>
+      <p>hello@emberrestaurant.com</p>
+      <p>+592 231-4477</p>
+    </div>
+    <div id="press">
+      <h4>Follow</h4>
+      <div class="social-icons"><a href="#">ig</a><a href="#">f</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 Ember. All rights reserved.</div>
+</footer>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

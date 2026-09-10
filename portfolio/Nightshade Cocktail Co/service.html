@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service — Nightshade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">🍸 <span>Nightshade</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="index.html#services" class="active">Services</a>
+      <a href="index.html#consulting">Consulting</a>
+      <a href="index.html#staffing">Mobile Bar &amp; Event Staffing</a>
+      <a href="index.html#about">About Us</a>
+    </nav>
+    <a href="index.html#contact" class="btn btn-red">Contact Us</a>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> <span>/</span> <a href="index.html#services">Services</a> <span>/</span> <span id="crumbName">Service</span>
+</div>
+
+<section class="service-hero" id="serviceDetail">
+  <div class="service-hero-image">
+    <img id="serviceImage" src="" alt="">
+  </div>
+  <div class="service-hero-text">
+    <p class="eyebrow">Featured Service</p>
+    <h1 id="serviceName">Service Name</h1>
+    <p class="service-lead" id="serviceExcerpt"></p>
+    <a href="index.html#contact" class="btn btn-red">Schedule A Call</a>
+  </div>
+</section>
+
+<section class="staffing">
+  <p class="eyebrow">What's Included</p>
+  <h2>How It Works</h2>
+  <div class="staffing-grid">
+    <div class="staffing-item"><strong>01</strong><h3>Consultation</h3><p>We start with a quick call to understand your event, guest count, and vision for the bar.</p></div>
+    <div class="staffing-item"><strong>02</strong><h3>Custom Menu</h3><p>Our team builds a signature drink menu tailored to the occasion and your taste.</p></div>
+    <div class="staffing-item"><strong>03</strong><h3>Full-Service Setup</h3><p>Licensed, insured bartenders arrive with everything needed — you just enjoy the party.</p></div>
+  </div>
+</section>
+
+<section class="also-services">
+  <div class="section-head">
+    <h2>Other <span>Services</span></h2>
+  </div>
+  <div class="service-grid" id="relatedGrid"></div>
+</section>
+
+<footer class="site-footer" id="about">
+  <div class="footer-grid">
+    <div>
+      <span class="logo">🍸 Nightshade</span>
+      <p>The ultimate cocktail experience, wherever you are.</p>
+    </div>
+    <div id="contact">
+      <h4>Contact</h4>
+      <p>hello@nightshadecocktails.com</p>
+      <p>+592 265-3390</p>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <div class="social-icons"><a href="#">ig</a><a href="#">f</a><a href="#">tt</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 Nightshade Cocktail Co. All rights reserved.</div>
+</footer>
+
+<script src="services.js"></script>
+<script src="service.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nightshade — The Ultimate Cocktail Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="announcement">ANNOUNCEMENT: Booking now open for the 2026 holiday season.</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#">🍸 <span>Nightshade</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#" class="active">Home</a>
+      <a href="#services">Services</a>
+      <a href="#consulting">Consulting</a>
+      <a href="#staffing">Mobile Bar &amp; Event Staffing</a>
+      <a href="#about">About Us</a>
+    </nav>
+    <a href="#contact" class="btn btn-red">Contact Us</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>The Ultimate<br><span>Cocktail</span><br>Experience</h1>
+    <p>Dedication to professionalism, craft, and personalized consulting for signature cocktails.</p>
+    <a href="#contact" class="btn btn-outline">Schedule A Call</a>
+  </div>
+  <div class="hero-image">
+    <img src="assets/images/image-01.jpg" alt="Cocktail with rosemary garnish being prepared">
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-head">
+    <h2>Featured <span>Services</span></h2>
+    <div class="head-right">
+      <a href="#services" class="link-arrow">View All Services →</a>
+      <div class="carousel-nav">
+        <button id="svcPrev" aria-label="Previous">←</button>
+        <button id="svcNext" class="active" aria-label="Next">→</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-grid" id="serviceGrid">
+    <article class="service-card">
+      <div class="service-img"><img src="assets/images/image-02.jpg" alt="Rosé cocktail with strawberry garnish"></div>
+      <h3>Whiskey Tastings</h3>
+      <p>A guided tasting flight through small-batch and rare whiskeys, hosted by one of our own bartenders.</p>
+      <a href="service.html?id=whiskey-tastings" class="link-arrow">Learn More →</a>
+    </article>
+    <article class="service-card">
+      <div class="service-img"><img src="assets/images/image-03.jpg" alt="Bartender crafting an old fashioned"></div>
+      <h3>LGBTQ+ Friendly</h3>
+      <p>An inclusive, judgment-free bar experience built on respect — every guest, every event, every time.</p>
+      <a href="service.html?id=lgbtq-friendly" class="link-arrow">Learn More →</a>
+    </article>
+    <article class="service-card">
+      <div class="service-img"><img src="assets/images/image-01.jpg" alt="Cocktail garnished and served"></div>
+      <h3>Bachelorette/Bachelor Parties</h3>
+      <p>A custom cocktail menu and full bar setup built around the guest of honor — we handle the drinks, you handle the fun.</p>
+      <a href="service.html?id=bachelorette-bachelor-parties" class="link-arrow">Learn More →</a>
+    </article>
+  </div>
+</section>
+
+<section class="consulting" id="consulting">
+  <div class="consulting-grid">
+    <div class="consulting-text">
+      <p class="eyebrow">Consulting</p>
+      <h2>Signature Menus,<br>Built From Scratch</h2>
+      <p>We partner with venues and hosts to design cocktail programs that reflect your story — from concept to final pour.</p>
+      <a href="#staffing" class="btn btn-outline">Our Process</a>
+    </div>
+    <div class="consulting-image"><img src="assets/images/image-04.jpg" alt="Plated dish paired with cocktails"></div>
+  </div>
+</section>
+
+<section class="staffing" id="staffing">
+  <p class="eyebrow">Mobile Bar &amp; Event Staffing</p>
+  <h2>We Bring The Bar To You</h2>
+  <div class="staffing-grid">
+    <div class="staffing-item"><strong>01</strong><h3>Mobile Bar Setup</h3><p>Full-service mobile bars for weddings, corporate events, and private parties.</p></div>
+    <div class="staffing-item"><strong>02</strong><h3>Licensed Bartenders</h3><p>Professional, insured staff trained in craft cocktail service.</p></div>
+    <div class="staffing-item"><strong>03</strong><h3>Custom Menus</h3><p>Seasonal and signature drink menus tailored to your event.</p></div>
+  </div>
+</section>
+
+<footer class="site-footer" id="about">
+  <div class="footer-grid">
+    <div>
+      <span class="logo">🍸 Nightshade</span>
+      <p>The ultimate cocktail experience, wherever you are.</p>
+    </div>
+    <div id="contact">
+      <h4>Contact</h4>
+      <p>hello@nightshadecocktails.com</p>
+      <p>+592 265-3390</p>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <div class="social-icons"><a href="#">ig</a><a href="#">f</a><a href="#">tt</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 Nightshade Cocktail Co. All rights reserved.</div>
+</footer>
+
+<script src="services.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

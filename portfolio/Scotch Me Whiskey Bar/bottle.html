@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bottle — Rum Me!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="main-nav left">
+      <a href="index.html">Home</a>
+      <a href="story.html">Our Story</a>
+      <a href="shop.html" class="active">Rum Shop</a>
+    </nav>
+    <a class="logo" href="index.html">Rum<br>Me!</a>
+    <nav class="main-nav right">
+      <a href="recipes.html">Rum Recipes</a>
+      <a href="index.html#club">Join The Club</a>
+      <a href="index.html#contact">Contact Us</a>
+    </nav>
+    <div class="header-actions">
+      <button aria-label="Account" id="accountBtn">👤</button>
+      <button class="cart-btn" aria-label="Cart" id="cartBtn">🛒<span class="cart-badge" id="cartBadge">0</span></button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> <span>/</span> <a href="shop.html">Rum Shop</a> <span>/</span> <span id="crumbName">Bottle</span>
+</div>
+
+<section class="pdp" id="bottleDetail">
+  <div class="pdp-gallery">
+    <span class="bottle-badge" id="bottleBadge" hidden></span>
+    <div class="bottle-wrap" id="bottleGraphic"></div>
+  </div>
+  <div class="pdp-info">
+    <span class="pdp-type" id="bottleType"></span>
+    <h1 id="bottleName">Bottle Name</h1>
+    <p class="pdp-tagline" id="bottleTagline"></p>
+    <p class="pdp-price" id="bottlePrice"></p>
+    <p class="pdp-desc">Distilled and aged for a smooth, balanced character with notes of oak, dried fruit, and a warm, lingering finish. Best enjoyed neat or with a single large-format ice cube.</p>
+
+    <div class="pdp-buy-row">
+      <div class="qty-stepper standalone" id="bottleQtyStepper">
+        <button class="qty-minus" aria-label="Decrease quantity">−</button>
+        <span class="qty-num" id="bottleQty">1</span>
+        <button class="qty-plus" aria-label="Increase quantity">+</button>
+      </div>
+      <button type="button" class="btn btn-gold" id="bottleAddBtn">Add to Cart</button>
+    </div>
+
+    <ul class="pdp-perks">
+      <li>🥃 Must be 18+ to purchase</li>
+      <li>📦 Carefully packaged, insured shipping</li>
+      <li>🔒 Secure checkout</li>
+    </ul>
+
+    <div class="pdp-tabs">
+      <div class="pdp-tab-heads">
+        <button type="button" class="pdp-tab-head active" data-tab="tasting">Tasting Notes</button>
+        <button type="button" class="pdp-tab-head" data-tab="details">Details</button>
+        <button type="button" class="pdp-tab-head" data-tab="reviews">Reviews</button>
+      </div>
+      <div class="pdp-tab-panel active" data-tab-panel="tasting">
+        <p>Nose: warm oak and dried fruit. Palate: rich molasses with a gentle spice. Finish: long, warm, and lightly smoky.</p>
+      </div>
+      <div class="pdp-tab-panel" data-tab-panel="details">
+        <p>Bottled at 40% ABV. Best stored upright, away from direct sunlight. Once opened, enjoy within 6–8 months for peak flavor.</p>
+      </div>
+      <div class="pdp-tab-panel" data-tab-panel="reviews">
+        <div class="review">
+          <span class="stars">★★★★★</span>
+          <p>Smooth and well balanced — became my go-to for a slow evening pour.</p>
+          <small>— Kevin R.</small>
+        </div>
+        <div class="review">
+          <span class="stars">★★★★☆</span>
+          <p>Great value for the quality. Arrived well packaged too.</p>
+          <small>— Alisha F.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shop-related">
+  <div class="page-hero" style="padding:2rem;">
+    <h1 style="font-size:1.6rem;">You Might Also Like</h1>
+  </div>
+  <div class="shop-grid" id="relatedGrid"></div>
+</section>
+
+<footer class="site-footer">
+  <img src="assets/images/image-01.jpg" alt="Green fields at golden hour">
+  <div class="footer-overlay">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Useful</h4>
+        <a href="index.html">Home</a><a href="distributors.html">Distributors</a><a href="story.html">Our story</a><a href="blog.html">Blog</a><a href="#" id="loginLink">Login</a>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="faq.html">Customer service</a><a href="shop.html">Find our spirits</a><a href="track-order.html">Recent orders</a><a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Distributors</h4>
+        <a href="distributors.html">Demerara House</a><a href="distributors.html">Stabroek Spirits</a><a href="distributors.html">Kaieteur Traders</a>
+      </div>
+      <div class="footer-col">
+        <h4>Our Information</h4>
+        <p>📍 14 Water Street, Georgetown, Guyana</p>
+        <p>✉ info@rumme.gy</p>
+        <p>📞 +592 227-4410</p>
+      </div>
+      <div class="footer-col footer-brand">
+        <span class="logo-small">Rum Me!</span>
+        <div class="social-icons"><a href="#">ig</a><a href="#">f</a><a href="#">tw</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">2024 © Rum Me! / Web design.</div>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" hidden>
+  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-drawer-head">
+      <h3 id="cartTitle">Your Cart</h3>
+      <button class="modal-close" id="cartClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="no-results" id="cartEmpty" hidden>Your cart is empty. Browse the shop to add a bottle.</p>
+    <div class="cart-drawer-foot" id="cartFoot">
+      <div class="cart-line"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <a href="checkout.html" class="btn btn-gold full">Checkout</a>
+      <a href="shop.html" class="link-arrow small" style="display:block; text-align:center; margin-top:0.8rem;">Continue Shopping →</a>
+    </div>
+  </aside>
+</div>
+
+<div class="modal-overlay" id="signInModal" hidden>
+  <div class="modal-box modal-box-sm" role="dialog" aria-modal="true" aria-labelledby="signInTitle">
+    <button class="modal-close" id="signInClose" aria-label="Close">&times;</button>
+    <div class="modal-body">
+      <h3 id="signInTitle">Login</h3>
+      <p class="modal-trim">Demo only — no account is created or stored.</p>
+      <form id="signInForm">
+        <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+        <div class="form-field"><label>Password</label><input type="password" required placeholder="••••••••"></div>
+        <button type="submit" class="btn btn-gold full">Login</button>
+      </form>
+      <p class="form-success" id="signInSuccess" hidden>You're logged in (demo). Welcome back!</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

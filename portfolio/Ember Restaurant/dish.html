@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dish — Ember</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">🔥 Ember</a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="index.html#story">Story</a>
+      <a href="index.html#menu" class="active">Menu</a>
+      <a href="index.html#reservations">Reservations</a>
+      <a href="index.html#press">Press</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="index.html#reservations" class="btn btn-amber">Reserve A Table</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> <span>/</span> <a href="index.html#menu">Menu</a> <span>/</span> <span id="crumbName">Dish</span>
+</div>
+
+<section class="pdp" id="dishDetail">
+  <div class="pdp-gallery">
+    <img id="dishImage" src="" alt="">
+  </div>
+  <div class="pdp-info">
+    <span class="pdp-tag" id="dishTag"></span>
+    <h1 id="dishName">Dish Name</h1>
+    <p class="pdp-price" id="dishPrice"></p>
+    <p class="pdp-desc">Cooked over live coals and finished simply, letting the season's best ingredients speak for themselves. Portions are designed for sharing across the table.</p>
+    <a href="index.html#reservations" class="btn btn-amber">Reserve A Table</a>
+  </div>
+</section>
+
+<div class="pdp-tabs" style="max-width:1200px;margin:0 auto;padding-left:2rem;padding-right:2rem;">
+  <div class="pdp-tab-heads">
+    <button type="button" class="pdp-tab-head active" data-tab="notes">Chef's Notes</button>
+    <button type="button" class="pdp-tab-head" data-tab="pairing">Pairing</button>
+    <button type="button" class="pdp-tab-head" data-tab="allergens">Allergens</button>
+  </div>
+  <div class="pdp-tab-panel active" data-tab-panel="notes">
+    <p>Sourced from regional farms and fisheries within a hundred miles whenever possible. Every plate begins over live coals for depth and char, then finished with restraint — simple technique, honest ingredients, no excess.</p>
+  </div>
+  <div class="pdp-tab-panel" data-tab-panel="pairing">
+    <p>Ask your server for our current by-the-glass pairing — our list changes with the season alongside the menu. A bottle from our natural wine selection is a favorite match for anything off the fire.</p>
+  </div>
+  <div class="pdp-tab-panel" data-tab-panel="allergens">
+    <p>Please inform your server of any allergies before ordering. Our kitchen handles nuts, shellfish, and dairy, and we're happy to accommodate most dietary needs with advance notice.</p>
+  </div>
+</div>
+
+<section class="related-dishes">
+  <h2>More From The Menu</h2>
+  <div class="menu-grid" id="relatedGrid"></div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="footer-grid">
+    <div>
+      <span class="logo">🔥 Ember</span>
+      <p>Modern plates, open flame.</p>
+    </div>
+    <div id="hours">
+      <h4>Hours</h4>
+      <p>Tue–Sun · 5pm – 11pm</p>
+      <p>Closed Mondays</p>
+    </div>
+    <div id="reservations">
+      <h4>Reservations</h4>
+      <p>hello@emberrestaurant.com</p>
+      <p>+592 231-4477</p>
+    </div>
+    <div id="press">
+      <h4>Follow</h4>
+      <div class="social-icons"><a href="#">ig</a><a href="#">f</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 Ember. All rights reserved.</div>
+</footer>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

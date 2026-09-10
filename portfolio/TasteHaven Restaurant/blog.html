@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — TasteHaven</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600;1,9..144,700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-3 3-4 5-4 8a4 4 0 0 0 8 0c0-3-1-5-4-8Z"/><path d="M12 21v-6"/></svg>
+      <span>TasteHaven<small>GOOD FOOD, GOOD MOOD</small></span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="catering.html">Catering</a>
+      <a href="about.html">About Us</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button aria-label="Account" id="accountBtn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></button>
+      <button class="cart-btn" aria-label="Cart" id="cartBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <a href="menu.html" class="btn btn-primary">Order Now</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <h1>TasteHaven Blog</h1>
+  <p>Recipes, cooking tips, and food stories from our kitchen to yours.</p>
+</section>
+
+<section class="page-section">
+  <div class="blog-grid">
+    <article class="blog-card">
+      <img src="assets/images/image-01.jpg" alt="Healthy lunch bowl">
+      <div class="blog-meta">June 10, 2024 · Healthy Eating</div>
+      <h3>10 Healthy Lunch Ideas You'll Love</h3>
+      <p class="blog-excerpt">Quick, satisfying lunches that don't skimp on flavor or nutrition.</p>
+      <p class="blog-full">Quick, satisfying lunches that don't skimp on flavor or nutrition. Start your week with grain bowls loaded with quinoa, roasted vegetables, and a bright lemon dressing — they hold up well in the fridge and reheat easily. Wraps with grilled chicken, hummus, and crunchy greens are another go-to for busy days. Don't underestimate a good soup either; a hearty lentil or vegetable soup can be just as filling as anything heavier. The key across all of these is balancing protein, fiber, and healthy fats so you stay full until dinner.</p>
+      <button class="read-more">Read More →</button>
+    </article>
+    <article class="blog-card">
+      <img src="assets/images/image-02.jpg" alt="Cooking tips spread">
+      <div class="blog-meta">June 5, 2024 · Cooking Tips</div>
+      <h3>5 Cooking Tips From Our Chefs</h3>
+      <p class="blog-excerpt">Small habits that make a big difference in the kitchen.</p>
+      <p class="blog-full">Small habits that make a big difference in the kitchen. First, always taste as you go — seasoning at the end is too late to fix an underseasoned dish. Second, let your pan get properly hot before adding protein; it's the difference between a sear and a steam. Third, rest meat after cooking so the juices redistribute instead of running out onto the cutting board. Fourth, keep your knives sharp — a dull knife is both slower and more dangerous. Finally, prep your ingredients before you start cooking (mise en place); it turns a stressful cook into a calm one.</p>
+      <button class="read-more">Read More →</button>
+    </article>
+    <article class="blog-card">
+      <img src="assets/images/image-03.jpg" alt="Cheesecake dessert">
+      <div class="blog-meta">June 1, 2024 · Desserts</div>
+      <h3>Delicious Desserts You Can Make At Home</h3>
+      <p class="blog-excerpt">Simple, crowd-pleasing desserts worth the effort.</p>
+      <p class="blog-full">Simple, crowd-pleasing desserts worth the effort. A good pine tart takes patience but very little skill — the key is stewing the pineapple down until it's thick and tangy before it ever touches the pastry. Chocolate lava cake is deceptively simple: slightly underbake it so the center stays molten. If you want something no-bake, a berry parfait layered with yogurt and granola comes together in minutes. Whatever you choose, use good-quality chocolate and real vanilla — it makes a noticeable difference in a dessert this simple.</p>
+      <button class="read-more">Read More →</button>
+    </article>
+    <article class="blog-card">
+      <img src="assets/images/image-04.jpg" alt="Margherita pizza">
+      <div class="blog-meta">May 22, 2024 · Recipes</div>
+      <h3>The Secret to a Perfect Margherita Pizza</h3>
+      <p class="blog-excerpt">Three ingredients, done right, beat ten ingredients done average.</p>
+      <p class="blog-full">Three ingredients, done right, beat ten ingredients done average. Start with San Marzano tomatoes crushed by hand, not a food processor — you want texture, not puree. Use fresh mozzarella, torn rather than shredded, and add it partway through baking so it doesn't overcook. Bake as hot as your oven allows; pizza wants intense, fast heat to get that leopard-spotted crust. Finish with fresh basil and a drizzle of good olive oil right out of the oven, never before.</p>
+      <button class="read-more">Read More →</button>
+    </article>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-3 3-4 5-4 8a4 4 0 0 0 8 0c0-3-1-5-4-8Z"/><path d="M12 21v-6"/></svg>
+        <span>TasteHaven</span>
+      </a>
+      <p>Delicious food made with love. Fresh ingredients, exceptional taste.</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="Twitter">tw</a>
+        <a href="#" aria-label="Pinterest">p</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="catering.html">Catering</a>
+      <a href="about.html">About Us</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="faq.html">FAQ</a>
+      <a href="shipping.html">Shipping &amp; Delivery</a>
+      <a href="shipping.html#returns">Returns</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="about.html#story">Our Story</a>
+      <a href="about.html#careers">Careers</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html#press">Press</a>
+      <a href="franchise.html">Franchise</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p>12 Regent Street,<br>Georgetown, Guyana</p>
+      <p>+592 226-8990</p>
+      <p>hello@tastehaven.gy</p>
+      <p>Mon – Sun 9:00 AM - 10:00 PM</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 TasteHaven. All Rights Reserved.</div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" hidden>
+  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-drawer-head">
+      <h3 id="cartTitle">Your Cart</h3>
+      <button class="modal-close" id="cartClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="no-results" id="cartEmpty" hidden>Your cart is empty. Browse the menu to add something delicious.</p>
+    <div class="cart-drawer-foot" id="cartFoot">
+      <div class="cart-line"><span>Subtotal</span><span id="cartSubtotal">G$0</span></div>
+      <a href="checkout.html" class="btn btn-primary full">Checkout</a>
+      <a href="menu.html" class="link-arrow small" style="display:block; text-align:center; margin-top:0.8rem;">Continue Browsing →</a>
+    </div>
+  </aside>
+</div>
+
+<div class="modal-overlay" id="signInModal" hidden>
+  <div class="modal-box modal-box-sm" role="dialog" aria-modal="true" aria-labelledby="signInTitle">
+    <button class="modal-close" id="signInClose" aria-label="Close">&times;</button>
+    <div class="modal-body">
+      <h3 id="signInTitle">Sign In</h3>
+      <p class="modal-trim">Demo only — no account is created or stored.</p>
+      <form id="signInForm">
+        <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+        <div class="form-field"><label>Password</label><input type="password" required placeholder="••••••••"></div>
+        <button type="submit" class="btn btn-primary full">Sign In</button>
+      </form>
+      <p class="form-success" id="signInSuccess" hidden>You're signed in (demo). Welcome back!</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

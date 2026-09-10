@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rum Recipes — Rum Me!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="main-nav left">
+      <a href="index.html">Home</a>
+      <a href="story.html">Our Story</a>
+      <a href="shop.html">Rum Shop</a>
+    </nav>
+    <a class="logo" href="index.html">Rum<br>Me!</a>
+    <nav class="main-nav right">
+      <a href="recipes.html" class="active">Rum Recipes</a>
+      <a href="index.html#club">Join The Club</a>
+      <a href="index.html#contact">Contact Us</a>
+    </nav>
+    <div class="header-actions">
+      <button aria-label="Account" id="accountBtn">👤</button>
+      <button class="cart-btn" aria-label="Cart" id="cartBtn">🛒<span class="cart-badge" id="cartBadge">0</span></button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <h1>Rum Recipes</h1>
+  <p>A handful of classics worth mixing at home.</p>
+</section>
+
+<section class="page-section">
+  <div class="recipe-grid">
+    <article class="recipe-card">
+      <img src="assets/images/image-05.jpg" alt="Lemon and rum cocktail with rosemary garnish">
+      <div class="recipe-body">
+        <h3>Lemon &amp; Rum Sour</h3>
+        <ul>
+          <li>2 oz Demerara Gold</li>
+          <li>3/4 oz fresh lemon juice</li>
+          <li>1/2 oz simple syrup</li>
+          <li>1 egg white (optional)</li>
+        </ul>
+        <p>Shake all ingredients hard with ice, strain into a rocks glass over fresh ice, and garnish with a sprig of rosemary.</p>
+      </div>
+    </article>
+    <article class="recipe-card">
+      <img src="assets/images/image-03.jpg" alt="Old fashioned rum cocktail with orange garnish">
+      <div class="recipe-body">
+        <h3>Demerara Old Fashioned</h3>
+        <ul>
+          <li>2 oz Essequibo Dark</li>
+          <li>1 sugar cube</li>
+          <li>2 dashes aromatic bitters</li>
+          <li>Orange twist</li>
+        </ul>
+        <p>Muddle the sugar cube with bitters, add rum and ice, stir until well chilled, and finish with an orange twist.</p>
+      </div>
+    </article>
+    <article class="recipe-card">
+      <img src="assets/images/image-04.jpg" alt="Bartender preparing a cocktail">
+      <div class="recipe-body">
+        <h3>Spiced Rum Manhattan</h3>
+        <ul>
+          <li>2 oz Shell Beach Spiced</li>
+          <li>1 oz sweet vermouth</li>
+          <li>2 dashes bitters</li>
+          <li>Maraschino cherry</li>
+        </ul>
+        <p>Stir all ingredients with ice, strain into a chilled coupe, and garnish with a cherry.</p>
+      </div>
+    </article>
+    <article class="recipe-card">
+      <img src="assets/images/image-02.jpg" alt="Rum glass with bottle in the background">
+      <div class="recipe-body">
+        <h3>Reserve On The Rocks</h3>
+        <ul>
+          <li>2 oz Puncheon 21</li>
+          <li>Large ice cube</li>
+          <li>Splash of water (optional)</li>
+        </ul>
+        <p>Sometimes the best recipe is no recipe. Pour over a single large cube and let it open up slowly.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <img src="assets/images/image-01.jpg" alt="Green fields at golden hour">
+  <div class="footer-overlay">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Useful</h4>
+        <a href="index.html">Home</a><a href="distributors.html">Distributors</a><a href="story.html">Our story</a><a href="blog.html">Blog</a><a href="#" id="loginLink">Login</a>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="faq.html">Customer service</a><a href="shop.html">Find our spirits</a><a href="track-order.html">Recent orders</a><a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Distributors</h4>
+        <a href="distributors.html">Demerara House</a><a href="distributors.html">Stabroek Spirits</a><a href="distributors.html">Kaieteur Traders</a>
+      </div>
+      <div class="footer-col">
+        <h4>Our Information</h4>
+        <p>📍 14 Water Street, Georgetown, Guyana</p>
+        <p>✉ info@rumme.gy</p>
+        <p>📞 +592 227-4410</p>
+      </div>
+      <div class="footer-col footer-brand">
+        <span class="logo-small">Rum Me!</span>
+        <div class="social-icons"><a href="#">ig</a><a href="#">f</a><a href="#">tw</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">2024 © Rum Me! / Web design.</div>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" hidden>
+  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-drawer-head">
+      <h3 id="cartTitle">Your Cart</h3>
+      <button class="modal-close" id="cartClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="no-results" id="cartEmpty" hidden>Your cart is empty. Browse the shop to add a bottle.</p>
+    <div class="cart-drawer-foot" id="cartFoot">
+      <div class="cart-line"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <a href="checkout.html" class="btn btn-gold full">Checkout</a>
+      <a href="shop.html" class="link-arrow small" style="display:block; text-align:center; margin-top:0.8rem;">Continue Shopping →</a>
+    </div>
+  </aside>
+</div>
+
+<div class="modal-overlay" id="signInModal" hidden>
+  <div class="modal-box modal-box-sm" role="dialog" aria-modal="true" aria-labelledby="signInTitle">
+    <button class="modal-close" id="signInClose" aria-label="Close">&times;</button>
+    <div class="modal-body">
+      <h3 id="signInTitle">Login</h3>
+      <p class="modal-trim">Demo only — no account is created or stored.</p>
+      <form id="signInForm">
+        <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+        <div class="form-field"><label>Password</label><input type="password" required placeholder="••••••••"></div>
+        <button type="submit" class="btn btn-gold full">Login</button>
+      </form>
+      <p class="form-success" id="signInSuccess" hidden>You're logged in (demo). Welcome back!</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

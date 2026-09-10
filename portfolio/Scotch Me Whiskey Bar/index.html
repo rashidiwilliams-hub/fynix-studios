@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rum Me! — Enjoy Time With Friends</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="main-nav left">
+      <a href="index.html" class="active">Home</a>
+      <a href="story.html">Our Story</a>
+      <a href="shop.html">Rum Shop</a>
+    </nav>
+    <a class="logo" href="index.html">Rum<br>Me!</a>
+    <nav class="main-nav right">
+      <a href="recipes.html">Rum Recipes</a>
+      <a href="index.html#club">Join The Club</a>
+      <a href="index.html#contact">Contact Us</a>
+    </nav>
+    <div class="header-actions">
+      <button aria-label="Account" id="accountBtn">👤</button>
+      <button class="cart-btn" aria-label="Cart" id="cartBtn">🛒<span class="cart-badge" id="cartBadge">0</span></button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="assets/images/image-03.jpg" alt="Hand pouring a rum cocktail at a wooden bar">
+  <button class="hero-arrow left" aria-label="Previous">←</button>
+  <button class="hero-arrow right" aria-label="Next">→</button>
+  <div class="hero-content">
+    <h1>Enjoy Time With Friends<br><span>&amp; Rum Me!</span></h1>
+  </div>
+</section>
+
+<section class="stand-for" id="story">
+  <div class="stand-text">
+    <p class="eyebrow">! Who are we and ...</p>
+    <h2>Where We Stand For</h2>
+    <p>Crafted in small batches with a passion for tradition, Rum Me! blends premium Demerara rums matured to perfection for unforgettable evenings with friends.</p>
+    <a href="story.html" class="btn btn-outline">Read Our Story</a>
+  </div>
+  <div class="stand-grid">
+    <div class="stand-item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M9 9c1-2 5-2 6 0s-1 3-3 4-3 2-3 4"/></svg>
+      <strong>Premium Gold Rum</strong>
+      <p>Rums selected for balance, then blended in small, carefully measured batches.</p>
+    </div>
+    <div class="stand-item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <strong>Matured In Barrels</strong>
+      <p>Aged in oak casks for years, not months, to build real depth and character.</p>
+    </div>
+    <div class="stand-item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M6 10h12M6 14h12"/></svg>
+      <strong>Distilled In Guyana</strong>
+      <p>Every expression traces back to traditional Demerara distilling methods.</p>
+    </div>
+    <div class="stand-item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg>
+      <strong>High Quality</strong>
+      <p>Commitment to quality in every single bottle we produce.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mix-section">
+  <div class="mix-image">
+    <img src="assets/images/image-05.jpg" alt="Cocktail with rosemary garnish">
+  </div>
+  <div class="mix-text">
+    <p class="eyebrow">! Perfect served with</p>
+    <h2>Lemon &amp; Rum</h2>
+    <p>A classic rum sour: fresh lemon juice, a touch of sugar, and a generous pour of Demerara Gold, shaken over ice.</p>
+    <p>Simple to make, endlessly easy to enjoy — one of a dozen recipes we've put together for you.</p>
+    <a href="recipes.html" class="btn btn-outline">More To Mix</a>
+  </div>
+</section>
+
+<section class="other-brands" id="shop">
+  <div class="brands-row">
+  <div class="brands-text">
+    <p class="eyebrow">! Premium Demerara Rum</p>
+    <h2>Our Bottles</h2>
+    <p>A small selection from the full Rum Me! range — browse the shop for the complete collection.</p>
+    <a href="distributors.html" class="btn btn-outline">Distributors</a>
+  </div>
+  <div class="brands-grid" id="homeBottleGrid"></div>
+  </div>
+</section>
+
+<section class="newsletter" id="club">
+  <div class="newsletter-form-wrap">
+    <h2>Newsletter</h2>
+    <form id="newsletterForm">
+      <input type="text" placeholder="Name *" required>
+      <input type="email" placeholder="Email *" required>
+      <textarea placeholder="Your Message" rows="3"></textarea>
+      <button type="submit" class="btn btn-gold">Join The Rum Me Club!</button>
+    </form>
+  </div>
+  <div class="newsletter-image">
+    <img src="assets/images/image-04.jpg" alt="Bartender preparing a cocktail">
+  </div>
+  <div class="newsletter-contact" id="contact">
+    <span class="logo-small">Rum Me!</span>
+    <h3>Contacts</h3>
+    <p>📞 Phone: +592 227-4410</p>
+    <p>✉ Email: info@rumme.gy</p>
+  </div>
+</section>
+
+<section class="distributors">
+  <p class="eyebrow">! Rum Me! Distributors</p>
+  <div class="distributor-logos">
+    <span>Demerara House <small>Est. 1670</small></span>
+    <span>Stabroek Spirits <small>Finest Guyanese Rum</small></span>
+    <span>Kaieteur Traders <small>Demerara Dark Rum</small></span>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <img src="assets/images/image-01.jpg" alt="Green fields at golden hour">
+  <div class="footer-overlay">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Useful</h4>
+        <a href="index.html">Home</a><a href="distributors.html">Distributors</a><a href="story.html">Our story</a><a href="blog.html">Blog</a><a href="#" id="loginLink">Login</a>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="faq.html">Customer service</a><a href="shop.html">Find our spirits</a><a href="track-order.html">Recent orders</a><a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Distributors</h4>
+        <a href="distributors.html">Demerara House</a><a href="distributors.html">Stabroek Spirits</a><a href="distributors.html">Kaieteur Traders</a>
+      </div>
+      <div class="footer-col">
+        <h4>Our Information</h4>
+        <p>📍 14 Water Street, Georgetown, Guyana</p>
+        <p>✉ info@rumme.gy</p>
+        <p>📞 +592 227-4410</p>
+      </div>
+      <div class="footer-col footer-brand">
+        <span class="logo-small">Rum Me!</span>
+        <div class="social-icons"><a href="#">ig</a><a href="#">f</a><a href="#">tw</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">2024 © Rum Me! / Web design.</div>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" hidden>
+  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-drawer-head">
+      <h3 id="cartTitle">Your Cart</h3>
+      <button class="modal-close" id="cartClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="no-results" id="cartEmpty" hidden>Your cart is empty. Browse the shop to add a bottle.</p>
+    <div class="cart-drawer-foot" id="cartFoot">
+      <div class="cart-line"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <a href="checkout.html" class="btn btn-gold full">Checkout</a>
+      <a href="shop.html" class="link-arrow small" style="display:block; text-align:center; margin-top:0.8rem;">Continue Shopping →</a>
+    </div>
+  </aside>
+</div>
+
+<div class="modal-overlay" id="signInModal" hidden>
+  <div class="modal-box modal-box-sm" role="dialog" aria-modal="true" aria-labelledby="signInTitle">
+    <button class="modal-close" id="signInClose" aria-label="Close">&times;</button>
+    <div class="modal-body">
+      <h3 id="signInTitle">Login</h3>
+      <p class="modal-trim">Demo only — no account is created or stored.</p>
+      <form id="signInForm">
+        <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+        <div class="form-field"><label>Password</label><input type="password" required placeholder="••••••••"></div>
+        <button type="submit" class="btn btn-gold full">Login</button>
+      </form>
+      <p class="form-success" id="signInSuccess" hidden>You're logged in (demo). Welcome back!</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
