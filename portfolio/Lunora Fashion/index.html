@@ -13,8 +13,18 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <span class="eyebrow-tag">FASHION</span>
+    <a href="index.html" class="eyebrow-tag" style="color:inherit;">FASHION</a>
     <div class="header-actions">
+      <button aria-label="Search" id="searchBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button aria-label="Account" id="accountBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+      </button>
+      <button aria-label="Wishlist" id="wishlistBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.2-4.5-9.8-9C.6 8.4 2 4.5 6 4c2.3-.3 4.3 1 6 3 1.7-2 3.7-3.3 6-3 4 .5 5.4 4.4 3.8 8-2.6 4.5-9.8 9-9.8 9Z"/></svg>
+        <span class="wishlist-badge" id="wishlistBadge" hidden>0</span>
+      </button>
       <button class="cart-btn" aria-label="Cart" id="cartBtn">
         <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M5.14062 6.09765V5.22429C5.14062 3.19845 6.90564 1.20862 9.09973 1.01955C11.7131 0.785448 13.917 2.68524 13.917 5.05322V6.29573M12.943 9.99602H12.9517M6.11483 9.99602H6.12359M6.60789 19H12.4588C16.3789 19 17.081 17.5504 17.2858 15.7857L18.0171 10.3834C18.2804 8.18652 17.5978 6.39478 13.4339 6.39478H5.63274C1.46885 6.39478 0.786251 8.18652 1.04954 10.3834L1.7809 15.7857C1.98568 17.5504 2.68779 19 6.60789 19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -64,35 +74,35 @@
 </section>
 
 <nav class="category-strip" id="shop">
-  <a href="#" class="cat-item">
+  <a href="#" class="cat-item" data-category="Women">
     <img src="assets/images/image-02.jpg" alt="Women's bag">
     <span>Women</span>
   </a>
-  <a href="#" class="cat-item">
+  <a href="#" class="cat-item" data-category="Men">
     <img src="assets/images/image-03.jpg" alt="Men's jacket">
     <span>Men</span>
   </a>
-  <a href="#" class="cat-item">
+  <a href="#" class="cat-item" data-category="Dresses">
     <img src="assets/images/image-04.jpg" alt="Dress">
     <span>Dresses</span>
   </a>
-  <a href="#" class="cat-item">
+  <a href="#" class="cat-item" data-category="Tops">
     <img src="assets/images/image-05.jpg" alt="Black top">
     <span>Tops</span>
   </a>
-  <a href="#" class="cat-item">
+  <a href="#" class="cat-item" data-category="Shoes">
     <img src="assets/images/image-06.jpg" alt="Heels">
     <span>Shoes</span>
   </a>
-  <a href="#" class="cat-item">
+  <a href="#" class="cat-item" data-category="Bags">
     <img src="assets/images/image-02.jpg" alt="Handbag">
     <span>Bags</span>
   </a>
-  <a href="#" class="cat-item">
+  <a href="#" class="cat-item" data-category="Accessories">
     <img src="assets/images/image-07.jpg" alt="Sun hat">
     <span>Accessories</span>
   </a>
-  <a href="#" class="cat-item cat-sale">
+  <a href="#" class="cat-item cat-sale" data-category-sale>
     <span class="sale-circle">SALE</span>
     <span>Sale</span>
   </a>
@@ -104,23 +114,23 @@
       <p class="eyebrow">Shop By Category</p>
       <h2>Find Your Perfect Style</h2>
     </div>
-    <a href="#" class="link-arrow">View All Categories →</a>
+    <a href="#shop" class="link-arrow" data-scroll>View All Categories →</a>
   </div>
 
   <div class="style-grid">
-    <a href="#" class="style-card">
+    <a href="#" class="style-card" data-category="Women">
       <img src="assets/images/image-08.jpg" alt="Woman in white outfit">
       <div class="style-overlay"><strong>Women's Collection</strong><span>Explore Now →</span></div>
     </a>
-    <a href="#" class="style-card">
+    <a href="#" class="style-card" data-category="Men">
       <img src="assets/images/image-09.jpg" alt="Man in brown jacket">
       <div class="style-overlay"><strong>Men's Collection</strong><span>Explore Now →</span></div>
     </a>
-    <a href="#" class="style-card">
+    <a href="#" class="style-card" data-category="Dresses">
       <img src="assets/images/image-10.jpg" alt="Woman in black dress">
       <div class="style-overlay"><strong>Dresses</strong><span>Explore Now →</span></div>
     </a>
-    <a href="#" class="style-card">
+    <a href="#" class="style-card" data-category="Accessories">
       <img src="assets/images/image-11.jpg" alt="Beige handbag">
       <div class="style-overlay"><strong>Accessories</strong><span>Explore Now →</span></div>
     </a>
@@ -132,7 +142,7 @@
       <div class="promo-content">
         <p class="eyebrow light">Limited Time Offer</p>
         <h3>Spring Sale<br>Up to 50% Off</h3>
-        <a href="#" class="btn btn-dark">Shop The Sale →</a>
+        <a href="#" class="btn btn-dark" data-category-sale>Shop The Sale →</a>
       </div>
     </div>
     <div class="promo-card">
@@ -140,19 +150,19 @@
       <div class="promo-content">
         <p class="eyebrow light">New Arrivals</p>
         <h3>Fresh Styles<br>Just Landed</h3>
-        <a href="#" class="btn btn-dark">Explore New In →</a>
+        <a href="#" class="btn btn-dark" data-scroll-target="bestSellers">Explore New In →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="best-sellers">
+<section class="best-sellers" id="bestSellers">
   <div class="section-head">
     <div>
-      <p class="eyebrow">Best Sellers</p>
-      <h2>Our Most Loved Picks</h2>
+      <p class="eyebrow" id="bestSellersEyebrow">Best Sellers</p>
+      <h2 id="bestSellersTitle">Our Most Loved Picks</h2>
     </div>
-    <a href="#" class="link-arrow">View All Products →</a>
+    <a href="#" class="link-arrow" id="viewAllBtn">View All Products →</a>
   </div>
 
   <div class="product-grid" id="productGrid">
@@ -253,38 +263,38 @@
       <span class="logo">LUNORA<small>FASHION</small></span>
       <p>Timeless fashion for every moment. Designed with you in mind.</p>
       <div class="social-icons">
-        <a href="#" aria-label="Instagram">ig</a>
-        <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="Pinterest">p</a>
-        <a href="#" aria-label="TikTok">tt</a>
+        <a href="#" aria-label="Instagram" data-info="social-ig">ig</a>
+        <a href="#" aria-label="Facebook" data-info="social-f">f</a>
+        <a href="#" aria-label="Pinterest" data-info="social-p">p</a>
+        <a href="#" aria-label="TikTok" data-info="social-tt">tt</a>
       </div>
     </div>
 
     <div class="footer-col">
       <h4>Shop</h4>
-      <a href="#">All Products</a>
-      <a href="#">New Arrivals</a>
-      <a href="#">Women</a>
-      <a href="#">Men</a>
-      <a href="#">Sale</a>
+      <a href="#" id="footerAllProducts">All Products</a>
+      <a href="#" data-scroll-target="bestSellers">New Arrivals</a>
+      <a href="#" data-category="Women">Women</a>
+      <a href="#" data-category="Men">Men</a>
+      <a href="#" data-category-sale>Sale</a>
     </div>
 
     <div class="footer-col">
       <h4>Customer Care</h4>
-      <a href="#">Contact Us</a>
-      <a href="#">Shipping &amp; Delivery</a>
-      <a href="#">Returns &amp; Exchanges</a>
-      <a href="#">Size Guide</a>
-      <a href="#">FAQs</a>
+      <a href="#" data-info="contact">Contact Us</a>
+      <a href="#" data-info="shipping">Shipping &amp; Delivery</a>
+      <a href="#" data-info="returns">Returns &amp; Exchanges</a>
+      <a href="#" data-info="size-guide">Size Guide</a>
+      <a href="#" data-info="faqs">FAQs</a>
     </div>
 
     <div class="footer-col">
       <h4>About Us</h4>
-      <a href="#">Our Story</a>
-      <a href="#">Sustainability</a>
-      <a href="#">Careers</a>
-      <a href="#">Press</a>
-      <a href="#">Store Locator</a>
+      <a href="#" data-info="our-story">Our Story</a>
+      <a href="#" data-info="sustainability">Sustainability</a>
+      <a href="#" data-info="careers">Careers</a>
+      <a href="#" data-info="press">Press</a>
+      <a href="#" data-info="store-locator">Store Locator</a>
     </div>
 
     <div class="footer-col footer-newsletter">
@@ -296,7 +306,75 @@
       </form>
     </div>
   </div>
+  <div class="footer-bottom">© 2026 Fynix Studios. All Rights Reserved.</div>
 </footer>
+
+<!-- Cart drawer -->
+<div class="drawer-overlay" id="cartOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <h3 id="cartTitle">Your Cart</h3>
+      <button class="drawer-close" id="cartClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="no-results" id="cartEmptyMsg" hidden>Your cart is empty. Browse Best Sellers to add something.</p>
+    <div class="drawer-foot" id="cartFoot">
+      <div class="cart-line"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <a href="checkout.html" class="btn btn-dark w-full">Checkout</a>
+    </div>
+  </aside>
+</div>
+
+<!-- Wishlist drawer -->
+<div class="drawer-overlay" id="wishlistOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="wishlistTitle">
+    <div class="drawer-head">
+      <h3 id="wishlistTitle">Your Wishlist</h3>
+      <button class="drawer-close" id="wishlistClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="cart-items" id="wishlistItems"></div>
+    <p class="no-results" id="wishlistEmptyMsg" hidden>Nothing saved yet. Tap the ♡ on any product to add it here.</p>
+  </aside>
+</div>
+
+<!-- Search overlay -->
+<div class="drawer-overlay" id="searchOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+    <div class="drawer-head">
+      <h3 id="searchTitle">Search</h3>
+      <button class="drawer-close" id="searchClose" aria-label="Close">&times;</button>
+    </div>
+    <input type="text" id="searchInput" class="search-input" placeholder="Search products…" autocomplete="off">
+    <div class="cart-items" id="searchResults"></div>
+    <p class="no-results" id="searchEmptyMsg" hidden>No products match your search.</p>
+  </aside>
+</div>
+
+<!-- Account modal -->
+<div class="modal-overlay" id="accountModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+    <button class="modal-close" id="accountClose" aria-label="Close">&times;</button>
+    <h3 id="accountTitle">Sign In</h3>
+    <p class="modal-trim">Demo only — no account is created or stored.</p>
+    <form id="signInForm">
+      <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+      <div class="form-field"><label>Password</label><input type="password" required placeholder="••••••••"></div>
+      <button type="submit" class="btn btn-dark w-full">Sign In</button>
+    </form>
+    <p class="form-success" id="signInSuccess" hidden>You're signed in (demo). Welcome back!</p>
+  </div>
+</div>
+
+<!-- Info modal -->
+<div class="modal-overlay" id="infoModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <button class="modal-close" id="infoClose" aria-label="Close">&times;</button>
+    <h3 id="infoTitle">Title</h3>
+    <div id="infoBody"></div>
+  </div>
+</div>
+
+<div class="body-overlay" id="bodyOverlay"></div>
 
 <script src="products.js"></script>
 <script src="script.js"></script>

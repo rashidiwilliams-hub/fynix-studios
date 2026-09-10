@@ -3,114 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glucoside Foaming Cleanser — The Ordinary</title>
+<link rel="shortcut icon" href="assets/images/favicon.png">
+<title>Nomad Cosmetics — Curated Skin, Hair &amp; Body Care</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
 <div class="page-shell">
   <header class="site-header">
-    <a class="logo" href="index.html">The<br>Ordinary</a>
+    <a class="logo" href="index.html">Nomad<br>Cosmetics</a>
     <nav class="main-nav">
       <a href="index.html" class="active">Home</a>
-      <a href="#">Shop</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="shop.html">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="header-actions">
       <div class="search-box">
         <input type="text" placeholder="Search">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </div>
-      <button aria-label="Wishlist"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7.2-4.5-9.8-9C.6 8.4 2 4.5 6 4c2.3-.3 4.3 1 6 3 1.7-2 3.7-3.3 6-3 4 .5 5.4 4.4 3.8 8-2.6 4.5-9.8 9-9.8 9Z"/></svg></button>
+      <button aria-label="Wishlist" id="headerWishlistBtn"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7.2-4.5-9.8-9C.6 8.4 2 4.5 6 4c2.3-.3 4.3 1 6 3 1.7-2 3.7-3.3 6-3 4 .5 5.4 4.4 3.8 8-2.6 4.5-9.8 9-9.8 9Z"/></svg></button>
       <button aria-label="Bag" class="cart-btn" id="cartBtn"><svg width="18" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cart-badge" id="cartBadge">0</span></button>
-      <button aria-label="Account"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></button>
+      <button aria-label="Account" id="accountBtn"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></button>
     </div>
   </header>
 
-  <nav class="breadcrumb" aria-label="Breadcrumb">Home / Skincare / <span id="crumbName">Facial Cleansers</span></nav>
-
-  <section class="product" id="productDetail">
-    <div class="product-gallery">
-      <div class="gallery-main">
-        <img id="mainImage" src="" alt="">
-      </div>
-      <div class="gallery-side">
-        <div class="gallery-thumb hero-thumb">
-          <img id="thumbImage1" src="" alt="">
-        </div>
-        <div class="gallery-thumb">
-          <img id="thumbImage2" src="" alt="">
-        </div>
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Curated, Not Manufactured</p>
+      <h1>The Best Brands.<br>One Shelf.</h1>
+      <p class="lead">We don't make our own products — we go find the ones worth your money. Every brand on Nomad is chosen for what's actually in the bottle, not the marketing around it.</p>
+      <div class="hero-actions">
+        <a href="shop.html" class="btn-dark">Shop All</a>
+        <a href="#about" class="btn-outline">Our Approach</a>
       </div>
     </div>
-
-    <div class="product-info">
-      <h1 id="productName">Product Name</h1>
-
-      <dl class="spec-list">
-        <div class="spec-row spec-lead">
-          <dt id="productStep">Regimen Step</dt>
-          <dd id="productLead">Description</dd>
-        </div>
-        <div class="spec-row">
-          <dt>Targets</dt>
-          <dd id="productTargets"></dd>
-        </div>
-        <div class="spec-row">
-          <dt>Suited to</dt>
-          <dd id="productSuited"></dd>
-        </div>
-        <div class="spec-row">
-          <dt>Format</dt>
-          <dd id="productFormat"></dd>
-        </div>
-        <div class="spec-row">
-          <dt>Key ingredients</dt>
-          <dd id="productIngredients"></dd>
-        </div>
-      </dl>
-
-      <div class="price-row">
-        <span class="price" id="productPrice"></span>
-        <span class="pill" id="productSize"></span>
-        <span class="spacer"></span>
-        <a href="#" class="link-underline">Delivery</a>
-        <span class="dot">/</span>
-        <a href="#" class="link-underline">Payment</a>
-      </div>
-
-      <div class="buy-row">
-        <div class="qty-stepper">
-          <button class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">−</button>
-          <span id="qtyValue">1</span>
-          <button class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
-        </div>
-        <button class="btn-cart" id="addToCartBtn">add to cart</button>
-        <button class="icon-btn" id="wishlistBtn" aria-label="Add to wishlist">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7.2-4.5-9.8-9C.6 8.4 2 4.5 6 4c2.3-.3 4.3 1 6 3 1.7-2 3.7-3.3 6-3 4 .5 5.4 4.4 3.8 8-2.6 4.5-9.8 9-9.8 9Z"/></svg>
-        </button>
-      </div>
+    <div class="hero-image">
+      <img src="assets/images/image-05.jpg" alt="Erbology organic hemp seed oil and jars">
     </div>
   </section>
 
-  <section class="also-like">
+  <section class="regimen-steps" id="regimen">
+    <div class="section-head-center">
+      <p class="eyebrow">Explore The Shelf</p>
+      <h2>Shop By Category</h2>
+    </div>
+    <div class="regimen-grid category-grid-3">
+      <button class="step-card" data-category-link="Skincare">
+        <span class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-3 3-4 5-4 8a4 4 0 0 0 8 0c0-3-1-5-4-8Z"/></svg></span>
+        <h3>Skincare</h3>
+        <p>Serums and treatments from brands that show their work</p>
+      </button>
+      <button class="step-card" data-category-link="Body Care">
+        <span class="step-icon sage"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c5-4 8-8 8-12a8 8 0 0 0-16 0c0 4 3 8 8 12Z"/><path d="M12 21V9"/></svg></span>
+        <h3>Body Care</h3>
+        <p>Lotions and oils for everything below the neck</p>
+      </button>
+      <button class="step-card" data-category-link="Hair Care">
+        <span class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3c3 2 3 5 1 7s-4 2-3 5 4 3 5 6M12 3c3 2 3 5 1 7s-4 2-3 5 4 3 5 6M19 3c3 2 3 5 1 7s-4 2-3 5 4 3 5 6"/></svg></span>
+        <h3>Hair Care</h3>
+        <p>Restorative formulas for scalp and strand</p>
+      </button>
+    </div>
+  </section>
+
+  <section class="featured-products">
     <div class="also-like-head">
-      <h2>You may also like:</h2>
-      <div class="carousel-nav">
-        <button class="carousel-arrow" id="alPrev" aria-label="Previous">←</button>
-        <button class="carousel-arrow" id="alNext" aria-label="Next">→</button>
-      </div>
+      <h2>Best Sellers</h2>
+      <a href="shop.html" class="link-underline">Shop All →</a>
     </div>
-
-    <div class="product-grid" id="productGrid"></div>
+    <div class="product-grid" id="homeFeaturedGrid"></div>
   </section>
+
+  <section class="about-section" id="about">
+    <div class="about-image">
+      <img src="assets/images/image-01.jpg" alt="Curology custom formula set with packaging">
+    </div>
+    <div class="about-text">
+      <p class="eyebrow">Our Approach</p>
+      <h2>We're The Filter, Not The Formula.</h2>
+      <p>Nomad Cosmetics doesn't manufacture anything. Instead, we spend the time you don't have digging through ingredient lists, sourcing claims, and formulation quality — then stock only the brands that hold up.</p>
+      <p>Curology, Nécessaire, Act+Acre, Erbology, miSolo — different labs, different founders, different specialties. What they share is a formula that actually does what it says.</p>
+    </div>
+  </section>
+
+  <section class="newsletter-section" id="contact">
+    <h2>Stay In The Loop</h2>
+    <p>New brands, restocks, and honest reviews — straight to your inbox.</p>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2026 Fynix Studios. All Rights Reserved.</p>
+  </footer>
 </div>
 
-<script src="products.js"></script>
-<script src="script.js"></script>
+<script src="products.js?v=3"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>

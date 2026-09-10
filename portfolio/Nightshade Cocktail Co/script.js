@@ -9,6 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('serviceGrid');
   document.getElementById('svcNext').addEventListener('click', () => grid.scrollBy({ left: 300, behavior: 'smooth' }));
   document.getElementById('svcPrev').addEventListener('click', () => grid.scrollBy({ left: -300, behavior: 'smooth' }));
+
+  // Smooth-scroll nav/hero/CTA links
+  document.querySelectorAll('[data-scroll]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = link.getAttribute('href').replace('#', '');
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
+      if (link.closest('.main-nav')) link.classList.add('active');
+      mainNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
 });
 
 // ---------- Permanent link back to the Fynix Studios portfolio ----------

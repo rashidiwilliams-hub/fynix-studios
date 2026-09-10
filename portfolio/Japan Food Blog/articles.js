@@ -1,43 +1,43 @@
 // Shared blog post data — edit this array to change posts across the whole site.
 const ARTICLES = [
   {
-    slug: 'georgetown-after-dark',
-    title: 'Georgetown After Dark',
-    excerpt: 'When the sun goes down, the city\'s corners light up with steam, grills, and some of the best food you\'ll eat all week.',
+    slug: 'bourda-at-golden-hour',
+    title: 'Bourda at Golden Hour',
+    excerpt: 'Every morning before the heat sets in, Merriman\'s Mall fills with fruit, veg, and the kind of bargaining you only pick up by watching.',
     category: 'City Guides',
     image: 'assets/images/image-01.jpg',
-    alt: 'A busy street lit up at night with food stalls'
+    alt: 'Bourda Market, Georgetown, bustling with vendors and shoppers at golden hour'
   },
   {
-    slug: 'cook-up-by-streetlight',
-    title: 'Cook-Up by Streetlight',
-    excerpt: 'The best meals in this city rarely come with a table. Here\'s why eating a plate of cook-up standing up, mid-street, is half the experience.',
-    category: 'Street Food',
+    slug: 'pot-that-never-empties',
+    title: 'The Pot That Never Empties',
+    excerpt: 'Pepperpot is the dish Guyanese families circle back to all year, but especially at Christmas — beef simmered for hours in cassareep until it\'s dark, sticky, and impossible to rush.',
+    category: 'Local Dishes',
     image: 'assets/images/image-02.jpg',
-    alt: 'Someone enjoying a plate of street food'
+    alt: 'A bowl of Guyanese pepperpot stew with a hard-boiled egg'
   },
   {
-    slug: 'where-the-smoke-leads',
-    title: 'Where the Smoke Leads',
-    excerpt: 'Follow the smell of the grill down a side street and you\'ll find some of the smallest, most memorable stalls in Georgetown.',
-    category: 'City Guides',
+    slug: 'rahamans-fruits-curbside',
+    title: 'Rahaman\'s Fruits, Curbside',
+    excerpt: 'Half grocery run, half neighborhood institution — this truck parks in the same spot every week, flags snapping overhead, and sells out of whatever\'s ripest before noon.',
+    category: 'Street Food',
     image: 'assets/images/image-03.jpg',
-    alt: 'Warm string lights glowing over an evening market stall'
+    alt: 'A fruit vendor\'s truck flying the Guyana flag, piled high with produce'
   },
   {
-    slug: 'fish-fry-worth-the-wait',
-    title: 'A Fish Fry Worth the Wait',
-    excerpt: 'No sign, no menu, one pot. This is the kind of fish fry you only find by asking the right local.',
-    category: 'Seafood',
+    slug: 'four-for-a-hundred',
+    title: 'Four For A Hundred',
+    excerpt: 'Deep in the market\'s back lanes, where the aisles narrow and everyone seems to know everyone, the prices are chalked on cardboard and nothing has a fixed cost.',
+    category: 'City Guides',
     image: 'assets/images/image-04.jpg',
-    alt: 'A shared plate of fried fish at a market stall'
+    alt: 'A narrow market lane lined with vendor stalls selling snacks and drinks'
   },
   {
-    slug: 'georgetown-pine-tart-secret',
-    title: "Georgetown's Best-Kept Pine Tart Secret",
-    excerpt: 'A tiny bakery tucked behind the market is quietly making some of the best pine tarts in the city — and almost no visitors know it.',
+    slug: 'black-cake-behind-the-market',
+    title: 'The Bakery That Times Its Black Cake Just Right',
+    excerpt: 'Behind the market, a family bakery pulls trays of black cake out of the oven all December — dense, dark, and soaked in rum and cherry brandy for months beforehand.',
     category: 'Sweets & Desserts',
     image: 'assets/images/image-05.jpg',
-    alt: 'Friends sharing pastries together'
+    alt: 'Freshly baked Guyanese black cake cooling in the pan'
   }
 ];

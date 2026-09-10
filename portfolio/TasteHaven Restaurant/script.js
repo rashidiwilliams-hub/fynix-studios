@@ -4,6 +4,7 @@
 // to only run when its elements are actually present on the current page.
 
 const MENU = [
+  // ---------- Starters ----------
   {
     id: 1, category: 'Starters', name: 'Garlic Bread Bruschetta', price: 1400,
     desc: 'Toasted bread topped with fresh tomatoes, basil, and garlic.',
@@ -17,68 +18,124 @@ const MENU = [
     alt: 'Caesar salad with parmesan and croutons'
   },
   {
-    id: 3, category: 'Mains', name: 'Creamy Alfredo Pasta', price: 3200, badge: 'Popular',
-    desc: 'Rich and creamy pasta with parmesan and grilled chicken.',
-    img: 'assets/images/image-12.jpg',
-    alt: 'Creamy Alfredo pasta'
+    id: 3, category: 'Starters', name: 'Pholourie with Tamarind Dip', price: 1200, badge: 'Popular',
+    desc: 'Golden split-pea fritters, spiced and fried to order, served with tangy tamarind sauce.',
+    img: 'assets/images/pholourie.jpg',
+    alt: 'Golden fried pholourie in a bowl'
+  },
+
+  // ---------- Mains ----------
+  {
+    id: 4, category: 'Mains', name: 'Pepperpot with Homemade Bread', price: 4200, badge: "Chef's Pick",
+    desc: 'Our take on Guyana\'s national dish — beef slow-simmered for hours in cassareep until dark and deeply spiced.',
+    img: 'assets/images/pepperpot.jpg',
+    alt: 'Bowl of Guyanese pepperpot stew'
   },
   {
-    id: 4, category: 'Mains', name: 'Grilled Salmon', price: 4200, badge: "Chef's Pick",
-    desc: 'Perfectly grilled salmon with garlic butter and roasted veggies.',
+    id: 5, category: 'Mains', name: 'Curry Chicken with Rice', price: 3400, badge: 'Popular',
+    desc: 'Bone-in chicken and potato simmered in a rich curry, served with steamed rice.',
+    img: 'assets/images/curry-chicken.jpg',
+    alt: 'Guyanese curry chicken with potato'
+  },
+  {
+    id: 6, category: 'Mains', name: 'Guyanese Chowmein', price: 3000,
+    desc: 'Stir-fried noodles with chicken, carrot, and cabbage in our house sauce — a Georgetown favorite.',
+    img: 'assets/images/chowmein.jpg',
+    alt: 'Guyanese-style chowmein noodles with vegetables'
+  },
+  {
+    id: 7, category: 'Mains', name: 'Pan-Seared Snapper in Garlic Butter', price: 4200,
+    desc: 'Fresh local snapper pan-seared and finished with garlic butter and roasted veggies.',
     img: 'assets/images/image-13.jpg',
-    alt: 'Grilled salmon with vegetables'
+    alt: 'Pan-seared snapper with vegetables'
   },
   {
-    id: 5, category: 'Mains', name: 'Margherita Pizza', price: 3400,
+    id: 8, category: 'Mains', name: 'Margherita Pizza', price: 3400,
     desc: 'Classic pizza with San Marzano tomato, fresh mozzarella, and basil.',
     img: 'assets/images/image-14.jpg',
     alt: 'Margherita pizza'
   },
   {
-    id: 6, category: 'Mains', name: 'Classic Cheeseburger', price: 2800,
+    id: 9, category: 'Mains', name: 'Classic Cheeseburger', price: 2800,
     desc: 'Juicy beef patty, cheddar, lettuce, tomato, and house sauce.',
     img: 'assets/images/image-15.jpg',
     alt: 'Classic cheeseburger'
   },
   {
-    id: 7, category: 'Bowls', name: 'Avocado Power Bowl', price: 2800,
+    id: 10, category: 'Mains', name: 'Creamy Alfredo Pasta', price: 3200,
+    desc: 'Rich and creamy pasta with parmesan and grilled chicken.',
+    img: 'assets/images/image-12.jpg',
+    alt: 'Creamy Alfredo pasta'
+  },
+
+  // ---------- Bowls ----------
+  {
+    id: 11, category: 'Bowls', name: 'Cook-Up Rice Bowl', price: 3000,
+    desc: 'Rice cooked down with pigeon peas, coconut milk, and glazed chicken — comfort food, one-pot style.',
+    img: 'assets/images/image-17.jpg',
+    alt: 'Cook-up rice bowl with glazed chicken'
+  },
+  {
+    id: 12, category: 'Bowls', name: 'Avocado Power Bowl', price: 2800,
     desc: 'Healthy bowl with quinoa, avocado, veggies & lemon dressing.',
     img: 'assets/images/image-16.jpg',
     alt: 'Avocado power bowl'
   },
+
+  // ---------- Desserts ----------
   {
-    id: 8, category: 'Bowls', name: 'Teriyaki Chicken Bowl', price: 3000,
-    desc: 'Grilled teriyaki chicken over rice with fresh vegetables.',
-    img: 'assets/images/image-17.jpg',
-    alt: 'Teriyaki chicken bowl'
+    id: 13, category: 'Desserts', name: 'Guyanese Pine Tart', price: 1600,
+    desc: 'Flaky pastry filled with sweet, tangy stewed pineapple — a local favorite.',
+    img: 'assets/images/pine-tart-new.jpg',
+    alt: 'Glazed pineapple pine tart pastries'
   },
   {
-    id: 9, category: 'Desserts', name: 'Choco Lava Cake', price: 1800, badge: 'Popular',
+    id: 14, category: 'Desserts', name: 'Black Cake', price: 1800, badge: 'Popular',
+    desc: 'Dense, dark fruit cake soaked in rum and cherry brandy for months — a Guyanese Christmas tradition, year-round.',
+    img: 'assets/images/black-cake.jpg',
+    alt: 'Freshly baked Guyanese black cake'
+  },
+  {
+    id: 15, category: 'Desserts', name: 'Choco Lava Cake', price: 1800,
     desc: 'Warm chocolate cake with a rich, gooey center.',
     img: 'assets/images/image-18.jpg',
     alt: 'Chocolate lava cake'
   },
+
+  // ---------- Drinks ----------
   {
-    id: 10, category: 'Desserts', name: 'Guyanese Pine Tart', price: 1600,
-    desc: 'Flaky pastry filled with sweet, tangy stewed pineapple — a local favorite.',
-    img: 'assets/images/image-19.jpg',
-    alt: 'Pine tart pastry'
+    id: 16, category: 'Drinks', name: 'Sorrel', price: 900,
+    desc: 'House-steeped sorrel (hibiscus) with ginger and warm spice, served over ice.',
+    img: 'assets/images/sorrel.jpg',
+    alt: 'Glass of iced sorrel drink'
   },
   {
-    id: 11, category: 'Drinks', name: 'Fresh Lemonade', price: 900,
+    id: 17, category: 'Drinks', name: 'Ginger Beer', price: 900,
+    desc: 'Sharp, homemade ginger beer with a squeeze of lime — not for the faint of heart.',
+    img: 'assets/images/ginger-beer.jpg',
+    alt: 'Glass of homemade ginger beer with fresh ginger'
+  },
+  {
+    id: 18, category: 'Drinks', name: 'Peanut Punch', price: 1100,
+    desc: 'Creamy blended peanut, milk, and a touch of nutmeg — a Guyanese classic.',
+    img: 'assets/images/peanut-punch.jpg',
+    alt: 'Creamy peanut punch drink'
+  },
+  {
+    id: 19, category: 'Drinks', name: 'Fresh Lemonade', price: 900,
     desc: 'House-made lemonade with a hint of mint.',
     img: 'assets/images/image-20.jpg',
     alt: 'Fresh lemonade'
   },
   {
-    id: 12, category: 'Drinks', name: 'Iced Berry Smoothie', price: 1200,
+    id: 20, category: 'Drinks', name: 'Iced Berry Smoothie', price: 1200,
     desc: 'Blended mixed berries with yogurt and honey.',
     img: 'assets/images/image-21.jpg',
     alt: 'Iced berry smoothie'
   }
 ];
 
-const HOME_FEATURED_IDS = [3, 7, 4, 9];
+const HOME_FEATURED_IDS = [4, 5, 3, 14];
 const CART_KEY = 'tastehaven_cart';
 const DELIVERY_FEE = 800;
 const TAX_RATE = 0.14;
@@ -147,13 +204,11 @@ function updateCartBadge() {
 // ---------- Dish card rendering (home + menu pages) ----------
 function dishCardHTML(item) {
   const qty = getQty(item.id);
-  const footerHTML = qty > 0
-    ? `<div class="qty-stepper" data-id="${item.id}">
-         <button class="qty-minus" aria-label="Decrease quantity">−</button>
+  const footerHTML = `<div class="qty-stepper" data-id="${item.id}">
+         <button class="qty-minus" aria-label="Decrease quantity"${qty === 0 ? ' disabled' : ''}>−</button>
          <span class="qty-num">${qty}</span>
          <button class="qty-plus" aria-label="Increase quantity">+</button>
-       </div>`
-    : `<button class="add-circle" data-id="${item.id}" aria-label="Add to cart">+</button>`;
+       </div>`;
   const badgeHTML = item.badge ? `<span class="dish-badge">${item.badge}</span>` : '';
   return `
     <article class="dish-card" data-id="${item.id}">
@@ -178,12 +233,6 @@ function wireDishGrid(container) {
     if (favBtn) {
       favBtn.classList.toggle('active');
       favBtn.textContent = favBtn.classList.contains('active') ? '♥' : '♡';
-      return;
-    }
-    const addBtn = e.target.closest('.add-circle');
-    if (addBtn) {
-      addToCart(Number(addBtn.dataset.id));
-      rerenderCard(container, Number(addBtn.dataset.id));
       return;
     }
     const plusBtn = e.target.closest('.qty-plus');
@@ -331,6 +380,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllOverlays(); });
+
+  // ---------- Social links (every page) ----------
+  const SOCIAL_NAMES = { facebook: 'Facebook', instagram: 'Instagram', twitter: 'Twitter', pinterest: 'Pinterest' };
+  document.querySelectorAll('[data-social]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const name = SOCIAL_NAMES[link.dataset.social] || 'social';
+      const title = document.getElementById('socialTitle');
+      const body = document.getElementById('socialBody');
+      if (title) title.textContent = name;
+      if (body) body.textContent = `This is a demo link — in a live site this would open our ${name} profile in a new tab.`;
+      showOverlay('socialModal');
+    });
+  });
+  const socialClose = document.getElementById('socialClose');
+  if (socialClose) socialClose.addEventListener('click', closeAllOverlays);
+  const socialModal = document.getElementById('socialModal');
+  if (socialModal) socialModal.addEventListener('click', (e) => { if (e.target === socialModal) closeAllOverlays(); });
 
   // ---------- Home dish grid (index.html) ----------
   const homeDishGrid = document.getElementById('homeDishGrid');
@@ -603,11 +670,16 @@ function initDishPage() {
 
 // ---------- Permanent link back to the Fynix Studios portfolio ----------
 (function () {
+  var style = document.createElement('style');
+  style.textContent = '.fynix-back-link{position:fixed;bottom:18px;left:18px;z-index:9000;background:#111;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;padding:10px 16px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.3);opacity:0.85;transition:opacity .2s ease,transform .2s ease;display:inline-flex;align-items:center;gap:6px;}' +
+    '@media (max-width:640px){.fynix-back-link{left:auto;right:14px;bottom:80px;padding:0;width:40px;height:40px;justify-content:center;border-radius:50%;}.fynix-back-link .fynix-back-label{display:none;}}';
+  document.head.appendChild(style);
   var link = document.createElement('a');
   link.href = '../../index.html';
-  link.textContent = '← Back to Portfolio';
-  link.style.cssText = 'position:fixed;bottom:18px;left:18px;z-index:99999;background:#111;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;padding:10px 16px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.3);opacity:0.9;transition:opacity .2s ease,transform .2s ease;';
+  link.className = 'fynix-back-link';
+  link.setAttribute('aria-label', 'Back to Portfolio');
+  link.innerHTML = '<span aria-hidden="true">\u2190</span><span class="fynix-back-label">Back to Portfolio</span>';
   link.addEventListener('mouseenter', function () { link.style.opacity = '1'; link.style.transform = 'translateY(-2px)'; });
-  link.addEventListener('mouseleave', function () { link.style.opacity = '0.9'; link.style.transform = 'translateY(0)'; });
+  link.addEventListener('mouseleave', function () { link.style.opacity = ''; link.style.transform = ''; });
   document.body.appendChild(link);
 })();

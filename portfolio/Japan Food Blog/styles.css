@@ -1,5 +1,6 @@
 /* ---------- Reset & base ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 :root {
   --ink: #1a1a1a;
@@ -277,6 +278,16 @@ ul { list-style: none; }
   color: var(--ink);
 }
 .share a:hover { color: var(--ink-soft); }
+
+.feed-item { margin-bottom: 3rem; }
+.feed-item:last-child { margin-bottom: 0; }
+.feed-item p {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  max-width: 62ch;
+  margin-bottom: 1.4rem;
+}
+.feed-empty { color: var(--ink-soft); font-size: 0.98rem; }
 
 /* ---------- Sidebar ---------- */
 .sidebar { display: flex; flex-direction: column; gap: 2.2rem; }

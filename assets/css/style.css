@@ -244,10 +244,9 @@ h1, h2, h3, h4 {
   overflow: hidden;
 }
 .tp-portfolio-6-item-content-hide {
-  transform: translateX(-101%);
-  transition: transform 0.5s ease;
+  transform: translateX(0);
 }
-.tp-portfolio-6-item:hover .tp-portfolio-6-item-content-hide { transform: translateX(0); }
+.hidden-project { display: none; }
 
 .tp-portfolio-6-item-content span {
   display: inline-block;

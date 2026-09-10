@@ -11,18 +11,18 @@
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" id="top">
   <div class="header-inner">
-    <a class="logo" href="#">🔥 Ember</a>
+    <a class="logo" href="index.html">🔥 Ember</a>
     <nav class="main-nav" id="mainNav">
-      <a href="#" class="active">Home</a>
-      <a href="#story">Story</a>
-      <a href="#menu">Menu</a>
-      <a href="#reservations">Reservations</a>
-      <a href="#press">Press</a>
-      <a href="#contact">Contact</a>
+      <a href="#top" class="active" data-scroll>Home</a>
+      <a href="#story" data-scroll>Story</a>
+      <a href="#menu" data-scroll>Menu</a>
+      <a href="#" data-open-reservation>Reservations</a>
+      <a href="#press" data-scroll>Press</a>
+      <a href="#contact" data-scroll>Contact</a>
     </nav>
-    <a href="#reservations" class="btn btn-amber">Reserve A Table</a>
+    <a href="#" class="btn btn-amber" data-open-reservation>Reserve A Table</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -33,7 +33,7 @@
     <p class="eyebrow">New &amp; Notable</p>
     <h1>Modern Plates,<br>Open Flame</h1>
     <p class="lead">Seasonal ingredients, live-fire cooking, and a menu that changes with the harvest.</p>
-    <a href="#reservations" class="btn btn-amber">Reserve A Table</a>
+    <a href="#" class="btn btn-amber" data-open-reservation>Reserve A Table</a>
   </div>
 </section>
 
@@ -64,7 +64,7 @@
     <p class="eyebrow">Local &amp; Seasonal</p>
     <h2>A Kitchen Built<br>On Relationships</h2>
     <p>We source within a hundred miles whenever possible, working with farmers and fishermen who share our obsession with quality.</p>
-    <a href="#press" class="btn btn-outline">Meet The Chef</a>
+    <a href="#" class="btn btn-outline" data-info="chef">Meet The Chef</a>
   </div>
   <div class="split-cards">
     <div class="split-card">
@@ -75,8 +75,27 @@
     <div class="split-card">
       <img src="assets/images/image-02.jpg" alt="Dining room table setting">
       <span>Private Dining</span>
-      <a href="#reservations" class="link-arrow">Inquire →</a>
+      <a href="#" class="link-arrow" data-open-reservation>Inquire →</a>
     </div>
+  </div>
+</section>
+
+<section class="press" id="press">
+  <p class="eyebrow center">As Featured In</p>
+  <h2 class="center-h">What People Are Saying</h2>
+  <div class="press-grid">
+    <blockquote class="press-quote">
+      <p>"Ember has quietly become one of the best live-fire kitchens in the city — every plate earns its char."</p>
+      <cite>— City Eats Weekly</cite>
+    </blockquote>
+    <blockquote class="press-quote">
+      <p>"Seasonal, unfussy, and genuinely delicious. The wood-fired ribeye alone is worth the reservation."</p>
+      <cite>— The Local Table</cite>
+    </blockquote>
+    <blockquote class="press-quote">
+      <p>"A kitchen that clearly respects its ingredients. Ember doesn't overcomplicate a good thing."</p>
+      <cite>— Weekend Dining Guide</cite>
+    </blockquote>
   </div>
 </section>
 
@@ -96,13 +115,50 @@
       <p>hello@emberrestaurant.com</p>
       <p>+592 231-4477</p>
     </div>
-    <div id="press">
+    <div id="follow">
       <h4>Follow</h4>
-      <div class="social-icons"><a href="#">ig</a><a href="#">f</a></div>
+      <div class="social-icons"><a href="#" data-info="social-ig">ig</a><a href="#" data-info="social-f">f</a></div>
     </div>
   </div>
-  <div class="footer-bottom">© 2024 Ember. All rights reserved.</div>
+  <div class="footer-bottom">© 2026 Fynix Studios. All Rights Reserved.</div>
 </footer>
+
+<!-- Reservation modal -->
+<div class="modal-overlay" id="reservationModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="reservationTitle">
+    <button class="modal-close" id="reservationClose" aria-label="Close">&times;</button>
+    <h3 id="reservationTitle">Reserve A Table</h3>
+    <p class="modal-trim">Demo only — no reservation is actually booked.</p>
+    <form id="reservationForm">
+      <div class="form-field"><label>Full Name</label><input type="text" required placeholder="Your name"></div>
+      <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+      <div class="form-grid-2">
+        <div class="form-field"><label>Date</label><input type="date" required></div>
+        <div class="form-field"><label>Time</label><input type="time" required></div>
+      </div>
+      <div class="form-field"><label>Party Size</label>
+        <select required>
+          <option value="">Select…</option>
+          <option>1 guest</option><option>2 guests</option><option>3 guests</option>
+          <option>4 guests</option><option>5 guests</option><option>6+ guests</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-amber w-full">Request Reservation</button>
+    </form>
+    <p class="form-success" id="reservationSuccess" hidden>Thanks! Your request has been received (demo) — we'll confirm by email shortly.</p>
+  </div>
+</div>
+
+<!-- Info modal (Meet the Chef / social) -->
+<div class="modal-overlay" id="infoModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <button class="modal-close" id="infoClose" aria-label="Close">&times;</button>
+    <h3 id="infoTitle">Title</h3>
+    <div id="infoBody"></div>
+  </div>
+</div>
+
+<div class="body-overlay" id="bodyOverlay"></div>
 
 <script src="products.js"></script>
 <script src="script.js"></script>

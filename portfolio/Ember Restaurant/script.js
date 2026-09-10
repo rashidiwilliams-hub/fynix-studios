@@ -17,6 +17,38 @@ function wireDishGrid(container) {
   });
 }
 
+// ---------- Overlays (reservation / info modals) ----------
+function closeAllOverlays() {
+  document.querySelectorAll('.modal-overlay.open').forEach(o => o.classList.remove('open'));
+  const bodyOverlay = document.getElementById('bodyOverlay');
+  if (bodyOverlay) bodyOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function openOverlay(id) {
+  closeAllOverlays();
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.hidden = false;
+  void el.offsetWidth;
+  el.classList.add('open');
+  const bodyOverlay = document.getElementById('bodyOverlay');
+  if (bodyOverlay) { bodyOverlay.hidden = false; void bodyOverlay.offsetWidth; bodyOverlay.classList.add('open'); }
+  document.body.style.overflow = 'hidden';
+}
+
+const INFO_CONTENT = {
+  'chef': { title: 'Meet The Chef', body: '<p>Our head chef trained in kitchens across three countries before settling on one simple idea: cook over live fire, source close to home, and get out of the ingredients\' way. Every seasonal menu at Ember starts in the same place — a conversation with the farmers and fishermen we work with each week.</p>' },
+  'social-ig': { title: 'Instagram', body: '<p>This is a demo link — in a live site this would open our Instagram profile in a new tab.</p>' },
+  'social-f': { title: 'Facebook', body: '<p>This is a demo link — in a live site this would open our Facebook page in a new tab.</p>' }
+};
+function openInfoModal(key) {
+  const entry = INFO_CONTENT[key];
+  if (!entry) return;
+  document.getElementById('infoTitle').textContent = entry.title;
+  document.getElementById('infoBody').innerHTML = entry.body;
+  openOverlay('infoModal');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
@@ -32,6 +64,50 @@ document.addEventListener('DOMContentLoaded', () => {
     menuGrid.innerHTML = MENU.map(dishCardHTML).join('');
     wireDishGrid(menuGrid);
   }
+
+  // Smooth-scroll nav links
+  document.querySelectorAll('[data-scroll]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = link.getAttribute('href').replace('#', '');
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (mainNav) mainNav.classList.remove('open');
+    });
+  });
+
+  // Reservation modal triggers
+  document.querySelectorAll('[data-open-reservation]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openOverlay('reservationModal');
+      if (mainNav) mainNav.classList.remove('open');
+    });
+  });
+  const reservationClose = document.getElementById('reservationClose');
+  if (reservationClose) reservationClose.addEventListener('click', closeAllOverlays);
+  const reservationForm = document.getElementById('reservationForm');
+  if (reservationForm) {
+    reservationForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      reservationForm.hidden = true;
+      document.getElementById('reservationSuccess').hidden = false;
+    });
+  }
+
+  // Info modal triggers (Meet the Chef / social)
+  document.querySelectorAll('[data-info]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openInfoModal(link.dataset.info);
+    });
+  });
+  const infoClose = document.getElementById('infoClose');
+  if (infoClose) infoClose.addEventListener('click', closeAllOverlays);
+
+  const bodyOverlay = document.getElementById('bodyOverlay');
+  if (bodyOverlay) bodyOverlay.addEventListener('click', closeAllOverlays);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllOverlays(); });
 
   initDishPage();
 });

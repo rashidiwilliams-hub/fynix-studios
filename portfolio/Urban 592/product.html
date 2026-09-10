@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+<title>Product — Urban 592</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<div class="top-bar">
+  <span>Free Shipping On Orders Over G$20,000</span>
+  <span>10% Off Your First Order | Use Code: FIRST10</span>
+  <span>↺ Easy Returns Within 30 Days</span>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">URBAN<small>592</small></a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">New In</a>
+      <a href="index.html#clothing">Categories</a>
+      <a href="index.html#clothing">Shoes</a>
+      <a href="index.html#clothing">Accessories</a>
+      <a href="index.html#collections">Collections</a>
+      <a href="index.html#clothing">Sale</a>
+      <a href="index.html#footerAbout">Blog</a>
+    </nav>
+    <div class="header-actions">
+      <button aria-label="Search" id="searchBtn" data-icon="search"></button>
+      <button aria-label="Account" id="accountBtn" data-icon="person"></button>
+      <button aria-label="Wishlist" id="wishlistBtn" data-icon="heart"><span class="wishlist-badge" id="wishlistBadge" hidden>0</span></button>
+      <button class="cart-btn" aria-label="Cart" id="cartBtn" data-icon="bag"><span class="cart-badge" id="cartBadge">0</span></button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> <span>/</span> <a href="index.html#bestSellers" id="crumbCategory">Category</a> <span>/</span> <span id="crumbName">Product</span>
+</div>
+
+<section class="pdp" id="productDetail">
+  <div class="pdp-gallery">
+    <img id="productImage" src="" alt="">
+    <div class="gallery-thumbs" id="galleryThumbs" hidden></div>
+  </div>
+  <div class="pdp-info">
+    <span class="pdp-category-tag" id="productCategoryTag"></span>
+    <h1 id="productName">Product Name</h1>
+    <div class="pdp-meta">
+      <span class="stars" id="productStars"></span>
+      <span class="review-count" id="productReviewCount"></span>
+    </div>
+    <p class="pdp-price" id="productPrice"></p>
+    <p class="pdp-desc">Crafted from premium, breathable fabric for all-day comfort, this piece is cut with a modern, relaxed fit that moves with you. A versatile essential designed to layer effortlessly and hold up wear after wear — fits true to size across every body.</p>
+
+    <div class="pdp-option">
+      <span class="pdp-option-label">Size</span>
+      <div class="size-group">
+        <button type="button">XS</button>
+        <button type="button">S</button>
+        <button type="button" class="active">M</button>
+        <button type="button">L</button>
+        <button type="button">XL</button>
+      </div>
+    </div>
+
+    <div class="pdp-option">
+      <span class="pdp-option-label">Color</span>
+      <div class="color-group">
+        <button type="button" class="color-swatch active" style="background:#121212" aria-label="Black"></button>
+        <button type="button" class="color-swatch" style="background:#33415c" aria-label="Navy"></button>
+        <button type="button" class="color-swatch" style="background:#c9b79c" aria-label="Sand"></button>
+      </div>
+    </div>
+
+    <div class="pdp-buy-row">
+      <div class="qty-stepper">
+        <button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button>
+        <span id="qtyValue">1</span>
+        <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
+      </div>
+      <button type="button" class="btn btn-add-cart" id="addToCartBtn">Add to Cart</button>
+      <button type="button" class="fav-btn pdp-fav" data-icon="heart" aria-label="Add to wishlist"></button>
+    </div>
+
+    <ul class="pdp-perks">
+      <li><span data-icon="cube"></span>Free shipping on orders over G$20,000</li>
+      <li><span data-icon="sync"></span>Easy returns within 30 days</li>
+      <li><span data-icon="shield"></span>Secure checkout</li>
+    </ul>
+
+    <div class="pdp-tabs">
+      <div class="pdp-tab-heads">
+        <button type="button" class="pdp-tab-head active" data-tab="details">Details &amp; Care</button>
+        <button type="button" class="pdp-tab-head" data-tab="shipping">Shipping &amp; Returns</button>
+        <button type="button" class="pdp-tab-head" data-tab="reviews">Reviews</button>
+      </div>
+      <div class="pdp-tab-panel active" data-tab-panel="details">
+        <p>Crafted from premium, breathable fabric for all-day comfort. Cut with a modern, relaxed fit that moves with you. Reinforced stitching throughout for lasting durability.</p>
+        <p>Care: Machine wash cold with like colors. Tumble dry low. Do not bleach. Iron on low heat if needed.</p>
+      </div>
+      <div class="pdp-tab-panel" data-tab-panel="shipping">
+        <p>Free standard shipping on all orders over G$20,000. Orders are processed within 1–2 business days and typically arrive within 3–5 business days across Guyana.</p>
+        <p>Not the right fit? Return any unworn item within 30 days for a full refund or exchange — no questions asked.</p>
+      </div>
+      <div class="pdp-tab-panel" data-tab-panel="reviews">
+        <div class="review">
+          <span class="stars">★★★★★</span>
+          <p>Fit is exactly as described and the fabric feels great. Ordering another color already.</p>
+          <small>— Priya R.</small>
+        </div>
+        <div class="review">
+          <span class="stars">★★★★☆</span>
+          <p>Really happy with the quality for the price. Runs slightly large, sized down and it's perfect.</p>
+          <small>— Jordan M.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="best-sellers related-products">
+  <div class="section-head"><h2>You Might Also Like</h2></div>
+  <div class="product-grid" id="relatedGrid"></div>
+</section>
+
+<footer class="site-footer" id="blog">
+  <div class="footer-grid">
+    <div><span class="logo">URBAN<small>592</small></span><p>Modern essentials for everyone. Built on style. Rooted in Guyana. Driven by you.</p><div class="social-icons"><a href="#" data-info="social-ig" data-icon="logoIg" aria-label="Instagram"></a><a href="#" data-info="social-f" data-icon="logoFb" aria-label="Facebook"></a><a href="#" data-info="social-p" data-icon="logoPin" aria-label="Pinterest"></a><a href="#" data-info="social-yt" data-icon="logoYt" aria-label="YouTube"></a></div></div>
+    <div><h4>Shop</h4><a href="index.html">New In</a><a href="index.html#clothing">Categories</a><a href="index.html#clothing">Shoes</a><a href="index.html#clothing">Accessories</a><a href="index.html#clothing">Sale</a></div>
+    <div><h4>Customer Care</h4><a href="#" data-info="contact">Contact Us</a><a href="#" data-info="shipping">Shipping &amp; Delivery</a><a href="#" data-info="returns">Returns &amp; Refunds</a><a href="#" data-info="size-guide">Size Guide</a><a href="#" data-info="faqs">FAQs</a></div>
+    <div><h4>About Us</h4><a href="#" data-info="our-story">Our Story</a><a href="#" data-info="sustainability">Sustainability</a><a href="#" data-info="careers">Careers</a><a href="#" data-info="store-locator">Store Locator</a><a href="#" data-info="press">Press</a></div>
+    <div><h4>Stay In The Loop</h4><p>Sign up for exclusive offers and style updates.</p><form id="newsletterForm"><input type="email" placeholder="Enter your email"><button type="submit">→</button></form></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Fynix Studios. All Rights Reserved.</span><div><a href="index.html">Privacy Policy</a><a href="index.html">Terms &amp; Conditions</a></div></div>
+</footer>
+
+<!-- Cart drawer -->
+<div class="drawer-overlay" id="cartOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <h3 id="cartTitle">Your Cart</h3>
+      <button class="drawer-close" id="cartClose" data-icon="close" aria-label="Close"></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="no-results" id="cartEmptyMsg" hidden>Your cart is empty. Browse Best Sellers to add something.</p>
+    <div class="drawer-foot" id="cartFoot">
+      <div class="cart-line"><span>Subtotal</span><span id="cartSubtotal">G$0</span></div>
+      <a href="checkout.html" class="btn btn-dark w-full">Checkout</a>
+    </div>
+  </aside>
+</div>
+
+<!-- Wishlist drawer -->
+<div class="drawer-overlay" id="wishlistOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="wishlistTitle">
+    <div class="drawer-head">
+      <h3 id="wishlistTitle">Your Wishlist</h3>
+      <button class="drawer-close" id="wishlistClose" data-icon="close" aria-label="Close"></button>
+    </div>
+    <div class="cart-items" id="wishlistItems"></div>
+    <p class="no-results" id="wishlistEmptyMsg" hidden>Nothing saved yet. Tap the heart on any product to add it here.</p>
+  </aside>
+</div>
+
+<!-- Search overlay -->
+<div class="drawer-overlay" id="searchOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+    <div class="drawer-head">
+      <h3 id="searchTitle">Search</h3>
+      <button class="drawer-close" id="searchClose" data-icon="close" aria-label="Close"></button>
+    </div>
+    <input type="text" id="searchInput" class="search-input" placeholder="Search products…" autocomplete="off">
+    <div class="cart-items" id="searchResults"></div>
+    <p class="no-results" id="searchEmptyMsg" hidden>No products match your search.</p>
+  </aside>
+</div>
+
+<!-- Account modal -->
+<div class="modal-overlay" id="accountModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+    <button class="modal-close" id="accountClose" data-icon="close" aria-label="Close"></button>
+    <h3 id="accountTitle">Sign In</h3>
+    <p class="modal-trim">Demo only — no account is created or stored.</p>
+    <form id="signInForm">
+      <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+      <div class="form-field"><label>Password</label><input type="password" required placeholder="••••••••"></div>
+      <button type="submit" class="btn btn-dark w-full">Sign In</button>
+    </form>
+    <p class="form-success" id="signInSuccess" hidden>You're signed in (demo). Welcome back!</p>
+  </div>
+</div>
+
+<!-- Info modal (Customer Care / About Us / social / legal) -->
+<div class="modal-overlay" id="infoModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <button class="modal-close" id="infoClose" data-icon="close" aria-label="Close"></button>
+    <h3 id="infoTitle">Title</h3>
+    <div id="infoBody"></div>
+  </div>
+</div>
+
+<div class="body-overlay" id="bodyOverlay"></div>
+
+<script src="products.js"></script>
+<script src="script.js?v=4"></script>
+</body>
+</html>

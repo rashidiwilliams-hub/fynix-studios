@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+<title>Checkout — Urban 592</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">URBAN<small>592</small></a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+    </nav>
+    <div class="header-actions">
+      <button class="cart-btn" aria-label="Cart" id="cartBtn" data-icon="bag"><span class="cart-badge" id="cartBadge">0</span></button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="checkout-hero">
+  <h1>Checkout</h1>
+  <p>Almost there — just a few details and your order is on its way.</p>
+</section>
+
+<div id="checkoutEmpty" class="checkout-empty" hidden>
+  <h2>Your cart is empty</h2>
+  <p>Add something from Best Sellers before checking out.</p>
+  <a href="index.html#bestSellers" class="btn btn-dark">Browse Best Sellers</a>
+</div>
+
+<div id="checkoutContent">
+  <div class="checkout-grid">
+    <div class="checkout-form-col">
+      <form id="checkoutForm">
+        <h2 class="checkout-h2">Delivery Details</h2>
+        <div class="form-grid">
+          <div class="form-field"><label>Full Name</label><input type="text" id="checkoutName" required placeholder="Your full name"></div>
+          <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+          <div class="form-field full"><label>Delivery Address</label><input type="text" required placeholder="Lot / Street, Ward"></div>
+          <div class="form-field"><label>City / Town</label><input type="text" required placeholder="e.g. Georgetown"></div>
+          <div class="form-field"><label>Region</label><input type="text" required placeholder="e.g. Demerara-Mahaica"></div>
+        </div>
+
+        <h2 class="checkout-h2">Payment Method</h2>
+        <div class="radio-row">
+          <label><input type="radio" name="payment" value="card" checked> Credit / Debit Card</label>
+          <label><input type="radio" name="payment" value="cash"> Cash on Delivery</label>
+        </div>
+        <div class="form-grid" id="cardFields">
+          <div class="form-field full"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456"></div>
+          <div class="form-field"><label>Expiry</label><input type="text" placeholder="MM/YY"></div>
+          <div class="form-field"><label>CVC</label><input type="text" placeholder="123"></div>
+        </div>
+
+        <button type="submit" class="btn btn-dark w-full">Place Order</button>
+      </form>
+    </div>
+
+    <aside class="order-summary">
+      <h3>Order Summary</h3>
+      <div id="summaryItems"></div>
+      <div class="summary-totals">
+        <div><span>Subtotal</span><span id="summarySubtotal">G$0</span></div>
+        <div><span>Shipping</span><span id="summaryShipping">G$0</span></div>
+        <div><span>VAT (14%)</span><span id="summaryTax">G$0</span></div>
+        <div class="grand-total"><span>Total</span><span id="summaryTotal">G$0</span></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="confirmation" id="checkoutConfirmation" hidden>
+    <div class="confirmation-icon">✓</div>
+    <h2>Thank you, <span id="confirmName">friend</span>!</h2>
+    <p>Your order <span class="order-number" id="confirmOrderNumber"></span> has been placed.</p>
+    <p>Total charged: <strong id="confirmTotal"></strong></p>
+    <a href="index.html" class="btn btn-dark" style="margin-top:1.2rem;">Continue Shopping</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div><span class="logo">URBAN<small>592</small></span><p>Modern essentials for everyone. Built on style. Rooted in Guyana. Driven by you.</p></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Fynix Studios. All Rights Reserved.</span></div>
+</footer>
+
+<script src="products.js"></script>
+<script src="checkout.js?v=3"></script>
+</body>
+</html>
