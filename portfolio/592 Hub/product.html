@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+<title>Product — 592 Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="utility-left">
+    <span>Free Shipping on Orders Over $99</span>
+    <span>30-Day Money-Back Guarantee</span>
+    <span>24/7 Customer Support</span>
+  </div>
+  <div class="utility-right"><span>English</span><span>GYD</span></div>
+</div>
+
+<div class="page-shell">
+  <header class="site-header">
+    <a class="logo" href="index.html"><span class="logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>592 Hub</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="shop.html">Categories</a>
+      <a href="index.html#sale">Deals</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box">
+        <input type="text" placeholder="Search products...">
+        <button class="search-btn" aria-label="Search"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      </div>
+      <button aria-label="Wishlist" id="headerWishlistBtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7.2-4.5-9.8-9C.6 8.4 2 4.5 6 4c2.3-.3 4.3 1 6 3 1.7-2 3.7-3.3 6-3 4 .5 5.4 4.4 3.8 8-2.6 4.5-9.8 9-9.8 9Z"/></svg></button>
+      <button aria-label="Bag" class="cart-btn" id="cartBtn"><svg width="16" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cart-badge" id="cartBadge">0</span></button>
+    </div>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="shop.html" id="crumbCategory">Shop</a> / <span id="crumbName">Product</span></nav>
+
+  <section class="product" id="productDetail">
+    <div class="product-gallery">
+      <div class="gallery-main"><img id="mainImage" src="" alt=""></div>
+      <div class="gallery-side">
+        <div class="gallery-thumb"><img id="thumbImage1" src="" alt=""></div>
+        <div class="gallery-thumb"><img id="thumbImage2" src="" alt=""></div>
+      </div>
+    </div>
+
+    <div class="product-info">
+      <p class="product-brand" id="productBrand">Brand</p>
+      <h1 id="productName">Product Name</h1>
+      <div class="card-rating product-rating"><span class="stars" id="productStars"></span><span class="rating-count" id="productReviewCount"></span></div>
+
+      <dl class="spec-list">
+        <div class="spec-row spec-lead">
+          <dt id="productStep">Category</dt>
+          <dd id="productLead">Description</dd>
+        </div>
+        <div class="spec-row"><dt>Key Features</dt><dd id="productTargets"></dd></div>
+        <div class="spec-row"><dt>Best For</dt><dd id="productSuited"></dd></div>
+        <div class="spec-row"><dt>Specs</dt><dd id="productFormat"></dd></div>
+        <div class="spec-row"><dt>What's in the Box</dt><dd id="productIngredients"></dd></div>
+      </dl>
+
+      <div class="price-row">
+        <span class="price" id="productPrice"></span>
+        <span class="price-old" id="productOldPrice"></span>
+        <span class="pill" id="productSize"></span>
+        <span class="spacer"></span>
+        <a href="#" class="link-underline">Delivery</a>
+        <span class="dot">/</span>
+        <a href="#" class="link-underline">Payment</a>
+      </div>
+
+      <div class="buy-row">
+        <div class="qty-stepper">
+          <button class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">−</button>
+          <span id="qtyValue">1</span>
+          <button class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="btn-cart" id="addToCartBtn">add to cart</button>
+        <button class="icon-btn" id="wishlistBtn" aria-label="Add to wishlist">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7.2-4.5-9.8-9C.6 8.4 2 4.5 6 4c2.3-.3 4.3 1 6 3 1.7-2 3.7-3.3 6-3 4 .5 5.4 4.4 3.8 8-2.6 4.5-9.8 9-9.8 9Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="also-like">
+    <div class="also-like-head">
+      <h2>You may also like:</h2>
+      <div class="carousel-nav">
+        <button class="carousel-arrow" id="alPrev" aria-label="Previous">←</button>
+        <button class="carousel-arrow" id="alNext" aria-label="Next">→</button>
+      </div>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html"><span class="logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>592 Hub</a>
+      <p>Your one-stop destination for top-quality products at the best prices. Shop smart, live better.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-1.9 1.9-1.9H17V2.1C16.6 2 15.4 2 14 2c-2.9 0-4.9 1.8-4.9 5v2.9H6v4h3.1v8H13Z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4a4.2 4.2 0 0 1-1.9.1 4.1 4.1 0 0 0 3.9 2.9A8.3 8.3 0 0 1 2 18.4a11.7 11.7 0 0 0 6.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1Z"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.6 19.3c0-.8 0-1.8.2-2.6l1.4-6s-.3-.7-.3-1.7c0-1.6.9-2.8 2.1-2.8 1 0 1.5.7 1.5 1.6 0 1-.6 2.4-1 3.8-.2 1 .5 1.8 1.5 1.8 1.8 0 3.1-2.3 3.1-5 0-2.1-1.5-3.6-4-3.6-2.9 0-4.7 2.2-4.7 4.6 0 .8.3 1.4.7 1.9.2.2.2.3.1.5l-.3 1c0 .3-.2.3-.5.2-1.4-.6-2-2.2-2-4 0-3 2.5-6.5 7.4-6.5 4 0 6.5 2.8 6.5 5.9 0 4-2.2 7-5.5 7-1.1 0-2.1-.6-2.5-1.2l-.7 2.7c-.2 1-.7 2-1.1 2.7A10 10 0 1 0 12 2Z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7a2.9 2.9 0 0 0-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.3a2.9 2.9 0 0 0-2 2C2 8.8 2 12 2 12s0 3.2.4 4.7a2.9 2.9 0 0 0 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.3a2.9 2.9 0 0 0 2-2C22 15.2 22 12 22 12ZM10 15V9l5.2 3Z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="shop.html">Categories</a></li><li><a href="index.html#sale">Deals</a></li><li><a href="index.html#contact">About Us</a></li></ul></div>
+    <div class="footer-col"><h4>Customer Service</h4><ul><li><a href="index.html#contact">Contact Us</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Returns &amp; Refunds</a></li><li><a href="#">Terms &amp; Conditions</a></li></ul></div>
+    <div class="footer-col"><h4>My Account</h4><ul><li><a href="#">My Orders</a></li><li><a href="#">Wishlist</a></li><li><a href="#">Account Details</a></li><li><a href="#">Login / Register</a></li></ul></div>
+    <div class="footer-col footer-contact"><h4>Contact Us</h4><ul><li>123 Camp Street<br>Georgetown, Guyana</li><li>+592 227 4410</li><li>support@592hub.gy</li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 592 Hub. All Rights Reserved. Built by Fynix Studios.</p>
+    <div class="footer-payments"><span>VISA</span><span>MC</span><span>PayPal</span><span>Apple Pay</span></div>
+  </div>
+</footer>
+
+<script src="products.js?v=2"></script>
+<script src="script.js?v=2"></script>
+</body>
+</html>
