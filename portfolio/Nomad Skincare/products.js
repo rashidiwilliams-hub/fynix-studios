@@ -103,7 +103,7 @@ const PRODUCTS = [
     suited: 'All Skin Types',
     format: '2-Piece Set',
     routine: 'Morning & Evening',
-    images: ['assets/images/product-cleanser-1.jpg', 'assets/images/product-serum-1.jpg'],
-    alt: 'Cleanser and serum bottles styled together'
+    images: ['assets/images/product-set-1.jpg', 'assets/images/product-cleanser-1.jpg', 'assets/images/product-serum-1.jpg'],
+    alt: 'Three matching white and gold skincare bottles styled together on a grey background'
   }
 ];

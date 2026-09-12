@@ -58,8 +58,8 @@ const PRODUCTS = [
     suited: 'All Skin Types',
     format: 'Tube, SPF 45, 50ml',
     routine: 'Morning',
-    images: ['assets/images/product-sunscreen-1.jpg'],
-    alt: 'Two blank cosmetic tubes on a black background'
+    images: ['assets/images/product-sunscreen-1.jpg', 'assets/images/product-sunscreen-2.jpg'],
+    alt: 'Two blank lotion tubes styled on a granite stone with dried flowers'
   },
   {
     slug: 'clarity-mask',
@@ -74,7 +74,7 @@ const PRODUCTS = [
     format: 'Jar, 75ml',
     routine: '1–2x Weekly',
     images: ['assets/images/product-mask-1.jpg'],
-    alt: 'Dark cream jar styled on a terracotta dish'
+    alt: 'Amber cream jar styled with a raw amethyst stone on a dark background'
   },
   {
     slug: 'restore-lip-balm',
@@ -90,5 +90,50 @@ const PRODUCTS = [
     routine: 'As Needed',
     images: ['assets/images/product-lip-1.jpg'],
     alt: 'Lip balm stick on a wood slice with a dried leaf'
+  },
+  {
+    slug: 'midnight-eye-cream',
+    name: 'Midnight Eye Cream',
+    category: 'Eye Care',
+    price: 42.00,
+    rating: 4.8,
+    reviews: 63,
+    lead: 'A cooling eye cream that depuffs and smooths fine lines while you sleep, without ever feeling heavy.',
+    ingredients: 'Caffeine, Peptides, Squalane',
+    suited: 'All Skin Types',
+    format: 'Jar, 15ml',
+    routine: 'Evening',
+    images: ['assets/images/product-eyecream-1.jpg'],
+    alt: 'White and black cosmetic jar balanced on the edge of a dark green marble block'
+  },
+  {
+    slug: 'balance-toner',
+    name: 'Balance Toner',
+    category: 'Toners',
+    price: 31.00,
+    rating: 4.7,
+    reviews: 88,
+    lead: 'A misting toner that resets skin pH and preps your face to absorb serums and moisturizer more effectively.',
+    ingredients: 'Witch Hazel, Rose Water, Niacinamide',
+    suited: 'All Skin Types',
+    format: 'Mist Bottle, 120ml',
+    routine: 'Morning & Evening',
+    images: ['assets/images/product-toner-1.jpg'],
+    alt: 'Dark amber spray bottle with a gold cap resting on smooth stones'
+  },
+  {
+    slug: 'renewing-body-oil',
+    name: 'Renewing Body Oil',
+    category: 'Body Care',
+    price: 36.00,
+    rating: 4.9,
+    reviews: 54,
+    lead: 'A fast-absorbing dry oil that leaves skin soft and lightly scented, never greasy.',
+    ingredients: 'Jojoba Oil, Vitamin E, Sandalwood',
+    suited: 'All Skin Types',
+    format: 'Dropper Bottle, 100ml',
+    routine: 'Evening',
+    images: ['assets/images/product-oil-1.jpg'],
+    alt: 'Dark dropper bottle resting on a bed of black stones'
   }
 ];

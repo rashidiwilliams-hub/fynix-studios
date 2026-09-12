@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="assets/images/favicon.png">
-<title>Product — Oddawurld</title>
+<title>Shop — Eclipse</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 
 <div class="inner-header-wrap">
   <header class="site-header">
-    <a class="logo" href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-3 3-4 5-4 8a4 4 0 0 0 8 0c0-3-1-5-4-8Z"/></svg>ODDAWURLD</a>
+    <a class="logo" href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-3 3-4 5-4 8a4 4 0 0 0 8 0c0-3-1-5-4-8Z"/></svg>ECLIPSE</a>
     <nav class="main-nav">
       <a href="index.html">Home</a>
       <a href="shop.html" class="active">Shop</a>
@@ -33,49 +33,26 @@
 </div>
 
 <div class="page-shell">
-  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="shop.html" id="crumbCategory">Shop</a> / <span id="crumbName">Product</span></nav>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / Shop</nav>
 
-  <section class="product-detail" id="productDetail">
-    <div class="product-gallery">
-      <div class="gallery-main"><img id="mainImage" src="" alt=""></div>
-      <div class="thumb-row" id="thumbWrap"></div>
-    </div>
-    <div class="product-info">
-      <span class="product-category-tag" id="crumbCategoryTag"></span>
-      <h1 id="productName">Product Name</h1>
-      <div class="product-rating"><span class="stars" id="productStars"></span><span class="rating-count" id="productReviewCount"></span></div>
-      <p class="product-lead" id="productLead">Description</p>
-
-      <dl class="spec-list">
-        <div class="spec-row"><dt>Key Ingredients</dt><dd id="productIngredients"></dd></div>
-        <div class="spec-row"><dt>Suited To</dt><dd id="productSuited"></dd></div>
-        <div class="spec-row"><dt>Format</dt><dd id="productFormat"></dd></div>
-        <div class="spec-row"><dt>Use</dt><dd id="productRoutine"></dd></div>
-      </dl>
-
-      <div class="product-price-row"><span class="product-price" id="productPrice"></span></div>
-
-      <div class="buy-row">
-        <div class="qty-stepper">
-          <button class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">−</button>
-          <span id="qtyValue">1</span>
-          <button class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
-        </div>
-        <button class="btn-cart" id="addToCartBtn">Add to Bag</button>
-      </div>
-    </div>
+  <section class="shop-hero">
+    <h1>Shop All</h1>
+    <p>Clean, conscious skincare for every step of your routine.</p>
   </section>
 
-  <section class="related-section">
-    <div class="section-head-row"><h2>You May Also Like</h2></div>
-    <div class="product-grid" id="relatedGrid"></div>
+  <section class="shop-grid-section">
+    <div class="shop-toolbar">
+      <div class="shop-tabs" id="shopTabs"></div>
+      <span class="shop-count" id="shopCount"></span>
+    </div>
+    <div class="product-grid" id="shopGrid"></div>
   </section>
 </div>
 
 <footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a class="logo" href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-3 3-4 5-4 8a4 4 0 0 0 8 0c0-3-1-5-4-8Z"/></svg>ODDAWURLD</a>
+      <a class="logo" href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-3 3-4 5-4 8a4 4 0 0 0 8 0c0-3-1-5-4-8Z"/></svg>ECLIPSE</a>
       <p>Clean, conscious skincare made for real routines and real skin.</p>
       <div class="footer-social">
         <a href="#" aria-label="Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
@@ -86,14 +63,14 @@
     <div class="footer-col"><h4>Shop</h4><ul><li><a href="shop.html">All Products</a></li><li><a href="index.html#bestsellers">Bestsellers</a></li><li><a href="shop.html">New Arrivals</a></li></ul></div>
     <div class="footer-col"><h4>Categories</h4><ul><li><a href="shop.html?category=Cleansers">Cleansers</a></li><li><a href="shop.html?category=Serums">Serums</a></li><li><a href="shop.html?category=Face Masks">Face Masks</a></li></ul></div>
     <div class="footer-col"><h4>About</h4><ul><li><a href="index.html#routine">Skincare Routine</a></li><li><a href="#">Our Story</a></li><li><a href="#">Sustainability</a></li></ul></div>
-    <div class="footer-col footer-contact"><h4>Contact</h4><ul><li>123 Camp Street<br>Georgetown, Guyana</li><li>+592 227 4413</li><li>hello@oddawurld.gy</li></ul></div>
+    <div class="footer-col footer-contact"><h4>Contact</h4><ul><li>123 Camp Street<br>Georgetown, Guyana</li><li>+592 713 5786</li><li>core@fynixstudios.com</li></ul></div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 Oddawurld. All Rights Reserved. Built by Fynix Studios.</p>
+    <p>© 2026 Eclipse. All Rights Reserved. Built by Fynix Studios.</p>
   </div>
 </footer>
 
-<script src="products.js?v=1"></script>
+<script src="products.js?v=2"></script>
 <script src="script.js?v=1"></script>
 </body>
 </html>

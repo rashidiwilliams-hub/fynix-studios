@@ -1,5 +1,5 @@
 // ---------- Shared cart (persisted across page loads via localStorage) ----------
-const CART_KEY = 'oddawurld_cart_count';
+const CART_KEY = 'nomad_cart_count';
 function getCartCount() { return parseInt(localStorage.getItem(CART_KEY) || '0', 10); }
 function setCartCount(n) {
   localStorage.setItem(CART_KEY, String(n));
@@ -16,7 +16,7 @@ function productCardHTML(p) {
     <article class="product-card" data-slug="${p.slug}">
       <div class="card-img"><img src="${p.images[0]}" alt="${p.alt}"></div>
       <h3>${p.name}</h3>
-      <div class="card-rating"><span class="stars">${starsHTML(p.rating)}</span><span class="rating-count">(${p.reviews})</span></div>
+      <p class="card-desc">${p.lead}</p>
       <div class="card-bottom">
         <span class="card-price">$${p.price.toFixed(2)}</span>
         <button class="add-btn" aria-label="Add to cart" data-qty-add="${p.slug}">+</button>
@@ -49,7 +49,7 @@ function showToast(message) {
   if (!toast) {
     toast = document.createElement('div');
     toast.id = 'demoToast';
-    toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(10px);background:#1c2018;color:#fff;font-family:inherit;font-size:13px;font-weight:600;padding:10px 18px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,0.25);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:99999;white-space:nowrap;';
+    toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(10px);background:#1c1a17;color:#fff;font-family:inherit;font-size:13px;font-weight:600;padding:10px 18px;border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,0.25);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:99999;white-space:nowrap;';
     document.body.appendChild(toast);
   }
   toast.textContent = message;
@@ -79,12 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const n = getCartCount();
     showToast(n > 0 ? `${n} item${n === 1 ? '' : 's'} in bag — demo only, checkout isn't wired up` : 'Your bag is empty');
   });
-  document.getElementById('wishlistBtn2')?.addEventListener('click', () => showToast('Wishlist — demo only'));
   document.getElementById('accountBtn')?.addEventListener('click', () => showToast('Account — demo only'));
-  document.getElementById('watchRoutineBtn')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    showToast('Routine video — demo only');
-  });
+  document.getElementById('searchBtn')?.addEventListener('click', () => showToast('Search — demo only'));
 
   const newsletterForm = document.getElementById('newsletterForm');
   if (newsletterForm) {
@@ -103,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initHomePage() {
   const grid = document.getElementById('bestSellersGrid');
   if (!grid) return;
-  grid.innerHTML = PRODUCTS.slice(0, 4).map(productCardHTML).join('');
+  grid.innerHTML = PRODUCTS.slice(0, 5).map(productCardHTML).join('');
   wireProductGrid(grid);
 }
 
@@ -144,7 +140,7 @@ function initProductPage() {
   const params = new URLSearchParams(window.location.search);
   const product = PRODUCTS.find(p => p.slug === params.get('id')) || PRODUCTS[0];
 
-  document.title = `${product.name} — Oddawurld`;
+  document.title = `${product.name} — Nomad Skincare`;
   document.getElementById('crumbCategory').textContent = product.category;
   document.getElementById('crumbCategory').href = `shop.html?category=${encodeURIComponent(product.category)}`;
   document.getElementById('crumbName').textContent = product.name;
@@ -198,7 +194,7 @@ function initProductPage() {
 // ---------- Permanent link back to the Fynix Studios portfolio ----------
 (function () {
   var style = document.createElement('style');
-  style.textContent = '.fynix-back-link{position:fixed;bottom:18px;left:18px;z-index:9000;background:#1c2018;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;padding:10px 16px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.3);opacity:0.85;transition:opacity .2s ease,transform .2s ease;display:inline-flex;align-items:center;gap:6px;}' +
+  style.textContent = '.fynix-back-link{position:fixed;bottom:18px;left:18px;z-index:9000;background:#1c1a17;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;padding:10px 16px;border-radius:4px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.3);opacity:0.85;transition:opacity .2s ease,transform .2s ease;display:inline-flex;align-items:center;gap:6px;}' +
     '@media (max-width:640px){.fynix-back-link{left:auto;right:14px;bottom:80px;padding:0;width:40px;height:40px;justify-content:center;border-radius:50%;}.fynix-back-link .fynix-back-label{display:none;}}';
   document.head.appendChild(style);
   var link = document.createElement('a');
