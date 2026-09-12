@@ -275,7 +275,7 @@ const PRODUCTS = [
     slug: 'slim-straight-jeans',
     name: 'Slim Straight Jeans',
     price: 14300,
-    images: ['assets/images/pexels-shootsaga-37851064.jpg'],
+    images: ['assets/images/pexels-milad-heran-2192154-26845351.jpg'],
     alt: 'Slim straight jeans styled with an orange tank top',
     rating: 4,
     reviews: 118,
@@ -303,8 +303,8 @@ const PRODUCTS = [
     sale: true
   },
   {
-    slug: 'essential-v-neck-tee',
-    name: 'Essential V-Neck Tee',
+    slug: 'essential-turtleneck-tee',
+    name: 'Essential Turtleneck Tee',
     price: 5500,
     images: ['assets/images/pexels-dystopiasavagestudios-19330216.jpg'],
     alt: 'Essential tee styled with a ribbed turtleneck top',
@@ -323,13 +323,65 @@ const PRODUCTS = [
     category: 'Basics'
   },
   {
-    slug: 'performance-tee-shorts-set',
-    name: 'Performance Tee & Shorts Set',
+    slug: 'performance-tee-leggings-set',
+    name: 'Performance Top & Leggings Set',
     price: 13800,
     images: ['assets/images/activewear-feature.jpg'],
     alt: 'Woman in a black sports bra and leggings set',
     rating: 5,
     reviews: 19,
     category: 'Activewear'
+  },
+
+  // ---------- Swimwear ----------
+  {
+    slug: 'sunset-triangle-bikini',
+    name: 'Sunset Triangle Bikini',
+    price: 9200,
+    images: ['assets/images/pexels-ar_fotografo-ec-eddy-rodriguez-1481855876-26954132.jpg'],
+    alt: 'Woman in a red triangle bikini seated on beach rocks',
+    rating: 5,
+    reviews: 33,
+    category: 'Swimwear'
+  },
+  {
+    slug: 'star-print-bikini',
+    name: 'Star Print Bikini',
+    price: 8600,
+    images: ['assets/images/pexels-pedrofurtadoo-30500664.jpg'],
+    alt: 'Woman in a black and white star print bikini outdoors',
+    rating: 4,
+    reviews: 27,
+    category: 'Swimwear'
+  },
+  {
+    slug: 'sculpted-one-piece-swimsuit',
+    name: 'Sculpted One-Piece Swimsuit',
+    price: 11800,
+    images: ['assets/images/pexels-pedrofurtadoo-28924238.jpg'],
+    alt: 'Woman in a black sculpted one-piece swimsuit',
+    rating: 5,
+    reviews: 21,
+    category: 'Swimwear'
+  },
+  {
+    slug: 'adorned-triangle-bikini',
+    name: 'Adorned Triangle Bikini',
+    price: 9800,
+    images: ['assets/images/pexels-ravilages-6308148.jpg'],
+    alt: 'Woman in a black beaded triangle bikini standing in water',
+    rating: 5,
+    reviews: 18,
+    category: 'Swimwear'
+  },
+  {
+    slug: 'camo-swim-shorts',
+    name: 'Camo Swim Shorts',
+    price: 8200,
+    images: ['assets/images/pexels-paige-thompson-313369049-13682709.jpg'],
+    alt: 'Man walking on the beach in camo swim shorts',
+    rating: 4,
+    reviews: 15,
+    category: 'Swimwear'
   }
 ];
