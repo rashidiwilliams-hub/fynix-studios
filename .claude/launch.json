@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "fynix-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8123", "--directory", "/Users/rashidi/Desktop/fynix site/.claude/worktrees/agent-a46a7c0b155a6d4ff"],
+      "port": 8123
+    }
+  ]
+}

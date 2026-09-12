@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+<title id="pageTitle">Order — Feastly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+  <aside class="app-sidebar">
+    <a class="side-logo" href="index.html" aria-label="Feastly home">🍽️</a>
+    <nav class="side-nav">
+      <div class="side-nav-item active" data-demo="Dashboard" aria-label="Dashboard">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        <span class="side-tooltip">Dashboard</span>
+      </div>
+      <div class="side-nav-item" data-scroll="menuSection" aria-label="Menu">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        <span class="side-tooltip">Menu</span>
+      </div>
+      <div class="side-nav-item" data-demo="New Order" aria-label="New Order">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="side-tooltip">New Order</span>
+      </div>
+      <div class="side-nav-item" data-demo="Pending Orders" aria-label="Pending Orders">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
+        <span class="side-tooltip">Pending Orders</span>
+      </div>
+      <div class="side-nav-item" data-demo="Reservations" aria-label="Reservations">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></svg>
+        <span class="side-tooltip">Reservations</span>
+      </div>
+      <div class="side-nav-item" data-scroll="reportsSection" aria-label="Overview">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+        <span class="side-tooltip">Overview</span>
+      </div>
+    </nav>
+    <a class="side-nav-item side-back" href="index.html" aria-label="All restaurants">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span class="side-tooltip">All Restaurants</span>
+    </a>
+  </aside>
+
+  <main class="app-main">
+    <div class="dashboard-topbar">
+      <a class="restaurant-identity" href="index.html" id="restaurantIdentity" style="cursor:pointer;">
+        <img id="restLogo" src="" alt="">
+        <div>
+          <div class="ri-name" id="restName">Restaurant</div>
+          <div class="ri-cuisine" id="restCuisine">Cuisine</div>
+        </div>
+      </a>
+      <div class="search-bar">
+        <input type="text" id="menuSearch" placeholder="Search this menu — dishes, categories...">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </div>
+      <button class="switch-restaurant-btn" id="switchRestaurantBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v6h6M20 20v-6h-6"/><path d="M4.5 15a8 8 0 0 0 14.5 3.4M19.5 9A8 8 0 0 0 5 5.6"/></svg>
+        Switch Restaurant
+      </button>
+    </div>
+
+    <section id="menuSection">
+      <div class="section-head-row">
+        <h2>Menu</h2>
+        <span class="muted-link" id="dishCountLabel"></span>
+      </div>
+      <div class="category-chips" id="categoryChips"></div>
+      <div class="dish-grid" id="dishGrid"></div>
+    </section>
+
+    <section class="reports-section" id="reportsSection">
+      <div class="section-head-row">
+        <h2>Order Reports</h2>
+        <span class="muted-link" id="reportsSummary">Recent activity</span>
+      </div>
+      <div class="reports-table-wrap">
+        <table class="reports-table">
+          <thead>
+            <tr><th>Customer</th><th>Order #</th><th>Address</th><th>Amount</th><th>Status</th></tr>
+          </thead>
+          <tbody id="reportsBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <aside class="app-rail">
+    <div class="delivery-card">
+      <div class="dcard-head">
+        <span>Delivery Address</span>
+        <button class="change-btn" id="changeAddressBtn">Change</button>
+      </div>
+      <div class="dcard-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <span id="deliveryAddress">Address</span>
+      </div>
+      <div class="dcard-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <span id="deliveryEta">ETA</span>
+      </div>
+    </div>
+
+    <div class="fulfillment-toggle" id="fulfillmentToggle">
+      <button data-mode="Delivery" class="active">Delivery</button>
+      <button data-mode="Dine In">Dine In</button>
+      <button data-mode="Takeaway">Takeaway</button>
+    </div>
+
+    <div class="cart-head">
+      <h3>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Cart
+      </h3>
+      <span class="order-id" id="orderIdLabel"></span>
+    </div>
+
+    <div class="cart-list" id="cartList"></div>
+
+    <div class="cart-summary">
+      <div class="row"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="row"><span>Delivery Charge</span><span id="cartDeliveryFee">$2.50</span></div>
+      <div class="row total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    </div>
+    <button class="place-order-btn" id="placeOrderBtn" disabled>Place Order</button>
+  </aside>
+</div>
+
+<div class="overlay" id="confirmOverlay" hidden>
+  <div class="confirm-card">
+    <div class="check-badge">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h3>Order placed!</h3>
+    <p>Your order <span class="order-number" id="confirmOrderNumber">#0000</span> from <span id="confirmRestName"></span> is on its way. Estimated arrival <span id="confirmEta"></span>.</p>
+    <div class="confirm-actions">
+      <button class="secondary" id="confirmBrowseBtn">Browse More</button>
+      <button class="primary" id="confirmCloseBtn">Done</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="pickRestaurantOverlay" hidden>
+  <div class="confirm-card">
+    <h3>Pick a restaurant</h3>
+    <p>This link didn't specify a restaurant. Head back to the browse page to choose one.</p>
+    <div class="confirm-actions">
+      <a class="primary" href="index.html" style="flex:1; display:flex; align-items:center; justify-content:center; text-decoration:none;">Browse Restaurants</a>
+    </div>
+  </div>
+</div>
+
+<script src="data.js?v=1"></script>
+<script src="cart.js?v=1"></script>
+<script src="order.js?v=2"></script>
+</body>
+</html>
