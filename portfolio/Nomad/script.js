@@ -22,8 +22,8 @@ function injectIcons(root) {
 }
 
 // ---------- Shared cart (persisted across pages via localStorage) ----------
-const CART_KEY = 'urban592_cart';
-const WISHLIST_KEY = 'urban592_wishlist';
+const CART_KEY = 'nomadapparel_cart';
+const WISHLIST_KEY = 'nomadapparel_wishlist';
 
 function getCart() {
   try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch (e) { return []; }
@@ -249,12 +249,12 @@ function renderSearchResults(query) {
 
 // ---------- Info modal content ----------
 const INFO_CONTENT = {
-  'contact': { title: 'Contact Us', body: '<p>We\'re happy to help with sizing, orders, or anything else.</p><p><strong>Email:</strong> <a href="mailto:core@fynixstudios.com">core@fynixstudios.com</a><br><strong>Phone:</strong> <a href="https://wa.me/5927135786" target="_blank" rel="noopener">+592 713 5786</a><br>Mon–Fri, 9am–6pm</p>' },
+  'contact': { title: 'Contact Us', body: '<p><em>This is a demo storefront built by Fynix Studios to showcase design and development work — no real orders are placed here.</em></p><p>We\'re happy to help with sizing, orders, or anything else.</p><p><strong>Email:</strong> <a href="mailto:core@fynixstudios.com">core@fynixstudios.com</a><br><strong>Phone:</strong> <a href="https://wa.me/5927135786" target="_blank" rel="noopener">+592 713 5786</a><br>Mon–Fri, 9am–6pm</p>' },
   'shipping': { title: 'Shipping & Delivery', body: '<p>Free standard shipping on all orders over G$20,000. Standard delivery within Georgetown takes 1–2 business days; regional delivery across Guyana takes 3–5 business days.</p>' },
   'returns': { title: 'Returns & Refunds', body: '<p>Not the right fit? Return any unworn item within 30 days for a full refund or exchange — no questions asked.</p>' },
   'size-guide': { title: 'Size Guide', body: '<table class="info-table"><tr><th>Size</th><th>Chest/Bust (in)</th><th>Waist (in)</th></tr><tr><td>XS</td><td>32–34</td><td>25–27</td></tr><tr><td>S</td><td>35–37</td><td>28–30</td></tr><tr><td>M</td><td>38–40</td><td>31–33</td></tr><tr><td>L</td><td>41–43</td><td>34–36</td></tr><tr><td>XL</td><td>44–46</td><td>37–39</td></tr></table>' },
   'faqs': { title: 'FAQs', body: '<p><strong>How do I track my order?</strong> You\'ll receive a tracking link by email once your order ships.</p><p><strong>Do you ship outside Guyana?</strong> Currently we ship within Guyana only, with regional Caribbean shipping coming soon.</p><p><strong>Can I change my order?</strong> Contact us within an hour of ordering and we\'ll do our best.</p>' },
-  'our-story': { title: 'Our Story', body: '<p>Urban 592 started on the streets of Georgetown — 592 is Guyana\'s country code, and it\'s stitched into every label. We build wardrobe essentials for anyone, in any size, that are good enough to wear every day, priced fairly, and made to last.</p>' },
+  'our-story': { title: 'Our Story', body: '<p>Nomad started on the streets of Georgetown, built for people who are always moving between cities, seasons, and versions of themselves. We build wardrobe essentials for anyone, in any size, that are good enough to wear every day, priced fairly, and made to last.</p>' },
   'sustainability': { title: 'Sustainability', body: '<p>We favor natural fibers, long-lasting construction, and packaging that\'s fully recyclable. We\'d rather sell you one great piece than three you\'ll replace next year.</p>' },
   'careers': { title: 'Careers', body: '<p>We\'re a small, hands-on team. If you love product, retail, or design and want to build something from the ground up, we\'d love to hear from you at <a href="mailto:core@fynixstudios.com">core@fynixstudios.com</a>.</p>' },
   'store-locator': { title: 'Store Locator', body: '<p>We\'re currently online-only, so every order ships direct from our warehouse. No storefronts yet — but never say never.</p>' },
@@ -288,6 +288,20 @@ document.addEventListener('DOMContentLoaded', () => {
   injectIcons(document);
   updateCartBadge();
   updateWishlistBadge();
+
+  // Hero carousel (index.html only — no-op elsewhere since these selectors return nothing)
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const heroDots = document.querySelectorAll('#heroDots span');
+  if (heroSlides.length > 1) {
+    let heroIndex = 0;
+    const showHeroSlide = (i) => {
+      heroSlides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      heroDots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+      heroIndex = i;
+    };
+    heroDots.forEach((dot, idx) => dot.addEventListener('click', () => showHeroSlide(idx)));
+    setInterval(() => showHeroSlide((heroIndex + 1) % heroSlides.length), 5000);
+  }
 
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
@@ -452,7 +466,7 @@ function initProductPage() {
   const product = PRODUCTS.find(p => p.slug === id) || PRODUCTS[0];
   const images = product.images && product.images.length ? product.images : [product.image];
 
-  document.title = `${product.name} — Urban 592`;
+  document.title = `${product.name} — Nomad`;
   document.getElementById('crumbName').textContent = product.name;
   document.getElementById('crumbCategory').textContent = product.category;
   document.getElementById('crumbCategory').href = `index.html#bestSellers`;

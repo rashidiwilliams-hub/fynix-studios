@@ -77,16 +77,6 @@ const PRODUCTS = [
     category: 'Outerwear'
   },
   {
-    slug: 'vintage-wash-denim-jacket',
-    name: 'Vintage Wash Denim Jacket',
-    price: 16400,
-    images: ['assets/images/vintage-wash-denim-jacket-1.jpg'],
-    alt: 'Vintage wash denim jacket',
-    rating: 5,
-    reviews: 61,
-    category: 'Outerwear'
-  },
-  {
     slug: 'denim-overshirt',
     name: 'Denim Overshirt',
     price: 13400,
@@ -177,7 +167,7 @@ const PRODUCTS = [
     name: 'Tailored Navy Suit',
     price: 47900,
     images: ['assets/images/tailored-navy-suit-1.jpg'],
-    alt: 'Tailored navy two-piece suit',
+    alt: 'Man styled in Nomad tailoring on a rooftop',
     rating: 5,
     reviews: 88,
     category: 'Evening & Suits'
@@ -272,21 +262,21 @@ const PRODUCTS = [
 
   // ---------- Basics ----------
   {
-    slug: 'classic-fit-tee',
-    name: 'Classic Fit Tee',
-    price: 5500,
-    images: ['assets/images/classic-fit-tee-1.jpg'],
-    alt: 'Classic fit black crew-neck tee',
-    rating: 4,
-    reviews: 156,
+    slug: 'vintage-wash-denim-jeans',
+    name: 'Vintage Wash Denim Jeans',
+    price: 15800,
+    images: ['assets/images/vintage-wasj-denim-jeans.jpg'],
+    alt: 'Vintage wash denim jeans styled with a cropped black blazer',
+    rating: 5,
+    reviews: 61,
     category: 'Basics'
   },
   {
     slug: 'slim-straight-jeans',
     name: 'Slim Straight Jeans',
     price: 14300,
-    images: ['assets/images/slim-straight-jeans-1.jpg'],
-    alt: 'Slim straight dark-wash denim jeans',
+    images: ['assets/images/pexels-shootsaga-37851064.jpg'],
+    alt: 'Slim straight jeans styled with an orange tank top',
     rating: 4,
     reviews: 118,
     category: 'Basics'
@@ -316,10 +306,30 @@ const PRODUCTS = [
     slug: 'essential-v-neck-tee',
     name: 'Essential V-Neck Tee',
     price: 5500,
-    images: ['assets/images/essential-v-neck-tee-1.jpg'],
-    alt: 'Essential v-neck tee',
+    images: ['assets/images/pexels-dystopiasavagestudios-19330216.jpg'],
+    alt: 'Essential tee styled with a ribbed turtleneck top',
     rating: 5,
     reviews: 91,
     category: 'Basics'
+  },
+  {
+    slug: 'everyday-crewneck-tee',
+    name: 'Everyday Crewneck Tee',
+    price: 5800,
+    images: ['assets/images/basics-feature.jpg'],
+    alt: 'Woman smiling in a white crewneck tee and jeans',
+    rating: 5,
+    reviews: 24,
+    category: 'Basics'
+  },
+  {
+    slug: 'performance-tee-shorts-set',
+    name: 'Performance Tee & Shorts Set',
+    price: 13800,
+    images: ['assets/images/activewear-feature.jpg'],
+    alt: 'Woman in a black sports bra and leggings set',
+    rating: 5,
+    reviews: 19,
+    category: 'Activewear'
   }
 ];

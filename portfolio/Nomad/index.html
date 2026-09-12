@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="assets/images/favicon.png">
-<title>Urban 592 — Elevate Your Everyday</title>
+<title>Nomad — Elevate Your Everyday</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="logo" href="index.html">URBAN<small>592</small></a>
+    <a class="logo" href="index.html"><img src="assets/images/nomad-logo.png?v=1" alt="Nomad" class="logo-img"></a>
     <nav class="main-nav" id="mainNav">
       <a href="#hero" class="active" data-scroll>New In</a>
       <a href="#clothing" data-scroll>Categories</a>
@@ -41,13 +41,15 @@
 </header>
 
 <section class="hero" id="hero">
-  <img src="assets/images/hero-banner.jpg" alt="Model with wavy blonde hair against a vivid orange backdrop, styled for Urban 592">
+  <img src="assets/images/hero-banner.jpg" alt="Model styled in Nomad's everyday essentials" class="hero-slide active" data-slide="0">
+  <img src="assets/images/hero-2.jpg" alt="Man in a rooftop cityscape wearing Nomad essentials" class="hero-slide" data-slide="1">
+  <img src="assets/images/pexels-pedrofurtadoo-31094977.jpg" alt="Woman in a black top and wide-leg trousers, seated and smiling" class="hero-slide" data-slide="2">
   <div class="hero-content">
     <p class="eyebrow">New Season. Every Body.</p>
     <h1>Elevate Your<br>Everyday</h1>
     <p class="lead">Timeless designs. Premium fabrics. Made for absolutely everyone — no aisles, just style.</p>
     <div class="hero-actions"><a href="#clothing" class="btn btn-white">Shop New Arrivals</a><a href="#collections" class="btn btn-outline">Explore Collections</a></div>
-    <div class="slide-dots"><span class="active">01</span><span>02</span><span>03</span></div>
+    <div class="slide-dots" id="heroDots"><span class="active" data-slide="0">01</span><span data-slide="1">02</span><span data-slide="2">03</span></div>
   </div>
 </section>
 
@@ -62,12 +64,12 @@
   <h2>Shop By Category</h2>
   <div class="category-grid">
     <a href="#" class="cat-card" data-category="Streetwear"><img src="assets/images/wide-leg-cargo-pants-1.jpg" alt="Streetwear — cargo pants and layered fits"><span>Streetwear<small>Explore Now →</small></span></a>
-    <a href="#" class="cat-card" data-category="Outerwear"><img src="assets/images/cream-oversized-puffer-jacket-1.jpg" alt="Outerwear — puffers, blazers and jackets"><span>Outerwear<small>Explore Now →</small></span></a>
-    <a href="#" class="cat-card" data-category="Activewear"><img src="assets/images/ribbed-tennis-dress-1.jpg" alt="Activewear — performance sets"><span>Activewear<small>Explore Now →</small></span></a>
+    <a href="#" class="cat-card" data-category="Outerwear"><img src="assets/images/outerwear-feature.jpg" alt="Outerwear — puffers, blazers and jackets"><span>Outerwear<small>Explore Now →</small></span></a>
+    <a href="#" class="cat-card" data-category="Activewear"><img src="assets/images/activewear-feature.jpg" alt="Activewear — performance sets"><span>Activewear<small>Explore Now →</small></span></a>
     <a href="#" class="cat-card" data-category="Evening & Suits"><img src="assets/images/satin-wrap-gown-1.jpg" alt="Evening & Suits — gowns and tailoring"><span>Evening &amp; Suits<small>Explore Now →</small></span></a>
     <a href="#" class="cat-card" data-category="Accessories"><img src="assets/images/round-tint-sunglasses-1.jpg" alt="Accessories — sunglasses, hats and bags"><span>Accessories<small>Explore Now →</small></span></a>
-    <a href="#" class="cat-card" data-category="Shoes"><img src="assets/images/momentum-runner-sneakers-1.jpg" alt="Shoes — sneakers for every day"><span>Shoes<small>Explore Now →</small></span></a>
-    <a href="#" class="cat-card" data-category="Basics"><img src="assets/images/classic-fit-tee-1.jpg" alt="Basics — everyday essentials"><span>Basics<small>Explore Now →</small></span></a>
+    <a href="#" class="cat-card" data-category="Shoes"><img src="assets/images/shoes-feature.jpg" alt="Shoes — sneakers for every day"><span>Shoes<small>Explore Now →</small></span></a>
+    <a href="#" class="cat-card" data-category="Basics"><img src="assets/images/basics-feature.jpg" alt="Basics — everyday essentials"><span>Basics<small>Explore Now →</small></span></a>
     <a href="#" class="cat-card" data-category-sale><img src="assets/images/cropped-puffer-vest-1.jpg" alt="Sale — discounted styles"><span>Sale<small>Explore Now →</small></span></a>
   </div>
 </section>
@@ -82,7 +84,7 @@
 
 <section class="promo-row" id="collections">
   <div class="promo-card">
-    <img src="assets/images/tailored-navy-suit-1.jpg" alt="Tailored suiting for every occasion">
+    <img src="assets/images/tailored-navy-suit-1.jpg" alt="Man styled in Nomad tailoring on a rooftop">
     <div class="promo-text"><small>Evening &amp; Suits</small><h3>Dressed To<br>Be Seen.</h3><p>Gowns and tailoring for the nights that matter.</p><a href="#" class="btn btn-white" data-category="Evening & Suits">Shop Now</a></div>
   </div>
   <div class="promo-card">
@@ -93,7 +95,7 @@
 
 <footer class="site-footer" id="footerAbout">
   <div class="footer-grid">
-    <div><span class="logo">URBAN<small>592</small></span><p>Modern essentials for everyone. Built on style. Rooted in Guyana. Driven by you.</p><div class="social-icons"><a href="#" data-info="social-ig" data-icon="logoIg" aria-label="Instagram"></a><a href="#" data-info="social-f" data-icon="logoFb" aria-label="Facebook"></a><a href="#" data-info="social-p" data-icon="logoPin" aria-label="Pinterest"></a><a href="#" data-info="social-yt" data-icon="logoYt" aria-label="YouTube"></a></div></div>
+    <div><span class="logo"><img src="assets/images/nomad-logo-white.png?v=1" alt="Nomad" class="logo-img"></span><p>Modern essentials for everyone. Built on style. Rooted in Guyana. Driven by you.</p><div class="social-icons"><a href="#" data-info="social-ig" data-icon="logoIg" aria-label="Instagram"></a><a href="#" data-info="social-f" data-icon="logoFb" aria-label="Facebook"></a><a href="#" data-info="social-p" data-icon="logoPin" aria-label="Pinterest"></a><a href="#" data-info="social-yt" data-icon="logoYt" aria-label="YouTube"></a></div></div>
     <div><h4>Shop</h4><a href="#hero" data-scroll>New In</a><a href="#clothing" data-scroll>Categories</a><a href="#" data-category="Shoes">Shoes</a><a href="#" data-category="Accessories">Accessories</a><a href="#" data-category-sale>Sale</a></div>
     <div><h4>Customer Care</h4><a href="#" data-info="contact">Contact Us</a><a href="#" data-info="shipping">Shipping &amp; Delivery</a><a href="#" data-info="returns">Returns &amp; Refunds</a><a href="#" data-info="size-guide">Size Guide</a><a href="#" data-info="faqs">FAQs</a></div>
     <div><h4>About Us</h4><a href="#" data-info="our-story">Our Story</a><a href="#" data-info="sustainability">Sustainability</a><a href="#" data-info="careers">Careers</a><a href="#" data-info="store-locator">Store Locator</a><a href="#" data-info="press">Press</a></div>
