@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Damage Reports — Lux Rentals</title>
+<script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+<style>
+  .damage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .damage-card { background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); }
+  .damage-photo { aspect-ratio: 16/9; background: var(--bg-input); position: relative; }
+  .damage-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .damage-photo .badge { position: absolute; top: 10px; right: 10px; background: var(--bg-elevated); }
+  .damage-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+  .damage-id { font-size: .7rem; color: var(--text-faint); letter-spacing: .06em; }
+  .flag-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--border-soft); gap: 12px; }
+  .flag-row:last-child { border-bottom: none; }
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar"><div id="sidebarMount"></div></aside>
+
+  <div class="main-col">
+    <header class="topbar" id="topbarMount"></header>
+
+    <main>
+      <div class="page-head">
+        <h2>Damage Reports</h2>
+        <p>Open and resolved damage tickets, plus every part flagged below "Good" condition.</p>
+      </div>
+
+      <div class="stat-grid" id="drStats"></div>
+
+      <div class="chip-group section-gap" id="drStatusChips">
+        <button class="chip active" data-status="All">All</button>
+        <button class="chip" data-status="Open">Open</button>
+        <button class="chip" data-status="Resolved">Resolved</button>
+      </div>
+
+      <div class="damage-grid section-gap" id="damageGrid"></div>
+
+      <div class="card">
+        <div class="card-head"><h2>Flagged Parts by Vehicle</h2></div>
+        <div class="card-body" style="padding:0" id="flaggedParts"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="data.js?v=1"></script>
+<script src="app.js?v=1"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderChrome('damage-reports');
+
+  const open = DAMAGE_REPORTS.filter(d => d.status === 'Open').length;
+  const high = DAMAGE_REPORTS.filter(d => d.severity === 'High').length;
+  let flaggedCount = 0;
+  FLEET.forEach(v => v.partsOverview.forEach(p => { if (p.condition !== 'Good') flaggedCount++; }));
+
+  document.getElementById('drStats').innerHTML = `
+    <div class="stat-card"><div class="stat-label">${ICONS.damage} Open Reports</div><div class="stat-value">${open}</div><div class="stat-sub">of ${DAMAGE_REPORTS.length} total</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.damage} High Severity</div><div class="stat-value">${high}</div><div class="stat-sub">needs priority review</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.wrench} Flagged Parts</div><div class="stat-value">${flaggedCount}</div><div class="stat-sub">across the fleet</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.fleet} Vehicles Affected</div><div class="stat-value">${FLEET.filter(v => v.partsOverview.some(p => p.condition !== 'Good')).length}</div><div class="stat-sub">of ${FLEET.length} vehicles</div></div>
+  `;
+
+  function damageCardHTML(d) {
+    return `
+      <div class="damage-card">
+        <div class="damage-photo">
+          <img src="${d.photo}" alt="Damage on ${d.vehicle}">
+          <span class="badge badge-${slugifyBadge(d.status)}">${d.status}</span>
+        </div>
+        <div class="damage-body">
+          <div class="damage-id">${d.id} &middot; ${d.dateReported}</div>
+          <div style="font-weight:700">${d.vehicle}</div>
+          <div style="font-size:.82rem;color:var(--text-muted);line-height:1.5">${d.description}</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+            <span class="badge badge-${slugifyBadge(d.severity)}">${d.severity} severity</span>
+            <a class="btn btn-ghost btn-sm" href="rental-overview.html?id=${d.slug}">View Vehicle</a>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function render() {
+    const status = document.querySelector('#drStatusChips .chip.active').getAttribute('data-status');
+    const rows = DAMAGE_REPORTS.filter(d => status === 'All' || d.status === status);
+    document.getElementById('damageGrid').innerHTML = rows.length ? rows.map(damageCardHTML).join('') : `<div class="empty-state" style="grid-column:1/-1">${ICONS.damage}<p>No reports match this filter.</p></div>`;
+  }
+  document.querySelectorAll('#drStatusChips .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#drStatusChips .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      render();
+    });
+  });
+  render();
+
+  // Flagged parts grouped by vehicle
+  const flaggedByVehicle = FLEET
+    .map(v => ({ vehicle: v, parts: v.partsOverview.filter(p => p.condition !== 'Good') }))
+    .filter(g => g.parts.length > 0);
+
+  const damagePhotos = ['assets/images/damage-bumper-headlight.jpg', 'assets/images/damage-scratch-fender.jpg'];
+  document.getElementById('flaggedParts').innerHTML = flaggedByVehicle.length ? flaggedByVehicle.map((g, gi) => `
+    <div class="flag-row" style="flex-direction:column;align-items:stretch;gap:10px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="${g.vehicle.images[0]}" alt="" style="width:52px;height:38px;object-fit:cover;border-radius:8px">
+        <div style="font-weight:700">${g.vehicle.name}</div>
+        <span style="font-size:.76rem;color:var(--text-faint)">${g.vehicle.plate}</span>
+      </div>
+      ${g.parts.map((p, pi) => `
+        <div style="display:flex;gap:12px;align-items:center;padding-left:62px">
+          <img src="${damagePhotos[(gi + pi) % damagePhotos.length]}" alt="" style="width:56px;height:42px;object-fit:cover;border-radius:8px;flex-shrink:0">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:.85rem;font-weight:600">${p.part}</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">${p.note}</div>
+          </div>
+          <span class="badge badge-${slugifyBadge(p.condition)}">${p.condition}</span>
+        </div>
+      `).join('')}
+    </div>
+  `).join('') : `<div class="empty-state">${ICONS.wrench}<p>No flagged parts — the fleet is in good condition.</p></div>`;
+});
+</script>
+</body>
+</html>

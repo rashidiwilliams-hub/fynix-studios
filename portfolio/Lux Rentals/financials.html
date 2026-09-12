@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financials — Lux Rentals</title>
+<script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+<style>
+  .bar-list { display: flex; flex-direction: column; gap: 12px; }
+  .bar-row { display: grid; grid-template-columns: 160px 1fr 90px; align-items: center; gap: 12px; }
+  .bar-row .lbl { font-size: .82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar-track { height: 10px; border-radius: 100px; background: var(--bg-input); overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+  .bar-row .amt { font-size: .8rem; text-align: right; color: var(--text-muted); font-family: var(--font-display); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar"><div id="sidebarMount"></div></aside>
+
+  <div class="main-col">
+    <header class="topbar" id="topbarMount"></header>
+
+    <main>
+      <div class="page-head">
+        <h2>Financials</h2>
+        <p>Studio-wide revenue rollup across the entire fleet, 2026 Q3.</p>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div class="stat-grid" id="finStats" style="grid-template-columns:repeat(2,1fr)"></div>
+
+          <div class="card section-gap">
+            <div class="card-head"><h2>Revenue by Vehicle</h2></div>
+            <div class="card-body">
+              <div class="bar-list" id="revenueBars"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h2>Category Breakdown</h2></div>
+            <div class="card-body">
+              <div class="bar-list" id="categoryBars"></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="visa-card section-gap">
+            <div class="visa-top">
+              <div>
+                <div class="visa-label">2026 Q3 · Studio Total</div>
+                <div class="visa-amount" id="visaTotal">$0.00</div>
+              </div>
+              <div class="visa-brand">VISA</div>
+            </div>
+            <div class="visa-number">•••• •••• •••• 5786</div>
+            <div class="visa-bottom"><span>FLEET-WIDE REVENUE</span><span>LUX RENTALS</span></div>
+          </div>
+
+          <div class="card section-gap">
+            <div class="card-head"><h2>Studio Metrics</h2></div>
+            <div class="card-body">
+              <div class="fin-metric-row"><span class="label">Total Default Payments</span><span class="value" id="finTotalDefault">$0.00</span></div>
+              <div class="fin-metric-row"><span class="label">Total Maintenance Cost</span><span class="value" id="finTotalMaintenance">$0.00</span></div>
+              <div class="fin-metric-row"><span class="label">Avg. Revenue / Vehicle</span><span class="value" id="finAvgRevenue">$0.00</span></div>
+              <div class="fin-metric-row"><span class="label">Net Margin Est.</span><span class="value" id="finMargin">$0.00</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h2>Top Performer</h2></div>
+            <div class="card-body" id="topPerformer"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="data.js?v=1"></script>
+<script src="app.js?v=1"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderChrome('financials');
+
+  const totalRevenue = FLEET.reduce((s, v) => s + v.revenue.quarterRevenue, 0);
+  const totalDefault = FLEET.reduce((s, v) => s + v.revenue.defaultPayments, 0);
+  const totalMaintenance = FLEET.reduce((s, v) => s + v.revenue.maintenanceCost, 0);
+  const netMargin = totalRevenue - totalMaintenance - totalDefault;
+
+  document.getElementById('finStats').innerHTML = `
+    <div class="stat-card"><div class="stat-label">${ICONS.financials} Total Revenue</div><div class="stat-value">${moneyShort(totalRevenue)}</div><div class="stat-sub">2026 Q3</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.wrench} Maintenance Spend</div><div class="stat-value">${moneyShort(totalMaintenance)}</div><div class="stat-sub">${((totalMaintenance/totalRevenue)*100).toFixed(1)}% of revenue</div></div>
+  `;
+
+  document.getElementById('visaTotal').textContent = money(totalRevenue);
+  document.getElementById('finTotalDefault').textContent = money(totalDefault);
+  document.getElementById('finTotalMaintenance').textContent = money(totalMaintenance);
+  document.getElementById('finAvgRevenue').textContent = money(totalRevenue / FLEET.length);
+  document.getElementById('finMargin').textContent = money(netMargin);
+
+  const sorted = [...FLEET].sort((a, b) => b.revenue.quarterRevenue - a.revenue.quarterRevenue);
+  const maxRevenue = sorted[0].revenue.quarterRevenue;
+  document.getElementById('revenueBars').innerHTML = sorted.map(v => `
+    <div class="bar-row">
+      <span class="lbl">${v.name}</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${(v.revenue.quarterRevenue / maxRevenue * 100).toFixed(1)}%"></div></div>
+      <span class="amt">${moneyShort(v.revenue.quarterRevenue)}</span>
+    </div>
+  `).join('');
+
+  const byCategory = {};
+  FLEET.forEach(v => { byCategory[v.category] = (byCategory[v.category] || 0) + v.revenue.quarterRevenue; });
+  const catEntries = Object.entries(byCategory).sort((a, b) => b[1] - a[1]);
+  const maxCat = catEntries[0][1];
+  document.getElementById('categoryBars').innerHTML = catEntries.map(([cat, rev]) => `
+    <div class="bar-row">
+      <span class="lbl">${cat}</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${(rev / maxCat * 100).toFixed(1)}%"></div></div>
+      <span class="amt">${moneyShort(rev)}</span>
+    </div>
+  `).join('');
+
+  const top = sorted[0];
+  document.getElementById('topPerformer').innerHTML = `
+    <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
+      <img src="${top.images[0]}" alt="${top.alt}" style="width:74px;height:52px;object-fit:cover;border-radius:10px">
+      <div>
+        <div style="font-weight:700">${top.name}</div>
+        <div style="font-size:.78rem;color:var(--text-muted)">${top.category} &middot; ${top.plate}</div>
+      </div>
+    </div>
+    <div class="fin-metric-row"><span class="label">Quarter Revenue</span><span class="value">${money(top.revenue.quarterRevenue)}</span></div>
+    <a class="btn btn-ghost btn-block" style="margin-top:12px" href="rental-overview.html?id=${top.slug}">View Rental Overview</a>
+  `;
+});
+</script>
+</body>
+</html>

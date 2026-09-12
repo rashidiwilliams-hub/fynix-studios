@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fleet Management — Lux Rentals</title>
+<script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar"><div id="sidebarMount"></div></aside>
+
+  <div class="main-col">
+    <header class="topbar" id="topbarMount"></header>
+
+    <main>
+      <div class="page-head">
+        <h2>Fleet Management</h2>
+        <p>Filter, search, and audit every vehicle Lux Rentals operates.</p>
+      </div>
+
+      <div class="stat-grid" id="fmStats"></div>
+
+      <div class="toolbar">
+        <div class="search-box" id="fmSearchBox"><input id="fmSearch" type="text" placeholder="Search by name, category or plate…"></div>
+        <select class="select-chip" id="fmCategory"><option value="All">All categories</option></select>
+        <div class="chip-group" id="fmStatusChips">
+          <button class="chip active" data-status="All">All statuses</button>
+          <button class="chip" data-status="Available">Available</button>
+          <button class="chip" data-status="Rented">Rented</button>
+          <button class="chip" data-status="Maintenance">Maintenance</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Vehicle</th><th>Category</th><th>Year</th><th>Daily Rate</th>
+                <th>Status</th><th>Mileage</th><th>Plate</th><th></th>
+              </tr>
+            </thead>
+            <tbody id="fmTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="data.js?v=1"></script>
+<script src="app.js?v=1"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderChrome('fleet-management');
+  document.getElementById('fmSearchBox').innerHTML = `${ICONS.search}<input id="fmSearch" type="text" placeholder="Search by name, category or plate…">`;
+
+  const categories = ['All', ...new Set(FLEET.map(v => v.category))];
+  document.getElementById('fmCategory').innerHTML = categories.map(c => `<option value="${c}">${c === 'All' ? 'All categories' : c}</option>`).join('');
+
+  const avgRate = FLEET.reduce((s, v) => s + v.dailyRate, 0) / FLEET.length;
+  const totalMileage = FLEET.reduce((s, v) => s + v.mileage, 0);
+  document.getElementById('fmStats').innerHTML = `
+    <div class="stat-card"><div class="stat-label">${ICONS.fleet} Fleet Size</div><div class="stat-value">${FLEET.length}</div><div class="stat-sub">${categories.length - 1} categories</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.financials} Avg. Daily Rate</div><div class="stat-value">${money(avgRate)}</div><div class="stat-sub">across active listings</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.car} Total Mileage</div><div class="stat-value">${numFmt(totalMileage)}</div><div class="stat-sub">combined odometer, all vehicles</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.wrench} Needs Attention</div><div class="stat-value">${FLEET.filter(v => v.partsOverview.some(p => p.condition === 'Needs Attention')).length}</div><div class="stat-sub">vehicles with flagged parts</div></div>
+  `;
+
+  function rowHTML(v) {
+    return `
+      <tr>
+        <td><div class="cell-vehicle"><img src="${v.images[0]}" alt=""><div><div class="name">${v.name}</div><div class="cat">${v.plate}</div></div></div></td>
+        <td>${v.category}</td>
+        <td>${v.year}</td>
+        <td>${money(v.dailyRate)}</td>
+        <td><span class="badge badge-${slugifyBadge(v.status)}">${v.status}</span></td>
+        <td>${numFmt(v.mileage)} mi</td>
+        <td>${v.plate}</td>
+        <td><a class="btn btn-ghost btn-sm" href="rental-overview.html?id=${v.slug}">View</a></td>
+      </tr>
+    `;
+  }
+
+  function render() {
+    const q = (document.getElementById('fmSearch').value || '').toLowerCase();
+    const cat = document.getElementById('fmCategory').value;
+    const status = document.querySelector('#fmStatusChips .chip.active').getAttribute('data-status');
+    const rows = FLEET.filter(v => {
+      const mq = !q || v.name.toLowerCase().includes(q) || v.category.toLowerCase().includes(q) || v.plate.toLowerCase().includes(q);
+      const mc = cat === 'All' || v.category === cat;
+      const ms = status === 'All' || v.status === status;
+      return mq && mc && ms;
+    });
+    document.getElementById('fmTableBody').innerHTML = rows.length ? rows.map(rowHTML).join('') : `<tr><td colspan="8" class="table-empty">No vehicles match your filters.</td></tr>`;
+    document.querySelectorAll('#fmTableBody a[href^="rental-overview"]').forEach(a => {
+      a.addEventListener('click', () => localStorage.setItem(LS_LAST_VEHICLE, a.getAttribute('href').split('id=')[1]));
+    });
+  }
+
+  document.getElementById('fmSearch').addEventListener('input', render);
+  document.getElementById('fmCategory').addEventListener('change', render);
+  document.querySelectorAll('#fmStatusChips .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#fmStatusChips .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      render();
+    });
+  });
+
+  render();
+});
+</script>
+</body>
+</html>

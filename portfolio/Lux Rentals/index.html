@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Lux Rentals</title>
+<script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar"><div id="sidebarMount"></div></aside>
+
+  <div class="main-col">
+    <header class="topbar" id="topbarMount"></header>
+
+    <main>
+      <div class="page-head">
+        <h2>Fleet at a glance</h2>
+        <p>Every vehicle in the Lux Rentals fleet, live status and daily rate.</p>
+      </div>
+
+      <div class="stat-grid" id="dashStats"></div>
+
+      <div class="toolbar">
+        <div class="search-box" id="fleetSearchBox"><input id="fleetSearch" type="text" placeholder="Search by name, category or plate…"></div>
+        <div class="chip-group" id="statusChips">
+          <button class="chip active" data-status="All">All</button>
+          <button class="chip" data-status="Available">Available</button>
+          <button class="chip" data-status="Rented">Rented</button>
+          <button class="chip" data-status="Maintenance">Maintenance</button>
+        </div>
+      </div>
+
+      <div class="fleet-grid" id="fleetGrid"></div>
+    </main>
+  </div>
+</div>
+
+<script src="data.js?v=1"></script>
+<script src="app.js?v=1"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderChrome('dashboard');
+
+  document.getElementById('fleetSearchBox').innerHTML = `${ICONS.search}<input id="fleetSearch" type="text" placeholder="Search by name, category or plate…">`;
+
+  const available = FLEET.filter(v => v.status === 'Available').length;
+  const rented = FLEET.filter(v => v.status === 'Rented').length;
+  const maint = FLEET.filter(v => v.status === 'Maintenance').length;
+  const totalQuarterRevenue = FLEET.reduce((sum, v) => sum + (v.revenue.quarterRevenue || 0), 0);
+
+  document.getElementById('dashStats').innerHTML = `
+    <div class="stat-card">
+      <div class="stat-label">${ICONS.fleet} Total Fleet</div>
+      <div class="stat-value">${FLEET.length}</div>
+      <div class="stat-sub">${available} available now</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">${ICONS.car} Currently Rented</div>
+      <div class="stat-value">${rented}</div>
+      <div class="stat-sub">${Math.round((rented / FLEET.length) * 100)}% of fleet on the road</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">${ICONS.wrench} In Maintenance</div>
+      <div class="stat-value">${maint}</div>
+      <div class="stat-sub">${maint === 0 ? 'No vehicles out of service' : 'Turnaround in progress'}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">${ICONS.financials} Quarter Revenue</div>
+      <div class="stat-value">${moneyShort(totalQuarterRevenue)}</div>
+      <div class="stat-sub">2026 Q3 across the fleet</div>
+    </div>
+  `;
+
+  function statusBadgeClass(status) { return 'badge badge-' + slugifyBadge(status); }
+
+  function vehicleCardHTML(v) {
+    return `
+      <a class="vehicle-card" href="rental-overview.html?id=${v.slug}" data-name="${v.name.toLowerCase()}" data-category="${v.category.toLowerCase()}" data-plate="${v.plate.toLowerCase()}" data-status="${v.status}">
+        <div class="vehicle-photo">
+          <img src="${v.images[0]}" alt="${v.alt}" loading="lazy">
+          <span class="${statusBadgeClass(v.status)}">${v.status}</span>
+        </div>
+        <div class="vehicle-body">
+          <div class="vehicle-name">${v.name}</div>
+          <div class="vehicle-meta">${v.category} &middot; ${v.year} &middot; ${numFmt(v.mileage)} mi &middot; ${v.plate}</div>
+          <div class="vehicle-foot">
+            <div class="vehicle-rate">${money(v.dailyRate)}<span> /day</span></div>
+            <span class="btn btn-ghost btn-sm">View Details</span>
+          </div>
+        </div>
+      </a>
+    `;
+  }
+
+  function renderGrid() {
+    const q = (document.getElementById('fleetSearch').value || '').toLowerCase();
+    const activeChip = document.querySelector('.chip.active').getAttribute('data-status');
+    const grid = document.getElementById('fleetGrid');
+    const filtered = FLEET.filter(v => {
+      const matchesStatus = activeChip === 'All' || v.status === activeChip;
+      const matchesQuery = !q || v.name.toLowerCase().includes(q) || v.category.toLowerCase().includes(q) || v.plate.toLowerCase().includes(q);
+      return matchesStatus && matchesQuery;
+    });
+    grid.innerHTML = filtered.length ? filtered.map(vehicleCardHTML).join('') : `<div class="empty-state" style="grid-column:1/-1">${ICONS.car}<p>No vehicles match your search.</p></div>`;
+    grid.querySelectorAll('.vehicle-card').forEach(card => {
+      card.addEventListener('click', () => localStorage.setItem(LS_LAST_VEHICLE, card.getAttribute('href').split('id=')[1]));
+    });
+  }
+
+  document.getElementById('fleetSearch').addEventListener('input', renderGrid);
+  document.querySelectorAll('#statusChips .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#statusChips .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      renderGrid();
+    });
+  });
+
+  renderGrid();
+});
+</script>
+</body>
+</html>
