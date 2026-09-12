@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+<title>Flowspace — Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<div class="app-shell">
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open menu">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1400" stroke-width="2.4" stroke-linecap="round"><path d="M4 17h5M4 12h9M4 7h16"/></svg></span>
+      <span class="brand-word">flow<span>space</span></span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="12" width="8" height="9" rx="2"/><rect x="3" y="14" width="8" height="7" rx="2"/></svg>Dashboard</a>
+      <a href="analytics.html" class="nav-item active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>Analytics</a>
+      <a href="teams.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="8.5" r="2.6"/><path d="M16 14.3c2.8.4 4.7 2.4 4.7 5.2"/></svg>Teams</a>
+      <a href="documents.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>Documents</a>
+      <a href="settings.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.9 2.9l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.9-2.9l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.9-2.9l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.9 2.9l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1Z"/></svg>Settings</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a href="settings.html" class="sidebar-user">
+        <span class="sidebar-user-avatar js-profile-initials">VB</span>
+        <span>
+          <span class="sidebar-user-name js-profile-name">Victoria Bryant</span><br>
+          <span class="sidebar-user-role js-profile-role">Operations Administrator</span>
+        </span>
+      </a>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <header class="topbar">
+      <div class="search-field">
+        <span aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </span>
+        <input type="text" placeholder="Search projects, tasks, people…" id="globalSearch">
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" data-demo-toast="No new messages"><span class="dot"></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></button>
+        <button class="icon-btn" data-demo-toast="You're all caught up"><span class="dot"></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></button>
+        <a href="settings.html" class="topbar-user">
+          <span class="topbar-user-avatar js-profile-initials">VB</span>
+          <span class="topbar-user-text">
+            <span class="topbar-user-name js-profile-name">Victoria Bryant</span><br>
+            <span class="topbar-user-role js-profile-role">Operations Administrator</span>
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="page-head">
+        <span class="page-eyebrow">Studio Analytics</span>
+        <h1 class="page-title">Analytics</h1>
+        <p class="page-sub">Time tracked, spend and velocity across every active engagement.</p>
+      </div>
+
+      <div class="kpi-grid" id="kpiGrid"></div>
+
+      <div class="analytics-grid" style="margin-bottom: 22px;">
+        <div class="card chart-card">
+          <div class="chart-card-head">
+            <span class="section-title" style="margin-bottom:0;" id="barChartTitle">Hours Logged This Week</span>
+            <div class="chart-toggle" role="tablist" aria-label="Chart dataset">
+              <button class="chart-toggle-btn active" data-metric="hours" role="tab" aria-selected="true">Hours</button>
+              <button class="chart-toggle-btn" data-metric="revenue" role="tab" aria-selected="false">Revenue</button>
+            </div>
+          </div>
+          <div class="bar-chart" id="barChart"></div>
+        </div>
+
+        <div>
+          <div class="spend-card">
+            <div class="spend-top">
+              <span class="spend-label">Total Spend — Active Projects</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a1400" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="position:relative;"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.5-5-3.5s-5 1.6-5 3.5 2.2 3 5 3.5 5 1.6 5 3.5-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg>
+            </div>
+            <div class="spend-value" id="spendTotal">$0.00</div>
+            <div class="spend-card-foot">Across <span id="spendProjectCount">0</span> projects with an active budget</div>
+          </div>
+          <div class="card" style="padding: 20px;">
+            <div class="section-title" style="font-size:15px;">Budget Utilization</div>
+            <div class="expenditure-list" id="expenditureList"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="analytics-grid">
+        <div class="card chart-card">
+          <div class="chart-card-head">
+            <span class="section-title" style="margin-bottom:0;">Team Velocity — Tasks Completed / Week</span>
+            <span class="chart-legend"><span><i></i>Tasks closed</span></span>
+          </div>
+          <svg class="line-chart" id="velocityChart" viewBox="0 0 560 220" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="lineChartGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" style="stop-color:var(--accent)"/>
+                <stop offset="100%" style="stop-color:var(--accent-2)"/>
+              </linearGradient>
+              <linearGradient id="lineChartFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" style="stop-color:var(--accent-2); stop-opacity:0.35"/>
+                <stop offset="100%" style="stop-color:var(--accent-2); stop-opacity:0"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="card" style="padding: 22px;">
+          <div class="section-title">Project Completion Rates</div>
+          <div class="expenditure-list" id="completionList"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="data.js?v=2"></script>
+<script src="app.js?v=2"></script>
+<script src="analytics.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+<title>Flowspace — Teams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<div class="app-shell">
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open menu">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1400" stroke-width="2.4" stroke-linecap="round"><path d="M4 17h5M4 12h9M4 7h16"/></svg></span>
+      <span class="brand-word">flow<span>space</span></span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="12" width="8" height="9" rx="2"/><rect x="3" y="14" width="8" height="7" rx="2"/></svg>Dashboard</a>
+      <a href="analytics.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>Analytics</a>
+      <a href="teams.html" class="nav-item active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="8.5" r="2.6"/><path d="M16 14.3c2.8.4 4.7 2.4 4.7 5.2"/></svg>Teams</a>
+      <a href="documents.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>Documents</a>
+      <a href="settings.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.9 2.9l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.9-2.9l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.9-2.9l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.9 2.9l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1Z"/></svg>Settings</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a href="settings.html" class="sidebar-user">
+        <span class="sidebar-user-avatar js-profile-initials">VB</span>
+        <span>
+          <span class="sidebar-user-name js-profile-name">Victoria Bryant</span><br>
+          <span class="sidebar-user-role js-profile-role">Operations Administrator</span>
+        </span>
+      </a>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <header class="topbar">
+      <div class="search-field">
+        <span aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </span>
+        <input type="text" placeholder="Search projects, tasks, people…" id="globalSearch">
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" data-demo-toast="No new messages"><span class="dot"></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></button>
+        <button class="icon-btn" data-demo-toast="You're all caught up"><span class="dot"></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></button>
+        <a href="settings.html" class="topbar-user">
+          <span class="topbar-user-avatar js-profile-initials">VB</span>
+          <span class="topbar-user-text">
+            <span class="topbar-user-name js-profile-name">Victoria Bryant</span><br>
+            <span class="topbar-user-role js-profile-role">Operations Administrator</span>
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="page-head">
+        <span class="page-eyebrow">The Studio</span>
+        <h1 class="page-title">Teams</h1>
+        <p class="page-sub">Everyone currently staffed on an active engagement.</p>
+      </div>
+
+      <div class="team-toolbar">
+        <div class="search-field">
+          <span aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </span>
+          <input type="text" placeholder="Search by name or role…" id="teamSearch">
+        </div>
+        <select class="filter-select" id="teamProjectFilter">
+          <option value="all">All Projects</option>
+        </select>
+        <div class="status-filter" role="tablist" aria-label="Status filter">
+          <button class="status-filter-btn active" data-status="all">All</button>
+          <button class="status-filter-btn" data-status="active">Active</button>
+          <button class="status-filter-btn" data-status="away">Away</button>
+        </div>
+        <span class="team-count" id="teamCount">8 members</span>
+      </div>
+
+      <div class="team-grid" id="teamGrid"></div>
+    </main>
+  </div>
+</div>
+
+<!-- Team member modal -->
+<div class="modal-backdrop hidden" id="memberModal">
+  <div class="modal" style="max-width: 480px;">
+    <div class="modal-head">
+      <span class="modal-title">Team Member</span>
+      <button class="modal-close" id="closeMemberModal" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="member-modal-head">
+      <span class="member-modal-avatar"><img id="memberModalAvatar" src="" alt=""></span>
+      <div>
+        <div class="member-modal-name" id="memberModalName">—</div>
+        <div class="member-modal-role" id="memberModalRole">—</div>
+        <div class="member-modal-meta">
+          <span class="team-project-tag" id="memberModalProject">—</span>
+          <span class="team-status" id="memberModalStatus">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-modal-section-title">Workload</div>
+    <div class="member-workload-row">
+      <div class="progress-track"><div class="progress-fill" id="memberModalWorkloadFill" style="width:0%"></div></div>
+      <span id="memberModalWorkloadLabel">0h / 40h</span>
+    </div>
+
+    <div class="member-modal-section-title">Assigned Tasks</div>
+    <div class="member-task-list" id="memberModalTasks"></div>
+
+    <div class="modal-actions">
+      <a href="#" class="btn-ghost" id="memberModalEmailLink" data-demo-toast="Composing email — demo only">Email</a>
+      <button type="button" class="btn-primary" id="closeMemberModalBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="data.js?v=2"></script>
+<script src="app.js?v=2"></script>
+<script src="teams.js?v=1"></script>
+</body>
+</html>
