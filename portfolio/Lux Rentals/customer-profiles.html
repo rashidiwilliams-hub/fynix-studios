@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Profiles — Lux Rentals</title>
+<script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar"><div id="sidebarMount"></div></aside>
+
+  <div class="main-col">
+    <header class="topbar" id="topbarMount"></header>
+
+    <main>
+      <div class="page-head">
+        <h2>Customer Profiles</h2>
+        <p>Renter directory aggregated from rental history across the fleet.</p>
+      </div>
+
+      <div class="stat-grid" id="cpStats"></div>
+
+      <div class="toolbar">
+        <div class="search-box" id="cpSearchBox"><input id="cpSearch" type="text" placeholder="Search customers by name or email…"></div>
+        <div class="chip-group" id="cpStatusChips">
+          <button class="chip active" data-status="All">All</button>
+          <button class="chip" data-status="VIP">VIP</button>
+          <button class="chip" data-status="Active">Active</button>
+        </div>
+      </div>
+
+      <div id="customerList"></div>
+    </main>
+  </div>
+</div>
+
+<script src="data.js?v=1"></script>
+<script src="app.js?v=1"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderChrome('customer-profiles');
+  document.getElementById('cpSearchBox').innerHTML = `${ICONS.search}<input id="cpSearch" type="text" placeholder="Search customers by name or email…">`;
+
+  const vipCount = CUSTOMERS.filter(c => c.status === 'VIP').length;
+  const totalSpent = CUSTOMERS.reduce((s, c) => s + c.totalSpent, 0);
+  const totalRentals = CUSTOMERS.reduce((s, c) => s + c.totalRentals, 0);
+  document.getElementById('cpStats').innerHTML = `
+    <div class="stat-card"><div class="stat-label">${ICONS.users} Total Customers</div><div class="stat-value">${CUSTOMERS.length}</div><div class="stat-sub">${vipCount} VIP renters</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.financials} Lifetime Spend</div><div class="stat-value">${moneyShort(totalSpent)}</div><div class="stat-sub">across all customers</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.car} Total Rentals</div><div class="stat-value">${totalRentals}</div><div class="stat-sub">completed &amp; pending</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.dashboard} Avg. Spend</div><div class="stat-value">${moneyShort(totalSpent / CUSTOMERS.length)}</div><div class="stat-sub">per customer</div></div>
+  `;
+
+  function customerRowHTML(c) {
+    return `
+      <div class="accordion-row" data-slug="${c.slug}">
+        <div class="accordion-head">
+          <div style="display:flex;align-items:center;gap:12px;min-width:0">
+            <img class="avatar-img" src="${c.avatar}" alt="${c.name}" style="width:44px;height:44px" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar-fallback',textContent:initials('${c.name}'),style:'width:44px;height:44px'}))">
+            <div style="min-width:0">
+              <div style="font-weight:700">${c.name}</div>
+              <div style="font-size:.76rem;color:var(--text-faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px">${c.email}</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;flex-shrink:0">
+            <span style="font-size:.8rem;color:var(--text-muted)" class="hide-mobile">${c.totalRentals} rentals</span>
+            <span style="font-family:var(--font-display);font-weight:700">${money(c.totalSpent)}</span>
+            <span class="badge badge-${slugifyBadge(c.status)}">${c.status}</span>
+            <span class="part-toggle" style="width:20px;height:20px;font-size:.75rem">+</span>
+          </div>
+        </div>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--text-muted);margin-bottom:12px">
+              <span>${ICONS.phone} ${c.phone}</span>
+              <span>${ICONS.mail} ${c.email}</span>
+            </div>
+            <div class="history-list">
+              ${c.rentalHistory.map(h => `
+                <div class="history-row">
+                  <div class="history-mid">
+                    <div class="history-name">${h.vehicle}</div>
+                    <div class="history-date">${h.dates}</div>
+                  </div>
+                  <span class="badge badge-${slugifyBadge(h.status)}">${h.status}</span>
+                  <div class="history-amount">${money(h.amount)}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function render() {
+    const q = (document.getElementById('cpSearch').value || '').toLowerCase();
+    const status = document.querySelector('#cpStatusChips .chip.active').getAttribute('data-status');
+    const rows = CUSTOMERS.filter(c => {
+      const mq = !q || c.name.toLowerCase().includes(q) || c.email.toLowerCase().includes(q);
+      const ms = status === 'All' || c.status === status;
+      return mq && ms;
+    });
+    const list = document.getElementById('customerList');
+    list.innerHTML = rows.length ? rows.map(customerRowHTML).join('') : `<div class="empty-state">${ICONS.users}<p>No customers match your search.</p></div>`;
+    list.querySelectorAll('.accordion-head').forEach(head => {
+      head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+    });
+  }
+
+  document.getElementById('cpSearch').addEventListener('input', render);
+  document.querySelectorAll('#cpStatusChips .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#cpStatusChips .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      render();
+    });
+  });
+
+  render();
+});
+</script>
+</body>
+</html>

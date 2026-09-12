@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rental Overview — Lux Rentals</title>
+<script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar"><div id="sidebarMount"></div></aside>
+
+  <div class="main-col">
+    <header class="topbar" id="topbarMount"></header>
+
+    <main>
+      <div class="page-head" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div>
+          <h2>Rental Assessment</h2>
+          <p id="assessmentSub">Full condition and revenue snapshot for the selected vehicle.</p>
+        </div>
+        <div class="field" style="margin:0;min-width:220px">
+          <select id="vehiclePicker"></select>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label" id="iconRevenue">Rental Revenue</div>
+          <div class="stat-value" id="statRevenue">$0.00</div>
+          <div class="stat-sub" id="statRevenueSub"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label" id="iconDuration">Rental Duration</div>
+          <div class="stat-value" id="statDuration">0 days</div>
+          <div class="stat-sub">Current rental period</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label" id="iconReturn">Rental Return Date</div>
+          <div class="stat-value" id="statReturn" style="font-size:1.15rem">—</div>
+          <div class="stat-sub" id="statPlate"></div>
+        </div>
+        <div class="stat-card map-card">
+          <div class="map-pin" id="mapPin"></div>
+          <div class="map-label" id="mapLabel">Georgetown Depot</div>
+        </div>
+      </div>
+
+      <div class="split-two">
+        <div class="card">
+          <div class="card-head">
+            <h2>Parts Overview</h2>
+            <span class="badge" id="partsFlagBadge" style="background:var(--bg-input);color:var(--text-muted)">14 checkpoints</span>
+          </div>
+          <div class="card-body">
+            <div class="parts-list" id="partsList"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h2>Vehicle</h2>
+            <div class="view-toggle" id="viewToggle">
+              <button class="active" data-view="static">Static</button>
+              <button data-view="rotation">Rotation</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="vehicle-showcase">
+              <div class="showcase-frame" id="showcaseFrame">
+                <img id="showcaseImg" src="" alt="">
+                <div class="showcase-caption">
+                  <div class="name" id="showcaseName">—</div>
+                  <div class="yr" id="showcaseYear">—</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap" id="showcaseBadges"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-head"><h2>Prior Rental History</h2></div>
+          <div class="card-body">
+            <div class="history-list" id="historyList"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2>Vehicle Financials</h2></div>
+          <div class="card-body">
+            <div class="visa-card" id="visaCard" style="margin-bottom:16px">
+              <div class="visa-top">
+                <div>
+                  <div class="visa-label" id="visaQuarterLabel">2026 Q3</div>
+                  <div class="visa-amount" id="visaAmount">$0.00</div>
+                </div>
+                <div class="visa-brand">VISA</div>
+              </div>
+              <div class="visa-number">•••• •••• •••• <span id="visaLast4">1042</span></div>
+              <div class="visa-bottom"><span>QUARTERLY REVENUE</span><span id="visaPlate">LUX-0000</span></div>
+            </div>
+            <div class="fin-metric-row"><span class="label">Default Payments</span><span class="value" id="finDefault">$0.00</span></div>
+            <div class="fin-metric-row"><span class="label">Maintenance Cost</span><span class="value" id="finMaintenance">$0.00</span></div>
+            <button class="btn btn-primary btn-block" id="newRentalBtn" style="margin-top:14px">New Rental</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="data.js?v=1"></script>
+<script src="app.js?v=1"></script>
+<script>
+let rotationTimer = null;
+let rotationIndex = 0;
+
+function renderVehicle(vehicle) {
+  document.title = `${vehicle.name} — Rental Overview — Lux Rentals`;
+  document.getElementById('assessmentSub').textContent = `${vehicle.name} · ${vehicle.category} · ${vehicle.plate}`;
+  localStorage.setItem(LS_LAST_VEHICLE, vehicle.slug);
+
+  // Stat cards
+  document.getElementById('statRevenue').textContent = money(vehicle.revenue.currentRentalRevenue);
+  document.getElementById('statRevenueSub').textContent = vehicle.status === 'Rented' ? 'Active rental in progress' : (vehicle.status === 'Maintenance' ? 'Vehicle in service' : 'Most recent completed rental');
+  document.getElementById('statDuration').textContent = `${vehicle.revenue.duration} day${vehicle.revenue.duration === 1 ? '' : 's'}`;
+  document.getElementById('statReturn').textContent = vehicle.revenue.returnDate;
+  document.getElementById('statPlate').textContent = `Plate ${vehicle.plate} · ${numFmt(vehicle.mileage)} mi`;
+  document.getElementById('mapLabel').textContent = 'Georgetown Depot — Bay ' + (1 + (vehicle.plate.match(/\d+/) ? Number(vehicle.plate.match(/\d+/)[0]) % 12 : 0));
+
+  // Parts overview accordion
+  const partsList = document.getElementById('partsList');
+  partsList.innerHTML = vehicle.partsOverview.map((p, i) => `
+    <div class="part-row" data-idx="${i}">
+      <div class="part-summary">
+        <div class="part-summary-left">
+          <div class="part-toggle">+</div>
+          <div class="part-name">${p.part}</div>
+        </div>
+        <span class="badge badge-${slugifyBadge(p.condition)}">${p.condition}</span>
+      </div>
+      <div class="part-panel"><div class="part-panel-inner">${p.note}</div></div>
+    </div>
+  `).join('');
+  partsList.querySelectorAll('.part-row').forEach(row => {
+    row.querySelector('.part-summary').addEventListener('click', () => row.classList.toggle('open'));
+  });
+  const flagged = vehicle.partsOverview.filter(p => p.condition !== 'Good').length;
+  document.getElementById('partsFlagBadge').textContent = flagged > 0 ? `${flagged} flagged` : 'All clear';
+  document.getElementById('partsFlagBadge').style.cssText = flagged > 0 ? '' : 'background:var(--success-soft);color:var(--success)';
+
+  // Vehicle showcase
+  clearInterval(rotationTimer);
+  rotationTimer = null;
+  rotationIndex = 0;
+  const frame = document.getElementById('showcaseFrame');
+  const img = document.getElementById('showcaseImg');
+  frame.classList.remove('rotating');
+  img.src = vehicle.images[0];
+  img.alt = vehicle.alt;
+  document.getElementById('showcaseName').textContent = vehicle.name;
+  document.getElementById('showcaseYear').textContent = `${vehicle.year} · ${vehicle.category}`;
+  document.getElementById('showcaseBadges').innerHTML = `
+    <span class="badge badge-${slugifyBadge(vehicle.status)}">${vehicle.status}</span>
+    <span class="badge" style="background:var(--bg-input);color:var(--text-muted)">${money(vehicle.dailyRate)}/day</span>
+  `;
+  document.querySelectorAll('#viewToggle button').forEach(b => b.classList.toggle('active', b.getAttribute('data-view') === 'static'));
+
+  // Prior rental history
+  const historyList = document.getElementById('historyList');
+  historyList.innerHTML = vehicle.priorRentals.length ? vehicle.priorRentals.map(r => `
+    <div class="history-row">
+      <img class="avatar-img" src="${r.avatar}" alt="${r.customerName}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar-fallback',textContent:initials('${r.customerName}')}))">
+      <div class="history-mid">
+        <div class="history-name">${r.customerName}</div>
+        <div class="history-date">Returned ${r.returnDate}</div>
+      </div>
+      <span class="badge badge-${slugifyBadge(r.status)}">${r.status}</span>
+      <div class="history-amount">${money(r.amount)}</div>
+    </div>
+  `).join('') : '<div class="empty-state">No prior rentals on record.</div>';
+
+  // Financials
+  document.getElementById('visaQuarterLabel').textContent = vehicle.revenue.quarterLabel + ' Revenue';
+  document.getElementById('visaAmount').textContent = money(vehicle.revenue.quarterRevenue);
+  document.getElementById('visaLast4').textContent = vehicle.plate.match(/\d+/) ? vehicle.plate.match(/\d+/)[0].padStart(4, '0') : '0000';
+  document.getElementById('visaPlate').textContent = vehicle.plate;
+  document.getElementById('finDefault').textContent = money(vehicle.revenue.defaultPayments);
+  document.getElementById('finMaintenance').textContent = money(vehicle.revenue.maintenanceCost);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderChrome('rental-overview');
+
+  document.getElementById('iconRevenue').innerHTML = ICONS.financials + ' Rental Revenue';
+  document.getElementById('iconDuration').innerHTML = ICONS.dashboard + ' Rental Duration';
+  document.getElementById('iconReturn').innerHTML = ICONS.car + ' Rental Return Date';
+  document.getElementById('mapPin').innerHTML = ICONS.pin;
+
+  const slug = getParam('id');
+  let vehicle = getVehicle(slug) || FLEET[0];
+
+  const picker = document.getElementById('vehiclePicker');
+  picker.innerHTML = FLEET.map(v => `<option value="${v.slug}" ${v.slug === vehicle.slug ? 'selected' : ''}>${v.name} (${v.plate})</option>`).join('');
+  picker.addEventListener('change', () => {
+    const next = getVehicle(picker.value);
+    if (next) {
+      history.replaceState(null, '', `rental-overview.html?id=${next.slug}`);
+      renderVehicle(next);
+    }
+  });
+
+  renderVehicle(vehicle);
+
+  // Static / Rotation toggle
+  document.getElementById('viewToggle').addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-view]');
+    if (!btn) return;
+    document.querySelectorAll('#viewToggle button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const view = btn.getAttribute('data-view');
+    const frame = document.getElementById('showcaseFrame');
+    const img = document.getElementById('showcaseImg');
+    const current = getVehicle(picker.value);
+    clearInterval(rotationTimer);
+    rotationTimer = null;
+    if (view === 'rotation') {
+      if (current.images.length > 1) {
+        frame.classList.remove('rotating');
+        rotationIndex = 0;
+        rotationTimer = setInterval(() => {
+          rotationIndex = (rotationIndex + 1) % current.images.length;
+          img.style.opacity = '0';
+          setTimeout(() => { img.src = current.images[rotationIndex]; img.style.opacity = '1'; }, 180);
+        }, 1600);
+      } else {
+        frame.classList.add('rotating');
+      }
+    } else {
+      frame.classList.remove('rotating');
+      img.src = current.images[0];
+      img.style.opacity = '1';
+    }
+  });
+
+  document.getElementById('newRentalBtn').addEventListener('click', () => openNewRentalModal(picker.value));
+});
+</script>
+</body>
+</html>

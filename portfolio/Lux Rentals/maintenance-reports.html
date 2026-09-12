@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maintenance Reports — Lux Rentals</title>
+<script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar"><div id="sidebarMount"></div></aside>
+
+  <div class="main-col">
+    <header class="topbar" id="topbarMount"></header>
+
+    <main>
+      <div class="page-head">
+        <h2>Maintenance Reports</h2>
+        <p>Service history, cost, and next-due scheduling across the fleet.</p>
+      </div>
+
+      <div class="stat-grid" id="mrStats"></div>
+
+      <div class="toolbar">
+        <div class="search-box" id="mrSearchBox"><input id="mrSearch" type="text" placeholder="Search by vehicle or service type…"></div>
+        <div class="chip-group" id="mrStatusChips">
+          <button class="chip active" data-status="All">All</button>
+          <button class="chip" data-status="In Progress">In Progress</button>
+          <button class="chip" data-status="Completed">Completed</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr><th>Vehicle</th><th>Service</th><th>Date</th><th>Cost</th><th>Next Due</th><th>Status</th><th></th></tr>
+            </thead>
+            <tbody id="mrTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="data.js?v=1"></script>
+<script src="app.js?v=1"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderChrome('maintenance-reports');
+  document.getElementById('mrSearchBox').innerHTML = `${ICONS.search}<input id="mrSearch" type="text" placeholder="Search by vehicle or service type…">`;
+
+  const totalCost = MAINTENANCE_REPORTS.reduce((s, m) => s + m.cost, 0);
+  const inProgress = MAINTENANCE_REPORTS.filter(m => m.status === 'In Progress').length;
+  const completed = MAINTENANCE_REPORTS.filter(m => m.status === 'Completed').length;
+  const avgCost = totalCost / MAINTENANCE_REPORTS.length;
+
+  document.getElementById('mrStats').innerHTML = `
+    <div class="stat-card"><div class="stat-label">${ICONS.financials} Total Spend</div><div class="stat-value">${moneyShort(totalCost)}</div><div class="stat-sub">${MAINTENANCE_REPORTS.length} service records</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.wrench} In Progress</div><div class="stat-value">${inProgress}</div><div class="stat-sub">active service tickets</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.fleet} Completed</div><div class="stat-value">${completed}</div><div class="stat-sub">closed this cycle</div></div>
+    <div class="stat-card"><div class="stat-label">${ICONS.dashboard} Avg. Cost</div><div class="stat-value">${moneyShort(avgCost)}</div><div class="stat-sub">per service ticket</div></div>
+  `;
+
+  function rowHTML(m) {
+    const vehicle = getVehicle(m.slug);
+    return `
+      <tr>
+        <td><div class="cell-vehicle">${vehicle ? `<img src="${vehicle.images[0]}" alt="">` : ''}<div><div class="name">${m.vehicle}</div></div></div></td>
+        <td>${m.serviceType}</td>
+        <td>${m.date}</td>
+        <td>${money(m.cost)}</td>
+        <td>${m.nextDue}</td>
+        <td><span class="badge badge-${slugifyBadge(m.status)}">${m.status}</span></td>
+        <td>${vehicle ? `<a class="btn btn-ghost btn-sm" href="rental-overview.html?id=${vehicle.slug}">View</a>` : ''}</td>
+      </tr>
+    `;
+  }
+
+  function render() {
+    const q = (document.getElementById('mrSearch').value || '').toLowerCase();
+    const status = document.querySelector('#mrStatusChips .chip.active').getAttribute('data-status');
+    const rows = MAINTENANCE_REPORTS.filter(m => {
+      const mq = !q || m.vehicle.toLowerCase().includes(q) || m.serviceType.toLowerCase().includes(q);
+      const ms = status === 'All' || m.status === status;
+      return mq && ms;
+    });
+    document.getElementById('mrTableBody').innerHTML = rows.length ? rows.map(rowHTML).join('') : `<tr><td colspan="7" class="table-empty">No maintenance records match your filters.</td></tr>`;
+  }
+
+  document.getElementById('mrSearch').addEventListener('input', render);
+  document.querySelectorAll('#mrStatusChips .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#mrStatusChips .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      render();
+    });
+  });
+
+  render();
+});
+</script>
+</body>
+</html>
