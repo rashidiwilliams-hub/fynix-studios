@@ -87,3 +87,19 @@ function showToast(message) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadges);
+
+// ---------- Permanent link back to the Fynix Studios portfolio ----------
+(function () {
+  var style = document.createElement('style');
+  style.textContent = '.fynix-back-link{position:fixed;bottom:18px;left:18px;z-index:9000;background:#111;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;padding:10px 16px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.3);opacity:0.85;transition:opacity .2s ease,transform .2s ease;display:inline-flex;align-items:center;gap:6px;}' +
+    '@media (max-width:640px){.fynix-back-link{left:auto;right:14px;bottom:80px;padding:0;width:40px;height:40px;justify-content:center;border-radius:50%;}.fynix-back-link .fynix-back-label{display:none;}}';
+  document.head.appendChild(style);
+  var link = document.createElement('a');
+  link.href = '../../index.html';
+  link.className = 'fynix-back-link';
+  link.setAttribute('aria-label', 'Back to Portfolio');
+  link.innerHTML = '<span aria-hidden="true">←</span><span class="fynix-back-label">Back to Portfolio</span>';
+  link.addEventListener('mouseenter', function () { link.style.opacity = '1'; link.style.transform = 'translateY(-2px)'; });
+  link.addEventListener('mouseleave', function () { link.style.opacity = ''; link.style.transform = ''; });
+  document.body.appendChild(link);
+})();
