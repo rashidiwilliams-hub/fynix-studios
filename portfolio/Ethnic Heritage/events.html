@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%234a1420'/%3E%3Cpath d='M8 4v6a2 2 0 0 0 2 2v8M8 4v6M10 4v6M16 4v16M16 4a3 3 0 0 0-3 3v3a3 3 0 0 0 3 3' stroke='%23cc9a44' stroke-width='1.3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<title>Private Events & Catering — Ethnic Heritage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v6a2 2 0 0 0 2 2v10M8 3v6M10 3v6M16 3v18M16 3a3 3 0 0 0-3 3v3a3 3 0 0 0 3 3"/></svg>
+      <span>Ethnic Heritage</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="reservation.html">Reservation</a>
+      <a href="contact.html">Contact</a>
+      <a href="events.html" class="active">Events</a>
+    </nav>
+    <div class="header-actions">
+      <button class="cart-btn" aria-label="Cart" id="cartBtn">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <a href="delivery.html" class="btn-delivery">Delivery</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Private Events & Catering</h1>
+    <p>Bring the flavors of Ethnic Heritage to your next celebration, office gathering, or milestone event.</p>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="section-head left" style="text-align:center; max-width:640px; margin:0 auto 2.6rem;">
+    <span class="eyebrow-pill">Packages</span>
+    <h2>Choose Your Package</h2>
+    <p>Every package is customizable — dietary needs, guest count, and menu selections are all part of the conversation.</p>
+  </div>
+  <div class="packages-grid">
+    <div class="package-card">
+      <h3>Intimate Gathering</h3>
+      <p class="package-price">$45 <small>/ guest</small></p>
+      <ul>
+        <li>Up to 15 guests</li>
+        <li>Private dining nook</li>
+        <li>Three-course set menu</li>
+        <li>Dedicated server</li>
+      </ul>
+      <a href="#inquiry" class="btn btn-outline-dark">Inquire</a>
+    </div>
+    <div class="package-card featured">
+      <h3>Private Dining Room</h3>
+      <p class="package-price">$65 <small>/ guest</small></p>
+      <ul>
+        <li>Up to 40 guests</li>
+        <li>Full private room buyout</li>
+        <li>Custom multi-region menu</li>
+        <li>Welcome drink included</li>
+        <li>On-site event coordinator</li>
+      </ul>
+      <a href="#inquiry" class="btn btn-primary">Inquire</a>
+    </div>
+    <div class="package-card">
+      <h3>Off-Site Catering</h3>
+      <p class="package-price">$38 <small>/ guest</small></p>
+      <ul>
+        <li>Minimum 20 guests</li>
+        <li>Delivered & set up at your venue</li>
+        <li>Buffet-style service</li>
+        <li>Serving staff available on request</li>
+      </ul>
+      <a href="#inquiry" class="btn btn-outline-dark">Inquire</a>
+    </div>
+  </div>
+</section>
+
+<section class="page-section alt" id="inquiry">
+  <div class="section-head left" style="text-align:center; max-width:640px; margin:0 auto 2.6rem;">
+    <span class="eyebrow-pill">Request a Quote</span>
+    <h2>Tell Us About Your Event</h2>
+    <p>Fill out the form and our events team will follow up within one business day with a custom quote.</p>
+  </div>
+  <div class="form-card" style="margin:0 auto;">
+    <form id="eventsForm">
+      <div class="form-grid">
+        <div class="form-field"><label>Full Name</label><input type="text" required placeholder="Your name"></div>
+        <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+        <div class="form-field"><label>Phone Number</label><input type="tel" required placeholder="+592 713 5786"></div>
+        <div class="form-field"><label>Event Date</label><input type="date" required></div>
+        <div class="form-field"><label>Guest Count</label><input type="number" min="1" required placeholder="e.g. 25"></div>
+        <div class="form-field"><label>Package</label>
+          <select required>
+            <option value="">Select a package</option>
+            <option>Intimate Gathering</option>
+            <option>Private Dining Room</option>
+            <option>Off-Site Catering</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-field full"><label>Additional Details</label><textarea placeholder="Dietary restrictions, budget, venue, occasion, etc."></textarea></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Request Quote</button>
+    </form>
+    <p class="form-success" id="eventsFormSuccess" hidden>Thanks! Our events team will reach out within one business day with a custom quote.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v6a2 2 0 0 0 2 2v10M8 3v6M10 3v6M16 3v18M16 3a3 3 0 0 0-3 3v3a3 3 0 0 0 3 3"/></svg>
+        <span>Ethnic Heritage</span>
+      </a>
+      <p>A table for every homeland — heritage recipes, fresh ingredients, and warm hospitality in every dish.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-1.9 1.9-1.9H17V2.1C16.6 2 15.4 2 14 2c-2.9 0-4.9 1.8-4.9 5v2.9H6v4h3.1v8H13Z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2c.4 2 1.7 3.6 3.6 4v3a7 7 0 0 1-3.6-1v6.5a5.5 5.5 0 1 1-5.5-5.5c.3 0 .5 0 .8.1v3a2.5 2.5 0 1 0 1.8 2.4V2h2.9Z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="reservation.html">Reservation</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="menu.html?category=Signature%20Mains">Signature Mains</a>
+      <a href="menu.html?category=Vegetarian">Vegetarian</a>
+      <a href="menu.html?category=Seafood">Seafood</a>
+      <a href="delivery.html">Delivery</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p>48 Heritage Lane, Georgetown, Guyana</p>
+      <p>+5927135786</p>
+      <p>core@fynixstudios.com</p>
+      <p>Tue – Sun 11:00 AM – 10:00 PM</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Ethnic Heritage. All Rights Reserved. Built by Fynix Studios.</div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" hidden>
+  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-drawer-head">
+      <h3 id="cartTitle">Your Cart</h3>
+      <button class="modal-close" id="cartClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="no-results" id="cartEmpty" hidden>Your cart is empty. Browse the menu to add something delicious.</p>
+    <div class="cart-drawer-foot" id="cartFoot">
+      <div class="cart-line"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <a href="checkout.html" class="btn btn-primary full">Checkout</a>
+      <a href="menu.html" class="link-arrow" style="display:block; text-align:center; margin-top:0.9rem;">Continue Browsing →</a>
+    </div>
+  </aside>
+</div>
+
+<script src="menu.js?v=2"></script>
+<script src="script.js?v=2"></script>
+</body>
+</html>
