@@ -25,7 +25,7 @@ const FLEET = [
     status: 'Available',
     mileage: 8420,
     plate: 'LUX-1042',
-    images: ['assets/images/voss-suv-elite.jpg'],
+    images: ['assets/images/voss-suv-elite.jpg?v=2'],
     alt: 'White Voss SUV Elite parked on a tree-lined avenue',
     revenue: { currentRentalRevenue: 1533.00, duration: 7, returnDate: 'September 19, 2026', quarterLabel: '2026 Q3', quarterRevenue: 9840.50, defaultPayments: 0, maintenanceCost: 1120 },
     priorRentals: [
@@ -48,7 +48,7 @@ const FLEET = [
     status: 'Rented',
     mileage: 3110,
     plate: 'LUX-2287',
-    images: ['assets/images/sterling-gt-coupe.jpg'],
+    images: ['assets/images/sterling-gt-coupe.jpg?v=2'],
     alt: 'Black Sterling GT Coupe front view in a showroom',
     revenue: { currentRentalRevenue: 430.13, duration: 14, returnDate: 'November 11, 2026', quarterLabel: '2026 Q3', quarterRevenue: 12496.05, defaultPayments: 520, maintenanceCost: 4900 },
     priorRentals: [
@@ -71,7 +71,7 @@ const FLEET = [
     status: 'Available',
     mileage: 14990,
     plate: 'LUX-3355',
-    images: ['assets/images/meridian-cabrio.jpg'],
+    images: ['assets/images/meridian-cabrio.jpg?v=2'],
     alt: 'White Meridian Cabrio convertible with the top down in a parking area',
     revenue: { currentRentalRevenue: 1876.00, duration: 7, returnDate: 'September 21, 2026', quarterLabel: '2026 Q3', quarterRevenue: 8320.00, defaultPayments: 0, maintenanceCost: 980 },
     priorRentals: [
@@ -92,7 +92,7 @@ const FLEET = [
     status: 'Maintenance',
     mileage: 21830,
     plate: 'LUX-4470',
-    images: ['assets/images/obsidian-convertible.jpg'],
+    images: ['assets/images/obsidian-convertible.jpg?v=2'],
     alt: 'Black Obsidian Convertible parked on a city street',
     revenue: { currentRentalRevenue: 0, duration: 0, returnDate: 'In Service', quarterLabel: '2026 Q3', quarterRevenue: 5460.00, defaultPayments: 0, maintenanceCost: 2350 },
     priorRentals: [
@@ -115,7 +115,7 @@ const FLEET = [
     status: 'Rented',
     mileage: 11250,
     plate: 'LUX-5518',
-    images: ['assets/images/atlas-overland-suv.jpg'],
+    images: ['assets/images/atlas-overland-suv.jpg?v=2'],
     alt: 'Black Atlas Overland SUV in a bright studio setting',
     revenue: { currentRentalRevenue: 1715.00, duration: 7, returnDate: 'September 18, 2026', quarterLabel: '2026 Q3', quarterRevenue: 10230.00, defaultPayments: 0, maintenanceCost: 1460 },
     priorRentals: [
@@ -136,7 +136,7 @@ const FLEET = [
     status: 'Available',
     mileage: 16040,
     plate: 'LUX-6623',
-    images: ['assets/images/highland-peak-suv.jpg'],
+    images: ['assets/images/highland-peak-suv.jpg?v=2'],
     alt: 'White Highland Peak SUV in a dark studio setting',
     revenue: { currentRentalRevenue: 1624.00, duration: 7, returnDate: 'September 20, 2026', quarterLabel: '2026 Q3', quarterRevenue: 8870.00, defaultPayments: 0, maintenanceCost: 1310 },
     priorRentals: [
@@ -157,7 +157,7 @@ const FLEET = [
     status: 'Rented',
     mileage: 19870,
     plate: 'LUX-7741',
-    images: ['assets/images/bellwood-grand-tourer.jpg'],
+    images: ['assets/images/bellwood-grand-tourer.jpg?v=2'],
     alt: 'Dark grand tourer coupe silhouette on a black background',
     revenue: { currentRentalRevenue: 2786.00, duration: 7, returnDate: 'September 17, 2026', quarterLabel: '2026 Q3', quarterRevenue: 15680.00, defaultPayments: 0, maintenanceCost: 3120 },
     priorRentals: [
@@ -179,7 +179,7 @@ const FLEET = [
     status: 'Available',
     mileage: 28410,
     plate: 'LUX-8802',
-    images: ['assets/images/ashford-sedan.jpg'],
+    images: ['assets/images/ashford-sedan.jpg?v=2'],
     alt: 'Silver Ashford Sedan in a dark studio with red backlight',
     revenue: { currentRentalRevenue: 1155.00, duration: 7, returnDate: 'September 19, 2026', quarterLabel: '2026 Q3', quarterRevenue: 6420.00, defaultPayments: 0, maintenanceCost: 890 },
     priorRentals: [
@@ -200,7 +200,7 @@ const FLEET = [
     status: 'Maintenance',
     mileage: 33120,
     plate: 'LUX-9915',
-    images: ['assets/images/halcyon-sport-sedan.jpg'],
+    images: ['assets/images/halcyon-sport-sedan.jpg?v=2'],
     alt: 'Silver Halcyon Sport Sedan lit dramatically in a studio',
     revenue: { currentRentalRevenue: 0, duration: 0, returnDate: 'In Service', quarterLabel: '2026 Q3', quarterRevenue: 4980.00, defaultPayments: 0, maintenanceCost: 1980 },
     priorRentals: [
@@ -222,7 +222,7 @@ const FLEET = [
     status: 'Rented',
     mileage: 1980,
     plate: 'LUX-1120',
-    images: ['assets/images/solstice-coupe-front.jpg', 'assets/images/solstice-coupe-rear.jpg'],
+    images: ['assets/images/solstice-coupe-front.jpg?v=2', 'assets/images/solstice-coupe-rear.jpg?v=2'],
     alt: 'White Solstice Coupe sports car in a bright studio',
     revenue: { currentRentalRevenue: 2884.00, duration: 7, returnDate: 'September 16, 2026', quarterLabel: '2026 Q3', quarterRevenue: 13950.00, defaultPayments: 0, maintenanceCost: 2640 },
     priorRentals: [
