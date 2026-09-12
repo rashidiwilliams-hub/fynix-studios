@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+<title>Feastly — Order from Georgetown's Best Kitchens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<header class="browse-header">
+  <div class="page-shell">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">🍽️</span>
+      <span>Feastly<span class="tagline">Order Local</span></span>
+    </a>
+    <nav>
+      <a href="#restaurants">Restaurants</a>
+      <a href="#how-it-works">How it Works</a>
+      <a href="#contact">Contact</a>
+      <span id="continueOrderPill" hidden></span>
+    </nav>
+  </div>
+</header>
+
+<section class="page-shell browse-hero">
+  <h1>Order from Georgetown's <span class="accent-text">best kitchens</span></h1>
+  <p>Browse eight local favorites — Caribbean, Chinese, Indian, Italian, BBQ, healthy bowls, bakery, and burgers — then order straight from each restaurant's own menu.</p>
+</section>
+
+<section class="page-shell" id="restaurants">
+  <div class="cuisine-filters" id="cuisineFilters"></div>
+  <div class="restaurant-grid" id="restaurantGrid"></div>
+</section>
+
+<section class="page-shell" id="how-it-works" style="padding: 1rem 0 3rem;">
+  <div class="section-head-row"><h2>How it works</h2></div>
+  <div class="restaurant-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="restaurant-card" style="padding: 1.4rem;">
+      <h3 style="margin-bottom:0.5rem;">1. Pick a kitchen</h3>
+      <p style="color:var(--text-soft); font-size:0.85rem;">Browse eight distinct restaurants and choose what you're craving.</p>
+    </div>
+    <div class="restaurant-card" style="padding: 1.4rem;">
+      <h3 style="margin-bottom:0.5rem;">2. Build your order</h3>
+      <p style="color:var(--text-soft); font-size:0.85rem;">Search the menu, add dishes, and adjust quantities in your cart.</p>
+    </div>
+    <div class="restaurant-card" style="padding: 1.4rem;">
+      <h3 style="margin-bottom:0.5rem;">3. Checkout</h3>
+      <p style="color:var(--text-soft); font-size:0.85rem;">Choose delivery, dine in, or takeaway, then place your order.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">🍽️</span>
+        <span>Feastly<span class="tagline">Order Local</span></span>
+      </a>
+      <p>A multi-restaurant ordering platform concept, designed and built by Fynix Studios to show what a real food-delivery experience could look like.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#restaurants">Restaurants</a></li>
+        <li><a href="#how-it-works">How it Works</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Cuisines</h4>
+      <ul id="footerCuisines"></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Fynix Studios</h4>
+      <ul>
+        <li>+592 713 5786</li>
+        <li>core@fynixstudios.com</li>
+        <li>Georgetown, Guyana</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Feastly. Concept build by Fynix Studios — a portfolio demo, not a live ordering service.</p>
+  </div>
+</footer>
+
+<script src="data.js?v=1"></script>
+<script src="cart.js?v=1"></script>
+<script src="browse.js?v=1"></script>
+</body>
+</html>
