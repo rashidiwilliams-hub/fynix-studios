@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Customer Profiles — Lux Rentals</title>
+<link rel="shortcut icon" href="assets/images/favicon.png">
 <script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -19,11 +20,6 @@
     <header class="topbar" id="topbarMount"></header>
 
     <main>
-      <div class="page-head">
-        <h2>Customer Profiles</h2>
-        <p>Renter directory aggregated from rental history across the fleet.</p>
-      </div>
-
       <div class="stat-grid" id="cpStats"></div>
 
       <div class="toolbar">
@@ -40,11 +36,11 @@
   </div>
 </div>
 
-<script src="data.js?v=1"></script>
-<script src="app.js?v=1"></script>
+<script src="data.js?v=5"></script>
+<script src="app.js?v=3"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  renderChrome('customer-profiles');
+  renderChrome('customer-profiles', 'Renter directory aggregated from rental history across the fleet.');
   document.getElementById('cpSearchBox').innerHTML = `${ICONS.search}<input id="cpSearch" type="text" placeholder="Search customers by name or email…">`;
 
   const vipCount = CUSTOMERS.filter(c => c.status === 'VIP').length;

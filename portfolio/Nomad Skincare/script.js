@@ -1,9 +1,46 @@
-// ---------- Shared cart (persisted across page loads via localStorage) ----------
-const CART_KEY = 'nomad_cart_count';
-function getCartCount() { return parseInt(localStorage.getItem(CART_KEY) || '0', 10); }
-function setCartCount(n) {
-  localStorage.setItem(CART_KEY, String(n));
-  document.querySelectorAll('.cart-badge').forEach(b => b.textContent = n);
+// ---------- Shared cart (persisted across pages via localStorage) ----------
+const CART_KEY = 'nomadskincare_cart';
+
+function getCart() {
+  try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch (e) { return []; }
+}
+function setCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  updateCartBadge();
+}
+function getCartQty(slug) {
+  const entry = getCart().find(c => c.slug === slug);
+  return entry ? entry.qty : 0;
+}
+function addToCart(slug, qty) {
+  const cart = getCart();
+  const entry = cart.find(c => c.slug === slug);
+  if (entry) entry.qty += qty; else cart.push({ slug, qty });
+  setCart(cart);
+}
+function setCartQty(slug, qty) {
+  let cart = getCart();
+  if (qty <= 0) cart = cart.filter(c => c.slug !== slug);
+  else {
+    const entry = cart.find(c => c.slug === slug);
+    if (entry) entry.qty = qty; else cart.push({ slug, qty });
+  }
+  setCart(cart);
+}
+function removeFromCart(slug) { setCart(getCart().filter(c => c.slug !== slug)); }
+function cartCount() { return getCart().reduce((s, c) => s + c.qty, 0); }
+function findProduct(slug) {
+  return (typeof PRODUCTS !== 'undefined') ? PRODUCTS.find(p => p.slug === slug) : null;
+}
+function cartSubtotal() {
+  return getCart().reduce((s, c) => {
+    const p = findProduct(c.slug);
+    return p ? s + p.price * c.qty : s;
+  }, 0);
+}
+function formatMoney(n) { return `G$${Math.round(n).toLocaleString('en-US')}`; }
+function updateCartBadge() {
+  document.querySelectorAll('.cart-badge').forEach(b => b.textContent = cartCount());
 }
 
 function starsHTML(rating) {
@@ -18,7 +55,7 @@ function productCardHTML(p) {
       <h3>${p.name}</h3>
       <p class="card-desc">${p.lead}</p>
       <div class="card-bottom">
-        <span class="card-price">$${p.price.toFixed(2)}</span>
+        <span class="card-price">${formatMoney(p.price)}</span>
         <button class="add-btn" aria-label="Add to cart" data-qty-add="${p.slug}">+</button>
       </div>
     </article>`;
@@ -29,7 +66,7 @@ function wireProductGrid(grid) {
   grid.querySelectorAll('.add-btn').forEach(btn => {
     btn.addEventListener('click', function (e) {
       e.preventDefault(); e.stopPropagation();
-      setCartCount(getCartCount() + 1);
+      addToCart(this.dataset.qtyAdd, 1);
       const original = this.innerHTML;
       this.textContent = '✓';
       this.classList.add('added');
@@ -62,8 +99,77 @@ function showToast(message) {
   }, 2200);
 }
 
+// ---------- Cart drawer ----------
+function closeAllOverlays() {
+  document.querySelectorAll('.drawer-overlay.open').forEach(o => o.classList.remove('open'));
+  const bodyOverlay = document.getElementById('bodyOverlay');
+  if (bodyOverlay) bodyOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function openOverlay(id) {
+  closeAllOverlays();
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.hidden = false;
+  void el.offsetWidth;
+  el.classList.add('open');
+  const bodyOverlay = document.getElementById('bodyOverlay');
+  if (bodyOverlay) { bodyOverlay.hidden = false; void bodyOverlay.offsetWidth; bodyOverlay.classList.add('open'); }
+  document.body.style.overflow = 'hidden';
+}
+
+function renderCartDrawer() {
+  const cart = getCart();
+  const list = document.getElementById('cartItems');
+  const empty = document.getElementById('cartEmptyMsg');
+  const foot = document.getElementById('cartFoot');
+  if (!list) return;
+  if (cart.length === 0) {
+    list.innerHTML = '';
+    if (empty) empty.hidden = false;
+    if (foot) foot.hidden = true;
+    return;
+  }
+  if (empty) empty.hidden = true;
+  if (foot) foot.hidden = false;
+  list.innerHTML = cart.map(c => {
+    const p = findProduct(c.slug);
+    if (!p) return '';
+    return `
+      <div class="drawer-item" data-slug="${p.slug}">
+        <img src="${p.images[0]}" alt="${p.alt}">
+        <div class="drawer-item-body">
+          <strong>${p.name}</strong>
+          <div class="drawer-item-price">${formatMoney(p.price)} × ${c.qty}</div>
+          <div class="qty-stepper" data-slug="${p.slug}">
+            <button class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
+            <span class="qty-num">${c.qty}</span>
+            <button class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+        <button class="drawer-item-remove" data-remove="${p.slug}" aria-label="Remove">✕</button>
+      </div>`;
+  }).join('');
+  document.getElementById('cartSubtotal').textContent = formatMoney(cartSubtotal());
+}
+
+// ---------- Mobile nav toggle ----------
+function initMobileNav() {
+  const toggle = document.getElementById('navToggle');
+  const nav = document.querySelector('.main-nav');
+  if (!toggle || !nav) return;
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    toggle.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => { nav.classList.remove('open'); toggle.classList.remove('open'); });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  setCartCount(getCartCount());
+  updateCartBadge();
+  initMobileNav();
   initHomePage();
   initShopPage();
   initProductPage();
@@ -75,10 +181,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.getElementById('cartBtn')?.addEventListener('click', () => {
-    const n = getCartCount();
-    showToast(n > 0 ? `${n} item${n === 1 ? '' : 's'} in bag — demo only, checkout isn't wired up` : 'Your bag is empty');
-  });
+  // Cart drawer
+  const cartBtn = document.getElementById('cartBtn');
+  if (cartBtn) cartBtn.addEventListener('click', () => { renderCartDrawer(); openOverlay('cartOverlay'); });
+  const cartClose = document.getElementById('cartClose');
+  if (cartClose) cartClose.addEventListener('click', closeAllOverlays);
+  const cartItems = document.getElementById('cartItems');
+  if (cartItems) {
+    cartItems.addEventListener('click', (e) => {
+      const removeBtn = e.target.closest('[data-remove]');
+      if (removeBtn) { removeFromCart(removeBtn.dataset.remove); renderCartDrawer(); return; }
+      const plusBtn = e.target.closest('.qty-plus');
+      if (plusBtn) { const slug = plusBtn.closest('.qty-stepper').dataset.slug; setCartQty(slug, getCartQty(slug) + 1); renderCartDrawer(); return; }
+      const minusBtn = e.target.closest('.qty-minus');
+      if (minusBtn) { const slug = minusBtn.closest('.qty-stepper').dataset.slug; setCartQty(slug, getCartQty(slug) - 1); renderCartDrawer(); return; }
+    });
+  }
+  const bodyOverlay = document.getElementById('bodyOverlay');
+  if (bodyOverlay) bodyOverlay.addEventListener('click', closeAllOverlays);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllOverlays(); });
+
   document.getElementById('accountBtn')?.addEventListener('click', () => showToast('Account — demo only'));
   document.getElementById('searchBtn')?.addEventListener('click', () => showToast('Search — demo only'));
 
@@ -153,7 +275,7 @@ function initProductPage() {
   document.getElementById('productSuited').textContent = product.suited;
   document.getElementById('productFormat').textContent = product.format;
   document.getElementById('productRoutine').textContent = product.routine;
-  document.getElementById('productPrice').textContent = `$${product.price.toFixed(2)}`;
+  document.getElementById('productPrice').textContent = formatMoney(product.price);
 
   const mainImage = document.getElementById('mainImage');
   mainImage.src = product.images[0];
@@ -178,7 +300,7 @@ function initProductPage() {
 
   const cartBtn = document.getElementById('addToCartBtn');
   cartBtn.addEventListener('click', () => {
-    setCartCount(getCartCount() + qty);
+    addToCart(product.slug, qty);
     const original = cartBtn.textContent;
     cartBtn.textContent = 'Added ✓';
     cartBtn.classList.add('added');

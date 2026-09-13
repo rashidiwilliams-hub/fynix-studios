@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rental Overview — Lux Rentals</title>
+<link rel="shortcut icon" href="assets/images/favicon.png">
 <script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -19,20 +20,10 @@
     <header class="topbar" id="topbarMount"></header>
 
     <main>
-      <div class="page-head" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>
-          <h2>Rental Assessment</h2>
-          <p id="assessmentSub">Full condition and revenue snapshot for the selected vehicle.</p>
-        </div>
-        <div class="field" style="margin:0;min-width:220px">
-          <select id="vehiclePicker"></select>
-        </div>
-      </div>
-
       <div class="stat-grid">
         <div class="stat-card">
           <div class="stat-label" id="iconRevenue">Rental Revenue</div>
-          <div class="stat-value" id="statRevenue">$0.00</div>
+          <div class="stat-value" id="statRevenue">GYD 0.00</div>
           <div class="stat-sub" id="statRevenueSub"></div>
         </div>
         <div class="stat-card">
@@ -55,7 +46,7 @@
         <div class="card">
           <div class="card-head">
             <h2>Parts Overview</h2>
-            <span class="badge" id="partsFlagBadge" style="background:var(--bg-input);color:var(--text-muted)">14 checkpoints</span>
+            <span class="badge" id="partsFlagBadge" style="background:var(--bg-input);color:var(--text-muted)">11 checkpoints</span>
           </div>
           <div class="card-body">
             <div class="parts-list" id="partsList"></div>
@@ -65,10 +56,6 @@
         <div class="card">
           <div class="card-head">
             <h2>Vehicle</h2>
-            <div class="view-toggle" id="viewToggle">
-              <button class="active" data-view="static">Static</button>
-              <button data-view="rotation">Rotation</button>
-            </div>
           </div>
           <div class="card-body">
             <div class="vehicle-showcase">
@@ -100,15 +87,15 @@
               <div class="visa-top">
                 <div>
                   <div class="visa-label" id="visaQuarterLabel">2026 Q3</div>
-                  <div class="visa-amount" id="visaAmount">$0.00</div>
+                  <div class="visa-amount" id="visaAmount">GYD 0.00</div>
                 </div>
                 <div class="visa-brand">VISA</div>
               </div>
               <div class="visa-number">•••• •••• •••• <span id="visaLast4">1042</span></div>
               <div class="visa-bottom"><span>QUARTERLY REVENUE</span><span id="visaPlate">LUX-0000</span></div>
             </div>
-            <div class="fin-metric-row"><span class="label">Default Payments</span><span class="value" id="finDefault">$0.00</span></div>
-            <div class="fin-metric-row"><span class="label">Maintenance Cost</span><span class="value" id="finMaintenance">$0.00</span></div>
+            <div class="fin-metric-row"><span class="label">Default Payments</span><span class="value" id="finDefault">GYD 0.00</span></div>
+            <div class="fin-metric-row"><span class="label">Maintenance Cost</span><span class="value" id="finMaintenance">GYD 0.00</span></div>
             <button class="btn btn-primary btn-block" id="newRentalBtn" style="margin-top:14px">New Rental</button>
           </div>
         </div>
@@ -117,15 +104,12 @@
   </div>
 </div>
 
-<script src="data.js?v=1"></script>
-<script src="app.js?v=1"></script>
+<script src="data.js?v=5"></script>
+<script src="app.js?v=3"></script>
 <script>
-let rotationTimer = null;
-let rotationIndex = 0;
-
 function renderVehicle(vehicle) {
   document.title = `${vehicle.name} — Rental Overview — Lux Rentals`;
-  document.getElementById('assessmentSub').textContent = `${vehicle.name} · ${vehicle.category} · ${vehicle.plate}`;
+  document.getElementById('topbarSubtitle').textContent = `${vehicle.name} · ${vehicle.category} · ${vehicle.plate}`;
   localStorage.setItem(LS_LAST_VEHICLE, vehicle.slug);
 
   // Stat cards
@@ -158,12 +142,7 @@ function renderVehicle(vehicle) {
   document.getElementById('partsFlagBadge').style.cssText = flagged > 0 ? '' : 'background:var(--success-soft);color:var(--success)';
 
   // Vehicle showcase
-  clearInterval(rotationTimer);
-  rotationTimer = null;
-  rotationIndex = 0;
-  const frame = document.getElementById('showcaseFrame');
   const img = document.getElementById('showcaseImg');
-  frame.classList.remove('rotating');
   img.src = vehicle.images[0];
   img.alt = vehicle.alt;
   document.getElementById('showcaseName').textContent = vehicle.name;
@@ -172,7 +151,6 @@ function renderVehicle(vehicle) {
     <span class="badge badge-${slugifyBadge(vehicle.status)}">${vehicle.status}</span>
     <span class="badge" style="background:var(--bg-input);color:var(--text-muted)">${money(vehicle.dailyRate)}/day</span>
   `;
-  document.querySelectorAll('#viewToggle button').forEach(b => b.classList.toggle('active', b.getAttribute('data-view') === 'static'));
 
   // Prior rental history
   const historyList = document.getElementById('historyList');
@@ -198,7 +176,7 @@ function renderVehicle(vehicle) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderChrome('rental-overview');
+  renderChrome('rental-overview', 'Full condition and revenue snapshot for the selected vehicle.');
 
   document.getElementById('iconRevenue').innerHTML = ICONS.financials + ' Rental Revenue';
   document.getElementById('iconDuration').innerHTML = ICONS.dashboard + ' Rental Duration';
@@ -208,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const slug = getParam('id');
   let vehicle = getVehicle(slug) || FLEET[0];
 
+  document.querySelector('.topbar-actions').insertAdjacentHTML('afterbegin', '<select id="vehiclePicker" class="topbar-select"></select>');
   const picker = document.getElementById('vehiclePicker');
   picker.innerHTML = FLEET.map(v => `<option value="${v.slug}" ${v.slug === vehicle.slug ? 'selected' : ''}>${v.name} (${v.plate})</option>`).join('');
   picker.addEventListener('change', () => {
@@ -219,37 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   renderVehicle(vehicle);
-
-  // Static / Rotation toggle
-  document.getElementById('viewToggle').addEventListener('click', (e) => {
-    const btn = e.target.closest('button[data-view]');
-    if (!btn) return;
-    document.querySelectorAll('#viewToggle button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const view = btn.getAttribute('data-view');
-    const frame = document.getElementById('showcaseFrame');
-    const img = document.getElementById('showcaseImg');
-    const current = getVehicle(picker.value);
-    clearInterval(rotationTimer);
-    rotationTimer = null;
-    if (view === 'rotation') {
-      if (current.images.length > 1) {
-        frame.classList.remove('rotating');
-        rotationIndex = 0;
-        rotationTimer = setInterval(() => {
-          rotationIndex = (rotationIndex + 1) % current.images.length;
-          img.style.opacity = '0';
-          setTimeout(() => { img.src = current.images[rotationIndex]; img.style.opacity = '1'; }, 180);
-        }, 1600);
-      } else {
-        frame.classList.add('rotating');
-      }
-    } else {
-      frame.classList.remove('rotating');
-      img.src = current.images[0];
-      img.style.opacity = '1';
-    }
-  });
 
   document.getElementById('newRentalBtn').addEventListener('click', () => openNewRentalModal(picker.value));
 });

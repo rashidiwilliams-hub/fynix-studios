@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+<title>Checkout — Nomad Skincare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<div class="page-shell">
+  <header class="site-header">
+    <a class="logo" href="index.html">NOMAD<small>Skincare</small></a>
+    <nav class="main-nav main-nav--simple">
+      <a href="index.html">Home</a>
+    </nav>
+    <div class="header-actions">
+      <button class="cart-btn" id="cartBtn" aria-label="Bag"><svg width="16" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cart-badge" id="cartBadge">0</span></button>
+    </div>
+  </header>
+</div>
+
+<section class="checkout-hero">
+  <h1>Checkout</h1>
+  <p>Almost there — just a few details and your order is on its way.</p>
+</section>
+
+<div id="checkoutEmpty" class="checkout-empty" hidden>
+  <h2>Your bag is empty</h2>
+  <p>Add something from Best Sellers before checking out.</p>
+  <a href="index.html#bestsellers" class="btn-dark">Browse Best Sellers</a>
+</div>
+
+<div id="checkoutContent">
+  <div class="checkout-grid">
+    <div class="checkout-form-col">
+      <form id="checkoutForm">
+        <h2 class="checkout-h2">Delivery Details</h2>
+        <div class="form-grid">
+          <div class="form-field"><label>Full Name</label><input type="text" id="checkoutName" required placeholder="Your full name"></div>
+          <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+          <div class="form-field full"><label>Delivery Address</label><input type="text" required placeholder="Lot / Street, Ward"></div>
+          <div class="form-field"><label>City / Town</label><input type="text" required placeholder="e.g. Georgetown"></div>
+          <div class="form-field"><label>Region</label><input type="text" required placeholder="e.g. Demerara-Mahaica"></div>
+        </div>
+
+        <h2 class="checkout-h2">Payment Method</h2>
+        <div class="radio-row">
+          <label><input type="radio" name="payment" value="card" checked> Credit / Debit Card</label>
+          <label><input type="radio" name="payment" value="cash"> Cash on Delivery</label>
+        </div>
+        <div class="form-grid" id="cardFields">
+          <div class="form-field full"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456"></div>
+          <div class="form-field"><label>Expiry</label><input type="text" placeholder="MM/YY"></div>
+          <div class="form-field"><label>CVC</label><input type="text" placeholder="123"></div>
+        </div>
+
+        <button type="submit" class="btn-dark w-full">Place Order</button>
+      </form>
+    </div>
+
+    <aside class="order-summary">
+      <h3>Order Summary</h3>
+      <div id="summaryItems"></div>
+      <div class="summary-totals">
+        <div><span>Subtotal</span><span id="summarySubtotal">G$0</span></div>
+        <div><span>Shipping</span><span id="summaryShipping">G$0</span></div>
+        <div><span>VAT (14%)</span><span id="summaryTax">G$0</span></div>
+        <div class="grand-total"><span>Total</span><span id="summaryTotal">G$0</span></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="confirmation" id="checkoutConfirmation" hidden>
+    <div class="confirmation-icon">✓</div>
+    <h2>Thank you, <span id="confirmName">friend</span>!</h2>
+    <p>Your order <span class="order-number" id="confirmOrderNumber"></span> has been placed.</p>
+    <p>Total charged: <strong id="confirmTotal"></strong></p>
+    <a href="index.html" class="btn-dark" style="margin-top:1.2rem; display:inline-flex;">Continue Shopping</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html">NOMAD<small>Skincare</small></a>
+      <p>Elevated skincare made with clean ingredients and backed by science.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Nomad Skincare. All Rights Reserved. Built by Fynix Studios.</p>
+    <p>123 Camp Street, Georgetown, Guyana · +592 713 5786</p>
+  </div>
+</footer>
+
+<script src="products.js?v=4"></script>
+<script src="checkout.js?v=1"></script>
+</body>
+</html>

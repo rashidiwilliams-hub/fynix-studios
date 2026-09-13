@@ -5,18 +5,7 @@
 // completion rates derived from the shared TASKS data.
 // ==========================================================================
 
-function kpiCardHTML({ icon, iconBg, iconColor, label, value, deltaLabel, deltaDir }) {
-  return `
-    <div class="card kpi-card">
-      <span class="kpi-icon" style="background:${iconBg}; color:${iconColor};">${icon}</span>
-      <span class="kpi-label">${label}</span>
-      <span class="kpi-value">${value}</span>
-      <span class="kpi-delta ${deltaDir}">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${deltaDir === 'up' ? '<path d="M12 19V5M5 12l7-7 7 7"/>' : '<path d="M12 5v14M5 12l7 7 7-7"/>'}</svg>
-        ${deltaLabel}
-      </span>
-    </div>`;
-}
+// kpiCardHTML now lives in app.js (shared with the dashboard's stat row).
 
 function renderKPIs() {
   const grid = document.getElementById('kpiGrid');
@@ -33,25 +22,25 @@ function renderKPIs() {
   const cards = [
     {
       icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
-      iconBg: 'var(--accent-soft)', iconColor: 'var(--accent-2)',
+      iconColor: 'var(--accent-2)',
       label: 'Hours Logged This Week', value: `${totalHours}h`,
       deltaLabel: '+9% vs last week', deltaDir: 'up'
     },
     {
       icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
-      iconBg: 'var(--info-soft)', iconColor: 'var(--info)',
+      iconColor: 'var(--info)',
       label: 'Active Projects', value: String(projectCount),
       deltaLabel: '+1 new this month', deltaDir: 'up'
     },
     {
       icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
-      iconBg: 'var(--success-soft)', iconColor: 'var(--success)',
+      iconColor: 'var(--success)',
       label: 'Avg. Task Completion', value: `${avgCompletion}%`,
       deltaLabel: '+6% vs last sprint', deltaDir: 'up'
     },
     {
       icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>',
-      iconBg: 'var(--danger-soft)', iconColor: 'var(--danger)',
+      iconColor: 'var(--danger)',
       label: 'Team Velocity (Wk)', value: `${lastWeek} tasks`,
       deltaLabel: `${velocityDeltaPct >= 0 ? '+' : ''}${velocityDeltaPct}% vs prior week`, deltaDir: velocityDeltaPct >= 0 ? 'up' : 'down'
     }
@@ -70,15 +59,41 @@ function barChartData() {
   return { rows: WEEKLY_HOURS.map((d) => ({ label: d.label, value: d.hours })), prefix: '', suffix: 'h', title: 'Hours Logged This Week' };
 }
 
+// Rounds a max value up to a "nice" number so axis ticks read cleanly (e.g. 39 -> 40).
+function niceAxisMax(max) {
+  if (!max) return 1;
+  const magnitude = Math.pow(10, Math.floor(Math.log10(max)));
+  const residual = max / magnitude;
+  let niceResidual;
+  if (residual > 5) niceResidual = 10;
+  else if (residual > 2) niceResidual = 5;
+  else if (residual > 1) niceResidual = 2;
+  else niceResidual = 1;
+  return niceResidual * magnitude;
+}
+
+function renderBarChartYAxis(axisMax, prefix, suffix) {
+  const axisEl = document.getElementById('barChartYAxis');
+  if (!axisEl) return;
+  const steps = 4;
+  const ticks = [];
+  for (let i = steps; i >= 0; i--) {
+    const v = (axisMax / steps) * i;
+    ticks.push(prefix === '$' ? `$${Math.round(v / 1000)}k` : `${Math.round(v)}${suffix}`);
+  }
+  axisEl.innerHTML = ticks.map((label) => `<span>${label}</span>`).join('');
+}
+
 function renderBarChart() {
   const el = document.getElementById('barChart');
   const titleEl = document.getElementById('barChartTitle');
   if (!el) return;
   const { rows, prefix, suffix, title } = barChartData();
   if (titleEl) titleEl.textContent = title;
-  const max = Math.max(...rows.map((r) => r.value));
+  const rawMax = Math.max(...rows.map((r) => r.value));
+  const axisMax = niceAxisMax(rawMax);
   el.innerHTML = rows.map((r) => {
-    const pct = Math.max((r.value / max) * 100, 3);
+    const pct = Math.max((r.value / axisMax) * 100, 3);
     const displayValue = prefix === '$' ? `$${(r.value / 1000).toFixed(1)}k` : `${r.value}${suffix}`;
     return `
       <div class="bar-col" title="${r.label}: ${prefix}${r.value.toLocaleString()}${suffix}">
@@ -90,6 +105,7 @@ function renderBarChart() {
         <span class="bar-label">${r.label}</span>
       </div>`;
   }).join('');
+  renderBarChartYAxis(axisMax, prefix, suffix);
 }
 
 function initBarToggle() {

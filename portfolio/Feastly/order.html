@@ -7,8 +7,8 @@
 <title id="pageTitle">Order — Feastly</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
 
@@ -16,39 +16,47 @@
   <aside class="app-sidebar">
     <a class="side-logo" href="index.html" aria-label="Feastly home">🍽️</a>
     <nav class="side-nav">
-      <div class="side-nav-item active" data-demo="Dashboard" aria-label="Dashboard">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-        <span class="side-tooltip">Dashboard</span>
-      </div>
-      <div class="side-nav-item" data-scroll="menuSection" aria-label="Menu">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
-        <span class="side-tooltip">Menu</span>
-      </div>
-      <div class="side-nav-item" data-demo="New Order" aria-label="New Order">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-        <span class="side-tooltip">New Order</span>
-      </div>
-      <div class="side-nav-item" data-demo="Pending Orders" aria-label="Pending Orders">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
-        <span class="side-tooltip">Pending Orders</span>
-      </div>
-      <div class="side-nav-item" data-demo="Reservations" aria-label="Reservations">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></svg>
-        <span class="side-tooltip">Reservations</span>
-      </div>
-      <div class="side-nav-item" data-scroll="reportsSection" aria-label="Overview">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
-        <span class="side-tooltip">Overview</span>
-      </div>
+      <button type="button" class="side-nav-item active" data-scroll="dashboardTop">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        <span class="side-label">Dashboard</span>
+      </button>
+      <button type="button" class="side-nav-item" data-scroll="menuSection">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        <span class="side-label">Menu</span>
+      </button>
+      <button type="button" class="side-nav-item" data-scroll="reportsSection">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="side-label">Orders</span>
+      </button>
+      <button type="button" class="side-nav-item" data-scroll="reservationsSection">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></svg>
+        <span class="side-label">Reservations</span>
+      </button>
+      <button type="button" class="side-nav-item" data-scroll="customersSection">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="side-label">Customers</span>
+      </button>
+      <button type="button" class="side-nav-item" data-scroll="reviewsSection">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2Z"/></svg>
+        <span class="side-label">Reviews</span>
+      </button>
+      <button type="button" class="side-nav-item" data-scroll="promotionsSection">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+        <span class="side-label">Promotions</span>
+      </button>
+      <button type="button" class="side-nav-item" data-scroll="settingsSection">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
+        <span class="side-label">Settings</span>
+      </button>
     </nav>
-    <a class="side-nav-item side-back" href="index.html" aria-label="All restaurants">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      <span class="side-tooltip">All Restaurants</span>
+    <a class="side-nav-item side-back" href="index.html">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span class="side-label">Restaurants</span>
     </a>
   </aside>
 
   <main class="app-main">
-    <div class="dashboard-topbar">
+    <div class="dashboard-topbar" id="dashboardTop">
       <a class="restaurant-identity" href="index.html" id="restaurantIdentity" style="cursor:pointer;">
         <img id="restLogo" src="" alt="">
         <div>
@@ -89,17 +97,123 @@
         </table>
       </div>
     </section>
+
+    <section id="reservationsSection">
+      <div class="section-head-row">
+        <h2>Reservations</h2>
+        <span class="muted-link" id="reservationsSummary"></span>
+      </div>
+      <div class="reservation-layout">
+        <div class="reservation-panel">
+          <form id="reservationForm" class="reservation-form">
+            <div class="form-row">
+              <div class="form-field"><label>Name</label><input type="text" id="resName" required placeholder="Your name"></div>
+              <div class="form-field"><label>Party Size</label><input type="number" id="resParty" min="1" max="20" value="2" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-field"><label>Date</label><input type="date" id="resDate" required></div>
+              <div class="form-field"><label>Time</label><input type="time" id="resTime" value="19:00" required></div>
+            </div>
+            <div class="form-field"><label>Notes (optional)</label><textarea id="resNotes" rows="2" placeholder="Allergies, occasion, seating preference..."></textarea></div>
+            <button type="submit" class="place-order-btn">Request Table</button>
+          </form>
+          <div id="reservationConfirm" class="reservation-confirm" hidden>
+            <div class="check-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h3>Table requested!</h3>
+            <p id="reservationConfirmText"></p>
+            <button type="button" class="switch-restaurant-btn" id="reservationNewBtn">Make Another Reservation</button>
+          </div>
+        </div>
+        <div class="reservation-side-card">
+          <h3>Upcoming reservations</h3>
+          <div id="upcomingReservationsList"></div>
+        </div>
+        <div class="reservation-side-card">
+          <h3>Reservation policy</h3>
+          <ul class="reservation-policy-list">
+            <li>Tables held for 15 minutes past reservation time.</li>
+            <li>Parties of 8+ require 24 hours notice.</li>
+            <li>Cancel or reschedule any time before arrival.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="customersSection">
+      <div class="section-head-row">
+        <h2>Customers</h2>
+        <span class="muted-link" id="customersSummary"></span>
+      </div>
+      <div class="reports-table-wrap">
+        <table class="reports-table">
+          <thead>
+            <tr><th>Customer</th><th>Orders</th><th>Total Spent</th><th>Last Status</th></tr>
+          </thead>
+          <tbody id="customersBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="reviewsSection">
+      <div class="section-head-row">
+        <h2>Reviews</h2>
+        <span class="muted-link" id="reviewsSummary"></span>
+      </div>
+      <div class="reviews-grid" id="reviewsGrid"></div>
+    </section>
+
+    <section id="promotionsSection">
+      <div class="section-head-row">
+        <h2>Promotions</h2>
+        <span class="muted-link">Active offers</span>
+      </div>
+      <div class="promo-grid" id="promoGrid"></div>
+    </section>
+
+    <section id="settingsSection">
+      <div class="section-head-row">
+        <h2>Settings</h2>
+        <span class="muted-link">Saved automatically</span>
+      </div>
+      <div class="settings-panel">
+        <label class="settings-toggle-row">
+          <span>Email notifications for new orders</span>
+          <input type="checkbox" id="setEmailNotif" class="settings-toggle">
+        </label>
+        <label class="settings-toggle-row">
+          <span>SMS updates on order status</span>
+          <input type="checkbox" id="setSmsNotif" class="settings-toggle">
+        </label>
+        <label class="settings-toggle-row">
+          <span>Marketing emails &amp; promotions</span>
+          <input type="checkbox" id="setMarketing" class="settings-toggle">
+        </label>
+        <label class="settings-toggle-row">
+          <span>Currently accepting orders</span>
+          <input type="checkbox" id="setAcceptingOrders" class="settings-toggle" checked>
+        </label>
+      </div>
+    </section>
   </main>
 
-  <aside class="app-rail">
+  <aside class="app-rail" id="appRail">
+    <button type="button" class="rail-close-btn" id="railCloseBtn" aria-label="Close cart">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
     <div class="delivery-card">
       <div class="dcard-head">
         <span>Delivery Address</span>
         <button class="change-btn" id="changeAddressBtn">Change</button>
       </div>
-      <div class="dcard-row">
+      <div class="dcard-row" id="addressDisplayRow">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
         <span id="deliveryAddress">Address</span>
+      </div>
+      <div class="dcard-row address-edit-row" id="addressEditRow" hidden>
+        <input type="text" id="addressInput" class="address-input" placeholder="Enter delivery address">
+        <button type="button" class="change-btn" id="saveAddressBtn">Save</button>
       </div>
       <div class="dcard-row">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
@@ -132,6 +246,15 @@
   </aside>
 </div>
 
+<div class="rail-backdrop" id="railBackdrop"></div>
+<button type="button" class="mobile-cart-bar" id="mobileCartBar">
+  <span class="mobile-cart-bar-info">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    <span id="mobileCartCount">0 items</span>
+  </span>
+  <span id="mobileCartSubtotal">$0.00</span>
+</button>
+
 <div class="overlay" id="confirmOverlay" hidden>
   <div class="confirm-card">
     <div class="check-badge">
@@ -156,8 +279,8 @@
   </div>
 </div>
 
-<script src="data.js?v=1"></script>
+<script src="data.js?v=4"></script>
 <script src="cart.js?v=2"></script>
-<script src="order.js?v=2"></script>
+<script src="order.js?v=6"></script>
 </body>
 </html>

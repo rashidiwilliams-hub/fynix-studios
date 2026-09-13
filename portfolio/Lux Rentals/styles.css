@@ -4,8 +4,8 @@
    =========================================================== */
 
 :root {
-  --font-display: 'Sora', 'Segoe UI', sans-serif;
-  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-display: 'Inter Tight', 'Segoe UI', sans-serif;
+  --font-body: 'Inter Tight', 'Segoe UI', sans-serif;
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -25,8 +25,8 @@
   --border: #232329;
   --border-soft: #1c1c22;
   --text: #f4f4f7;
-  --text-muted: #9797a3;
-  --text-faint: #5f5f6c;
+  --text-muted: #adadb9;
+  --text-faint: #7c7c8a;
   --accent: #e0273c;
   --accent-2: #ff4b5c;
   --accent-soft: rgba(224, 39, 60, 0.14);
@@ -55,8 +55,8 @@
   --border: #e4e4ea;
   --border-soft: #ececf1;
   --text: #17171c;
-  --text-muted: #64646f;
-  --text-faint: #9494a0;
+  --text-muted: #4b4b55;
+  --text-faint: #78788a;
   --accent: #d81b3a;
   --accent-2: #b8112c;
   --accent-soft: rgba(216, 27, 58, 0.08);
@@ -137,7 +137,7 @@ img { display: block; }
 }
 .brand-word {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 900;
   font-size: 1.14rem;
   letter-spacing: .01em;
   line-height: 1.1;
@@ -216,12 +216,6 @@ img { display: block; }
   padding-top: 14px;
   display: flex; flex-direction: column; gap: 8px;
 }
-.studio-switch {
-  display: flex; align-items: center; justify-content: space-between;
-  background: var(--bg-card); border: 1px solid var(--border-soft);
-  border-radius: var(--radius-sm); padding: 9px 11px;
-  font-size: .78rem; color: var(--text-muted); cursor: pointer;
-}
 .logout-btn {
   display: flex; align-items: center; gap: 10px;
   background: none; border: none; cursor: pointer;
@@ -246,11 +240,16 @@ img { display: block; }
   border-bottom: 1px solid var(--border-soft);
 }
 .topbar-title h1 {
-  margin: 0; font-family: var(--font-display); font-size: 1.28rem; font-weight: 700;
+  margin: 0; font-family: var(--font-display); font-size: 1.28rem; font-weight: 900;
 }
 .topbar-title p { margin: 2px 0 0; font-size: .8rem; color: var(--text-muted); }
 
 .topbar-actions { display: flex; align-items: center; gap: 8px; }
+.topbar-select {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 100px; padding: 9px 14px; color: var(--text);
+  font-size: .82rem; font-family: inherit; cursor: pointer; max-width: 220px;
+}
 .icon-btn {
   width: 38px; height: 38px; border-radius: 50%;
   border: 1px solid var(--border);
@@ -343,7 +342,7 @@ main { padding: 24px 28px 60px; flex: 1; }
   display: flex; align-items: center; justify-content: space-between;
   padding: 18px 20px 14px; border-bottom: 1px solid var(--border-soft);
 }
-.card-head h2 { margin: 0; font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
+.card-head h2 { margin: 0; font-family: var(--font-display); font-size: 1rem; font-weight: 900; }
 .card-body { padding: 16px 20px 20px; }
 
 .badge {
@@ -478,9 +477,13 @@ main { padding: 24px 28px 60px; flex: 1; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
-  align-items: start;
+  align-items: stretch;
   margin-bottom: 18px;
 }
+.split-two > .card { display: flex; flex-direction: column; }
+.split-two > .card .card-body { flex: 1; display: flex; flex-direction: column; }
+.split-two .vehicle-showcase { flex: 1; display: flex; flex-direction: column; }
+.split-two .showcase-frame { flex: 1; aspect-ratio: unset; min-height: 220px; }
 
 .parts-list { display: flex; flex-direction: column; gap: 8px; }
 .part-row {
@@ -517,12 +520,6 @@ main { padding: 24px 28px 60px; flex: 1; }
   width: 100%; height: 100%; object-fit: cover;
   transition: opacity .35s ease, transform .6s ease;
 }
-.showcase-frame.rotating img { animation: rotateSpin 3.6s linear infinite; }
-@keyframes rotateSpin {
-  0% { transform: perspective(900px) rotateY(0deg) scale(1); }
-  50% { transform: perspective(900px) rotateY(180deg) scale(1.02); }
-  100% { transform: perspective(900px) rotateY(360deg) scale(1); }
-}
 .showcase-caption {
   position: absolute; left: 14px; bottom: 14px;
   background: color-mix(in srgb, var(--bg-elevated) 78%, transparent);
@@ -531,12 +528,6 @@ main { padding: 24px 28px 60px; flex: 1; }
 }
 .showcase-caption .name { font-family: var(--font-display); font-weight: 700; font-size: .95rem; }
 .showcase-caption .yr { font-size: .74rem; color: var(--text-muted); }
-.view-toggle { display: flex; gap: 6px; align-self: flex-start; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; padding: 4px; }
-.view-toggle button {
-  border: none; background: none; color: var(--text-muted); cursor: pointer;
-  padding: 7px 16px; border-radius: 100px; font-size: .78rem; font-weight: 600;
-}
-.view-toggle button.active { background: var(--accent); color: #fff; }
 
 /* ===========================================================
    Prior rental history list
@@ -621,7 +612,7 @@ main { padding: 24px 28px 60px; flex: 1; }
   width: 100%; max-width: 460px; max-height: 88vh; overflow-y: auto;
 }
 .modal-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border-bottom: 1px solid var(--border-soft); }
-.modal-head h2 { margin: 0; font-family: var(--font-display); font-size: 1.05rem; }
+.modal-head h2 { margin: 0; font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; }
 .modal-close { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.1rem; padding: 4px; }
 .modal-body { padding: 20px 22px 22px; }
 .modal-body p.hint { font-size: .8rem; color: var(--text-muted); margin-top: -6px; margin-bottom: 16px; }
@@ -647,10 +638,10 @@ main { padding: 24px 28px 60px; flex: 1; }
    Page helpers
    =========================================================== */
 .page-head { margin-bottom: 18px; }
-.page-head h2 { margin: 0 0 4px; font-family: var(--font-display); font-size: 1.15rem; }
+.page-head h2 { margin: 0 0 4px; font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; }
 .page-head p { margin: 0; color: var(--text-muted); font-size: .86rem; }
 .section-gap { margin-bottom: 22px; }
-.two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; align-items: start; }
+.two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; align-items: stretch; }
 .empty-state { text-align: center; padding: 50px 20px; color: var(--text-faint); }
 .empty-state svg { margin-bottom: 10px; opacity: .6; }
 

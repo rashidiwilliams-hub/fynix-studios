@@ -100,7 +100,8 @@ const CURRENT_USER = {
   name: 'Victoria Bryant',
   role: 'Operations Administrator',
   email: 'victoria.bryant@flowspace.app',
-  initials: 'VB'
+  initials: 'VB',
+  avatar: 'assets/images/user-avatar.jpg'
 };
 
 // TASKS: `when` groups the four "My Tasks" tabs on the dashboard.
@@ -143,6 +144,15 @@ const TASKS = [
     progress: 85,
     when: 'today'
   },
+  {
+    id: 't-105',
+    project: 'Solstice Marketing Site',
+    title: 'Approve homepage wireframes',
+    description: 'Sign off on the homepage and pricing page wireframes before development starts.',
+    team: ['camila-rios', 'layla-haddad'],
+    progress: 20,
+    when: 'today'
+  },
 
   // ---- Upcoming ----
   {
@@ -169,6 +179,24 @@ const TASKS = [
     title: 'Kickoff call with Solstice team',
     description: 'Discovery call to confirm scope, timeline and success metrics.',
     team: ['camila-rios', 'layla-haddad'],
+    progress: 0,
+    when: 'upcoming'
+  },
+  {
+    id: 't-204',
+    project: 'Cascade Onboarding',
+    title: 'Finalize pricing tier copy',
+    description: 'Lock the final wording for each pricing tier ahead of the site relaunch.',
+    team: ['marisol-vega'],
+    progress: 10,
+    when: 'upcoming'
+  },
+  {
+    id: 't-205',
+    project: 'Harbor Retail Site',
+    title: 'Schedule post-launch retro',
+    description: 'Coordinate calendars for a retro with the client and internal team after launch.',
+    team: ['camila-rios', 'marco-diaz'],
     progress: 0,
     when: 'upcoming'
   },
@@ -199,6 +227,24 @@ const TASKS = [
     description: 'Twelve templates across three platforms in the new visual system.',
     team: ['daniel-cross', 'priya-anand'],
     progress: 50,
+    when: 'this-week'
+  },
+  {
+    id: 't-304',
+    project: 'Fintrack Mobile App',
+    title: 'Optimize app startup time',
+    description: 'Profile cold start performance and trim the initial bundle size.',
+    team: ['andres-solano', 'mei-lin'],
+    progress: 35,
+    when: 'this-week'
+  },
+  {
+    id: 't-305',
+    project: 'Solstice Marketing Site',
+    title: 'Build out blog template',
+    description: 'Design and implement the reusable blog post template in the new CMS.',
+    team: ['layla-haddad', 'daniel-cross'],
+    progress: 55,
     when: 'this-week'
   },
 
@@ -237,6 +283,15 @@ const TASKS = [
     description: 'Landscape review of six competitor identities to inform direction.',
     team: ['priya-anand', 'daniel-cross'],
     progress: 90,
+    when: 'prior-week'
+  },
+  {
+    id: 't-405',
+    project: 'Solstice Marketing Site',
+    title: 'Sign discovery scope document',
+    description: 'Client signed off on the discovery findings and locked the project scope.',
+    team: ['camila-rios'],
+    progress: 100,
     when: 'prior-week'
   }
 ];
@@ -352,6 +407,30 @@ const VELOCITY_WEEKS = [
   { label: 'Wk 6', tasks: 24 },
   { label: 'Wk 7', tasks: 22 },
   { label: 'Wk 8', tasks: 27 }
+];
+
+// ACTIVITY_FEED: recent studio activity shown in the dashboard rail's
+// "Recent Activity" card.
+const ACTIVITY_FEED = [
+  { id: 'a-1', member: 'priya-anand', verb: 'completed', target: 'QA checkout flow', time: '32m ago' },
+  { id: 'a-2', member: 'daniel-cross', verb: 'uploaded', target: 'Brand Guidelines Draft.pdf', time: '1h ago' },
+  { id: 'a-3', member: 'mei-lin', verb: 'commented on', target: 'Fix onboarding crash on Android', time: '2h ago' },
+  { id: 'a-4', member: 'marisol-vega', verb: 'completed', target: 'Content audit for legacy docs', time: 'Yesterday' },
+  { id: 'a-5', member: 'marco-diaz', verb: 'shipped the staging build for', target: 'Harbor Retail Site', time: 'Yesterday' }
+];
+
+// NOTIFICATIONS / MESSAGES: content for the topbar bell + mail dropdown panels.
+const NOTIFICATIONS = [
+  { id: 'n-1', title: 'Weekly Design Crit starts in 30 minutes', time: 'Today, 2:00 PM', read: false },
+  { id: 'n-2', title: 'Priya Anand marked "QA checkout flow" complete', time: '32m ago', read: false },
+  { id: 'n-3', title: 'Fintrack Mobile App budget just crossed 75%', time: '3h ago', read: false },
+  { id: 'n-4', title: 'Solstice Marketing Site kickoff confirmed for Friday', time: 'Yesterday', read: true }
+];
+
+const MESSAGES = [
+  { id: 'm-1', member: 'daniel-cross', preview: 'Sent over the final palette — take a look before the client call.', time: '12m ago', unread: true },
+  { id: 'm-2', member: 'mei-lin', preview: 'Can you review the settings wireframes when you get a sec?', time: '48m ago', unread: true },
+  { id: 'm-3', member: 'camila-rios', preview: 'Harbor Retail signed off on the staging build 🎉', time: '2h ago', unread: false }
 ];
 
 function teamMemberById(id) {

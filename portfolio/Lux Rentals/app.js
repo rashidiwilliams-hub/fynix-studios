@@ -30,10 +30,10 @@ function initTheme() {
 
 /* ---------- Formatting helpers ---------- */
 function money(n) {
-  return '$' + Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return 'GYD ' + Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 function moneyShort(n) {
-  return '$' + Number(n || 0).toLocaleString('en-US', { maximumFractionDigits: 0 });
+  return 'GYD ' + Number(n || 0).toLocaleString('en-US', { maximumFractionDigits: 0 });
 }
 function numFmt(n) { return Number(n || 0).toLocaleString('en-US'); }
 function slugifyBadge(s) { return String(s).toLowerCase().replace(/[^a-z0-9]/g, ''); }
@@ -66,10 +66,8 @@ const ICONS = {
   phone: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c0 8.3 6.7 15 15 15l3-4-6-3-1.5 2A12 12 0 0 1 8.5 9.5L10.5 8 7.5 2 4 5Z"/></svg>',
   mail: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>',
   pin: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.3 7-11.5a7 7 0 1 0-14 0C5 14.7 12 21 12 21Z"/><circle cx="12" cy="9.4" r="2.4" fill="currentColor" stroke="none"/></svg>',
-  chevron: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>',
   search: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
-  info: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.1"/></svg>',
-  studio: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg>'
+  info: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.1"/></svg>'
 };
 
 /* ---------- Sidebar / topbar chrome ---------- */
@@ -94,7 +92,7 @@ const INFO_PANELS = {
     title: 'Rental Policy',
     body: `<ul style="display:flex;flex-direction:column;gap:10px;font-size:.85rem;color:var(--text-muted);line-height:1.5">
       <li>Renters must present a valid driver's license and hold full insurance coverage or purchase Lux Rentals coverage at checkout.</li>
-      <li>Vehicles are inspected against the 14-point Parts Overview before and after every rental; new damage is logged to Damage Reports.</li>
+      <li>Vehicles are inspected against the 11-point Parts Overview before and after every rental; new damage is logged to Damage Reports.</li>
       <li>Late returns are billed at 1.5x the daily rate per additional day, starting one hour after the scheduled return time.</li>
       <li>A refundable security hold is authorized at pickup and released within 5 business days of a clean return.</li>
     </ul>`
@@ -106,7 +104,7 @@ const INFO_PANELS = {
   }
 };
 
-function renderChrome(activeKey) {
+function renderChrome(activeKey, subtitle) {
   const sidebarMount = document.getElementById('sidebarMount');
   const topbarMount = document.getElementById('topbarMount');
   if (!sidebarMount) return;
@@ -144,7 +142,6 @@ function renderChrome(activeKey) {
       ${navHTML}
     </nav>
     <div class="sidebar-footer">
-      <button class="studio-switch" id="studioSwitchBtn">${ICONS.studio}<span style="flex:1;text-align:left;margin-left:8px">Lux Rentals</span>${ICONS.chevron}</button>
       <button class="logout-btn" id="logoutBtn">${ICONS.logout}<span>Log Out</span></button>
     </div>
   `;
@@ -160,7 +157,7 @@ function renderChrome(activeKey) {
       <button class="icon-btn hamburger-btn" id="hamburgerBtn" aria-label="Open menu">${ICONS.menu}</button>
       <div class="topbar-title">
         <h1>${current ? current.label : 'Lux Rentals'}</h1>
-        <p id="topbarSubtitle">Fleet operations, in real time.</p>
+        <p id="topbarSubtitle">${subtitle || 'Fleet operations, in real time.'}</p>
       </div>
       <div class="topbar-actions">
         <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle theme"></button>
@@ -204,11 +201,9 @@ function renderChrome(activeKey) {
     btn.addEventListener('click', () => openInfoModal(btn.getAttribute('data-info')));
   });
 
-  // wire logout + studio switcher (demo-only, non-destructive)
+  // wire logout (demo-only, non-destructive)
   const logoutBtn = document.getElementById('logoutBtn');
   if (logoutBtn) logoutBtn.addEventListener('click', () => showToast('Signed out (demo) — session unchanged.'));
-  const switchBtn = document.getElementById('studioSwitchBtn');
-  if (switchBtn) switchBtn.addEventListener('click', () => showToast('Lux Rentals is the only studio workspace in this demo.'));
 
   initTheme();
 }
@@ -321,7 +316,7 @@ function injectBackLink() {
   style.textContent = `
     .fynix-back-link{position:fixed;bottom:18px;left:18px;z-index:9000;background:var(--bg-elevated,#14151a);color:var(--text,#fff);
       border:1px solid var(--border,rgba(255,255,255,.12));display:flex;align-items:center;gap:8px;padding:10px 14px;
-      border-radius:100px;font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;text-decoration:none;
+      border-radius:100px;font-family:'Inter Tight',sans-serif;font-size:.78rem;font-weight:600;text-decoration:none;
       box-shadow:0 10px 24px rgba(0,0,0,.35);opacity:.9;transition:opacity .15s ease,transform .15s ease;}
     .fynix-back-link:hover{opacity:1;transform:translateY(-2px);}
     @media (max-width:900px){.fynix-back-link .fynix-back-label{display:none}.fynix-back-link{padding:10px;bottom:16px;left:16px;}}

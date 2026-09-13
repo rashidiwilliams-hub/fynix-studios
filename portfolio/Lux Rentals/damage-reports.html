@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Damage Reports — Lux Rentals</title>
+<link rel="shortcut icon" href="assets/images/favicon.png">
 <script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=6">
 <style>
   .damage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
   .damage-card { background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); }
@@ -30,11 +31,6 @@
     <header class="topbar" id="topbarMount"></header>
 
     <main>
-      <div class="page-head">
-        <h2>Damage Reports</h2>
-        <p>Open and resolved damage tickets, plus every part flagged below "Good" condition.</p>
-      </div>
-
       <div class="stat-grid" id="drStats"></div>
 
       <div class="chip-group section-gap" id="drStatusChips">
@@ -53,11 +49,11 @@
   </div>
 </div>
 
-<script src="data.js?v=1"></script>
-<script src="app.js?v=1"></script>
+<script src="data.js?v=5"></script>
+<script src="app.js?v=3"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  renderChrome('damage-reports');
+  renderChrome('damage-reports', 'Open and resolved damage tickets, plus every part flagged below "Good" condition.');
 
   const open = DAMAGE_REPORTS.filter(d => d.status === 'Open').length;
   const high = DAMAGE_REPORTS.filter(d => d.severity === 'High').length;
@@ -110,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .map(v => ({ vehicle: v, parts: v.partsOverview.filter(p => p.condition !== 'Good') }))
     .filter(g => g.parts.length > 0);
 
-  const damagePhotos = ['assets/images/damage-bumper-headlight.jpg', 'assets/images/damage-scratch-fender.jpg'];
+  const damagePhotos = ['assets/images/damage-bumper-headlight.jpg', 'assets/images/damage-scratch-fender.jpg', 'assets/images/damage1.jpg', 'assets/images/damage2.jpg', 'assets/images/damage3.jpg', 'assets/images/damage4.jpg'];
   document.getElementById('flaggedParts').innerHTML = flaggedByVehicle.length ? flaggedByVehicle.map((g, gi) => `
     <div class="flag-row" style="flex-direction:column;align-items:stretch;gap:10px">
       <div style="display:flex;align-items:center;gap:10px">

@@ -9,6 +9,68 @@
 
 let activeWhen = 'today';
 
+// ---------- Dashboard stats row (uses the shared kpiCardHTML from app.js) ----------
+function renderDashStats() {
+  const grid = document.getElementById('dashStatsGrid');
+  if (!grid) return;
+  const tasksToday = allTasks().filter((t) => t.when === 'today').length;
+  const totalTasks = allTasks().length;
+  const hoursWeek = WEEKLY_HOURS.reduce((sum, d) => sum + d.hours, 0);
+  const activeProjects = allProjectNames().length;
+  const teamOnline = TEAM.filter((m) => m.status === 'Active').length;
+
+  const cards = [
+    {
+      icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
+      iconColor: 'var(--accent-2)', label: 'Tasks Today', value: String(tasksToday),
+      sub: `${totalTasks} total across all projects`
+    },
+    {
+      icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
+      iconColor: 'var(--info)', label: 'Hours This Week', value: `${hoursWeek}h`,
+      sub: 'Across the whole studio'
+    },
+    {
+      icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
+      iconColor: 'var(--accent-2)', label: 'Active Projects', value: String(activeProjects),
+      sub: 'Currently in progress'
+    },
+    {
+      icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="8.5" r="2.6"/><path d="M16 14.3c2.8.4 4.7 2.4 4.7 5.2"/></svg>',
+      iconColor: 'var(--success)', label: 'Team Online', value: `${teamOnline}/${TEAM.length}`,
+      sub: 'Active right now'
+    }
+  ];
+  grid.innerHTML = cards.map(kpiCardHTML).join('');
+}
+
+// ---------- Recent activity feed (rail) ----------
+function activityItemHTML(a) {
+  const member = teamMemberById(a.member);
+  const name = member ? member.name : 'Someone';
+  return `
+    <div class="activity-item">
+      <span class="activity-avatar">${member ? `<img src="${member.avatar}" alt="${name}">` : '?'}</span>
+      <div>
+        <div class="activity-text"><strong>${name}</strong> ${a.verb} <span class="activity-target">${a.target}</span></div>
+        <div class="activity-time">${a.time}</div>
+      </div>
+    </div>`;
+}
+function renderActivityFeed() {
+  const list = document.getElementById('activityList');
+  if (!list) return;
+  list.innerHTML = ACTIVITY_FEED.map(activityItemHTML).join('');
+}
+
+// ---------- Time tracker "what am I tracking" label ----------
+function renderTimerTask() {
+  const el = document.getElementById('timerTaskLabel');
+  if (!el) return;
+  const task = allTasks().find((t) => t.when === 'today');
+  el.innerHTML = task ? `Tracking <strong>${task.title}</strong> — ${task.project}` : 'No task selected';
+}
+
 function renderTaskCount() {
   const n = allTasks().filter((t) => t.when === 'today').length;
   const el = document.getElementById('taskCountHeadline');
@@ -341,6 +403,7 @@ function initUploadWidget() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  renderDashStats();
   renderTaskCount();
   renderTaskList();
   initTabs();
@@ -349,7 +412,9 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCalendarStrip();
   renderCalendarHeader();
   renderEventList();
+  renderActivityFeed();
 
+  renderTimerTask();
   initTimer();
   renderQueue();
   initUploadWidget();

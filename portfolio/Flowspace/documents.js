@@ -20,11 +20,11 @@ let docSearchQuery = '';
 
 function docQuickBtnHTML(f) {
   const meta = f.type === 'all'
-    ? { icon: ICONS.more, color: 'var(--ink-dim)', bg: 'var(--surface-2)' }
+    ? { icon: ICONS.more, color: 'var(--ink-dim)' }
     : docTypeMeta(f.type);
   return `
     <button class="doc-quick-btn ${docTypeFilterValue === f.type ? 'active' : ''}" data-type="${f.type}">
-      <span class="doc-quick-icon" style="background:${meta.bg}; color:${meta.color};">${meta.icon}</span>
+      <span class="doc-quick-icon" style="color:${meta.color};">${meta.icon}</span>
       ${f.label}
     </button>`;
 }
@@ -71,7 +71,7 @@ function docRowHTML(d) {
     <tr data-id="${d.id}">
       <td>
         <div class="doc-name-cell">
-          <span class="doc-type-icon" style="background:${meta.bg}; color:${meta.color};">${meta.icon}</span>
+          <span class="doc-type-icon" style="color:${meta.color};">${meta.icon}</span>
           ${d.name}
         </div>
       </td>

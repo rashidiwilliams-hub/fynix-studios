@@ -15,7 +15,7 @@ function getProfile() {
     const stored = JSON.parse(localStorage.getItem(PROFILE_KEY));
     if (stored && stored.name) return stored;
   } catch (e) { /* ignore malformed storage */ }
-  return { name: CURRENT_USER.name, role: CURRENT_USER.role, email: CURRENT_USER.email, bio: '' };
+  return { name: CURRENT_USER.name, role: CURRENT_USER.role, email: CURRENT_USER.email, bio: '', avatar: CURRENT_USER.avatar };
 }
 
 function saveProfile(profile) {
@@ -41,7 +41,13 @@ function applyProfileToShell() {
   document.querySelectorAll('.js-profile-firstname').forEach((el) => { el.textContent = firstName; });
   document.querySelectorAll('.js-profile-role').forEach((el) => { el.textContent = profile.role; });
   document.querySelectorAll('.js-profile-email').forEach((el) => { el.textContent = profile.email; });
-  document.querySelectorAll('.js-profile-initials').forEach((el) => { el.textContent = initials; });
+  document.querySelectorAll('.js-profile-initials').forEach((el) => {
+    if (profile.avatar) {
+      el.innerHTML = `<img src="${profile.avatar}" alt="${profile.name}">`;
+    } else {
+      el.textContent = initials;
+    }
+  });
 }
 
 // ---------- Tasks (shared: dashboard tabs + teams.html member task lookups) ----------
@@ -202,6 +208,89 @@ const ICONS = {
   more: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>'
 };
 
+// ---------- Shared KPI/stat card markup (dashboard stats + analytics KPIs) ----------
+function kpiCardHTML({ icon, iconColor, label, value, deltaLabel, deltaDir, sub }) {
+  const footHTML = deltaLabel
+    ? `<span class="kpi-delta ${deltaDir}">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${deltaDir === 'up' ? '<path d="M12 19V5M5 12l7-7 7 7"/>' : '<path d="M12 5v14M5 12l7 7 7-7"/>'}</svg>
+        ${deltaLabel}
+      </span>`
+    : (sub ? `<span class="kpi-sub">${sub}</span>` : '');
+  return `
+    <div class="card kpi-card">
+      <div class="kpi-head">
+        <span class="kpi-icon" style="color:${iconColor};">${icon}</span>
+        <span class="kpi-label">${label}</span>
+      </div>
+      <span class="kpi-value">${value}</span>
+      ${footHTML}
+    </div>`;
+}
+
+// ---------- Header popovers (topbar messages + notifications) ----------
+function notificationItemHTML(n) {
+  return `
+    <div class="popover-item ${n.read ? '' : 'is-unread'}" data-demo-toast="Opened notification — demo only">
+      <span class="popover-dot" aria-hidden="true"></span>
+      <div>
+        <div class="popover-item-text">${n.title}</div>
+        <div class="popover-item-time">${n.time}</div>
+      </div>
+    </div>`;
+}
+
+function messageItemHTML(m) {
+  const member = teamMemberById(m.member);
+  const name = member ? member.name : 'Unknown';
+  return `
+    <div class="popover-item ${m.unread ? 'is-unread' : ''}" data-demo-toast="Opening conversation with ${name} — demo only">
+      <span class="popover-avatar">${member ? `<img src="${member.avatar}" alt="${name}">` : '?'}</span>
+      <div>
+        <div class="popover-item-text"><strong>${name}</strong> — ${m.preview}</div>
+        <div class="popover-item-time">${m.time}</div>
+      </div>
+    </div>`;
+}
+
+function initHeaderMenus() {
+  const menus = document.querySelectorAll('.header-menu');
+  if (!menus.length) return;
+
+  const closeAll = () => {
+    document.querySelectorAll('.header-popover.is-open').forEach((p) => p.classList.remove('is-open'));
+    document.querySelectorAll('.header-menu .icon-btn[aria-expanded="true"]').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+  };
+
+  menus.forEach((menu) => {
+    const btn = menu.querySelector('.icon-btn');
+    const panel = menu.querySelector('.header-popover');
+    if (!btn || !panel) return;
+
+    if (panel.id === 'notifsPanel') {
+      panel.innerHTML = `<div class="popover-head">Notifications</div>${NOTIFICATIONS.map(notificationItemHTML).join('')}`;
+    } else if (panel.id === 'messagesPanel') {
+      panel.innerHTML = `<div class="popover-head">Messages</div>${MESSAGES.map(messageItemHTML).join('')}`;
+    }
+
+    panel.querySelectorAll('[data-demo-toast]').forEach((item) => {
+      item.addEventListener('click', () => showToast(item.dataset.demoToast));
+    });
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const willOpen = !panel.classList.contains('is-open');
+      closeAll();
+      if (willOpen) {
+        panel.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.querySelector('.dot')?.remove();
+      }
+    });
+  });
+
+  document.addEventListener('click', closeAll);
+}
+
 function docTypeMeta(type) {
   const map = {
     invoice: { icon: ICONS.invoice, color: 'var(--accent-2)', bg: 'var(--accent-soft)', label: 'Invoice' },
@@ -223,6 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initMobileSidebar();
   applyProfileToShell();
+  initHeaderMenus();
 
   // Generic "demo only" wiring for icon buttons that have no real backend
   document.querySelectorAll('[data-demo-toast]').forEach((el) => {

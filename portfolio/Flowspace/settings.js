@@ -45,7 +45,7 @@ function initProfileForm() {
     const phone = document.getElementById('settingsPhone').value.trim();
     const bio = document.getElementById('settingsBio').value.trim();
 
-    saveProfile({ name, role, email, phone, bio });
+    saveProfile({ name, role, email, phone, bio, avatar: getProfile().avatar });
     applyProfileToShell();
     populateProfileForm();
     showToast('Profile updated');

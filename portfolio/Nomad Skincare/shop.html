@@ -8,14 +8,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
 <div class="utility-bar">
   <div class="page-shell" style="padding:0; display:flex; align-items:center; justify-content:space-between; width:100%;">
     <div class="utility-left">
-      <span>Free Shipping on Orders Over $75</span>
+      <span>Free Shipping on Orders Over G$15,000</span>
       <span>Complimentary Samples With Every Order</span>
     </div>
     <div class="utility-right"><span>Guyana (GYD)</span></div>
@@ -29,14 +29,15 @@
       <a href="shop.html" class="active">Shop</a>
       <a href="index.html#bestsellers">Best Sellers</a>
       <a href="shop.html">Collections</a>
-      <a href="index.html#promise">About</a>
-      <a href="#">Journal</a>
+      <a href="about.html">About</a>
+      <a href="journal.html">Journal</a>
       <a href="index.html#contact">Contact</a>
     </nav>
     <div class="header-actions">
       <button id="searchBtn" aria-label="Search"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
       <button id="accountBtn" aria-label="Account"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></button>
       <button class="cart-btn" id="cartBtn" aria-label="Bag"><svg width="16" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cart-badge" id="cartBadge">0</span></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </header>
 
@@ -70,11 +71,11 @@
     </div>
     <div class="footer-col"><h4>Shop</h4><ul><li><a href="shop.html">All Products</a></li><li><a href="index.html#bestsellers">Bestsellers</a></li><li><a href="shop.html?category=Sets %26 Kits">Sets &amp; Kits</a></li><li><a href="shop.html">Gift Cards</a></li></ul></div>
     <div class="footer-col"><h4>Collections</h4><ul><li><a href="shop.html?category=Cleansers">Cleansers</a></li><li><a href="shop.html?category=Serums">Serums</a></li><li><a href="shop.html?category=Sun Care">Sun Care</a></li><li><a href="shop.html?category=Masks">Masks</a></li></ul></div>
-    <div class="footer-col"><h4>About</h4><ul><li><a href="index.html#promise">Our Story</a></li><li><a href="index.html#promise">Ingredients</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Press</a></li></ul></div>
+    <div class="footer-col"><h4>About</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="about.html#ingredients">Ingredients</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Press</a></li></ul></div>
     <div class="footer-col footer-contact">
       <h4>Help</h4>
       <div class="footer-badges">
-        <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="17.5" cy="18" r="1.5"/></svg>Free Shipping<small>On orders over $75</small></div>
+        <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="17.5" cy="18" r="1.5"/></svg>Free Shipping<small>On orders over G$15,000</small></div>
         <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>30 Day Returns<small>Hassle-free returns</small></div>
         <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Secure Payment<small>100% secure checkout</small></div>
       </div>
@@ -86,7 +87,24 @@
   </div>
 </footer>
 
-<script src="products.js?v=2"></script>
-<script src="script.js?v=1"></script>
+<!-- Cart drawer -->
+<div class="drawer-overlay" id="cartOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <h3 id="cartTitle">Your Bag</h3>
+      <button class="drawer-close" id="cartClose" aria-label="Close">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="no-results" id="cartEmptyMsg" hidden>Your bag is empty. Browse Best Sellers to add something.</p>
+    <div class="drawer-foot" id="cartFoot">
+      <div class="cart-line"><span>Subtotal</span><span id="cartSubtotal">G$0</span></div>
+      <a href="checkout.html" class="btn-dark w-full">Checkout</a>
+    </div>
+  </aside>
+</div>
+<div class="body-overlay" id="bodyOverlay" hidden></div>
+
+<script src="products.js?v=4"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@ function restaurantCardHTML(r) {
     <a class="restaurant-card" href="order.html?restaurant=${r.slug}" data-cuisine="${r.cuisine}">
       <div class="rc-image">
         <img src="${r.cover}" alt="${r.name} — ${r.cuisine}" loading="lazy">
+        <span class="rc-type">${r.cuisine}</span>
         <span class="rc-badge">${ratingBadgeSVG()} ${r.rating.toFixed(1)}</span>
         <span class="rc-time">${r.deliveryTime}</span>
       </div>
@@ -36,7 +37,7 @@ function renderRestaurants(filterCuisine) {
 function renderCuisineFilters() {
   const wrap = document.getElementById('cuisineFilters');
   if (!wrap) return;
-  const cuisines = ['All', ...RESTAURANTS.map(r => r.cuisine)];
+  const cuisines = ['All', ...new Set(RESTAURANTS.map(r => r.cuisine))];
   wrap.innerHTML = cuisines.map((c, i) =>
     `<button class="cuisine-chip${i === 0 ? ' active' : ''}" data-cuisine="${c}">${c}</button>`
   ).join('');

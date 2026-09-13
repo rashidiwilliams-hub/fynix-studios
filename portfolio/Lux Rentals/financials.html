@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Financials — Lux Rentals</title>
+<link rel="shortcut icon" href="assets/images/favicon.png">
 <script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=6">
 <style>
   .bar-list { display: flex; flex-direction: column; gap: 12px; }
   .bar-row { display: grid; grid-template-columns: 160px 1fr 90px; align-items: center; gap: 12px; }
@@ -27,11 +28,6 @@
     <header class="topbar" id="topbarMount"></header>
 
     <main>
-      <div class="page-head">
-        <h2>Financials</h2>
-        <p>Studio-wide revenue rollup across the entire fleet, 2026 Q3.</p>
-      </div>
-
       <div class="two-col">
         <div>
           <div class="stat-grid" id="finStats" style="grid-template-columns:repeat(2,1fr)"></div>
@@ -56,7 +52,7 @@
             <div class="visa-top">
               <div>
                 <div class="visa-label">2026 Q3 · Studio Total</div>
-                <div class="visa-amount" id="visaTotal">$0.00</div>
+                <div class="visa-amount" id="visaTotal">GYD 0.00</div>
               </div>
               <div class="visa-brand">VISA</div>
             </div>
@@ -66,17 +62,17 @@
 
           <div class="card section-gap">
             <div class="card-head"><h2>Studio Metrics</h2></div>
-            <div class="card-body">
-              <div class="fin-metric-row"><span class="label">Total Default Payments</span><span class="value" id="finTotalDefault">$0.00</span></div>
-              <div class="fin-metric-row"><span class="label">Total Maintenance Cost</span><span class="value" id="finTotalMaintenance">$0.00</span></div>
-              <div class="fin-metric-row"><span class="label">Avg. Revenue / Vehicle</span><span class="value" id="finAvgRevenue">$0.00</span></div>
-              <div class="fin-metric-row"><span class="label">Net Margin Est.</span><span class="value" id="finMargin">$0.00</span></div>
+            <div class="card-body" style="padding-bottom:45px">
+              <div class="fin-metric-row"><span class="label">Total Default Payments</span><span class="value" id="finTotalDefault">GYD 0.00</span></div>
+              <div class="fin-metric-row"><span class="label">Total Maintenance Cost</span><span class="value" id="finTotalMaintenance">GYD 0.00</span></div>
+              <div class="fin-metric-row"><span class="label">Avg. Revenue / Vehicle</span><span class="value" id="finAvgRevenue">GYD 0.00</span></div>
+              <div class="fin-metric-row"><span class="label">Net Margin Est.</span><span class="value" id="finMargin">GYD 0.00</span></div>
             </div>
           </div>
 
           <div class="card">
             <div class="card-head"><h2>Top Performer</h2></div>
-            <div class="card-body" id="topPerformer"></div>
+            <div class="card-body" id="topPerformer" style="padding-bottom:45px"></div>
           </div>
         </div>
       </div>
@@ -84,11 +80,11 @@
   </div>
 </div>
 
-<script src="data.js?v=1"></script>
-<script src="app.js?v=1"></script>
+<script src="data.js?v=5"></script>
+<script src="app.js?v=3"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  renderChrome('financials');
+  renderChrome('financials', 'Studio-wide revenue rollup across the entire fleet, 2026 Q3.');
 
   const totalRevenue = FLEET.reduce((s, v) => s + v.revenue.quarterRevenue, 0);
   const totalDefault = FLEET.reduce((s, v) => s + v.revenue.defaultPayments, 0);

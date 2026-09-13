@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="assets/images/favicon.png?v=2">
+<title>Checkout — Relentless Fitness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="page-shell page-shell-inner">
+    <a class="logo" href="index.html">RELENTLESS FITNESS<span class="dot">.</span></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="index.html#trainers">Trainers</a>
+      <a href="index.html#reviews">Reviews</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="cart-btn" id="cartBtn" aria-label="My Schedule"><svg width="18" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg><span class="cart-badge" id="cartBadge">0</span></button>
+      <a href="#" class="btn-join" id="joinNowBtn">Join Now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="checkout-hero">
+  <h1>Checkout</h1>
+  <p>Confirm your schedule and lock in your classes.</p>
+</section>
+
+<div id="checkoutEmpty" class="checkout-empty" hidden>
+  <h2>Your schedule is empty</h2>
+  <p>Book a class from our programs before checking out.</p>
+  <a href="programs.html" class="btn-solid">Browse Programs</a>
+</div>
+
+<div id="checkoutContent">
+  <div class="checkout-grid">
+    <div class="checkout-form-col">
+      <form id="checkoutForm">
+        <h2 class="checkout-h2">Your Details</h2>
+        <div class="form-grid">
+          <div class="form-field"><label>Full Name</label><input type="text" id="checkoutName" required placeholder="Your full name"></div>
+          <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+          <div class="form-field"><label>Phone</label><input type="text" required placeholder="+592 xxx xxxx"></div>
+          <div class="form-field"><label>Preferred Location</label><input type="text" required placeholder="123 Camp Street, Georgetown" value="123 Camp Street, Georgetown"></div>
+        </div>
+
+        <h2 class="checkout-h2">Payment Method</h2>
+        <div class="radio-row">
+          <label><input type="radio" name="payment" value="card" checked> Credit / Debit Card</label>
+          <label><input type="radio" name="payment" value="desk"> Pay at Front Desk</label>
+        </div>
+        <div class="form-grid" id="cardFields">
+          <div class="form-field full"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456"></div>
+          <div class="form-field"><label>Expiry</label><input type="text" placeholder="MM/YY"></div>
+          <div class="form-field"><label>CVC</label><input type="text" placeholder="123"></div>
+        </div>
+
+        <button type="submit" class="btn-solid w-full">Confirm Booking</button>
+      </form>
+    </div>
+
+    <aside class="order-summary">
+      <h3>Schedule Summary</h3>
+      <div id="summaryItems"></div>
+      <div class="summary-totals">
+        <div><span>Subtotal</span><span id="summarySubtotal">G$0</span></div>
+        <div><span>VAT (14%)</span><span id="summaryTax">G$0</span></div>
+        <div class="grand-total"><span>Total</span><span id="summaryTotal">G$0</span></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="confirmation" id="checkoutConfirmation" hidden>
+    <div class="confirmation-icon">✓</div>
+    <h2>Thank you, <span id="confirmName">friend</span>!</h2>
+    <p>Your booking <span class="order-number" id="confirmOrderNumber"></span> is confirmed.</p>
+    <p>Total charged: <strong id="confirmTotal"></strong></p>
+    <a href="index.html" class="btn-solid" style="margin-top:1.2rem;">Back to Home</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html">RELENTLESS FITNESS<span class="dot">.</span></a>
+      <p>Georgetown's premier training ground — real coaching, real results, real community.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-1.9 1.9-1.9H17V2.1C16.6 2 15.4 2 14 2c-2.9 0-4.9 1.8-4.9 5v2.9H6v4h3.1v8H13Z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7a2.9 2.9 0 0 0-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.3a2.9 2.9 0 0 0-2 2C2 8.8 2 12 2 12s0 3.2.4 4.7a2.9 2.9 0 0 0 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.3a2.9 2.9 0 0 0 2-2C22 15.2 22 12 22 12ZM10 15V9l5.2 3Z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="index.html#about">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="index.html#trainers">Trainers</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Programs</h4><ul><li><a href="programs.html?category=Strength">Strength Training</a></li><li><a href="programs.html?category=Cardio">Weight Loss</a></li><li><a href="programs.html?category=Functional">Functional Training</a></li><li><a href="programs.html?category=Wellness">Yoga &amp; Wellness</a></li></ul></div>
+    <div class="footer-col footer-contact"><h4>Contact Us</h4><ul><li>123 Camp Street<br>Georgetown, Guyana</li><li>+592 713 5786</li><li>core@fynixstudios.com</li><li>Mon – Sat: 5:30AM – 10:00PM<br>Sunday: 6:00AM – 1:00PM</li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Built by Fynix Studios.</p>
+  </div>
+</footer>
+
+<script src="programs.js?v=2"></script>
+<script src="checkout.js?v=1"></script>
+</body>
+</html>

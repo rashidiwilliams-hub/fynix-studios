@@ -1,10 +1,17 @@
 // ---------- Shared schedule cart (persisted across page loads via localStorage) ----------
-const CART_KEY = 'relentless_cart_count';
-function getCartCount() { return parseInt(localStorage.getItem(CART_KEY) || '0', 10); }
-function setCartCount(n) {
-  localStorage.setItem(CART_KEY, String(n));
-  document.querySelectorAll('.cart-badge').forEach(b => b.textContent = n);
+const CART_KEY = 'relentless_cart';
+function getCart() { try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch (e) { return []; } }
+function setCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  document.querySelectorAll('.cart-badge').forEach(b => b.textContent = cart.reduce((s, c) => s + c.qty, 0));
 }
+function addToCart(slug) {
+  const cart = getCart();
+  const existing = cart.find(c => c.slug === slug);
+  if (existing) existing.qty += 1; else cart.push({ slug, qty: 1 });
+  setCart(cart);
+}
+function formatMoney(n) { return `G$${Math.round(n).toLocaleString('en-US')}`; }
 
 function starsHTML(rating) {
   const full = Math.round(rating);
@@ -21,7 +28,7 @@ function programCardHTML(program) {
         <p class="card-lead">${program.lead}</p>
         <div class="card-meta-row"><span>${program.level}</span><span>${program.duration}</span></div>
         <div class="card-bottom">
-          <span class="card-price">$${program.price.toFixed(2)}<small>/class</small></span>
+          <span class="card-price">${formatMoney(program.price)}<small>/class</small></span>
           <button class="add-btn" aria-label="Book class" data-qty-add="${program.slug}">Book Class</button>
         </div>
       </div>
@@ -33,7 +40,7 @@ function wireProgramGrid(grid) {
   grid.querySelectorAll('.add-btn').forEach(btn => {
     btn.addEventListener('click', function (e) {
       e.preventDefault(); e.stopPropagation();
-      setCartCount(getCartCount() + 1);
+      addToCart(this.dataset.qtyAdd);
       const original = this.innerHTML;
       this.textContent = 'Booked ✓';
       this.classList.add('added');
@@ -67,20 +74,24 @@ function showToast(message) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  setCartCount(getCartCount());
+  setCart(getCart());
   initHomePage();
   initProgramsPage();
   initProgramDetailPage();
   initMobileNav();
 
   document.getElementById('cartBtn')?.addEventListener('click', () => {
-    const n = getCartCount();
-    showToast(n > 0 ? `${n} class${n === 1 ? '' : 'es'} booked — demo only, checkout isn't wired up` : 'Your schedule is empty');
+    window.location.href = 'checkout.html';
   });
   ['joinNowBtn', 'joinNowBtn2', 'joinCommunityBtn'].forEach(id => {
     document.getElementById(id)?.addEventListener('click', (e) => {
       e.preventDefault();
-      showToast('Join Now — demo only');
+      const contact = document.getElementById('contact');
+      if (contact) {
+        contact.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = 'index.html#contact';
+      }
     });
   });
   document.getElementById('watchVideoBtn')?.addEventListener('click', (e) => {
@@ -183,7 +194,7 @@ function initProgramDetailPage() {
   document.getElementById('programDuration').textContent = program.duration;
   document.getElementById('programTrainer').textContent = program.trainer;
   document.getElementById('programSchedule').textContent = program.schedule;
-  document.getElementById('programPrice').textContent = `$${program.price.toFixed(2)} / class`;
+  document.getElementById('programPrice').textContent = `${formatMoney(program.price)} / class`;
 
   const benefitsList = document.getElementById('programBenefits');
   benefitsList.innerHTML = program.benefits.map(b => `<li>${b}</li>`).join('');
@@ -194,7 +205,7 @@ function initProgramDetailPage() {
 
   const bookBtn = document.getElementById('bookClassBtn');
   bookBtn.addEventListener('click', () => {
-    setCartCount(getCartCount() + 1);
+    addToCart(program.slug);
     const original = bookBtn.textContent;
     bookBtn.textContent = 'Booked ✓';
     bookBtn.classList.add('added');

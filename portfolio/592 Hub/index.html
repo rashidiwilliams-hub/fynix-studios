@@ -7,8 +7,8 @@
 <title>592 Hub — Shop Top-Quality Products Online</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter+Tight:wght@900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
 
@@ -29,8 +29,8 @@
       <a href="shop.html">Shop</a>
       <a href="shop.html">Categories</a>
       <a href="index.html#sale">Deals</a>
-      <a href="index.html#blog">Blog</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="sell.html">Sell on Hub</a>
+
     </nav>
     <div class="header-actions">
       <div class="search-box">
@@ -58,7 +58,7 @@
       </ul>
     </div>
     <div class="hero-image">
-      <div class="hero-image-frame"><img src="assets/images/hero-dark.jpg" alt="Black smartwatch and charging cable on a dark surface"></div>
+      <div class="hero-image-frame"><img src="assets/images/hero.jpg" alt="Black smartwatch and charging cable on a dark surface"></div>
       <span class="hero-save-badge">Save<br>30%<small>Limited Time</small></span>
     </div>
   </section>
@@ -73,6 +73,7 @@
       <a class="category-card" href="shop.html?category=Fashion"><span class="category-avatar"><img src="assets/images/product-backpack.jpg" alt="Fashion"></span><span>Fashion</span></a>
       <a class="category-card" href="shop.html?category=Home %26 Living"><span class="category-avatar"><img src="assets/images/category-home-living.jpg" alt="Home & Living"></span><span>Home &amp; Living</span></a>
       <a class="category-card" href="shop.html?category=Beauty"><span class="category-avatar"><img src="assets/images/category-beauty.jpg" alt="Beauty"></span><span>Beauty</span></a>
+      <a class="category-card" href="shop.html?category=Kitchen"><span class="category-avatar"><img src="assets/images/kitchen.jpg" alt="Kitchen"></span><span>Kitchen</span></a>
       <a class="category-card" href="shop.html?category=Sports"><span class="category-avatar"><img src="assets/images/product-shoes.jpg" alt="Sports"></span><span>Sports</span></a>
       <a class="category-card" href="shop.html?category=Toys %26 Games"><span class="category-avatar"><img src="assets/images/category-toys.jpg" alt="Toys & Games"></span><span>Toys &amp; Games</span></a>
     </div>
@@ -88,22 +89,24 @@
 
   <section class="promo-row">
     <div class="promo-card promo-dark">
+      <img class="promo-bg" src="assets/images/pexels-nguyendesigner-13162091.jpg" alt="Desk workspace with monitor, keyboard and plants">
+      <div class="promo-scrim"></div>
       <div class="promo-text">
         <span class="eyebrow gold-text">Workspace</span>
         <h3>Upgrade Your<br>Workspace</h3>
         <p>Discover premium laptops for ultimate productivity.</p>
         <a href="shop.html?category=Electronics" class="btn-white small">Shop Laptops →</a>
       </div>
-      <div class="promo-img"><img src="assets/images/promo-laptop.jpg" alt="Laptop with code on screen lit by blue and pink ambient light"></div>
     </div>
     <div class="promo-card promo-light">
+      <img class="promo-bg" src="assets/images/product-headphones.jpg" alt="Black over-ear wireless headphones on a white background">
+      <div class="promo-scrim light"></div>
       <div class="promo-text">
         <span class="eyebrow">Audio</span>
         <h3>Sound That<br>Inspires</h3>
         <p>Premium audio, immersive sound experience.</p>
         <a href="shop.html?category=Electronics" class="btn-dark small">Shop Audio →</a>
       </div>
-      <div class="promo-img"><img src="assets/images/product-headphones.jpg" alt="Black over-ear wireless headphones on a white background"></div>
     </div>
   </section>
 
@@ -122,27 +125,12 @@
     <a href="shop.html" class="btn-gold">Shop The Sale →</a>
   </section>
 
-  <section class="brands-section">
-    <div class="section-head-row">
-      <h2>Our Featured Brands</h2>
-      <div class="carousel-nav">
-        <button class="carousel-arrow" id="brandPrev" aria-label="Previous">←</button>
-        <button class="carousel-arrow" id="brandNext" aria-label="Next">→</button>
-      </div>
-    </div>
-    <div class="brand-strip" id="brandStrip">
-      <span>Apple</span><span>Samsung</span><span>Sony</span><span>JBL</span><span>Dell</span><span>Canon</span><span>Nike</span><span>Bose</span>
-    </div>
-  </section>
-
   <section class="info-row">
-    <div class="info-card">
+    <div class="info-card reviews-card">
       <h2>What Our Customers Say</h2>
-      <div class="testimonial-person">
-        <span class="testimonial-avatar">MB</span>
-        <div><strong>Michael Brown</strong><span class="stars">★★★★★</span></div>
+      <div class="reviews-viewport">
+        <div class="reviews-track" id="reviewsTrack"></div>
       </div>
-      <p class="testimonial-quote">"Amazing quality and fast delivery! The products are exactly as described. Highly recommended."</p>
     </div>
     <div class="info-card">
       <h2>Why Shop With Us?</h2>
@@ -247,7 +235,7 @@
         <a href="#" aria-label="YouTube"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7a2.9 2.9 0 0 0-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.3a2.9 2.9 0 0 0-2 2C2 8.8 2 12 2 12s0 3.2.4 4.7a2.9 2.9 0 0 0 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.3a2.9 2.9 0 0 0 2-2C22 15.2 22 12 22 12ZM10 15V9l5.2 3Z"/></svg></a>
       </div>
     </div>
-    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="shop.html">Categories</a></li><li><a href="index.html#sale">Deals</a></li><li><a href="index.html#contact">About Us</a></li></ul></div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="shop.html">Categories</a></li><li><a href="index.html#sale">Deals</a></li><li><a href="sell.html">Sell on Hub</a></li><li><a href="index.html#contact">About Us</a></li></ul></div>
     <div class="footer-col"><h4>Customer Service</h4><ul><li><a href="index.html#contact">Contact Us</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Returns &amp; Refunds</a></li><li><a href="#">Terms &amp; Conditions</a></li></ul></div>
     <div class="footer-col"><h4>My Account</h4><ul><li><a href="#">My Orders</a></li><li><a href="#">Wishlist</a></li><li><a href="#">Account Details</a></li><li><a href="#">Login / Register</a></li></ul></div>
     <div class="footer-col footer-contact"><h4>Contact Us</h4><ul><li>123 Camp Street<br>Georgetown, Guyana</li><li>+592 713 5786</li><li>core@fynixstudios.com</li></ul></div>
@@ -258,7 +246,7 @@
   </div>
 </footer>
 
-<script src="products.js?v=2"></script>
-<script src="script.js?v=2"></script>
+<script src="products.js?v=5"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>
