@@ -7,3 +7,65 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
+
+# Caching: static assets are versioned with ?v= query strings, so a month is safe.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/assets/vendor/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/portfolio/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Old portfolio URLs (with spaces) now live at hyphenated paths
+[[redirects]]
+  from = "/portfolio/592%20hub/*"
+  to = "/portfolio/592-hub/:splat"
+  status = 301
+[[redirects]]
+  from = "/portfolio/ember%20restaurant/*"
+  to = "/portfolio/ember-restaurant/:splat"
+  status = 301
+[[redirects]]
+  from = "/portfolio/ethnic%20heritage/*"
+  to = "/portfolio/ethnic-heritage/:splat"
+  status = 301
+[[redirects]]
+  from = "/portfolio/guyana%20bites/*"
+  to = "/portfolio/guyana-bites/:splat"
+  status = 301
+[[redirects]]
+  from = "/portfolio/lunora%20fashion/*"
+  to = "/portfolio/lunora-fashion/:splat"
+  status = 301
+[[redirects]]
+  from = "/portfolio/lux%20rentals/*"
+  to = "/portfolio/lux-rentals/:splat"
+  status = 301
+[[redirects]]
+  from = "/portfolio/nightshade%20cocktail%20co/*"
+  to = "/portfolio/nightshade-cocktail-co/:splat"
+  status = 301
+[[redirects]]
+  from = "/portfolio/nomad%20skincare/*"
+  to = "/portfolio/nomad-skincare/:splat"
+  status = 301
+[[redirects]]
+  from = "/portfolio/relentless%20fitness/*"
+  to = "/portfolio/relentless-fitness/:splat"
+  status = 301
+[[redirects]]
+  from = "/portfolio/rum%20me/*"
+  to = "/portfolio/rum-me/:splat"
+  status = 301
+[[redirects]]
+  from = "/portfolio/tastehaven%20restaurant/*"
+  to = "/portfolio/tastehaven-restaurant/:splat"
+  status = 301

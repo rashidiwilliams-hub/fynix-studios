@@ -143,6 +143,7 @@ ul {
 }
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 button {
@@ -2010,4 +2011,32 @@ body.tp-themed .tp-footer-cta {
 }
 .service-more-nav a.is-current em {
   color: var(--tp-text-2);
+}
+
+/* Accessibility: skip link, visible on keyboard focus */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100000;
+  padding: 12px 18px;
+  background: #ff5a26;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+.tp-package-wa {
+  display: inline-block;
+  margin-top: 14px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ff5a26;
+}
+.tp-package-wa:hover {
+  text-decoration: underline;
 }

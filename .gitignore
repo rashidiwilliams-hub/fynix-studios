@@ -1,3 +1,7 @@
 .DS_Store
 Thumbs.db
 .claude/
+
+# Large design sources / backups kept locally only
+assets/images/carousel/Untitled-1.ai
+assets/images/packages/open-247-*.png
