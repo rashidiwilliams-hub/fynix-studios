@@ -36,6 +36,8 @@ button { font-family: inherit; cursor: pointer; }
 .btn-outline:hover { background: #fff; color: var(--ink); }
 .btn-outline.light { border-color: var(--ink); color: var(--ink); }
 .btn-outline.light:hover { background: var(--ink); color: #fff; }
+.btn-dark { background: var(--ink); color: #fff; text-align: center; cursor: pointer; }
+.btn-dark:hover { background: #333; }
 .link-arrow { font-size: 0.82rem; font-weight: 700; }
 
 /* ---------- Top bar ---------- */
@@ -147,13 +149,20 @@ button { font-family: inherit; cursor: pointer; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 720px) {
-  .top-bar { display: none; }
+/* The full nav (6 links) + logo + action icons doesn't fit until well past
+   tablet portrait width, so the off-canvas nav switches on earlier than the
+   720px content breakpoint below to avoid the header overflowing at 768px
+   (iPad portrait). */
+@media (max-width: 900px) {
   .header-inner { flex-wrap: wrap; }
   .nav-toggle { display: flex; order: 2; }
   .header-actions { order: 3; margin-left: auto; }
-  .main-nav { order: 4; width: 100%; flex-direction: column; align-items: flex-start; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .main-nav { order: 4; flex: 1 1 100%; width: 100%; flex-direction: column; align-items: flex-start; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
   .main-nav.open { max-height: 300px; padding-top: 1rem; }
+}
+
+@media (max-width: 720px) {
+  .top-bar { display: none; }
   .hero { min-height: 520px; }
   .hero img { object-position: 62% 20%; }
   .hero::before { background: rgba(10,5,0,0.6); }
@@ -317,7 +326,19 @@ button { font-family: inherit; cursor: pointer; }
 .confirmation p { color: var(--ink-soft); margin-bottom: 0.4rem; }
 .order-number { font-weight: 700; color: var(--ink); }
 
+.blog-hero { max-width: var(--max); margin: 0 auto; padding: 2.2rem 2rem 1rem; max-width: 640px; }
+.blog-hero h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; }
+.blog-hero .lead { color: var(--ink-soft); font-size: 1rem; }
+.blog-listing { max-width: var(--max); margin: 0 auto; padding: 2rem 2rem 6rem; }
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4rem; }
+.blog-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 3px; margin-bottom: 1.2rem; }
+.blog-meta { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+.blog-card h2 { font-size: 1.15rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.8rem; }
+.blog-card p:not(.blog-meta) { color: var(--ink-soft); font-size: 0.88rem; line-height: 1.7; }
+
 @media (max-width: 860px) {
   .checkout-grid { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-hero h1 { font-size: 1.8rem; }
 }

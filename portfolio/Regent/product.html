@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product — Regent</title>
+<link rel="shortcut icon" href="../../assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fredoka:wght@600;700&family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=17">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="marquee">
+    <span>Free Shipping Over G$13,000</span>
+    <span>30-Day Money-Back Guarantee</span>
+    <span>24/7 Customer Support</span>
+  </div>
+  <a class="club-link" href="index.html#athleteClub">Rewards Club</a>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="main-nav" id="mainNav">
+      <div class="has-dropdown">
+        <a href="index.html#ladiesPicks">Shop <span data-icon="chevDown"></span></a>
+        <div class="nav-dropdown">
+          <a href="index.html#prime" data-category="Prime">Electronics</a>
+          <a href="index.html#hybrid" data-category="Hybrid">Home &amp; Living</a>
+          <a href="index.html#clean" data-category="Clean">Fashion</a>
+          <a href="index.html#latestDrops" data-category="Aura">Toys &amp; Games</a>
+          <a href="index.html#ladiesPicks" data-category="Accessories">Accessories</a>
+        </div>
+      </div>
+      <a href="sell.html">Sell On Regent</a>
+      <a href="index.html#hybrid">Accessories <span data-icon="chevDown"></span></a>
+      <a href="index.html#hybrid">New Arrivals</a>
+    </nav>
+    <a class="logo" href="index.html">regent</a>
+    <div class="header-actions">
+      <div class="region-toggle"><span>EN</span><span>GY</span></div>
+      <button aria-label="Search" id="searchBtn" data-icon="search"></button>
+      <button aria-label="Account" id="accountBtn" data-icon="person"></button>
+      <button aria-label="Wishlist" id="wishlistBtn" data-icon="heart"><span class="wishlist-badge" id="wishlistBadge" hidden>0</span></button>
+      <button class="cart-btn" aria-label="Cart" id="cartBtn" data-icon="bag"><span class="cart-badge" id="cartBadge">0</span></button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> <span>/</span> <a href="index.html#ladiesPicks" id="crumbCategory">Category</a> <span>/</span> <span id="crumbName">Product</span>
+</div>
+
+<section class="pdp" id="productDetail">
+  <div class="pdp-gallery">
+    <img loading="eager" decoding="async" id="productImage" src="" alt="">
+    <div class="gallery-thumbs" id="galleryThumbs" hidden></div>
+  </div>
+  <div class="pdp-info">
+    <span class="pdp-category-tag" id="productCategoryTag"></span>
+    <h1 id="productName">Product Name</h1>
+    <div class="pdp-meta">
+      <span class="stars" id="productStars"></span>
+      <span class="review-count" id="productReviewCount"></span>
+    </div>
+    <p class="pdp-price" id="productPrice"></p>
+    <p class="pdp-desc" id="productDesc"></p>
+
+    <div class="pdp-option" id="sizeOption">
+      <div class="pdp-option-head">
+        <span class="pdp-option-label">Size</span>
+        <button type="button" class="size-chart-link" id="sizeChartBtn">Size Chart</button>
+      </div>
+      <div class="option-group size-group" id="sizeGroup"></div>
+    </div>
+
+    <div class="pdp-option" id="lengthOption" hidden>
+      <div class="pdp-option-head"><span class="pdp-option-label">Length</span></div>
+      <div class="option-group length-group" id="lengthGroup"></div>
+    </div>
+
+    <div class="pdp-buy-row">
+      <div class="qty-stepper">
+        <button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button>
+        <span id="qtyValue">1</span>
+        <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
+      </div>
+      <button type="button" class="btn btn-dark" id="addToCartBtn">Add to Cart</button>
+      <button type="button" class="pdp-fav" data-icon="heart" aria-label="Add to wishlist"></button>
+    </div>
+
+    <p class="pdp-klarna">Pay in 4 interest-free installments with <strong>Klarna</strong>.</p>
+
+    <ul class="pdp-perks">
+      <li><span data-icon="cube"></span>Free shipping on orders over G$13,000</li>
+      <li><span data-icon="sync"></span>Easy returns within 30 days</li>
+      <li><span data-icon="shield"></span>Secure checkout</li>
+    </ul>
+
+    <div class="pdp-tabs">
+      <button type="button" class="pdp-tab-head active" data-tab="fit">Size &amp; Fit</button>
+      <div class="pdp-tab-panel active" data-tab-panel="fit">
+        <p id="productFitCopy"></p>
+        <p>Care: Machine wash cold with like colors. Do not tumble dry. Do not bleach.</p>
+      </div>
+      <button type="button" class="pdp-tab-head" data-tab="info">Information</button>
+      <div class="pdp-tab-panel" data-tab-panel="info">
+        <p>Made from a 4-way stretch performance blend, developed to hold its shape and compression through repeated washes and heavy training.</p>
+      </div>
+      <button type="button" class="pdp-tab-head" data-tab="shipping">Shipping &amp; Return</button>
+      <div class="pdp-tab-panel" data-tab-panel="shipping">
+        <p>Free standard shipping on all orders over G$13,000. Orders are processed within 1–2 business days and typically arrive within 3–5 business days across Guyana.</p>
+        <p>Not the right fit? Return any unworn item within 30 days for a full refund or exchange — no questions asked.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature-callout" id="featureCallout">
+  <div>
+    <h3 id="featureTitle"></h3>
+    <p id="featureBody"></p>
+  </div>
+</section>
+
+<section class="match-with">
+  <div class="container">
+    <h2>Match With</h2>
+    <div class="product-grid match-grid" id="matchGrid"></div>
+  </div>
+</section>
+
+<section class="reviews-block">
+  <div class="reviews-summary">
+    <div>
+      <div class="rating-big" id="ratingBig">4.7</div>
+      <div class="rating-big-sub" id="ratingSub">Based on 0 reviews</div>
+    </div>
+    <div class="rating-bars">
+      <div class="rating-bar-row"><span>5</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:71%;"></div></div><span>71%</span></div>
+      <div class="rating-bar-row"><span>4</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:18%;"></div></div><span>18%</span></div>
+      <div class="rating-bar-row"><span>3</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:6%;"></div></div><span>6%</span></div>
+      <div class="rating-bar-row"><span>2</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:3%;"></div></div><span>3%</span></div>
+      <div class="rating-bar-row"><span>1</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:2%;"></div></div><span>2%</span></div>
+    </div>
+  </div>
+  <div id="reviewsList"></div>
+</section>
+
+<section class="related-products">
+  <div class="container">
+    <h2>You Might Also Like</h2>
+    <div class="product-grid" id="relatedGrid"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h4>Help</h4>
+      <a href="#" data-info="contact">Customer Service / FAQ</a>
+      <a href="index.html#athleteClub">Rewards Club</a>
+      <a href="#" data-info="returns">Exchanges &amp; Returns</a>
+      <a href="#" data-info="reviews">Reviews</a>
+      <a href="#" data-info="cancel">Cancel An Order</a>
+    </div>
+    <div>
+      <h4>About Us</h4>
+      <a href="#" data-info="about">About Us</a>
+      <a href="#" data-info="sustainability">Sustainability &amp; Responsibility</a>
+    </div>
+    <div>
+      <h4>Information</h4>
+      <a href="#" data-info="terms">Terms &amp; Conditions</a>
+      <a href="#" data-info="privacy">Privacy Policy</a>
+      <a href="#" data-info="cookies">Cookie Policy</a>
+    </div>
+    <div class="footer-logo-col">
+      <span class="logo">regent</span>
+      <div class="footer-social">
+        <a href="#" data-icon="logoIg" aria-label="Instagram"></a>
+        <a href="#" data-icon="logoFb" aria-label="Facebook"></a>
+        <a href="#" data-icon="logoPin" aria-label="Pinterest"></a>
+        <a href="#" data-icon="logoYt" aria-label="YouTube"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Fynix Studios. All Rights Reserved.</div>
+</footer>
+
+<button class="chat-fab" aria-label="Chat with us" data-icon="chat"></button>
+
+<!-- Cart drawer -->
+<div class="drawer-overlay" id="cartOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <h3 id="cartTitle">Your Cart</h3>
+      <button class="drawer-close" id="cartClose" data-icon="close" aria-label="Close"></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="no-results" id="cartEmptyMsg" hidden>Your cart is empty. Browse Top Picks to add something.</p>
+    <div class="drawer-foot" id="cartFoot">
+      <div class="cart-line"><span>Subtotal</span><span id="cartSubtotal">G$0</span></div>
+      <a href="index.html#ladiesPicks" class="btn btn-dark w-full">Checkout</a>
+    </div>
+  </aside>
+</div>
+
+<!-- Wishlist drawer -->
+<div class="drawer-overlay" id="wishlistOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="wishlistTitle">
+    <div class="drawer-head">
+      <h3 id="wishlistTitle">Your Wishlist</h3>
+      <button class="drawer-close" id="wishlistClose" data-icon="close" aria-label="Close"></button>
+    </div>
+    <div class="cart-items" id="wishlistItems"></div>
+    <p class="no-results" id="wishlistEmptyMsg" hidden>Nothing saved yet. Tap the heart on any product to add it here.</p>
+  </aside>
+</div>
+
+<!-- Search overlay -->
+<div class="drawer-overlay" id="searchOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+    <div class="drawer-head">
+      <h3 id="searchTitle">Search</h3>
+      <button class="drawer-close" id="searchClose" data-icon="close" aria-label="Close"></button>
+    </div>
+    <input type="text" id="searchInput" class="search-input" placeholder="Search products…" autocomplete="off">
+    <div class="cart-items" id="searchResults"></div>
+    <p class="no-results" id="searchEmptyMsg" hidden>No products match your search.</p>
+  </aside>
+</div>
+
+<!-- Account modal -->
+<div class="modal-overlay" id="accountModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+    <button class="modal-close" id="accountClose" data-icon="close" aria-label="Close"></button>
+    <h3 id="accountTitle">Sign In</h3>
+    <p class="modal-trim">Demo only — no account is created or stored.</p>
+    <form id="signInForm">
+      <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+      <div class="form-field"><label>Password</label><input type="password" required placeholder="••••••••"></div>
+      <button type="submit" class="btn btn-dark w-full">Sign In</button>
+    </form>
+    <p class="form-success" id="signInSuccess" hidden>You're signed in (demo). Welcome back!</p>
+  </div>
+</div>
+
+<!-- Size chart modal -->
+<div class="modal-overlay" id="sizeChartModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="sizeChartTitle">
+    <button class="modal-close" id="sizeChartClose" data-icon="close" aria-label="Close"></button>
+    <h3 id="sizeChartTitle">Size Chart</h3>
+    <table class="info-table">
+      <tr><th>Size</th><th>Waist (in)</th><th>Hip (in)</th><th>Inseam (in)</th></tr>
+      <tr><td>XXS</td><td>23–24</td><td>33–34</td><td>27</td></tr>
+      <tr><td>XS</td><td>25–26</td><td>35–36</td><td>27.5</td></tr>
+      <tr><td>S</td><td>27–28</td><td>37–38</td><td>28</td></tr>
+      <tr><td>M</td><td>29–30</td><td>39–40</td><td>28.5</td></tr>
+      <tr><td>L</td><td>31–33</td><td>41–43</td><td>29</td></tr>
+      <tr><td>XL</td><td>34–36</td><td>44–46</td><td>29.5</td></tr>
+      <tr><td>XXL</td><td>37–39</td><td>47–49</td><td>30</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Info modal (Help / About / legal / social) -->
+<div class="modal-overlay" id="infoModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <button class="modal-close" id="infoClose" data-icon="close" aria-label="Close"></button>
+    <h3 id="infoTitle">Title</h3>
+    <div id="infoBody"></div>
+  </div>
+</div>
+
+<div class="body-overlay" id="bodyOverlay"></div>
+
+<script src="products.js"></script>
+<script src="script.js?v=6"></script>
+</body>
+</html>

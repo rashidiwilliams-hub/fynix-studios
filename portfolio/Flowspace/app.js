@@ -151,8 +151,8 @@ function initMobileSidebar() {
   const toggle = document.getElementById('sidebarToggle');
   const backdrop = document.getElementById('sidebarBackdrop');
   if (!sidebar || !toggle || !backdrop) return;
-  const open = () => { sidebar.classList.add('is-open'); backdrop.classList.add('is-open'); };
-  const close = () => { sidebar.classList.remove('is-open'); backdrop.classList.remove('is-open'); };
+  const open = () => { sidebar.classList.add('is-open'); backdrop.classList.add('is-open'); toggle.classList.add('is-hidden'); };
+  const close = () => { sidebar.classList.remove('is-open'); backdrop.classList.remove('is-open'); toggle.classList.remove('is-hidden'); };
   toggle.addEventListener('click', open);
   backdrop.addEventListener('click', close);
   sidebar.querySelectorAll('.nav-item').forEach((a) => a.addEventListener('click', close));

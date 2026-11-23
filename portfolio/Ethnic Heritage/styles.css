@@ -352,6 +352,14 @@ ul { list-style: none; }
 .back-to-top svg { width: 18px; height: 18px; }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 900px) and (min-width: 761px) {
+  .header-inner { gap: 1rem; padding: 1rem 1.5rem; }
+  .main-nav { gap: 1rem; }
+  .main-nav a { font-size: 0.82rem; }
+  .header-actions { gap: 0.7rem; }
+  .btn-delivery { padding: 0.55em 1em; font-size: 0.8rem; }
+}
+
 @media (max-width: 1080px) {
   .story-grid { grid-template-columns: 1fr; }
   .features-grid { grid-template-columns: repeat(2, 1fr); }

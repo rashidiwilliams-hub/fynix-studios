@@ -21,15 +21,15 @@ const MENU = [
     name: 'Seared Scallops',
     price: 28,
     image: 'assets/images/image-01.jpg',
-    alt: 'Seared salmon fillet with herbs on a dark plate',
+    alt: 'Seared seafood fillet with herbs on a dark plate',
     tag: 'New'
   },
   {
     slug: 'charred-vegetable-plate',
     name: 'Charred Vegetable Plate',
     price: 22,
-    image: 'assets/images/image-03.jpg',
-    alt: 'Charred plate with seasonal vegetables',
+    image: 'assets/images/image-02.jpg',
+    alt: 'Elegant restaurant table setting',
     tag: 'Vegetarian'
   },
   {

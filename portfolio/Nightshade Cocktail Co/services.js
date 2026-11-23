@@ -8,9 +8,9 @@ const SERVICES = [
     alt: 'Rosé cocktail with strawberry garnish'
   },
   {
-    slug: 'lgbtq-friendly',
-    name: 'LGBTQ+ Friendly',
-    excerpt: 'An inclusive, judgment-free bar experience built on respect — every guest, every event, every time.',
+    slug: 'mobile-bar-setup',
+    name: 'Mobile Bar Setup',
+    excerpt: 'Full-service mobile bars for weddings, corporate events, and private parties.',
     image: 'assets/images/image-03.jpg',
     alt: 'Bartender crafting an old fashioned'
   },

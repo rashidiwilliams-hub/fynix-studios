@@ -7,7 +7,7 @@ const LS_THEME = 'luxrentals_theme';
 const LS_LAST_VEHICLE = 'luxrentals_last_vehicle';
 const LS_SETTINGS = 'luxrentals_settings';
 
-const STUDIO_CONTACT = { phone: '+592 713 5786', email: 'core@fynixstudios.com' };
+const STUDIO_CONTACT = { phone: '+592 713 5786', email: 'hello@luxrentals.com' };
 
 /* ---------- Theme ---------- */
 function applyTheme(mode) {
@@ -117,7 +117,6 @@ function renderChrome(activeKey, subtitle) {
 
   sidebarMount.innerHTML = `
     <div class="brand">
-      <div class="brand-mark">${ICONS.car}</div>
       <div>
         <div class="brand-word">LUX<span>.</span>RENTALS</div>
         <div class="brand-sub">Fleet Ops Console</div>

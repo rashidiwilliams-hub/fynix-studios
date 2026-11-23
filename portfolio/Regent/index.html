@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regent — Shop Top-Quality Products Online</title>
+<link rel="shortcut icon" href="../../assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fredoka:wght@600;700&family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=17">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="marquee">
+    <span>Free Shipping Over G$13,000</span>
+    <span>30-Day Money-Back Guarantee</span>
+    <span>24/7 Customer Support</span>
+  </div>
+  <a class="club-link" href="#athleteClub">Rewards Club</a>
+</div>
+
+<section class="hero">
+  <header class="site-header">
+    <div class="header-inner">
+      <nav class="main-nav" id="mainNav">
+        <div class="has-dropdown">
+          <a href="#ladiesPicks">Shop <span data-icon="chevDown"></span></a>
+          <div class="nav-dropdown">
+            <a href="#prime" data-category="Prime">Electronics</a>
+            <a href="#hybrid" data-category="Hybrid">Home &amp; Living</a>
+            <a href="#clean" data-category="Clean">Fashion</a>
+            <a href="#latestDrops" data-category="Aura">Toys &amp; Games</a>
+            <a href="#ladiesPicks" data-category="Accessories">Accessories</a>
+          </div>
+        </div>
+        <a href="sell.html">Sell On Regent</a>
+        <div class="has-dropdown">
+          <a href="#ladiesPicks">Accessories <span data-icon="chevDown"></span></a>
+          <div class="nav-dropdown">
+            <a href="product.html?id=sunglasses-uv400">Sunglasses</a>
+            <a href="product.html?id=pearl-cutlery-set">Cutlery Sets</a>
+            <a href="product.html?id=running-shoes">Running Shoes</a>
+          </div>
+        </div>
+        <a href="#hybrid">New Arrivals</a>
+      </nav>
+      <a class="logo" href="index.html">regent</a>
+      <div class="header-actions">
+        <div class="region-toggle"><span>EN</span><span>GY</span></div>
+        <button aria-label="Search" id="searchBtn" data-icon="search"></button>
+        <button aria-label="Account" id="accountBtn" data-icon="person"></button>
+        <button aria-label="Wishlist" id="wishlistBtn" data-icon="heart"><span class="wishlist-badge" id="wishlistBadge" hidden>0</span></button>
+        <button class="cart-btn" aria-label="Cart" id="cartBtn" data-icon="bag"><span class="cart-badge">0</span></button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="hero-media">
+    <img loading="eager" decoding="async" src="assets/images/hero.jpg" alt="Two people wearing VR headsets reaching toward the air">
+  </div>
+  <div class="hero-copy">
+    <p class="eyebrow">Buy And Sell</p>
+    <h1>Everything You Need</h1>
+    <a href="#ladiesPicks" class="btn btn-dark">Shop Now</a>
+  </div>
+</section>
+
+<div class="promo-strip">
+  <span>Get the latest updates on new products and exclusive offers.</span>
+  <a href="#athleteClub">Join Now <span data-icon="chevRight"></span></a>
+</div>
+
+<section class="section" id="ladiesPicks">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Top Rated</p>
+        <h2>Top Picks</h2>
+      </div>
+      <div class="section-head-actions">
+        <a href="#hybrid" class="btn btn-dark">View All</a>
+        <div class="carousel-arrows" data-target="#topPicksGrid">
+          <button data-dir="prev" aria-label="Previous" data-icon="chevLeft"></button>
+          <button data-dir="next" aria-label="Next" data-icon="chevRight"></button>
+        </div>
+      </div>
+    </div>
+    <div class="tab-toggle" data-tabgroup="picks">
+      <button class="active" data-tab="ladies">Best Sellers</button>
+      <button data-tab="men">On Sale</button>
+    </div>
+    <div class="product-grid" id="topPicksGrid" data-panelgroup="picks">
+      <div data-panel="ladies" style="display:contents;">
+        <article class="product-card" data-slug="gaming-console-x">
+          <div class="card-img"><span class="tag">Bestseller</span><img loading="eager" decoding="async" src="assets/images/product-gaming3.jpg" alt="White gaming console standing upright next to a wireless controller"></div>
+          <h3>Next-Gen Gaming Console</h3>
+          <p class="price">G$39,000</p>
+          <p class="availability">Available in 512GB</p>
+        </article>
+        <article class="product-card" data-slug="smartphone-128gb">
+          <div class="card-img"><span class="tag">Bestseller</span><img loading="eager" decoding="async" src="assets/images/product-smartphone-2.jpg" alt="Smartphone on stand product photo"></div>
+          <h3>Smartphone 128GB</h3>
+          <p class="price">G$91,000</p>
+          <p class="availability">Available in 128GB</p>
+        </article>
+        <article class="product-card" data-slug="smart-watch-pro">
+          <div class="card-img"><span class="tag">New</span><img loading="lazy" decoding="async" src="assets/images/hero-smartwatch.jpg" alt="Smartwatch with black display, angled product shot"></div>
+          <h3>Smart Watch Pro</h3>
+          <p class="price">G$16,900</p>
+          <p class="availability">Available in 44mm</p>
+        </article>
+        <article class="product-card" data-slug="everyday-makeup-set">
+          <div class="card-img"><span class="tag">Bestseller</span><img loading="lazy" decoding="async" src="assets/images/makeup-2.jpg" alt="Makeup set product photo"></div>
+          <h3>Everyday Makeup Set</h3>
+          <p class="price">G$4,550</p>
+          <p class="availability">Available in 3-Piece Set</p>
+        </article>
+      </div>
+      <div data-panel="men" hidden style="display:contents;">
+        <article class="product-card" data-slug="smart-tv-55">
+          <div class="card-img"><span class="tag sale">25% Off</span><img loading="lazy" decoding="async" src="assets/images/tv1.jpg" alt="Large flat-screen TV on a white media console"></div>
+          <h3>55" 4K Smart TV</h3>
+          <p class="price"><span class="was">G$78,000</span><span class="now">G$58,500</span></p>
+          <p class="availability">Available in 55 in</p>
+        </article>
+        <article class="product-card" data-slug="wireless-headphones">
+          <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/product-headphones-2.jpg" alt="Premium wireless over-ear headphones product photo"></div>
+          <h3>Wireless Headphones</h3>
+          <p class="price">G$11,700</p>
+          <p class="availability">Available in Over-Ear</p>
+        </article>
+        <article class="product-card" data-slug="leather-backpack">
+          <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/product-backpack-2.jpg" alt="Leather-trimmed backpack product photo"></div>
+          <h3>Leather Backpack</h3>
+          <p class="price">G$7,800</p>
+          <p class="availability">Available in One Size</p>
+        </article>
+        <article class="product-card" data-slug="pearl-cutlery-set">
+          <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/cutlery3.jpg" alt="Cutlery set with pearl-style handles in a gift box"></div>
+          <h3>Pearl-Handle Cutlery Set</h3>
+          <p class="price">G$5,850</p>
+          <p class="availability">Available in 4-Piece Set</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section grey" id="prime">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Trending</p>
+        <h2>Electronics</h2>
+      </div>
+      <div class="section-head-actions">
+        <a href="#prime" class="btn btn-dark">View All</a>
+      </div>
+    </div>
+    <div class="product-grid">
+      <article class="product-card" data-slug="smart-security-camera">
+        <div class="card-img"><span class="tag">Bestseller</span><img loading="lazy" decoding="async" src="assets/images/product-home-security1.jpg" alt="White dome security camera mounted on a tiled wall"></div>
+        <h3>Smart Security Camera</h3>
+        <p class="price">G$7,150</p>
+        <p class="availability">Available in One Size</p>
+      </article>
+      <article class="product-card" data-slug="wireless-headphones">
+        <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/product-headphones-3.jpg" alt="Premium wireless over-ear headphones product photo" style="object-position:50% 65%;"></div>
+        <h3>Wireless Headphones</h3>
+        <p class="price">G$11,700</p>
+        <p class="availability">Available in Over-Ear</p>
+      </article>
+      <article class="product-card" data-slug="camera-drone">
+        <div class="card-img"><span class="tag">New</span><img loading="lazy" decoding="async" src="assets/images/product-drone1.jpg" alt="Camera drone flying against a cloudy sky with mountains below"></div>
+        <h3>4K Camera Drone</h3>
+        <p class="price">G$32,500</p>
+        <p class="availability">Available in One Size</p>
+      </article>
+      <article class="product-card" data-slug="gaming-console-x">
+        <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/product-gaming2.jpg" alt="White gaming console standing upright next to a wireless controller"></div>
+        <h3>Next-Gen Gaming Console</h3>
+        <p class="price">G$39,000</p>
+        <p class="availability">Available in 512GB</p>
+      </article>
+    </div>
+  </div>
+  <div class="split-banner banner-prime">
+    <img loading="lazy" decoding="async" src="assets/images/pexels-nguyendesigner-13162091.jpg" alt="Desk workspace with monitor, keyboard and plants">
+    <div class="banner-copy"><a href="#prime" class="btn btn-white">Shop Electronics</a></div>
+  </div>
+</section>
+
+<section class="section" id="hybrid">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Trending</p>
+        <h2>Home &amp; Living</h2>
+      </div>
+      <div class="section-head-actions">
+        <a href="#hybrid" class="btn btn-dark">View All</a>
+        <div class="carousel-arrows" data-target="#hybridGrid">
+          <button data-dir="prev" aria-label="Previous" data-icon="chevLeft"></button>
+          <button data-dir="next" aria-label="Next" data-icon="chevRight"></button>
+        </div>
+      </div>
+    </div>
+    <div class="product-grid" id="hybridGrid">
+      <article class="product-card" data-slug="accent-chair">
+        <div class="card-img"><span class="tag">Bestseller</span><img loading="lazy" decoding="async" src="assets/images/chair-2.jpg" alt="Modern upholstered accent chair product photo"></div>
+        <h3>Modern Accent Chair</h3>
+        <p class="price">G$24,700</p>
+        <p class="availability">Available in One Size</p>
+      </article>
+      <article class="product-card" data-slug="throw-pillow-set">
+        <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/pillow1.jpg" alt="Patterned decorative pillows displayed on a shelf"></div>
+        <h3>Decorative Throw Pillow Set</h3>
+        <p class="price">G$5,200</p>
+        <p class="availability">Available in Set of 4</p>
+      </article>
+      <article class="product-card" data-slug="smart-tv-55">
+        <div class="card-img"><span class="tag sale">25% Off</span><img loading="lazy" decoding="async" src="assets/images/tv1.jpg" alt="Large flat-screen TV on a white media console"></div>
+        <h3>55" 4K Smart TV</h3>
+        <p class="price"><span class="was">G$78,000</span><span class="now">G$58,500</span></p>
+        <p class="availability">Available in 55 in</p>
+      </article>
+      <article class="product-card" data-slug="rattan-accent-chair">
+        <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/pexels-q-w-763920162-33724903.jpg" alt="Rattan-back accent chair with a white cushion in a living room"></div>
+        <h3>Rattan Accent Chair</h3>
+        <p class="price">G$28,600</p>
+        <p class="availability">Available in One Size</p>
+      </article>
+    </div>
+  </div>
+  <div class="split-banner banner-hybrid">
+    <img loading="lazy" decoding="async" src="assets/images/category-home-living.jpg" alt="Home & Living">
+    <span class="big-word">HOME CO.</span>
+    <div class="banner-copy"><a href="#hybrid" class="btn btn-white">Shop Home &amp; Living</a></div>
+  </div>
+</section>
+
+<section class="section grey" id="clean">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Trending</p>
+        <h2>Fashion</h2>
+      </div>
+      <div class="section-head-actions">
+        <a href="#clean" class="btn btn-dark">View All</a>
+        <div class="carousel-arrows" data-target="#cleanGrid">
+          <button data-dir="prev" aria-label="Previous" data-icon="chevLeft"></button>
+          <button data-dir="next" aria-label="Next" data-icon="chevRight"></button>
+        </div>
+      </div>
+    </div>
+    <div class="product-grid" id="cleanGrid">
+      <article class="product-card" data-slug="leather-backpack">
+        <div class="card-img"><span class="tag">New</span><img loading="lazy" decoding="async" src="assets/images/product-backpack-2.jpg" alt="Leather-trimmed backpack product photo"></div>
+        <h3>Leather Backpack</h3>
+        <p class="price">G$7,800</p>
+        <p class="availability">Available in One Size</p>
+      </article>
+      <article class="product-card" data-slug="plaid-oversized-shirt">
+        <div class="card-img"><span class="tag">Bestseller</span><img loading="lazy" decoding="async" src="assets/images/pexels-mauricio-casas-454804780-20095342.jpg" alt="Model wearing an oversized brown and cream plaid shirt"></div>
+        <h3>Oversized Plaid Shirt</h3>
+        <p class="price">G$4,550</p>
+        <p class="availability">Available in 4 sizes</p>
+      </article>
+      <article class="product-card" data-slug="striped-tie-top">
+        <div class="card-img"><span class="tag">Bestseller</span><img loading="lazy" decoding="async" src="assets/images/pexels-lara-chara-24037705-7665700.jpg" alt="Model wearing a striped tie-front blouse with denim shorts"></div>
+        <h3>Striped Tie-Front Blouse</h3>
+        <p class="price">G$3,640</p>
+        <p class="availability">Available in 4 sizes</p>
+      </article>
+      <article class="product-card" data-slug="oversized-crewneck">
+        <div class="card-img"><span class="tag">Bestseller</span><img loading="lazy" decoding="async" src="assets/images/modest-relaxed-healthy-afro-american-woman-has-tender-toothy-smile-enjoys-lovely-day-expresses-positive-emotions.jpg" alt="Woman smiling in an oversized beige crewneck sweatshirt"></div>
+        <h3>Oversized Crewneck Sweatshirt</h3>
+        <p class="price">G$3,900</p>
+        <p class="availability">Available in 6 sizes</p>
+      </article>
+    </div>
+  </div>
+  <div class="split-banner banner-clean">
+    <img loading="lazy" decoding="async" src="assets/images/pexels-lara-chara-24037705-7665700.jpg" alt="Model wearing a striped tie-front blouse with denim shorts">
+    <span class="mark-r">R</span>
+    <div class="banner-copy"><a href="#clean" class="btn btn-white">Shop Fashion</a></div>
+  </div>
+</section>
+
+<section class="section" id="athleteClub">
+  <div class="athlete-marquee">
+    <div class="athlete-marquee-track">
+      <div class="athlete-copy-slide">
+        <div class="athlete-copy">
+          <h2>Join The Rewards Club</h2>
+          <p>Sign up for the Rewards Club and get exclusive offers &amp; a 10% off code on your first order!</p>
+          <a href="#" class="btn btn-dark">Join Now</a>
+        </div>
+      </div>
+      <figure><img loading="lazy" decoding="async" src="assets/images/pexels-mauricio-casas-454804780-20095342.jpg" alt="Model wearing an oversized brown and cream plaid shirt"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/images/category-home-living.jpg" alt="Home & Living"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/images/category-toys.jpg" alt="Toys & Games"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/images/hero.jpg" alt="Two people wearing VR headsets reaching toward the air"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/images/hero-smartwatch.jpg" alt="Smartwatch with black display, angled product shot"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/images/product-headphones.jpg" alt="Black over-ear wireless headphones on a white background"></figure>
+      <div class="athlete-copy-slide" aria-hidden="true">
+        <div class="athlete-copy">
+          <h2>Join The Rewards Club</h2>
+          <p>Sign up for the Rewards Club and get exclusive offers &amp; a 10% off code on your first order!</p>
+          <a href="#" class="btn btn-dark" tabindex="-1">Join Now</a>
+        </div>
+      </div>
+      <figure aria-hidden="true"><img loading="lazy" decoding="async" src="assets/images/pexels-mauricio-casas-454804780-20095342.jpg" alt=""></figure>
+      <figure aria-hidden="true"><img loading="lazy" decoding="async" src="assets/images/category-home-living.jpg" alt=""></figure>
+      <figure aria-hidden="true"><img loading="lazy" decoding="async" src="assets/images/category-toys.jpg" alt=""></figure>
+      <figure aria-hidden="true"><img loading="lazy" decoding="async" src="assets/images/hero.jpg" alt=""></figure>
+      <figure aria-hidden="true"><img loading="lazy" decoding="async" src="assets/images/hero-smartwatch.jpg" alt=""></figure>
+      <figure aria-hidden="true"><img loading="lazy" decoding="async" src="assets/images/product-headphones.jpg" alt=""></figure>
+    </div>
+  </div>
+</section>
+
+<section class="aura-banner">
+  <img loading="lazy" decoding="async" src="assets/images/product-gaming1.jpg" alt="Gaming console and controller on a dark background">
+  <div class="aura-copy">
+    <p class="lead"><strong>Super Sale Up To 50% Off!</strong> On selected items. Shop now before the deal ends.</p>
+    <a href="#ladiesPicks" class="btn btn-white">Shop The Sale</a>
+  </div>
+</section>
+
+<section class="section" id="latestDrops">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">New Arrivals</p>
+        <h2>Latest Drops</h2>
+      </div>
+      <div class="carousel-arrows" data-target="#dropsGrid">
+        <button data-dir="prev" aria-label="Previous" data-icon="chevLeft"></button>
+        <button data-dir="next" aria-label="Next" data-icon="chevRight"></button>
+      </div>
+    </div>
+    <div class="tab-underline" data-tabgroup="drops">
+      <button class="active" data-tab="hybrid">Home &amp; Living</button>
+      <button data-tab="aura">Toys &amp; Games</button>
+      <button data-tab="clean">Fashion</button>
+    </div>
+    <div class="product-grid" id="dropsGrid" data-panelgroup="drops">
+      <div data-panel="hybrid" style="display:contents;">
+        <article class="product-card" data-slug="rattan-accent-chair">
+          <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/pexels-curtis-adams-1694007-36777527.jpg" alt="Rattan-back accent chair with a white cushion in a living room"></div>
+          <h3>Rattan Accent Chair</h3>
+          <p class="price">G$28,600</p>
+          <p class="availability">Available in One Size</p>
+        </article>
+        <article class="product-card" data-slug="accent-chair">
+          <div class="card-img"><span class="tag">Bestseller</span><img loading="lazy" decoding="async" src="assets/images/category-home-living.jpg" alt="Modern upholstered accent chair product photo"></div>
+          <h3>Modern Accent Chair</h3>
+          <p class="price">G$24,700</p>
+          <p class="availability">Available in One Size</p>
+        </article>
+        <article class="product-card" data-slug="smart-tv-55">
+          <div class="card-img"><span class="tag sale">25% Off</span><img loading="lazy" decoding="async" src="assets/images/tv2.jpg" alt="Large flat-screen TV on a white media console"></div>
+          <h3>55" 4K Smart TV</h3>
+          <p class="price"><span class="was">G$78,000</span><span class="now">G$58,500</span></p>
+          <p class="availability">Available in 55 in</p>
+        </article>
+        <article class="product-card" data-slug="throw-pillow-set">
+          <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/pillow2.jpg" alt="Patterned decorative pillows displayed on a shelf"></div>
+          <h3>Decorative Throw Pillow Set</h3>
+          <p class="price">G$5,200</p>
+          <p class="availability">Available in Set of 4</p>
+        </article>
+      </div>
+      <div data-panel="aura" hidden style="display:contents;">
+        <article class="product-card" data-slug="plush-teddy-bear">
+          <div class="card-img"><span class="tag">New</span><img loading="lazy" decoding="async" src="assets/images/teddy-2.jpg" alt="Plush teddy bear product photo"></div>
+          <h3>Plush Teddy Bear</h3>
+          <p class="price">G$3,250</p>
+          <p class="availability">Available in 14 in</p>
+        </article>
+        <article class="product-card" data-slug="rc-rock-crawler">
+          <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/rc-car2.jpg" alt="Black remote-control rock crawler truck on grass"></div>
+          <h3>RC Rock Crawler Truck</h3>
+          <p class="price">G$5,850</p>
+          <p class="availability">Available in 1:18 Scale</p>
+        </article>
+        <article class="product-card" data-slug="wooden-number-blocks">
+          <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/pexels-duc-anh-nguyen-63701176-8289844.jpg" alt="Colorful wooden number blocks arranged on a table"></div>
+          <h3>Wooden Number Blocks Set</h3>
+          <p class="price">G$2,600</p>
+          <p class="availability">Available in 12-Piece Set</p>
+        </article>
+        <article class="product-card" data-slug="collectible-action-figure">
+          <div class="card-img"><img loading="lazy" decoding="async" src="assets/images/pexels-grigore-scar-2153317134-38250875.jpg" alt="Fully articulated action figure in blue and orange armor posed on a wooden surface"></div>
+          <h3>Collectible Action Figure</h3>
+          <p class="price">G$3,250</p>
+          <p class="availability">Available in 6 in</p>
+        </article>
+      </div>
+      <div data-panel="clean" hidden style="display:contents;">
+        <article class="product-card" data-slug="leather-backpack">
+          <div class="card-img"><span class="tag">New</span><img loading="lazy" decoding="async" src="assets/images/product-backpack.jpg" alt="Leather-trimmed backpack product photo"></div>
+          <h3>Leather Backpack</h3>
+          <p class="price">G$7,800</p>
+          <p class="availability">Available in One Size</p>
+        </article>
+        <article class="product-card" data-slug="plaid-oversized-shirt">
+          <div class="card-img"><span class="tag">Bestseller</span><img loading="lazy" decoding="async" src="assets/images/pexels-lara-chara-24037705-7665700.jpg" alt="Model wearing an oversized brown and cream plaid shirt" style="object-position:65% 35%;"></div>
+          <h3>Oversized Plaid Shirt</h3>
+          <p class="price">G$4,550</p>
+          <p class="availability">Available in 4 sizes</p>
+        </article>
+        <article class="product-card" data-slug="striped-tie-top">
+          <div class="card-img"><span class="tag">Bestseller</span><img loading="lazy" decoding="async" src="assets/images/pexels-mauricio-casas-454804780-20095342.jpg" alt="Model wearing a striped tie-front blouse with denim shorts" style="object-position:50% 25%;"></div>
+          <h3>Striped Tie-Front Blouse</h3>
+          <p class="price">G$3,640</p>
+          <p class="availability">Available in 4 sizes</p>
+        </article>
+        <article class="product-card" data-slug="oversized-crewneck">
+          <div class="card-img"><span class="tag">Bestseller</span><img loading="lazy" decoding="async" src="assets/images/pexels-mauricio-casas-454804780-20095342.jpg" alt="Woman smiling in an oversized beige crewneck sweatshirt"></div>
+          <h3>Oversized Crewneck Sweatshirt</h3>
+          <p class="price">G$3,900</p>
+          <p class="availability">Available in 6 sizes</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container scrunch-section">
+    <div class="scrunch-copy">
+      <h2>Home / Tech</h2>
+      <p>Whatever the room, whatever the device — we've got it covered, from smart TVs to accent chairs.</p>
+      <a href="#ladiesPicks" class="btn btn-dark">Shop Now</a>
+    </div>
+    <div class="scrunch-media ba-slider" id="baSlider">
+      <img class="ba-img ba-after" loading="lazy" decoding="async" src="assets/images/room-furnished.jpg" alt="Furnished modern living room with mounted TV">
+      <img class="ba-img ba-before" loading="lazy" decoding="async" src="assets/images/room-empty.jpg" alt="Empty unfurnished room" id="baBefore">
+      <span class="ba-label ba-label-before">Before</span>
+      <span class="ba-label ba-label-after">After</span>
+      <div class="ba-handle" id="baHandle"><span class="ba-handle-arrows">&#10094;&#10095;</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section grey">
+  <div class="container">
+    <h2 class="collections-head">Our <b>Most Hyped</b> Collections</h2>
+    <div class="collections-grid">
+      <a class="collection-tile" href="#hybrid">
+        <img loading="lazy" decoding="async" src="assets/images/category-home-living.jpg" alt="Home & Living">
+        <span class="tile-label">Home &amp; Living <sup>4</sup></span>
+      </a>
+      <a class="collection-tile" href="#latestDrops">
+        <img loading="lazy" decoding="async" src="assets/images/category-toys.jpg" alt="Toys & Games">
+        <span class="tile-label">Toys &amp; Games <sup>4</sup></span>
+      </a>
+      <a class="collection-tile" href="#clean">
+        <img loading="lazy" decoding="async" src="assets/images/product-backpack.jpg" alt="Fashion">
+        <span class="tile-label">Fashion <sup>4</sup></span>
+      </a>
+      <a class="collection-tile" href="#prime">
+        <img loading="lazy" decoding="async" src="assets/images/product-headphones.jpg" alt="Electronics">
+        <span class="tile-label">Electronics <sup>6</sup></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sellOnRegent">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Marketplace</p>
+        <h2>Sell On Regent</h2>
+      </div>
+    </div>
+    <div class="sell-promo-grid">
+      <div class="sell-promo-copy">
+        <h3>Turn What You Don't Use Into Cash</h3>
+        <p>List an item in minutes, ship it with a prepaid label, and get paid fast — no listing fees, ever.</p>
+        <div class="sell-promo-stats">
+          <div><strong>G$0</strong><span>Listing Fees</span></div>
+          <div><strong>3 Days</strong><span>Average Payout</span></div>
+          <div><strong>12,000+</strong><span>Active Sellers</span></div>
+        </div>
+        <a href="sell.html" class="btn btn-dark">Start Selling</a>
+        <blockquote class="sell-quote">
+          <p>"I listed my old camera on a Tuesday and it sold by Friday. The payout hit my account three days later — easier than I expected."</p>
+          <cite>Aliyah P., Regent Seller</cite>
+        </blockquote>
+      </div>
+      <div class="sell-promo-photo">
+        <img loading="lazy" decoding="async" src="assets/images/sell-on-regent.jpg" alt="Two sellers writing shipping labels on packages to send to buyers">
+        <span class="sell-badge sell-badge-1">Free Pickup Available</span>
+        <span class="sell-badge sell-badge-2">Ships In 24 Hrs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h4>Help</h4>
+      <a href="#" data-info="contact">Customer Service / FAQ</a>
+      <a href="#athleteClub">Rewards Club</a>
+      <a href="#" data-info="returns">Exchanges &amp; Returns</a>
+      <a href="#" data-info="reviews">Reviews</a>
+      <a href="#" data-info="cancel">Cancel An Order</a>
+    </div>
+    <div>
+      <h4>About Us</h4>
+      <a href="#" data-info="about">About Us</a>
+      <a href="#" data-info="sustainability">Sustainability &amp; Responsibility</a>
+    </div>
+    <div>
+      <h4>Information</h4>
+      <a href="#" data-info="terms">Terms &amp; Conditions</a>
+      <a href="#" data-info="privacy">Privacy Policy</a>
+      <a href="#" data-info="cookies">Cookie Policy</a>
+    </div>
+    <div class="footer-logo-col">
+      <span class="logo">regent</span>
+      <div class="footer-social">
+        <a href="#" data-icon="logoIg" aria-label="Instagram"></a>
+        <a href="#" data-icon="logoFb" aria-label="Facebook"></a>
+        <a href="#" data-icon="logoPin" aria-label="Pinterest"></a>
+        <a href="#" data-icon="logoYt" aria-label="YouTube"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Fynix Studios. All Rights Reserved.</div>
+</footer>
+
+<button class="chat-fab" aria-label="Chat with us" data-icon="chat"></button>
+
+<!-- Cart drawer -->
+<div class="drawer-overlay" id="cartOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <h3 id="cartTitle">Your Cart</h3>
+      <button class="drawer-close" id="cartClose" data-icon="close" aria-label="Close"></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="no-results" id="cartEmptyMsg" hidden>Your cart is empty. Browse Top Picks to add something.</p>
+    <div class="drawer-foot" id="cartFoot">
+      <div class="cart-line"><span>Subtotal</span><span id="cartSubtotal">G$0</span></div>
+      <a href="#ladiesPicks" class="btn btn-dark w-full">Checkout</a>
+    </div>
+  </aside>
+</div>
+
+<!-- Wishlist drawer -->
+<div class="drawer-overlay" id="wishlistOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="wishlistTitle">
+    <div class="drawer-head">
+      <h3 id="wishlistTitle">Your Wishlist</h3>
+      <button class="drawer-close" id="wishlistClose" data-icon="close" aria-label="Close"></button>
+    </div>
+    <div class="cart-items" id="wishlistItems"></div>
+    <p class="no-results" id="wishlistEmptyMsg" hidden>Nothing saved yet. Tap the heart on any product to add it here.</p>
+  </aside>
+</div>
+
+<!-- Search overlay -->
+<div class="drawer-overlay" id="searchOverlay" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+    <div class="drawer-head">
+      <h3 id="searchTitle">Search</h3>
+      <button class="drawer-close" id="searchClose" data-icon="close" aria-label="Close"></button>
+    </div>
+    <input type="text" id="searchInput" class="search-input" placeholder="Search products…" autocomplete="off">
+    <div class="cart-items" id="searchResults"></div>
+    <p class="no-results" id="searchEmptyMsg" hidden>No products match your search.</p>
+  </aside>
+</div>
+
+<!-- Account modal -->
+<div class="modal-overlay" id="accountModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+    <button class="modal-close" id="accountClose" data-icon="close" aria-label="Close"></button>
+    <h3 id="accountTitle">Sign In</h3>
+    <p class="modal-trim">Demo only — no account is created or stored.</p>
+    <form id="signInForm">
+      <div class="form-field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+      <div class="form-field"><label>Password</label><input type="password" required placeholder="••••••••"></div>
+      <button type="submit" class="btn btn-dark w-full">Sign In</button>
+    </form>
+    <p class="form-success" id="signInSuccess" hidden>You're signed in (demo). Welcome back!</p>
+  </div>
+</div>
+
+<!-- Info modal (Help / About / legal / social) -->
+<div class="modal-overlay" id="infoModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <button class="modal-close" id="infoClose" data-icon="close" aria-label="Close"></button>
+    <h3 id="infoTitle">Title</h3>
+    <div id="infoBody"></div>
+  </div>
+</div>
+
+<div class="body-overlay" id="bodyOverlay"></div>
+
+<script src="products.js"></script>
+<script src="script.js?v=6"></script>
+</body>
+</html>

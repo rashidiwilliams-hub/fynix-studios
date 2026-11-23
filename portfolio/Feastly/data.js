@@ -95,7 +95,7 @@ const RESTAURANTS = [
       { id: 'fettuccine-alfredo', name: 'Fettuccine Alfredo', category: 'Mains', price: 11.00, rating: 4.7, reviews: 149, image: 'assets/images/bella-vita/fettuccine-alfredo.jpg', desc: 'Silky fettuccine tossed in a rich parmesan cream sauce.' },
       { id: 'caprese-salad', name: 'Caprese Salad', category: 'Salads', price: 8.00, rating: 4.6, reviews: 96, image: 'assets/images/bella-vita/caprese-salad.jpg', desc: 'Fresh mozzarella, ripe tomato, and basil drizzled with balsamic.' },
       { id: 'tiramisu', name: 'Tiramisu', category: 'Dessert', price: 6.50, rating: 4.9, reviews: 172, image: 'assets/images/bella-vita/tiramisu.jpg', desc: 'Espresso-soaked ladyfingers layered with mascarpone cream.' },
-      { id: 'chicken-parmesan', name: 'Chicken Parmesan', category: 'Mains', price: 13.50, rating: 4.8, reviews: 158, image: 'assets/images/bella-vita/chicken-parmesan.png', desc: 'Breaded chicken cutlet baked with marinara and melted mozzarella.' },
+      { id: 'chicken-parmesan', name: 'Chicken Parmesan', category: 'Mains', price: 13.50, rating: 4.8, reviews: 158, image: 'assets/images/bella-vita/chicken-parmesan.jpg', desc: 'Breaded chicken cutlet baked with marinara and melted mozzarella.' },
       { id: 'panna-cotta', name: 'Panna Cotta', category: 'Dessert', price: 6.00, rating: 4.7, reviews: 89, image: 'assets/images/bella-vita/panna-cotta.jpg', desc: 'Silky vanilla cream set lightly, topped with a fresh berry sauce.' }
     ]
   },

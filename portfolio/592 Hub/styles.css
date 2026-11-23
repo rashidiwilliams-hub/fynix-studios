@@ -372,6 +372,15 @@ ul { list-style: none; }
 .sell-cta p { font-size: 0.82rem; color: rgba(255,255,255,0.65); margin-bottom: 1.2rem; }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 900px) and (min-width: 721px) {
+  /* Fix: at tablet widths the header (logo + nav + search + icons) is too
+     narrow for the nav links to fit on one line, so "Sell on Hub" wraps
+     into a 3-line column inside a squeezed flex item. Reuse the same
+     wrap-to-second-row treatment the sub-720px breakpoint already applies. */
+  .site-header { flex-wrap: wrap; gap: 0.8rem; }
+  .main-nav { order: 3; width: 100%; justify-content: space-between; overflow-x: auto; }
+  .search-box input { width: 90px; }
+}
 @media (max-width: 1080px) {
   .hero { margin: 0 0 1.4rem; border-radius: 0; }
   .hero > * { margin-left: 0; }

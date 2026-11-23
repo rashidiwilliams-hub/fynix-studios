@@ -59,7 +59,7 @@ ul { list-style: none; }
 .link-arrow:hover { color: var(--ink-soft); }
 
 /* ---------- Header ---------- */
-.site-header { background: var(--sand); }
+.site-header { background: var(--sand); position: relative; z-index: 300; }
 .header-inner {
   max-width: var(--max); margin: 0 auto;
   padding: 1.4rem 2.5rem;
@@ -70,8 +70,33 @@ ul { list-style: none; }
   display: flex; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer; padding: 0.4rem;
 }
-.nav-toggle span { width: 26px; height: 1.5px; background: var(--ink); display: block; }
+.nav-toggle span { width: 26px; height: 1.5px; background: var(--ink); display: block; transition: transform .2s ease, opacity .2s ease; }
 .nav-toggle span:last-child { width: 14px; }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); width: 26px; }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); width: 26px; }
+
+/* ---------- Main nav (hamburger dropdown) ---------- */
+.main-nav {
+  position: absolute; top: 100%; left: 0; right: 0;
+  background: #fff; border-top: 1px solid var(--line);
+  box-shadow: 0 16px 28px rgba(0,0,0,0.1);
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.3s ease;
+  z-index: 290;
+}
+.main-nav.open { max-height: 30rem; }
+.main-nav ul { list-style: none; max-width: var(--max); margin: 0 auto; padding: 0.5rem 2.5rem 1.2rem; }
+.main-nav a {
+  display: block; padding: 0.85rem 0; font-size: 0.95rem; font-weight: 600;
+  color: var(--ink); border-bottom: 1px solid var(--line);
+}
+.main-nav li:last-child a { border-bottom: none; }
+.main-nav a:hover { color: var(--ink-soft); }
+@media (min-width: 641px) {
+  .main-nav ul { display: flex; flex-wrap: wrap; gap: 0 2rem; padding: 1rem 2.5rem; }
+  .main-nav a { border-bottom: none; padding: 0.4rem 0; }
+}
 
 /* ---------- Hero ---------- */
 .hero {
@@ -204,6 +229,11 @@ ul { list-style: none; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: #14120f; color: #b8b2a6; padding: 3.5rem 2.5rem 2rem; }
+/* Extra clearance so the fixed "Back to Portfolio" link (injected by script.js/checkout.js)
+   never sits on top of the newsletter button or footer links when scrolled to the end. */
+@media (max-width: 640px) {
+  .site-footer { padding-bottom: 6.5rem; }
+}
 .footer-grid {
   max-width: var(--max); margin: 0 auto;
   display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.3fr; gap: 2rem;
@@ -298,7 +328,7 @@ ul { list-style: none; }
 .qty-stepper button { width: 34px; height: 40px; background: none; border: none; font-size: 1rem; }
 .qty-stepper span { width: 30px; text-align: center; font-weight: 600; font-size: 0.9rem; }
 .btn-add-cart.added { background: #2e7d32 !important; }
-.pdp-fav { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; font-size: 1rem; }
+.pdp-fav { position: static; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; font-size: 1rem; flex-shrink: 0; }
 
 .pdp-perks { list-style: none; margin-bottom: 2rem; color: var(--ink-soft); font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.4rem; }
 
@@ -318,6 +348,7 @@ ul { list-style: none; }
 
 @media (max-width: 860px) {
   .pdp { grid-template-columns: 1fr; gap: 2rem; padding: 1.2rem 1.4rem 3rem; }
+  .pdp-gallery img { aspect-ratio: auto; max-height: 60vh; }
   .breadcrumb { padding: 1.2rem 1.4rem 0; }
   .related-products { padding: 2rem 0; }
 }
@@ -384,9 +415,11 @@ ul { list-style: none; }
 .checkout-empty h2 { margin-bottom: 0.8rem; }
 .checkout-empty p { color: var(--ink-soft); margin-bottom: 1.6rem; }
 .checkout-grid { max-width: var(--max); margin: 0 auto; padding: 2rem 2.5rem 5rem; display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: start; }
+.checkout-grid[hidden] { display: none; }
 .checkout-h2 { font-size: 1.1rem; margin: 1.4rem 0 1rem; font-family: 'Playfair Display', serif; }
 .checkout-h2:first-child { margin-top: 0; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-grid[hidden] { display: none; }
 .form-field.full { grid-column: 1 / -1; }
 .form-field label { display: block; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.4rem; }
 .form-field input { width: 100%; padding: 0.75em 0.9em; border: 1px solid var(--line); border-radius: 4px; font-family: inherit; font-size: 0.9rem; }

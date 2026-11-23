@@ -158,7 +158,7 @@ const PRODUCTS = [
 {
   slug: 'daily-defense-spf',
   name: 'Daily Defense SPF',
-  category: 'Sunscreens',
+  category: 'Sun Care',
   price: 9600,
   rating: 4.8,
   reviews: 267,

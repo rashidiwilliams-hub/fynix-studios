@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
 
@@ -105,7 +105,7 @@
 </div>
 
 <script src="data.js?v=5"></script>
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 <script>
 function renderVehicle(vehicle) {
   document.title = `${vehicle.name} — Rental Overview — Lux Rentals`;
@@ -156,7 +156,7 @@ function renderVehicle(vehicle) {
   const historyList = document.getElementById('historyList');
   historyList.innerHTML = vehicle.priorRentals.length ? vehicle.priorRentals.map(r => `
     <div class="history-row">
-      <img class="avatar-img" src="${r.avatar}" alt="${r.customerName}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar-fallback',textContent:initials('${r.customerName}')}))">
+      <img loading="lazy" decoding="async" class="avatar-img" src="${r.avatar}" alt="${r.customerName}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar-fallback',textContent:initials('${r.customerName}')}))">
       <div class="history-mid">
         <div class="history-name">${r.customerName}</div>
         <div class="history-date">Returned ${r.returnDate}</div>

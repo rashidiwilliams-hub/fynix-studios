@@ -682,4 +682,13 @@ main { padding: 24px 28px 60px; flex: 1; }
   .stat-grid { grid-template-columns: 1fr 1fr; }
   .field-row { grid-template-columns: 1fr; }
   .topbar-title h1 { font-size: 1.05rem; }
+  .hide-mobile { display: none; }
+  .accordion-head { flex-wrap: wrap; row-gap: 10px; }
+  .cp-row-info { flex: 1 1 100%; }
+  .cp-row-meta { flex: 1 1 100%; justify-content: flex-end; }
+  .dr-part-row { flex-direction: column; align-items: flex-start; padding-left: 16px; gap: 8px; }
+  .dr-part-row .badge { align-self: flex-start; }
+  .topbar { flex-wrap: wrap; row-gap: 10px; }
+  .topbar-actions { flex: 1 1 100%; }
+  .topbar-select { flex: 1 1 auto; min-width: 0; max-width: none; }
 }

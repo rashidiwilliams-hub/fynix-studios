@@ -37,7 +37,7 @@ ul { list-style: none; }
 .main-nav a.active, .main-nav a:hover { color: var(--ink); }
 .header-actions { display: flex; align-items: center; gap: 1.1rem; }
 .header-actions button { background: none; border: none; color: var(--ink); display: flex; padding: 0.15rem; }
-.nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 6px; }
+.header-actions .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 6px; }
 .nav-toggle span { width: 22px; height: 2px; background: var(--ink); display: block; }
 .cart-btn { position: relative; }
 .cart-badge { position: absolute; top: -6px; right: -8px; width: 15px; height: 15px; font-size: 9px; line-height: 15px; text-align: center; border-radius: 50%; background: var(--accent); color: #fff; }
@@ -295,10 +295,10 @@ ul { list-style: none; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .product-detail { grid-template-columns: 1fr; }
 }
-@media (max-width: 720px) {
-  .page-shell { padding: 0 1.1rem 1.8rem; }
-  .utility-bar { padding: 0.5rem 1.1rem; }
-  .utility-left span:nth-child(n+2) { display: none; }
+/* Full nav (6 links + logo + action icons) doesn't fit until well past tablet
+   portrait width, so the off-canvas nav switches on earlier than the 720px
+   content breakpoint below to avoid the header overflowing at 768px (iPad). */
+@media (max-width: 900px) {
   .site-header { flex-wrap: nowrap; }
   .main-nav {
     position: fixed; top: 102px; left: 0; right: 0; bottom: 0;
@@ -312,7 +312,12 @@ ul { list-style: none; }
   .main-nav.open { transform: translateX(0); }
   .main-nav a { font-size: 0.95rem; }
   .main-nav--simple { position: static; transform: none; flex-direction: row; padding: 0; background: none; z-index: auto; }
-  .nav-toggle { display: flex; }
+  .header-actions .nav-toggle { display: flex; }
+}
+@media (max-width: 720px) {
+  .page-shell { padding: 0 1.1rem 1.8rem; }
+  .utility-bar { padding: 0.5rem 1.1rem; }
+  .utility-left span:nth-child(n+2) { display: none; }
   .category-bar { grid-template-columns: repeat(3, 1fr); }
   .product-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .press-strip { gap: 1.4rem; }

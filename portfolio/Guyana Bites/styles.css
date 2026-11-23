@@ -340,6 +340,13 @@ ul { list-style: none; }
   letter-spacing: 0.02em;
 }
 
+/* Extra clearance so the fixed "Back to Portfolio" link (injected by script.js)
+   never sits on top of the last sidebar/footer content when scrolled to the end. */
+.sidebar { padding-bottom: 90px; }
+@media (max-width: 640px) {
+  .sidebar { padding-bottom: 130px; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
   .hero { grid-template-columns: 1fr; }

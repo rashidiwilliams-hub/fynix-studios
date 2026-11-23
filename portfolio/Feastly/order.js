@@ -462,8 +462,6 @@ function initOrderPage() {
   renderIdentity(r);
   renderCategoryChips(r);
   renderDishGrid(r);
-  renderReports(r);
-  renderCustomers(r);
   renderReviews(r);
   renderPromotions();
   renderCart(r);
@@ -472,7 +470,6 @@ function initOrderPage() {
   wireSidebarNav();
   renderUpcomingReservations(r);
   wireReservations(r);
-  wireSettings(r);
   wireAddressEditing(r);
   wirePlaceOrder(r);
   wireMobileCartDrawer();

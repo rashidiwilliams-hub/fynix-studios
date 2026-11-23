@@ -14,6 +14,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+html, body { overflow-x: hidden; }
 body {
   margin: 0;
   background: var(--bg);
@@ -446,7 +447,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hero-image { aspect-ratio: 16/10; order: -1; }
   .hero-text h1 { font-size: 2.4rem; }
   .utility-left span:nth-child(2) { display: none; }
-  .main-nav { position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: var(--bg); flex-direction: column; align-items: flex-start; padding: 30px 24px; gap: 22px; transform: translateX(100%); transition: transform .25s ease; z-index: 400; }
+  .main-nav { position: fixed; top: 64px; left: 0; right: 0; height: calc(100vh - 64px); overflow-y: auto; background: var(--bg); flex-direction: column; align-items: flex-start; padding: 30px 24px; gap: 22px; transform: translateX(100%); transition: transform .25s ease; z-index: 400; }
   .main-nav.open { transform: translateX(0); }
   .nav-toggle { display: flex; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
