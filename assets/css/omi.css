@@ -101,3 +101,7 @@ body:not(.theme-dark) .omi-filter.is-active { color: #fff; }
 
 /* Gallery: 4 columns on desktop */
 @media (min-width: 992px) { .omi-tile { grid-column: span 3; } }
+
+/* New logo includes the "Design Studio" wordmark, so it needs a little more height */
+.omi-hero-lockup .omi-logo-lg { height: 150px; }
+@media (max-width: 767px) { .omi-hero-lockup .omi-logo-lg { height: 100px; } }

@@ -2077,13 +2077,13 @@ body.theme-dark .omi-logo { filter: invert(1); }
 .tp-footer-partner .omi-logo { height: 28px; }
 .tp-footer-partner:hover { color: var(--tp-heading-primary); }
 .omi-credit { display: inline-flex; align-items: center; gap: 8px; margin: 2px 0 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--tp-text-2); }
-.omi-credit .omi-logo { height: 24px; }
+.omi-credit .omi-logo { height: 34px; }
 .tp-package-feature .omi-credit { margin: 0; }
 
 .omi-partner { display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: center; border: 1px solid var(--tp-border-soft); padding: 44px; }
 .omi-lockup { display: flex; align-items: center; justify-content: center; gap: 22px; padding: 28px 16px; border-right: 1px solid var(--tp-border-soft); }
 .omi-lockup .omi-fynix { width: 110px; height: auto; }
-.omi-lockup .omi-logo-lg { height: 72px; }
+.omi-lockup .omi-logo-lg { height: 100px; }
 .omi-x { font-size: 28px; font-weight: 300; color: var(--tp-text-2); }
 .omi-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 26px; padding: 0; list-style: none; }
 .omi-chips li { padding: 7px 14px; border: 1px solid var(--tp-border-soft); font-size: 13px; color: var(--tp-heading-primary); }
@@ -2098,7 +2098,7 @@ body.theme-dark .omi-logo { filter: invert(1); }
 
 /* Omi logo sits with the footer social icons */
 .tp-footer-socials a.tp-footer-omi { width: auto; min-width: 38px; padding: 0 14px; border-radius: 999px; }
-.tp-footer-omi .omi-logo { height: 22px; }
+.tp-footer-omi .omi-logo { height: 28px; }
 body.theme-dark .tp-footer-omi:hover .omi-logo { filter: none; }
 body:not(.theme-dark) .tp-footer-omi:hover .omi-logo { filter: invert(1); }
 
