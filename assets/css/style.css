@@ -2107,3 +2107,16 @@ body:not(.theme-dark) .tp-footer-omi:hover .omi-logo { filter: invert(1); }
 .tp-package-from strong { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 4px; text-transform: none; }
 .tp-package-from strong small { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--tp-text-2); margin-left: 2px; }
 @media (max-width: 1250px) and (min-width: 992px) { .tp-package-from strong { font-size: 24px; } }
+
+/* ================= SERVICE PAGE HERO: navy/blue gradient ================= */
+.service-hero { position: relative; overflow: hidden; isolation: isolate; }
+.service-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background:
+  radial-gradient(ellipse 60% 70% at 85% 20%, rgba(46, 108, 255, 0.55), transparent 70%),
+  radial-gradient(ellipse 55% 60% at 10% 100%, rgba(14, 165, 233, 0.28), transparent 70%),
+  linear-gradient(135deg, #060b24 0%, #0b1a4d 55%, #0d2a7a 100%); }
+.service-hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 120px; z-index: -1; background: linear-gradient(to bottom, transparent, var(--tp-common-white)); }
+.service-hero .service-title { color: #f3f1ec; }
+.service-hero .service-intro, .service-hero .service-eyebrow { color: rgba(243, 241, 236, 0.78); }
+/* Header floats over the gradient until it turns sticky: keep it light in both themes */
+.tp-service-header:not(.header-sticky) .tp-menu-btn[aria-expanded="false"] .tp-menu-btn-line { background: #f3f1ec; }
+.tp-service-header:not(.header-sticky) .tp-btn-cta { background: #f3f1ec; color: #0b1a4d; }

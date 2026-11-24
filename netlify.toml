@@ -26,32 +26,12 @@
 
 # Old portfolio URLs (with spaces) now live at hyphenated paths
 [[redirects]]
-  from = "/portfolio/592%20hub/*"
-  to = "/portfolio/592-hub/:splat"
-  status = 301
-[[redirects]]
-  from = "/portfolio/ember%20restaurant/*"
-  to = "/portfolio/ember-restaurant/:splat"
-  status = 301
-[[redirects]]
-  from = "/portfolio/ethnic%20heritage/*"
-  to = "/portfolio/ethnic-heritage/:splat"
-  status = 301
-[[redirects]]
   from = "/portfolio/guyana%20bites/*"
   to = "/portfolio/guyana-bites/:splat"
   status = 301
 [[redirects]]
-  from = "/portfolio/lunora%20fashion/*"
-  to = "/portfolio/lunora-fashion/:splat"
-  status = 301
-[[redirects]]
   from = "/portfolio/lux%20rentals/*"
   to = "/portfolio/lux-rentals/:splat"
-  status = 301
-[[redirects]]
-  from = "/portfolio/nightshade%20cocktail%20co/*"
-  to = "/portfolio/nightshade-cocktail-co/:splat"
   status = 301
 [[redirects]]
   from = "/portfolio/nomad%20skincare/*"
@@ -61,11 +41,166 @@
   from = "/portfolio/relentless%20fitness/*"
   to = "/portfolio/relentless-fitness/:splat"
   status = 301
+
+# Projects no longer shown on the site: send every address (old and new) to the homepage portfolio.
+# force = true makes the redirect win even though the files still exist in the repo.
 [[redirects]]
-  from = "/portfolio/rum%20me/*"
-  to = "/portfolio/rum-me/:splat"
+  from = "/portfolio/tastehaven-restaurant"
+  to = "/#portfolio"
   status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/tastehaven-restaurant/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/tastehaven%20restaurant"
+  to = "/#portfolio"
+  status = 301
+  force = true
 [[redirects]]
   from = "/portfolio/tastehaven%20restaurant/*"
-  to = "/portfolio/tastehaven-restaurant/:splat"
+  to = "/#portfolio"
   status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/lunora-fashion"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/lunora-fashion/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/lunora%20fashion"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/lunora%20fashion/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/quickbite"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/quickbite/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/nightshade-cocktail-co"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/nightshade-cocktail-co/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/nightshade%20cocktail%20co"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/nightshade%20cocktail%20co/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/rum-me"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/rum-me/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/rum%20me"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/rum%20me/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/592-hub"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/592-hub/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/592%20hub"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/592%20hub/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/ember-restaurant"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/ember-restaurant/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/ember%20restaurant"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/ember%20restaurant/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/ethnic-heritage"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/ethnic-heritage/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/ethnic%20heritage"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/ethnic%20heritage/*"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/eclipse"
+  to = "/#portfolio"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/portfolio/eclipse/*"
+  to = "/#portfolio"
+  status = 301
+  force = true

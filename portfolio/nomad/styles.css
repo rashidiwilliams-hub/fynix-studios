@@ -342,3 +342,7 @@ button { font-family: inherit; cursor: pointer; }
   .blog-grid { grid-template-columns: 1fr; }
   .blog-hero h1 { font-size: 1.8rem; }
 }
+
+/* Mobile: stop the perks strip pushing the page wider than the screen */
+.perks-bar > div { min-width: 0; }
+@media (max-width: 480px) { .perks-bar { grid-template-columns: minmax(0, 1fr); } }

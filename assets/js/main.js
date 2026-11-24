@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var backToTop = document.getElementById('back_to_top');
   window.addEventListener('scroll', function () {
     if (header) header.classList.toggle('header-sticky', window.scrollY > 150);
+    if (typeof updateLogos === 'function') updateLogos();
     backToTop.classList.toggle('show', window.scrollY > 400);
   });
 
@@ -143,13 +144,23 @@ document.addEventListener('DOMContentLoaded', function () {
   var themeToggle = document.getElementById('theme-toggle');
   var themedLogos = document.querySelectorAll('img[data-logo-dark]');
   var THEME_KEY = 'fynix-theme';
+  var currentTheme = 'dark';
 
   function applyTheme(theme) {
     document.body.classList.toggle('theme-dark', theme === 'dark');
     if (themeToggle) themeToggle.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+    currentTheme = theme;
+    updateLogos();
+  }
+
+  // Themed logos follow the theme, except the service-page header logo while it
+  // floats over the navy hero (not sticky): that always uses the white logo.
+  function updateLogos() {
     themedLogos.forEach(function (img) {
-      var next = theme === 'dark' ? img.getAttribute('data-logo-dark') : img.getAttribute('data-logo-light');
-      if (next) img.src = next;
+      var overHero = img.closest('.tp-service-header') && !img.closest('.tp-service-header.header-sticky');
+      var dark = currentTheme === 'dark' || overHero;
+      var next = dark ? img.getAttribute('data-logo-dark') : img.getAttribute('data-logo-light');
+      if (next && img.getAttribute('src') !== next) img.src = next;
     });
   }
 
