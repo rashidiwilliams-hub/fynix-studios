@@ -233,7 +233,7 @@ ul { list-style: none; }
 .feed-arrow { background: none; border: none; color: var(--ink); cursor: pointer; opacity: 0.65; flex-shrink: 0; padding: 0.5rem; transition: opacity 0.2s ease; }
 .feed-arrow:hover { opacity: 1; }
 .feed-nav.single .feed-arrow { visibility: hidden; }
-.main-article h2 {
+.main-article h1, .main-article h2 {
   font-size: 2.1rem;
   font-weight: 700;
   margin-bottom: 1.6rem;

@@ -110,20 +110,20 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .availability { font-size: 0.78rem; color: var(--ink-soft); }
 
 /* ---------- Split banners ---------- */
-.split-banner { position: relative; min-height: 340px; display: flex; align-items: center; overflow: hidden; background: #0a0a0a; margin-top: 3rem; }
+.split-banner { position: relative; min-height: 420px; display: flex; align-items: center; overflow: hidden; background: #0a0a0a; margin-top: 3rem; }
 .section > .split-banner:last-child { margin-bottom: -3.2rem; }
 .split-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
 .split-banner .banner-copy { position: relative; z-index: 2; padding: 0 3.5rem; }
 .split-banner .banner-copy .btn { position: relative; }
 .banner-prime { background: #0d1a24; }
-.banner-prime img { mix-blend-mode: luminosity; opacity: 0.75; }
+.banner-prime img { opacity: 1; object-position: 50% 45%; }
 .banner-hybrid { background: #0a0f16; }
-.banner-hybrid::before { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 45%, rgba(20,40,70,0.25) 100%); z-index: 1; }
-.banner-hybrid img { opacity: 0.55; }
+.banner-hybrid::before { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0) 100%); z-index: 1; }
+.banner-hybrid img { opacity: 1; object-position: 50% 62%; }
 .banner-hybrid .big-word { position: absolute; right: -1rem; bottom: -0.5rem; font-family: var(--font-display); font-size: 7rem; color: rgba(255,255,255,0.08); z-index: 1; white-space: nowrap; }
 .banner-clean { background: #050505; }
-.banner-clean::before { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.35) 55%, rgba(20,40,70,0.15) 100%); z-index: 1; }
-.banner-clean img { opacity: 0.5; }
+.banner-clean::before { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.12) 55%, rgba(0,0,0,0) 100%); z-index: 1; }
+.banner-clean img { opacity: 1; object-position: 50% 6%; }
 .banner-clean .mark-r { position: absolute; right: 2rem; bottom: -1.5rem; font-family: var(--font-display); font-size: 9rem; color: rgba(255,255,255,0.07); z-index: 1; }
 
 /* ---------- Athlete club ---------- */
@@ -149,8 +149,8 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 
 /* ---------- Aura banner ---------- */
 .aura-banner { position: relative; min-height: 480px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: #000; }
-.aura-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.75; }
-.aura-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.7)); z-index: 1; }
+.aura-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1; }
+.aura-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(60,0,35,0.25), rgba(60,0,35,0.5)); z-index: 1; }
 .aura-copy { position: relative; z-index: 2; color: #fff; display: flex; flex-direction: column; align-items: center; gap: 1.3rem; padding: 0 1.5rem; }
 .aura-copy p.lead { font-size: 1.5rem; max-width: 780px; }
 .aura-copy p.lead strong { font-family: var(--font-display); font-weight: 400; }
@@ -241,7 +241,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .gallery-thumb.active { border-color: var(--ink); opacity: 1; }
 .pdp-category-tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
-.pdp-info h1 { font-family: var(--font-display); font-weight: 400; font-size: 1.85rem; margin: 0.5rem 0 0.6rem; line-height: 1.1; }
+.pdp-info h1, .pdp-info h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.85rem; margin: 0.5rem 0 0.6rem; line-height: 1.1; }
 .pdp-meta { display: flex; gap: 0.5rem; align-items: center; font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 0.7rem; }
 .pdp-meta .stars { color: var(--ink); letter-spacing: 0.05em; }
 .pdp-price { font-size: 1.35rem; font-weight: 700; margin-bottom: 1.1rem; }
@@ -421,3 +421,25 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .sell-listing-preview .thumb { width: 64px; height: 64px; background: var(--grey); flex-shrink: 0; border-radius: 4px; }
 .sell-listing-preview .thumb-fill { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
 .form-error { color: var(--sale); font-size: 0.85rem; margin-bottom: 1rem; }
+
+/* Hero copy: bigger, bolder, more prominent */
+.hero-copy { width: min(1100px, 92vw); }
+.hero-copy .eyebrow { font-size: 1.05rem; letter-spacing: 0.2em; margin-bottom: 1rem; color: var(--ink); text-shadow: 0 0 24px rgba(255, 255, 255, 0.9); }
+.hero-copy h1 { font-size: clamp(3.4rem, 9.2vw, 8.4rem); line-height: 0.95; letter-spacing: 0.005em; color: var(--ink); margin-bottom: 1.4rem; text-shadow: 0 0 40px rgba(255, 255, 255, 0.85), 0 0 12px rgba(255, 255, 255, 0.6); }
+.hero-copy h1 span { display: block; }
+.hero-copy h1 .hero-accent { color: #d4a017; background: linear-gradient(180deg, #f2c94c 0%, #d4a017 55%, #b07a0a 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: none; filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.85)); }
+.hero-sub { font-size: 1.2rem; font-weight: 500; color: #2b2b2b; max-width: 38ch; margin: 0 auto 1.8rem; line-height: 1.5; text-shadow: 0 0 22px rgba(255, 255, 255, 0.9); }
+.hero-copy .hero-cta { padding: 1.1rem 2.6rem; font-size: 1rem; }
+@media (max-width: 767px) {
+  .hero-copy .eyebrow { font-size: 0.8rem; letter-spacing: 0.14em; }
+  .hero-sub { font-size: 1rem; }
+  .hero-copy h1 { font-size: clamp(2.8rem, 13vw, 4rem); }
+}
+
+/* Mobile header: logo no longer centred over the action icons */
+@media (max-width: 640px) {
+  .header-inner { gap: 0.8rem; }
+  .header-inner .logo { position: static; transform: none; margin: 0 auto 0 0; font-size: 1.55rem; }
+  .header-actions { gap: 0.9rem; }
+  .region-toggle { display: none; }
+}

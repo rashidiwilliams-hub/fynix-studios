@@ -5,54 +5,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="assets/images/favicon.png">
 <title>Feastly — Order from Georgetown's Best Kitchens</title>
+<meta name="description" content="Home page of Feastly, a food ordering site for Georgetown's kitchens. A demo project designed and built by Fynix Studios in Guyana.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter+Tight:wght@900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=14">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Kaushan+Script&family=Inter+Tight:wght@900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=29">
 </head>
-<body>
+<body class="landing">
 
-<header class="browse-header">
+<header class="browse-header" id="siteHeader">
   <div class="page-shell">
     <a class="brand" href="index.html">
-      <span>Feastly<span class="tagline">Order Local</span></span>
+      <img class="brand-logo" src="assets/images/logo-mark.png?v=1" alt="" width="534" height="442">
+      <span class="brand-name">Feastly</span>
     </a>
-    <nav>
+    <nav aria-label="Main">
+      <a href="index.html" class="is-current">Home</a>
       <a href="#restaurants">Restaurants</a>
       <a href="#how-it-works">How it Works</a>
-      <span id="continueOrderPill" hidden></span>
+      <a href="#contact">Contact</a>
     </nav>
+    <div class="header-actions">
+      <span id="continueOrderPill" hidden></span>
+      <a class="hdr-cta" href="#restaurants">Order Now <span aria-hidden="true">→</span></a>
+    </div>
   </div>
 </header>
 
-<section class="hero-band">
-  <img class="hero-band-bg" src="assets/images/smoke-char/cover.jpg?v=1" alt="Steak sizzling over an open flame">
-  <div class="hero-band-scrim"></div>
-  <div class="hero-band-inner page-shell">
-    <span class="hero-eyebrow">Ten Kitchens, One Order</span>
-    <h1>Order from Georgetown's <span class="accent-text">Best Kitchens</span></h1>
-    <p>Browse ten local favorites — Caribbean, Chinese, Indian, Italian, BBQ, healthy bowls, bakery, Mexican, and seafood — then order straight from each restaurant's own menu.</p>
-    <div class="hero-band-actions">
-      <a href="#restaurants" class="btn-solid">Browse Restaurants</a>
-      <a href="#how-it-works" class="btn-outline-light">How It Works</a>
+<section class="hero" aria-labelledby="heroTitle">
+  <img class="hero-photo" src="assets/images/hero-curry.jpg?v=1" alt="Guyanese-style curry chicken with potatoes in a white bowl, with seasoned peppers and stewed meat alongside" width="2000" height="1335">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-inner page-shell">
+    <div class="hero-copy">
+      <p class="hero-kicker">Fresh <i>·</i> Local <i>·</i> Delivered</p>
+      <h1 id="heroTitle"><span class="h-main">Taste Guyana,</span><span class="h-script">at your door.</span></h1>
+      <p class="hero-lede">Pepperpot, curry, cook-up rice and more. Order from ten of Georgetown's best local kitchens, all in one place.</p>
+      <a href="#restaurants" class="hero-btn">Order Now <span aria-hidden="true">→</span></a>
+      <ul class="hero-feats">
+        <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 14v5h10v-5"/><path d="M7 14a4 4 0 0 1-1-7.8 4.5 4.5 0 0 1 8.5-1 4 4 0 0 1 3.5 4.2A4 4 0 0 1 17 14"/></svg><span>Ten Local<br>Kitchens</span></li>
+        <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.7"/><circle cx="17" cy="17.5" r="1.7"/></svg><span>20–50 Min<br>Delivery</span></li>
+        <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span>4.7 Average<br>Rating</span></li>
+      </ul>
     </div>
+    <p class="hero-note" aria-hidden="true">Hot, fresh<br>&amp; local
+      <svg width="64" height="46" viewBox="0 0 64 46" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6c20-4 44 6 46 28"/><path d="M43 27l9 8 8-9"/></svg>
+    </p>
   </div>
 </section>
 
-<section class="page-shell" id="restaurants">
+<div class="hero-ticker" aria-hidden="true">
+  <div class="hero-ticker-track">
+    <span>Guyanese &amp; Caribbean</span><span>Chinese</span><span>Indian</span><span>Italian</span><span>BBQ &amp; Grill</span><span>Vegan &amp; Healthy</span><span>Bakery &amp; Desserts</span><span>Mexican</span><span>Seafood</span>
+    <span>Guyanese &amp; Caribbean</span><span>Chinese</span><span>Indian</span><span>Italian</span><span>BBQ &amp; Grill</span><span>Vegan &amp; Healthy</span><span>Bakery &amp; Desserts</span><span>Mexican</span><span>Seafood</span>
+  </div>
+</div>
+
+<section class="section-pad page-shell" id="restaurants">
+  <div class="section-top">
+    <div>
+      <p class="section-kicker">Our kitchens</p>
+      <h2 class="section-title">Popular Kitchens</h2>
+      <p class="section-sub">Ten local favourites, one place to order. Pick a cuisine, then order straight from each kitchen's own menu.</p>
+    </div>
+  </div>
   <div class="cuisine-filters" id="cuisineFilters"></div>
   <div class="restaurant-grid" id="restaurantGrid"></div>
 </section>
 
 <section class="how-band" id="how-it-works">
   <div class="how-band-inner page-shell">
-    <div class="section-head-row"><h2>How it works</h2></div>
+    <div class="section-top">
+      <div>
+        <p class="section-kicker">Simple as one, two, three</p>
+        <h2 class="section-title">How it <span class="script-accent">works</span></h2>
+      </div>
+    </div>
     <div class="how-steps-grid">
       <div class="how-step-card">
         <img loading="lazy" decoding="async" class="how-step-bg" src="assets/images/golden-spoon/cover.jpg?v=1" alt="A plate of jerk chicken, rice, and fried plantain">
         <div class="how-step-scrim"></div>
         <div class="how-step-content">
-          <h3>1. Pick a kitchen</h3>
+          <span class="how-step-num">01</span>
+          <h3>Pick a kitchen</h3>
           <p>Browse ten distinct restaurants and choose what you're craving.</p>
         </div>
       </div>
@@ -60,7 +94,8 @@
         <img loading="lazy" decoding="async" class="how-step-bg" src="assets/images/jade-wok/cover.jpg?v=1" alt="A wok-fired noodle dish">
         <div class="how-step-scrim"></div>
         <div class="how-step-content">
-          <h3>2. Build your order</h3>
+          <span class="how-step-num">02</span>
+          <h3>Build your order</h3>
           <p>Search the menu, add dishes, and adjust quantities in your cart.</p>
         </div>
       </div>
@@ -68,7 +103,8 @@
         <img loading="lazy" decoding="async" class="how-step-bg" src="assets/images/smoke-char/cover.jpg?v=1" alt="Steak sizzling over an open flame">
         <div class="how-step-scrim"></div>
         <div class="how-step-content">
-          <h3>3. Checkout</h3>
+          <span class="how-step-num">03</span>
+          <h3>Checkout</h3>
           <p>Choose delivery, dine in, or takeaway, then place your order.</p>
         </div>
       </div>
@@ -76,11 +112,33 @@
   </div>
 </section>
 
+<section class="page-shell crave-wrap" aria-labelledby="craveTitle">
+  <div class="crave">
+    <img class="crave-photo" loading="lazy" decoding="async" src="assets/images/bella-vita/margherita-pizza.jpg?v=1" alt="Wood-fired margherita pizza with fresh basil" width="800" height="533">
+    <div class="crave-panel">
+      <p class="crave-kicker">Good food always</p>
+      <h2 id="craveTitle"><span class="crave-script">Crave It?</span><span class="crave-main">We'll Deliver It!</span></h2>
+      <p>Order your favourite local food now and enjoy the perfect blend of taste and freshness.</p>
+      <a href="#restaurants" class="hero-btn">Order Now <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip page-shell" aria-label="Why order with Feastly">
+  <ul>
+    <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14"/><path d="M5 19c3-5 6-8 10-10"/></svg><span>Ten Local Kitchens</span></li>
+    <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span>Top Rated by Customers</span></li>
+    <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.7"/><circle cx="17" cy="17.5" r="1.7"/></svg><span>Delivery, Dine In or Takeaway</span></li>
+    <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Order From Each Kitchen's Menu</span></li>
+  </ul>
+</section>
+
 <footer class="site-footer" id="contact">
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand" href="index.html">
-        <span>Feastly<span class="tagline">Order Local</span></span>
+        <img class="brand-logo" src="assets/images/logo-mark.png?v=1" alt="" width="534" height="442">
+        <span class="brand-name">Feastly</span>
       </a>
       <p>A multi-restaurant ordering platform concept, designed and built by Fynix Studios to show what a real food-delivery experience could look like.</p>
     </div>
@@ -111,6 +169,6 @@
 
 <script src="data.js?v=4"></script>
 <script src="cart.js?v=2"></script>
-<script src="browse.js?v=3"></script>
+<script src="browse.js?v=4"></script>
 </body>
 </html>

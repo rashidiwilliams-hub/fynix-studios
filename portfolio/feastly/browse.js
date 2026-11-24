@@ -20,6 +20,7 @@ function restaurantCardHTML(r) {
           <span>${r.priceLevel} · ${r.reviews} reviews</span>
           <span>${r.address.split(',')[0]}</span>
         </div>
+        <span class="rc-cta">View menu <span aria-hidden="true">→</span></span>
       </div>
     </a>`;
 }
@@ -73,6 +74,12 @@ function renderContinueOrderPill() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementById('siteHeader');
+  if (header) {
+    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
   renderCuisineFilters();
   renderRestaurants('All');
   renderFooterCuisines();

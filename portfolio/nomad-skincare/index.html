@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="assets/images/favicon.png">
 <title>Nomad Skincare — Pure Ingredients. Visible Results.</title>
+<meta name="description" content="Home page of Nomad Skincare, a skincare e-commerce store. A demo project designed and built by Fynix Studios in Guyana.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
 
@@ -24,7 +25,7 @@
 
 <div class="page-shell">
   <header class="site-header">
-    <a class="logo" href="index.html">NOMAD<small>Skincare</small></a>
+    <a class="logo" href="index.html">NOMAD<small aria-label="Skincare"><span>S</span><span>K</span><span>I</span><span>N</span><span>C</span><span>A</span><span>R</span><span>E</span></small></a>
     <nav class="main-nav">
       <a href="shop.html">Shop</a>
       <a href="index.html#bestsellers">Best Sellers</a>
@@ -49,7 +50,10 @@
         <p class="eyebrow">Glow Naturally</p>
         <h1>Pure Ingredients.<br>Visible Results.</h1>
         <p class="lead">Thoughtfully formulated skincare that nourishes, protects and enhances your natural glow.</p>
-        <a href="shop.html" class="btn-dark">Shop Now →</a>
+        <div class="hero-ctas">
+          <a href="shop.html" class="btn-dark">Shop Now →</a>
+          <a href="#collections" class="btn-outline">View Collections</a>
+        </div>
         <div class="hero-badges">
           <span class="hero-badge">✓ Clean Ingredients</span>
           <span class="hero-badge">✓ Clinically Tested</span>
@@ -62,7 +66,7 @@
 </section>
 
 <div class="page-shell">
-  <nav class="category-bar" aria-label="Shop by category">
+  <nav class="category-bar" id="collections" aria-label="Shop by category">
     <a class="category-pill" href="shop.html?category=Cleansers"><span class="category-pill-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6v4H9zM7 7h10l1 14H6L7 7Z"/></svg></span><span>Cleansers</span></a>
     <a class="category-pill" href="shop.html?category=Serums"><span class="category-pill-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6M9 8h6l1 5a4 4 0 0 1-8 0l1-5Z"/></svg></span><span>Serums</span></a>
     <a class="category-pill" href="shop.html?category=Moisturizers"><span class="category-pill-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="8"/><path d="M9 5h6v3H9z"/></svg></span><span>Moisturizers</span></a>
@@ -123,7 +127,7 @@
 <footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a class="logo" href="index.html">NOMAD<small>Skincare</small></a>
+      <a class="logo" href="index.html">NOMAD<small aria-label="Skincare"><span>S</span><span>K</span><span>I</span><span>N</span><span>C</span><span>A</span><span>R</span><span>E</span></small></a>
       <p>Elevated skincare made with clean ingredients and backed by science.</p>
       <div class="footer-social">
         <a href="#" aria-label="Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>

@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="assets/images/favicon.png">
 <title>Flowspace — Dashboard</title>
+<meta name="description" content="Dashboard view of Flowspace, a project management dashboard. A demo project designed and built by Fynix Studios in Guyana.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter+Tight:wght@800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=10">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=19">
 </head>
 <body>
 
@@ -20,7 +21,7 @@
 
   <aside class="sidebar" id="sidebar">
     <a class="sidebar-brand" href="../../index.html" title="Back to Fynix Studios Portfolio">
-      <span class="brand-word">flow<span>space</span></span>
+      <img class="brand-logo" src="assets/images/logo-mark.png?v=1" alt="" width="467" height="279"><span class="brand-word">flow<span>space</span></span>
     </a>
     <nav class="sidebar-nav">
       <a href="index.html" class="nav-item active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="12" width="8" height="9" rx="2"/><rect x="3" y="14" width="8" height="7" rx="2"/></svg>Dashboard</a>
@@ -68,13 +69,13 @@
     </header>
 
     <main class="page">
-      <div class="kpi-grid" id="dashStatsGrid" style="margin-bottom: 24px;"></div>
+      <div class="stat-band" id="dashStatsGrid"></div>
 
       <div class="dash-grid">
         <!-- ============ LEFT: greeting + tasks ============ -->
         <section>
-          <p class="greeting-eyebrow">Hi, <span class="js-profile-firstname">Victoria</span>! <span class="accent">👋</span></p>
-          <h1 class="greeting-title" id="taskCountHeadline">You've got tasks for today</h1>
+          <p class="greeting-eyebrow"><span id="greetingWord">Good day</span>, <span class="js-profile-firstname">Victoria</span></p>
+          <h1 class="greeting-title" id="taskCountHeadline">Your tasks for today</h1>
 
           <div class="tabs" role="tablist" aria-label="Task range">
             <button class="tab-btn active" data-when="today" role="tab" aria-selected="true">Today</button>
@@ -212,7 +213,7 @@
 </div>
 
 <script src="data.js?v=5"></script>
-<script src="app.js?v=6"></script>
-<script src="dashboard.js?v=3"></script>
+<script src="app.js?v=8"></script>
+<script src="dashboard.js?v=6"></script>
 </body>
 </html>

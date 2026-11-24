@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard — Lux Rentals</title>
+<meta name="description" content="Dashboard view of Lux Rentals, a car rental management dashboard. A demo project designed and built by Fynix Studios in Guyana.">
 <link rel="shortcut icon" href="assets/images/favicon.png">
 <script>(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('luxrentals_theme') || 'dark');}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=10">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=18">
 </head>
 <body>
 
@@ -38,7 +39,7 @@
 </div>
 
 <script src="data.js?v=5"></script>
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   renderChrome('dashboard', 'Every vehicle in the Lux Rentals fleet, live status and daily rate.');
@@ -50,28 +51,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const maint = FLEET.filter(v => v.status === 'Maintenance').length;
   const totalQuarterRevenue = FLEET.reduce((sum, v) => sum + (v.revenue.quarterRevenue || 0), 0);
 
-  document.getElementById('dashStats').innerHTML = `
-    <div class="stat-card">
-      <div class="stat-label">${ICONS.fleet} Total Fleet</div>
-      <div class="stat-value">${FLEET.length}</div>
-      <div class="stat-sub">${available} available now</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">${ICONS.car} Currently Rented</div>
-      <div class="stat-value">${rented}</div>
-      <div class="stat-sub">${Math.round((rented / FLEET.length) * 100)}% of fleet on the road</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">${ICONS.wrench} In Maintenance</div>
-      <div class="stat-value">${maint}</div>
-      <div class="stat-sub">${maint === 0 ? 'No vehicles out of service' : 'Turnaround in progress'}</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">${ICONS.financials} Quarter Revenue</div>
-      <div class="stat-value">${moneyShort(totalQuarterRevenue)}</div>
-      <div class="stat-sub">2026 Q3 across the fleet</div>
-    </div>
-  `;
+  const order = { Available: 0, Rented: 1, Maintenance: 2 };
+  const bays = FLEET.slice().sort((x, y) => order[x.status] - order[y.status]).map(v =>
+    `<a class="bay bay-${v.status.toLowerCase()}" href="rental-overview.html?id=${v.slug}" title="${v.name} · ${v.status}">${v.plate.replace('LUX-', '')}</a>`).join('');
+  const revenue = moneyShort(totalQuarterRevenue).replace(/^GYD\s*/, '');
+  document.getElementById('dashStats').outerHTML = `
+    <section class="ledger" aria-label="Fleet summary">
+      <div>
+        <span class="ledger-label">Quarter revenue &middot; 2026 Q3</span>
+        <div class="ledger-figure"><small>GYD</small>${revenue}</div>
+        <p class="ledger-note">Across ${FLEET.length} vehicles in the fleet</p>
+      </div>
+      <div>
+        <div class="ledger-fleet-head"><span class="ledger-label" style="margin:0">Fleet today</span><strong>${FLEET.length} vehicles</strong></div>
+        <div class="ledger-bays">${bays}</div>
+        <ul class="ledger-legend">
+          <li style="--bay:var(--success)"><i></i><b>${available}</b> Available</li>
+          <li style="--bay:var(--brass)"><i></i><b>${rented}</b> On the road</li>
+          <li style="--bay:var(--danger)"><i></i><b>${maint}</b> In the workshop</li>
+        </ul>
+      </div>
+      <div>
+        <span class="ledger-label">Utilisation</span>
+        <div class="ledger-figure">${Math.round((rented / FLEET.length) * 100)}<small style="margin:0 0 0 4px">%</small></div>
+        <p class="ledger-note">of the fleet is out on rental</p>
+      </div>
+    </section>`;
 
   function statusBadgeClass(status) { return 'badge badge-' + slugifyBadge(status); }
 
@@ -83,11 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="${statusBadgeClass(v.status)}">${v.status}</span>
         </div>
         <div class="vehicle-body">
-          <div class="vehicle-name">${v.name}</div>
-          <div class="vehicle-meta">${v.category} &middot; ${v.year} &middot; ${numFmt(v.mileage)} mi &middot; ${v.plate}</div>
+          <div class="vehicle-top">
+            <div class="vehicle-name">${v.name}</div>
+            <span class="plate">${v.plate}</span>
+          </div>
+          <div class="vehicle-meta">${v.category} &middot; ${v.year} &middot; ${numFmt(v.mileage)} mi</div>
           <div class="vehicle-foot">
-            <div class="vehicle-rate">${money(v.dailyRate)}<span> /day</span></div>
-            <span class="btn btn-ghost btn-sm">View Details</span>
+            <div class="vehicle-rate"><small>GYD</small>${Number(v.dailyRate).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<span> /day</span></div>
+            <span class="vehicle-link">View details &rarr;</span>
           </div>
         </div>
       </a>

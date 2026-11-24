@@ -40,7 +40,7 @@ function teamCardHTML(m) {
       <span class="team-avatar"><img src="${m.avatar}" alt="${m.name}" loading="lazy"></span>
       <div class="team-name">${m.name}</div>
       <div class="team-role">${m.role}</div>
-      <span class="team-project-tag">${m.project}</span>
+      <span class="team-project-tag has-pc" style="${pcStyle(m.project)}">${m.project}</span>
       <div class="team-stats">
         <div>
           <div class="team-stat-value">${m.hours}h</div>
@@ -79,7 +79,7 @@ function memberTaskRowHTML(t) {
     <div class="member-task-row">
       <div>
         <div class="member-task-title">${t.title}</div>
-        <div class="member-task-project">${t.project}</div>
+        <div class="member-task-project has-pc" style="${pcStyle(t.project)}">${t.project}</div>
       </div>
       <div class="task-progress">
         <div class="progress-track"><div class="progress-fill" style="width:${t.progress}%"></div></div>

@@ -75,7 +75,7 @@ function docRowHTML(d) {
           ${d.name}
         </div>
       </td>
-      <td><span class="doc-tag" style="background:var(--surface-2); color:var(--ink-dim);">${d.project}</span></td>
+      <td><span class="doc-tag has-pc" style="${pcStyle(d.project)}">${d.project}</span></td>
       <td>
         <div class="doc-uploader-name">
           <span class="doc-uploader-initials">${initialsFromName(uploader)}</span>

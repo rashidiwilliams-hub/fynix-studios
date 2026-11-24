@@ -37,12 +37,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function initMobileCarousel() {
     if (!mobileCarouselEl || typeof Swiper === 'undefined' || mobileCarouselInstance) return;
+    if (!mobileCarouselEl.offsetWidth) return; // hidden/unmeasured: wait for layout (avoids Swiper loop warning)
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     mobileCarouselInstance = new Swiper(mobileCarouselEl, {
       effect: 'coverflow',
       grabCursor: true,
       centeredSlides: true,
       loop: true,
+      loopAdditionalSlides: 3,
       slidesPerView: 1.5,
       spaceBetween: 16,
       coverflowEffect: { rotate: 0, slideShadows: false, stretch: 0, depth: 80, modifier: 2 },
@@ -64,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   handleMobileCarouselMQ(mobileCarouselMQ);
   mobileCarouselMQ.addEventListener('change', handleMobileCarouselMQ);
+  window.addEventListener('load', function () { handleMobileCarouselMQ(mobileCarouselMQ); });
+  window.addEventListener('resize', function () { if (mobileCarouselMQ.matches) initMobileCarousel(); });
 
   // Nav overlay menu
   var menuToggle = document.getElementById('menu-toggle');

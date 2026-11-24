@@ -118,7 +118,7 @@ function renderChrome(activeKey, subtitle) {
   sidebarMount.innerHTML = `
     <div class="brand">
       <div>
-        <div class="brand-word">LUX<span>.</span>RENTALS</div>
+        <img class="brand-logo" src="assets/images/logo-web.png?v=1" alt="Lux Rentals" width="720" height="106">
         <div class="brand-sub">Fleet Ops Console</div>
       </div>
     </div>

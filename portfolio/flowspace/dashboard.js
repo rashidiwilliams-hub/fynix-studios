@@ -9,39 +9,46 @@
 
 let activeWhen = 'today';
 
-// ---------- Dashboard stats row (uses the shared kpiCardHTML from app.js) ----------
+// ---------- Dashboard stat band (four headline numbers with a small visual each) ----------
 function renderDashStats() {
   const grid = document.getElementById('dashStatsGrid');
   if (!grid) return;
-  const tasksToday = allTasks().filter((t) => t.when === 'today').length;
-  const totalTasks = allTasks().length;
+  const tasks = allTasks();
+  const todayTasks = tasks.filter((t) => t.when === 'today');
   const hoursWeek = WEEKLY_HOURS.reduce((sum, d) => sum + d.hours, 0);
-  const activeProjects = allProjectNames().length;
-  const teamOnline = TEAM.filter((m) => m.status === 'Active').length;
+  const projects = allProjectNames();
+  const online = TEAM.filter((m) => m.status === 'Active').length;
+  const todayIdx = (new Date().getDay() + 6) % 7; // Mon = 0
+  const maxH = Math.max.apply(null, WEEKLY_HOURS.map((d) => d.hours));
+  const initials = (n) => n.split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase();
+  const todayProjects = new Set(todayTasks.map((t) => t.project));
 
-  const cards = [
-    {
-      icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
-      iconColor: 'var(--accent-2)', label: 'Tasks Today', value: String(tasksToday),
-      sub: `${totalTasks} total across all projects`
-    },
-    {
-      icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
-      iconColor: 'var(--info)', label: 'Hours This Week', value: `${hoursWeek}h`,
-      sub: 'Across the whole studio'
-    },
-    {
-      icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
-      iconColor: 'var(--accent-2)', label: 'Active Projects', value: String(activeProjects),
-      sub: 'Currently in progress'
-    },
-    {
-      icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="8.5" r="2.6"/><path d="M16 14.3c2.8.4 4.7 2.4 4.7 5.2"/></svg>',
-      iconColor: 'var(--success)', label: 'Team Online', value: `${teamOnline}/${TEAM.length}`,
-      sub: 'Active right now'
-    }
+  const tasksVisual = todayTasks.slice(0, 5).map((t) =>
+    `<span class="stat-line" title="${t.title} — ${t.progress}%"><i style="width:${t.progress}%"></i></span>`).join('');
+  const hoursVisual = WEEKLY_HOURS.map((d, i) =>
+    `<span class="stat-bar${i === todayIdx ? ' is-today' : ''}" title="${d.label}: ${d.hours}h"><i style="height:${Math.max(8, Math.round(d.hours / maxH * 100))}%"></i><em>${d.label[0]}</em></span>`).join('');
+  const projectsVisual = projects.map((n) =>
+    `<span class="stat-chip has-pc${todayProjects.has(n) ? ' is-live' : ''}" style="${pcStyle(n)}" title="${n}">${initials(n)}</span>`).join('');
+  const teamVisual = TEAM.map((m) =>
+    `<span class="stat-face${m.status === 'Active' ? ' is-active' : ''}" title="${m.name} — ${m.status}"><img src="${m.avatar}" alt="${m.name}"></span>`).join('');
+
+  const tiles = [
+    { cls: 'is-lead', label: 'Due today', value: String(todayTasks.length), unit: todayTasks.length === 1 ? 'task' : 'tasks',
+      visual: `<div class="stat-lines">${tasksVisual}</div>`, sub: `${tasks.length} open across ${projects.length} projects` },
+    { label: 'Hours this week', value: String(hoursWeek), unit: 'h',
+      visual: `<div class="stat-bars">${hoursVisual}</div>`, sub: `Busiest day: ${WEEKLY_HOURS.reduce((a, d) => d.hours > a.hours ? d : a).label}` },
+    { label: 'Active projects', value: String(projects.length), unit: '',
+      visual: `<div class="stat-chips">${projectsVisual}</div>`, sub: `${todayProjects.size} with work due today` },
+    { label: 'Team online', value: String(online), unit: `/ ${TEAM.length}`, unitDim: true,
+      visual: `<div class="stat-faces">${teamVisual}</div>`, sub: `${TEAM.length - online} away right now` }
   ];
-  grid.innerHTML = cards.map(kpiCardHTML).join('');
+  grid.innerHTML = tiles.map((t) => `
+    <article class="stat-tile ${t.cls || ''}">
+      <span class="stat-label">${t.label}</span>
+      <div class="stat-figure"><span class="stat-value">${t.value}</span>${t.unit ? `<span class="stat-unit${t.unitDim ? ' is-dim' : ''}">${t.unit}</span>` : ''}</div>
+      <div class="stat-visual">${t.visual}</div>
+      <span class="stat-sub">${t.sub}</span>
+    </article>`).join('');
 }
 
 // ---------- Recent activity feed (rail) ----------
@@ -74,12 +81,14 @@ function renderTimerTask() {
 function renderTaskCount() {
   const n = allTasks().filter((t) => t.when === 'today').length;
   const el = document.getElementById('taskCountHeadline');
-  if (el) el.innerHTML = `You've got <span class="accent">${n}</span> task${n === 1 ? '' : 's'} for today`;
+  if (el) el.innerHTML = n === 0 ? 'Nothing <span class="accent">due</span> today' : `<span class="accent">${n}</span> task${n === 1 ? '' : 's'} on today's list`;
+  const gw = document.getElementById('greetingWord');
+  if (gw) { const h = new Date().getHours(); gw.textContent = h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening'; }
 }
 
 function taskCardHTML(task, darken) {
   return `
-    <article class="task-card ${darken ? 'is-dark' : ''}" data-id="${task.id}">
+    <article class="task-card has-pc ${darken ? 'is-dark' : ''}" data-id="${task.id}" style="${pcStyle(task.project)}">
       <div class="task-top">
         <div>
           <span class="task-project">${task.project}</span>

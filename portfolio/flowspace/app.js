@@ -58,6 +58,13 @@ function loadCustomTasks() {
 function saveCustomTasks(list) {
   localStorage.setItem(CUSTOM_TASKS_KEY, JSON.stringify(list));
 }
+// Each project gets its own colour so tasks, tags and chips are easy to tell apart.
+const PROJECT_COLORS = ['#e8573a', '#5b5fcf', '#e9a920', '#8b4f9b', '#d6567f', '#14a98f'];
+function pcStyle(projectName) {
+  const i = Math.max(0, allProjectNames().indexOf(projectName));
+  return '--pc:' + PROJECT_COLORS[i % PROJECT_COLORS.length];
+}
+
 function allTasks() {
   return TASKS.concat(loadCustomTasks());
 }

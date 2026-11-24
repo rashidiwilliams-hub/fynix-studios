@@ -839,8 +839,11 @@ body.menu-open {
   padding: 130px 0 0;
 }
 .tp-blog-heading.tp-services-heading {
-  padding-bottom: 0;
-  margin-bottom: 48px;
+  padding-bottom: 100px; /* room for the intro paragraph, same as Portfolio */
+  margin-bottom: 40px;
+}
+@media (max-width: 1399px) {
+  .tp-blog-heading.tp-services-heading { padding-bottom: 0; margin-bottom: 48px; }
 }
 .tp-package-feature {
   display: grid;
@@ -1478,10 +1481,12 @@ body.tp-themed .tp-footer-cta {
   white-space: nowrap;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  font-size: clamp(36px, 7.5vw, 120px);
+  font-size: clamp(30px, 11.6vw, 190px); /* fallback */
+  font-size: calc(100cqw / 10.07); /* spans the full footer width */
   color: var(--tp-text-2);
   user-select: none;
 }
+.tp-footer-main { container-type: inline-size; }
 
 /* ================= SERVICE PAGE ================= */
 .service-hero {
@@ -1695,6 +1700,8 @@ body.tp-themed .tp-footer-cta {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top; /* snapshots start from the top of the site */
+  transform-origin: top center;
   transition: transform 0.6s ease;
 }
 .service-work-card:hover .service-work-card-thumb img {
@@ -2040,3 +2047,63 @@ body.tp-themed .tp-footer-cta {
 .tp-package-wa:hover {
   text-decoration: underline;
 }
+
+/* Package cards: price on the left, WhatsApp link on the right */
+.tp-package-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--tp-border-soft);
+}
+.tp-package-foot .tp-package-wa { margin-top: 0; white-space: nowrap; }
+.tp-package-from { margin: 0; font-size: 12px; color: var(--tp-text-2); line-height: 1.3; }
+.tp-package-from strong { display: block; font-size: 17px; font-weight: 800; color: var(--tp-heading-primary); letter-spacing: -0.01em; }
+@media (max-width: 380px) { .tp-package-foot { flex-wrap: wrap; } }
+
+/* Keep the price/WhatsApp row on one line across all package cards */
+.tp-package-card { display: flex; flex-direction: column; }
+.tp-package-card .tp-package-body { flex: 1; display: flex; flex-direction: column; }
+.tp-package-card .tp-package-foot { margin-top: auto; }
+.tp-package-card .tp-package-body ul { margin-bottom: 18px; }
+
+/* Christmas package: red + green accents */
+.tp-package-feature .tp-package-badge { background: #cf3a35; color: #fff; }
+.tp-package-feature-body li::before { background: #2f8f5b; }
+.tp-package-price strong { color: #3fb274; }
+.tp-package-feature .tp-package-cta { color: #e5504a; }
+
+/* ================= OMI DESIGN STUDIO (design partner) ================= */
+.omi-logo { display: inline-block; height: 34px; width: auto; vertical-align: middle; }
+body.theme-dark .omi-logo { filter: invert(1); }
+.tp-footer-partner { display: inline-flex; align-items: center; gap: 12px; color: var(--tp-text-2); font-size: 14px; }
+.tp-footer-partner .omi-logo { height: 28px; }
+.tp-footer-partner:hover { color: var(--tp-heading-primary); }
+.omi-credit { display: inline-flex; align-items: center; gap: 8px; margin: 2px 0 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--tp-text-2); }
+.omi-credit .omi-logo { height: 24px; }
+.tp-package-feature .omi-credit { margin: 0; }
+
+.omi-partner { display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: center; border: 1px solid var(--tp-border-soft); padding: 44px; }
+.omi-lockup { display: flex; align-items: center; justify-content: center; gap: 22px; padding: 28px 16px; border-right: 1px solid var(--tp-border-soft); }
+.omi-lockup .omi-fynix { width: 110px; height: auto; }
+.omi-lockup .omi-logo-lg { height: 72px; }
+.omi-x { font-size: 28px; font-weight: 300; color: var(--tp-text-2); }
+.omi-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 26px; padding: 0; list-style: none; }
+.omi-chips li { padding: 7px 14px; border: 1px solid var(--tp-border-soft); font-size: 13px; color: var(--tp-heading-primary); }
+.omi-link { font-weight: 700; color: #ff5a26; }
+.omi-link:hover { text-decoration: underline; }
+.omi-copy .service-partner-title { margin-bottom: 14px; }
+.omi-copy .service-partner-text { max-width: 620px; }
+@media (max-width: 900px) {
+  .omi-partner { grid-template-columns: 1fr; gap: 28px; padding: 28px 22px; }
+  .omi-lockup { border-right: 0; border-bottom: 1px solid var(--tp-border-soft); padding: 0 0 24px; }
+}
+
+/* Omi logo sits with the footer social icons */
+.tp-footer-socials a.tp-footer-omi { width: auto; min-width: 38px; padding: 0 14px; border-radius: 999px; }
+.tp-footer-omi .omi-logo { height: 22px; }
+body.theme-dark .tp-footer-omi:hover .omi-logo { filter: none; }
+body:not(.theme-dark) .tp-footer-omi:hover .omi-logo { filter: invert(1); }
+
+/* Make the starting price the focal point of each package card */
+.tp-package-from { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.tp-package-from strong { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 4px; text-transform: none; }
+.tp-package-from strong small { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--tp-text-2); margin-left: 2px; }
+@media (max-width: 1250px) and (min-width: 992px) { .tp-package-from strong { font-size: 24px; } }
