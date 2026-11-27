@@ -125,3 +125,11 @@
   .bp-faq-list summary { padding: 16px 16px; font-size: 16px; }
   .bp-faq-list details p { padding: 0 16px 18px; }
 }
+
+/* Five timeline cards (separate cards so they can wrap cleanly) */
+.bp-times-list { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; border: 0; background: none; }
+ul.bp-times-list > li:nth-child(n) { border: 1.5px solid var(--bp-stroke); background: rgba(6, 22, 56, 0.45); }
+.bp-times-note { margin: 16px 0 0; max-width: 780px; font-size: 14px; line-height: 1.6; color: var(--bp-dim); }
+@media (max-width: 1199px) { .bp-times-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 767px) { .bp-times-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 479px) { .bp-times-list { grid-template-columns: minmax(0, 1fr); } }
