@@ -10,6 +10,24 @@ document.addEventListener('DOMContentLoaded', function () {
     var t = Date.parse(el.getAttribute('data-expires'));
     if (!isNaN(t) && Date.now() > t) el.hidden = true;
   });
+  document.querySelectorAll('[data-shows-after]').forEach(function (el) {
+    var t = Date.parse(el.getAttribute('data-shows-after'));
+    if (!isNaN(t) && Date.now() > t) el.hidden = false;
+  });
+
+  // Mobile quick-action bar: View Packages + WhatsApp (shown on phones only via CSS)
+  (function () {
+    if (document.querySelector('.fx-sticky')) return;
+    var inServices = /\/services\//.test(location.pathname);
+    var pkg = (inServices ? '../index.html' : '') + '#our-packages';
+    var bar = document.createElement('div');
+    bar.className = 'fx-sticky';
+    bar.setAttribute('role', 'region');
+    bar.setAttribute('aria-label', 'Quick actions');
+    bar.innerHTML = '<a class="fx-sticky-pkg" href="' + pkg + '">View Packages</a>' +
+      '<a class="fx-sticky-wa" href="https://wa.me/5927135786" target="_blank" rel="noopener">WhatsApp</a>';
+    document.body.appendChild(bar);
+  })();
 
   // Sticky header + back-to-top visibility
   var header = document.getElementById('header-sticky');
