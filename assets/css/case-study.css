@@ -64,3 +64,19 @@
 @media (prefers-reduced-motion: reduce) { .cs-tile-frame { transition: none; } .cs-tile:hover .cs-tile-frame { transform: none; } }
 @media (max-width: 991px) { .cs-collage { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 479px) { .cs-collage { grid-template-columns: minmax(0, 1fr); } }
+
+/* What's live today: verifiable facts until measured results arrive */
+.cs-live { padding-bottom: 96px; }
+.cs-live-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin: 28px 0 24px; padding-top: 28px; border-top: 1px solid var(--tp-border-soft); }
+.cs-live-grid strong { display: block; font-size: clamp(44px, 6vw, 84px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: #ff5a26; margin-bottom: 12px; }
+.cs-live-grid span { font-size: 17px; line-height: 1.5; color: var(--tp-text-2); }
+.cs-live-note { margin: 0; font-size: 14px; color: var(--tp-text-2); }
+@media (max-width: 767px) { .cs-live-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; } .cs-live { padding-bottom: 56px; } }
+
+/* Phase 3: case study uses the shared card style */
+.cs-tile-frame { border-radius: 20px; }
+.cs-feature-list { gap: 16px; border: 0; }
+.cs-feature-list li { border: 1px solid var(--fx-line); border-radius: var(--fx-radius); background: var(--fx-card); }
+.cs-live-grid { gap: 16px; padding-top: 0; border-top: 0; }
+.cs-live-grid > div { padding: 28px; border: 1px solid var(--fx-line); border-radius: var(--fx-radius); background: var(--fx-card); }
+.cs-meta-grid dt { color: var(--fx-accent); }

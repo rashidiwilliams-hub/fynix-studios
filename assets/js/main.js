@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () { loading && loading.classList.add('loaded'); }, 300);
   });
 
+  // Seasonal items hide themselves after their expiry date (data-expires, ISO with timezone)
+  document.querySelectorAll('[data-expires]').forEach(function (el) {
+    var t = Date.parse(el.getAttribute('data-expires'));
+    if (!isNaN(t) && Date.now() > t) el.hidden = true;
+  });
+
   // Sticky header + back-to-top visibility
   var header = document.getElementById('header-sticky');
   var backToTop = document.getElementById('back_to_top');

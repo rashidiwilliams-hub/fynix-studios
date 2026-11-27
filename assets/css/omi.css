@@ -105,3 +105,18 @@ body:not(.theme-dark) .omi-filter.is-active { color: #fff; }
 /* New logo includes the "Design Studio" wordmark, so it needs a little more height */
 .omi-hero-lockup .omi-logo-lg { height: 150px; }
 @media (max-width: 767px) { .omi-hero-lockup .omi-logo-lg { height: 100px; } }
+
+/* Facebook link under the hero intro */
+.omi-social { margin: 22px 0 0; }
+.omi-social a { color: #f3f1ec; font-weight: 600; font-size: 16px; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(243, 241, 236, 0.5); }
+.omi-social a:hover, .omi-social a:focus-visible { text-decoration-color: #ff7a45; color: #ffffff; }
+
+/* Phase 3: Omi page uses the shared card style */
+.omi-how-grid { gap: 16px; border-top: 0; }
+.omi-how-grid > div, .omi-how-grid > div + div { display: flex; flex-direction: column; min-height: 240px; padding: 28px; border: 1px solid var(--fx-line); border-left: 1px solid var(--fx-line); border-radius: var(--fx-radius); background: var(--fx-card); }
+.omi-how-num { margin-bottom: auto; padding-bottom: 28px; font-size: clamp(48px, 5vw, 80px); font-weight: 600; letter-spacing: -0.03em; line-height: 1; color: var(--fx-accent); }
+.omi-how-grid h2 { margin-top: 0; }
+.omi-filter { border-radius: 999px; }
+.omi-tile img, .omi-ph { border-radius: 20px; }
+.omi-collage-tile { border-radius: 20px; overflow: hidden; }
+@media (max-width: 767px) { .omi-how-grid > div, .omi-how-grid > div + div { min-height: 0; padding: 22px; } }
